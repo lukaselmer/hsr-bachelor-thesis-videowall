@@ -1,0 +1,23 @@
+Header 1:
+
+R: 0
+G: 98
+B: 158
+
+Header 2:
+
+R: 89
+G: 148
+B: 203
+
+Header 3 ff.
+
+R: 9
+G: 68
+B: 106
+
+Tabelle:
+
+R: 235
+G: 243
+B: 251
