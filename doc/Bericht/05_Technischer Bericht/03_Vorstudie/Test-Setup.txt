@@ -1,0 +1,24 @@
+Test-Setup
+
+Beamer
+
+Mini Video Wall (2x2)
+
+grosser Bildschirm
+
+-----
+1 Zoll = 2.54 cm
+55 Zoll = 139.7 cm
+Breite = 121.7591 cm
+Höhe = 68.4895 cm
+Pro Monitor 1080 x 1920 px // 1: 1.777777778 : 2.039729
+
+3 x 3 Monitore:
+3240 x 5760 px
+Breite = 365.2773 cm
+Höhe = 205.4685 cm
+
+2 x 5 mm Rahmen = 1 cm
+1 cm = 15.769 px
+
+Video Wall Monitore haben geringen Rahmen. Bei grosser Fläche stört dies kaum (Unterbrechen von Buchstaben).
