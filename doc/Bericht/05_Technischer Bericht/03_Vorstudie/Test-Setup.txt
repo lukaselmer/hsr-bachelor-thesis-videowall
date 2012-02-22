@@ -20,5 +20,7 @@ Höhe = 205.4685 cm
 
 2 x 5 mm Rahmen = 1 cm
 1 cm = 15.769 px
+Höhe in px = 3240 + 2 x 15.769 = 3272 px
+Breite in px = 5760 + 2 x 15.769 = 5792 px
 
 Video Wall Monitore haben geringen Rahmen. Bei grosser Fläche stört dies kaum (Unterbrechen von Buchstaben).
