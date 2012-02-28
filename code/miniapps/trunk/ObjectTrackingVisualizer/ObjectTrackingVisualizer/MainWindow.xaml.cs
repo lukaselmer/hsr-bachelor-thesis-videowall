@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +26,11 @@ namespace ObjectTrackingVisualizer
         {
             InitializeComponent();
             DataContext = new ApplicationViewModel();
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            ((ApplicationViewModel)DataContext).Dispose();
+            base.OnClosed(e);
         }
     }
 }

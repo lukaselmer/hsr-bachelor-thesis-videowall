@@ -12,14 +12,14 @@ namespace ObjectTrackingVisualizer.ViewModels
         public double Left
         {
             get { return _left; }
-            set { _left = value; Notify("Left"); }
+            set { _left = Math.Abs(value); Notify("Left"); }
         }
 
         private double _top;
         public double Top
         {
             get { return _top; }
-            set { _top = value; Notify("Top"); }
+            set { _top = Math.Abs(value); Notify("Top"); }
         }
 
         private string _name;
@@ -29,6 +29,6 @@ namespace ObjectTrackingVisualizer.ViewModels
             set { _name = value; Notify("Name"); }
         }
 
-        public decimal Id { get; set; }
+        public int Id { get; set; }
     }
 }
