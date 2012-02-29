@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ViewModels="clr-namespace:ObjectTrackingVisualizer.ViewModels" mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=ViewModels:ApplicationViewModel, IsDesignTimeCreatable=True}">
+        d:DataContext="{d:DesignInstance Type=ViewModels:ApplicationViewModel, IsDesignTimeCreatable=False}">
     <DockPanel>
 
         <ListBox ItemsSource="{Binding TrackedElements}" Width="100">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}"  d:DataContext="{d:DesignInstance ViewModels:TrackedElement, IsDesignTimeCreatable=True}" />
+                    <TextBlock Text="{Binding Name}"  d:DataContext="{d:DesignInstance ViewModels:TrackedElement, IsDesignTimeCreatable=False}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -20,9 +20,13 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Canvas>
-                        <Border Canvas.Left="{Binding Left}" Canvas.Top="{Binding Top}" Background="Cyan" Width="50" Height="50"
+                        <Border Canvas.Left="{Binding Left}" Canvas.Top="{Binding Top}" Width="{Binding Width}" Height="{Binding Height}"
                             d:DataContext="{d:DesignInstance Type=ViewModels:TrackedElement}">
-                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="{Binding Name}">
+                                <TextBlock.Background>
+                                   <SolidColorBrush Color="{Binding Color}"/>
+                                </TextBlock.Background>
+                            </TextBlock>
                         </Border>
                     </Canvas>
                 </DataTemplate>
