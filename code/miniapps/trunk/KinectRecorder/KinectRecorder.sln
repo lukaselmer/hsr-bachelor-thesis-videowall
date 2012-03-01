@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectRecorder", "KinectRecorder\KinectRecorder.csproj", "{DC1D9FB5-AB48-459B-AE12-1BC37919129F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectRecorderApp", "KinectRecorder\KinectRecorderApp.csproj", "{DC1D9FB5-AB48-459B-AE12-1BC37919129F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,5 +16,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -11,17 +11,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KinectRecorderApp.Service;
 
-namespace KinectRecorder
+namespace KinectRecorderApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Recorder _recorder;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _recorder = new Recorder();
         }
     }
 }
