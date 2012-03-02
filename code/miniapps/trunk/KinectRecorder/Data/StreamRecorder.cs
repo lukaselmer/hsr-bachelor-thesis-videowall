@@ -1,58 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using System.Windows.Media;
-using Kinect.Toolbox;
+﻿using System.IO;
 using Kinect.Toolbox.Record;
-using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
 using Microsoft.Win32;
 
-namespace KinectRecorderApp.Service
+
+// TODO: finish this...
+
+namespace Data
 {
-    public class Recorder : Notifier
+    public class StreamRecorder
     {
         private SkeletonRecorder _skeletonRecorder;
         private FileStream _recordStream;
         private bool _recording;
         private KinectSensor _kinectSensor;
 
-        public ICommand StartStopCommand { get; set; }
-        public bool Recording
+        /*public bool Recording
         {
             get { return _recording; }
             private set
             {
                 _recording = value;
-                Notify("Recording");
-                Notify("Status");
-                Notify("Color");
             }
-        }
+        }*/
 
-        public string Status
-        {
-            get { return Recording ? "Recoring" : "Idle"; }
-        }
-
-        public Color Color
-        {
-            get { return Recording ? Color.FromArgb(255, 255, 196, 30) : Colors.AliceBlue; }
-        }
-
-        public Recorder()
-        {
-            StartStopCommand = new ActionCommand(() =>
-            {
-                if (Recording) StopRecording();
-                else StartRecording();
-            });
-        }
-
-        public void StartRecording()
+        /*public void StartRecording()
         {
             Recording = true;
             _skeletonRecorder = new SkeletonRecorder();
@@ -63,7 +35,6 @@ namespace KinectRecorderApp.Service
             _recordStream = File.Create(fileName);
             _skeletonRecorder.Start(_recordStream);
 
-
             _kinectSensor = KinectSensor.KinectSensors[0];
             _kinectSensor.SkeletonStream.Enable();
             _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
@@ -72,10 +43,7 @@ namespace KinectRecorderApp.Service
 
         private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs fArgs)
         {
-            if (Recording)
-            {
-                _skeletonRecorder.Record(fArgs.OpenSkeletonFrame());
-            }
+            if (Recording) { _skeletonRecorder.Record(fArgs.OpenSkeletonFrame()); }
         }
 
         public void StopRecording()
@@ -84,6 +52,6 @@ namespace KinectRecorderApp.Service
             Recording = false;
             _recordStream.Close();
             _recordStream.Dispose();
-        }
+        }*/
     }
 }

@@ -4,7 +4,7 @@
         Title="MainWindow" Height="105" Width="190"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Service="clr-namespace:KinectRecorderApp.Service" mc:Ignorable="d" d:DataContext="{d:DesignInstance Service:Recorder}">
+        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" mc:Ignorable="d" d:DataContext="{d:DesignInstance ViewModels:RecorderViewModel}">
     <Grid>
         <StackPanel Margin="5">
             <TextBlock Margin="5 0" Padding="5" TextAlignment="Center" FontWeight="Bold" Text="{Binding Status}">

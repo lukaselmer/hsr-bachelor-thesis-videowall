@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KinectRecorderApp.Properties {
+namespace Views.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
