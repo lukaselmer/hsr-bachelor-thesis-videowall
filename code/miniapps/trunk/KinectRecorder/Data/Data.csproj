@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kinect\FileSkeletonReader.cs" />
+    <Compile Include="Kinect\ISkeletonReader.cs" />
+    <Compile Include="Kinect\KinectSkeletonReader.cs" />
+    <Compile Include="Kinect\SkeletonsReadyEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreamRecorder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

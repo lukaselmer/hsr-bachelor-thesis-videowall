@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Common;
 using Microsoft.Expression.Interactivity.Core;
 using Services;
+using Services.Recorder;
 
 namespace ViewModels
 {

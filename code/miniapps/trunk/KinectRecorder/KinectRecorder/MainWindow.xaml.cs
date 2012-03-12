@@ -1,8 +1,7 @@
 ﻿using System.Windows;
-using Services;
 using ViewModels;
 
-namespace KinectRecorderApp
+namespace Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -11,10 +10,10 @@ namespace KinectRecorderApp
     {
         private RecorderViewModel _recorder;
 
-        public MainWindow()
+        public MainWindow(RecorderViewModel recorder)
         {
             InitializeComponent();
-            DataContext = _recorder = new RecorderViewModel(new Recorder());
+            DataContext = _recorder = recorder;
         }
     }
 }

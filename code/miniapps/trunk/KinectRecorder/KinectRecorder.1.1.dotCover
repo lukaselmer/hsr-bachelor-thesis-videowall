@@ -1,0 +1,11 @@
+<Configuration>
+  <CoverageFilters>
+    <IncludeFilters>
+      <Filter ModuleMask="*" ClassMask="*" FunctionMask="*" />
+    </IncludeFilters>
+    <ExcludeFilters />
+  </CoverageFilters>
+  <SnapshotDialog>
+    <InitialDirectory>D:\hsr\Bachelorarbeit\svn\code\miniapps\trunk\KinectRecorder</InitialDirectory>
+  </SnapshotDialog>
+</Configuration>

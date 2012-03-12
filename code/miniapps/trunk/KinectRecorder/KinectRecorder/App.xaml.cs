@@ -1,16 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
+using Data.Kinect;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using Services;
+using Services.Recorder;
+using ViewModels;
 
-namespace KinectRecorderApp
+namespace Views
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        private void ApplicationStartup(object sender, StartupEventArgs e)
+        {
+            IUnityContainer container = new UnityContainer().LoadConfiguration();
+            container.Resolve<MainWindow>().Show();
+
+            //var x = container.Resolve<ISkeletonReader>();
+            //var recorder = new RecorderViewModel(new Recorder());
+            //new MainWindow(recorder).Show();
+        }
     }
 }
