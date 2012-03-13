@@ -4,13 +4,13 @@ using ViewModels;
 namespace Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RecorderWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RecorderWindow : Window
     {
         private RecorderViewModel _recorder;
 
-        public MainWindow(RecorderViewModel recorder)
+        public RecorderWindow(RecorderViewModel recorder)
         {
             InitializeComponent();
             DataContext = _recorder = recorder;

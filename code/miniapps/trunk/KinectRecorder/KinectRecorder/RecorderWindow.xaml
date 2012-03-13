@@ -1,7 +1,7 @@
-﻿<Window x:Class="Views.MainWindow"
+﻿<Window x:Class="Views.RecorderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="105" Width="190"
+        Title="Recorder" Height="105" Width="190"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" mc:Ignorable="d" d:DataContext="{d:DesignInstance ViewModels:RecorderViewModel}">

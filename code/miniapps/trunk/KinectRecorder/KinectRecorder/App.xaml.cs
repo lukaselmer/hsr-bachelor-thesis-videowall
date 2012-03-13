@@ -16,11 +16,12 @@ namespace Views
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
             IUnityContainer container = new UnityContainer().LoadConfiguration();
-            container.Resolve<MainWindow>().Show();
+            container.Resolve<RecorderWindow>().Show();
+            container.Resolve<PlayerWindow>().Show();
 
             //var x = container.Resolve<ISkeletonReader>();
             //var recorder = new RecorderViewModel(new Recorder());
-            //new MainWindow(recorder).Show();
+            //new RecorderWindow(recorder).Show();
         }
     }
 }

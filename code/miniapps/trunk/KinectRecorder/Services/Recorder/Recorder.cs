@@ -40,7 +40,6 @@ namespace Services.Recorder
                              where sensorToCheck.Status == KinectStatus.Connected
                              select sensorToCheck).FirstOrDefault();
 
-
             if (_kinectSensor == null) throw new Exception("No ready Kinect connected!");
 
             _kinectSensor.SkeletonStream.Enable();

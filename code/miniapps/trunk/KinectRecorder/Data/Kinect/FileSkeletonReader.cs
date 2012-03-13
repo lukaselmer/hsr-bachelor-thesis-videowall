@@ -8,12 +8,11 @@ namespace Data.Kinect
     {
         private readonly SkeletonReplay _skeletonReplay;
 
-        public FileSkeletonReader(string path)
+        public FileSkeletonReader(KinectReplayFile kinectReplayFile)
         {
-            using (var stream = File.OpenRead(path))
+            using (var stream = File.OpenRead(kinectReplayFile.Path))
             {
                 _skeletonReplay = new SkeletonReplay(stream);
-                _skeletonReplay.Start();
                 _skeletonReplay.SkeletonFrameReady += OnSkeletonFrameReady;
             }
         }
@@ -23,12 +22,17 @@ namespace Data.Kinect
             SkeletonsReady(this, new SkeletonsReadyEventArgs(e.SkeletonFrame.Skeletons));
         }
 
+        public void Start()
+        {
+            _skeletonReplay.Start();
+        }
+
         public void Dispose()
         {
             _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
             _skeletonReplay.Stop();
         }
 
-        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
+        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
     }
 }

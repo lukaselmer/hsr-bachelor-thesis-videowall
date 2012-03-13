@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
+using Data;
 using Data.Kinect;
 using Kinect.Toolbox.Record;
 using Microsoft.Kinect;
@@ -12,11 +15,13 @@ namespace Services.Player
         private readonly ISkeletonReader _skeletonReader;
         //private FileStream _recordStream;
         private bool _playing;
+        public Skeleton Skeleton { get; set; }
         //private KinectSensor _kinectSensor;
 
         public Player(ISkeletonReader skeletonReader)
         {
-            _skeletonReader = skeletonReader;
+            Skeleton = new Skeleton();
+           _skeletonReader = skeletonReader;
         }
 
         public bool Playing
@@ -29,10 +34,11 @@ namespace Services.Player
             }
         }
 
-        public void StartRecording()
+        public void StartPlaying()
         {
             Playing = true;
-
+            _skeletonReader.SkeletonsReady += OnKinectSensorOnSkeletonFrameReady;
+            _skeletonReader.Start();
 
             /*_skeletonRecorder = new SkeletonRecorder();
             var saveFileDialog = new SaveFileDialog { Title = "Select filename", Filter = "Replay files|*.replay" };
@@ -48,18 +54,21 @@ namespace Services.Player
             _kinectSensor.Start();*/
         }
 
-        private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs fArgs)
+        private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonsReadyEventArgs e)
         {
-            //if (Playing) { _skeletonRecorder.Record(fArgs.OpenSkeletonFrame()); }
+            if (!Playing) return;
+
+            Skeleton = (from skeleton in e.Skeletons
+                        where skeleton.TrackingState == SkeletonTrackingState.Tracked
+                        select skeleton).FirstOrDefault();
+            Notify("Skeleton");
         }
 
-        public void StopRecording()
+        public void StopPlaying()
         {
             Playing = false;
-            /*_kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
-            _kinectSensor.Stop();
-            _recordStream.Close();
-            _recordStream.Dispose();*/
+            _skeletonReader.SkeletonsReady -= OnKinectSensorOnSkeletonFrameReady;
+            _skeletonReader.Dispose();
         }
     }
 }
