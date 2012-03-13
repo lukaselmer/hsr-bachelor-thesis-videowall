@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Kinect\FileSkeletonReader.cs" />
     <Compile Include="Kinect\ISkeletonReader.cs" />
+    <Compile Include="Kinect\KinectRecorder.cs" />
     <Compile Include="Kinect\KinectReplayFile.cs" />
     <Compile Include="Kinect\KinectSkeletonReader.cs" />
     <Compile Include="Kinect\SkeletonsReadyEventArgs.cs" />

@@ -1,64 +1,48 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
-using Kinect.Toolbox.Record;
-using Microsoft.Kinect;
+using System.ComponentModel;
 using Microsoft.Win32;
 
 namespace Services.Recorder
 {
-    public class Recorder : Common.Notifier
+    public class Recorder : Common.Notifier, IDisposable
     {
-        private SkeletonRecorder _skeletonRecorder;
-        private FileStream _recordStream;
-        private bool _recording;
-        private KinectSensor _kinectSensor;
+        private readonly KinectRecorder _kinectRecorder;
 
-        public bool Recording
+        public Recorder()
         {
-            get { return _recording; }
-            private set
-            {
-                _recording = value;
-                Notify("Recording");
-            }
+            _kinectRecorder = new KinectRecorder();
+            _kinectRecorder.PropertyChanged += NotifyChildChanged;
         }
+
+        private void NotifyChildChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Notify("Recording");
+        }
+
+        public bool Recording { get { return _kinectRecorder.Recording; } }
 
         public void StartRecording()
         {
-            Recording = true;
+            if (Recording) return;
 
-            _skeletonRecorder = new SkeletonRecorder();
             var saveFileDialog = new SaveFileDialog { Title = "Select filename", Filter = "Replay files|*.replay" };
             if (saveFileDialog.ShowDialog() != true) { return; }
-            var fileName = saveFileDialog.FileName;
+            var pathToFile = saveFileDialog.FileName;
 
-            _recordStream = File.Create(fileName);
-            _skeletonRecorder.Start(_recordStream);
-
-            _kinectSensor = (from sensorToCheck in KinectSensor.KinectSensors
-                             where sensorToCheck.Status == KinectStatus.Connected
-                             select sensorToCheck).FirstOrDefault();
-
-            if (_kinectSensor == null) throw new Exception("No ready Kinect connected!");
-
-            _kinectSensor.SkeletonStream.Enable();
-            _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
-            _kinectSensor.Start();
-        }
-
-        private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs fArgs)
-        {
-            if (Recording) { _skeletonRecorder.Record(fArgs.OpenSkeletonFrame()); }
+            _kinectRecorder.Start(pathToFile);
         }
 
         public void StopRecording()
         {
-            Recording = false;
-            _kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
-            _kinectSensor.Stop();
-            _recordStream.Close();
-            _recordStream.Dispose();
+            if (!Recording) return;
+            _kinectRecorder.Stop();
+            Notify("Recording");
+        }
+
+        public void Dispose()
+        {
+            if (Recording) StopRecording();
+            _kinectRecorder.PropertyChanged -= NotifyChildChanged;
         }
     }
 }
