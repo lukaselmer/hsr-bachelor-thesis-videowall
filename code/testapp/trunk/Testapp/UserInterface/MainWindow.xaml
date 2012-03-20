@@ -8,59 +8,26 @@
              >
     <Window.Resources>
         
-    	<Style x:Key="DocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
-    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
-    		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-    		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-    		<Setter Property="ContextMenu" Value="{DynamicResource {ComponentResourceKey ResourceId=PUIDocumentViewerContextMenu, TypeInTargetAssembly={x:Type System_Windows_Documents:PresentationUIStyleResources}}}"/>
-    		<Setter Property="Template">
-    			<Setter.Value>
-    				<ControlTemplate TargetType="{x:Type DocumentViewer}">
-    					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Focusable="False">
-    						<Grid Background="{TemplateBinding Background}" KeyboardNavigation.TabNavigation="Local">
-    							<Grid.ColumnDefinitions>
-    								<ColumnDefinition Width="*"/>
-    							</Grid.ColumnDefinitions>
-    							<Grid.RowDefinitions>
-    								<RowDefinition Height="Auto"/>
-    								<RowDefinition Height="*"/>
-    								<RowDefinition Height="Auto"/>
-    							</Grid.RowDefinitions>
-    							<ContentControl Grid.Column="0" Focusable="{TemplateBinding Focusable}" Grid.Row="0" Style="{DynamicResource {ComponentResourceKey ResourceId=PUIDocumentViewerToolBarStyleKey, TypeInTargetAssembly={x:Type System_Windows_Documents:PresentationUIStyleResources}}}" TabIndex="0"/>
-    							<ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Auto" IsTabStop="true" Grid.Row="1" TabIndex="1"/>
-    							<DockPanel Grid.Row="1">
-    								<FrameworkElement DockPanel.Dock="Right" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
-    								<Rectangle Height="10" Visibility="Visible" VerticalAlignment="top">
-    									<Rectangle.Fill>
-    										<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-    											<LinearGradientBrush.GradientStops>
-    												<GradientStopCollection>
-    													<GradientStop Color="#66000000" Offset="0"/>
-    													<GradientStop Color="Transparent" Offset="1"/>
-    												</GradientStopCollection>
-    											</LinearGradientBrush.GradientStops>
-    										</LinearGradientBrush>
-    									</Rectangle.Fill>
-    								</Rectangle>
-    							</DockPanel>
-    							<ContentControl x:Name="PART_FindToolBarHost" Grid.Column="0" Focusable="{TemplateBinding Focusable}" Grid.Row="2" TabIndex="2"/>
-    						</Grid>
-    					</Border>
-    				</ControlTemplate>
-    			</Setter.Value>
-    		</Setter>
-    	</Style>
-        
+        <Style x:Key="DocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DocumentViewer}">
+                          <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Auto" IsTabStop="true" Grid.Row="1" TabIndex="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="240"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="100" Margin="10" Content="Poster"/>
-            <Button Width="100" Margin="10" Content="Menü"/>
+            <Button Width="100" Margin="10" Content="Poster" Command="{Binding ShowPosters}"/>
+            <Button Width="100" Margin="10" Content="Menü" Command="{Binding ShowMenu}"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -74,10 +41,8 @@
             <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
             <Button Grid.Column="2" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToRightCommand}" Content="Nach rechts"/>
         </Grid>
-        <my:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,20" Name="kinectSensorChooser1" VerticalAlignment="Bottom" Width="328" />
-        <my:KinectDepthViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Left" Margin="20,20,0,0" Name="kinectDepthViewer1" VerticalAlignment="Top" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}" />
-        <my:KinectColorViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectColorViewer>
+        <my:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,20" Name="kinectSensorChooser1" Width="328" Height="240" />
         <my:KinectSkeletonViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectSkeletonViewer>
     </Grid>
-    
+
 </Window>

@@ -23,6 +23,18 @@ namespace UserInterface
             CurrentPoster = _posters.First();
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
             NavigateToRightCommand = new Command(OnNavigateToRight);
+            ShowMenu = new Command(OnShowMenu);
+            ShowPosters = new Command(OnShowPosters);
+        }
+
+        private void OnShowMenu(object obj)
+        {
+            
+        }
+
+        private void OnShowPosters(object obj)
+        {
+            throw new NotImplementedException();
         }
 
 
@@ -49,6 +61,8 @@ namespace UserInterface
         //Commands
         public ICommand NavigateToLeftCommand { get; private set; } 
         public ICommand NavigateToRightCommand { get; private set; }
+        public ICommand ShowMenu { get; private set; }
+        public ICommand ShowPosters { get; private set; }
 
 
         private void OnNavigateToLeft(object obj)
