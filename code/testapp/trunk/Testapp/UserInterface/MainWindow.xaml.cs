@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Kinect;
 
 namespace UserInterface
 {
@@ -23,6 +24,55 @@ namespace UserInterface
         {
             InitializeComponent();
             DataContext = viewModel;
+        }
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            kinectSensorChooser1.KinectSensorChanged += new DependencyPropertyChangedEventHandler(kinectSensorChooser1_KinectSensorChanged);
+        }
+
+        void kinectSensorChooser1_KinectSensorChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var oldSensor = (KinectSensor)e.OldValue;
+            StopKinect(oldSensor);
+
+            var newSensor = (KinectSensor)e.NewValue;
+
+            if (newSensor == null) return;
+
+            newSensor.ColorStream.Enable();
+            newSensor.DepthStream.Enable();
+            newSensor.SkeletonStream.Enable();
+            //newSensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(newSensor_AllFramesReady);
+            try
+            {
+                newSensor.Start();
+            }
+            catch (System.IO.IOException)
+            {
+                kinectSensorChooser1.AppConflictOccurred();
+            }
+        }
+
+
+        void StopKinect(KinectSensor sensor)
+        {
+            if (sensor != null)
+            {
+                if (sensor.IsRunning)
+                {
+                    sensor.Stop();
+                }
+                if (sensor.AudioSource != null)
+                {
+                    sensor.AudioSource.Stop();
+                }
+            }
+        }
+
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            StopKinect(kinectSensorChooser1.Kinect);
         }
     }
 }

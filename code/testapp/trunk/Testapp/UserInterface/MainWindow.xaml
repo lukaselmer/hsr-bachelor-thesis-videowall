@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:System_Windows_Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
-             xmlns:WpfViewers="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
-             x:Class="UserInterface.MainWindow"
+             xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
+             x:Class="UserInterface.MainWindow" Loaded="WindowLoaded" Closing="WindowClosing"
              >
     <Window.Resources>
         
@@ -52,7 +52,7 @@
     	</Style>
         
     </Window.Resources>
-    <Grid Background="Gray">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
@@ -74,9 +74,10 @@
             <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
             <Button Grid.Column="2" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToRightCommand}" Content="Nach rechts"/>
         </Grid>
-        <WpfViewers:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Left" Name="Chooser"></WpfViewers:KinectSensorChooser>
-        <WpfViewers:KinectDepthViewer Height="240" Width="320" Grid.Row="2" Kinect="{Binding ElementName=Chooser, Path=Kinect}" HorizontalAlignment="Right"></WpfViewers:KinectDepthViewer>
-        <WpfViewers:KinectSkeletonViewer Kinect="{Binding ElementName=Chooser, Path=Kinect}" Background="White" Grid.Row="2" Height="240" Width="320" HorizontalAlignment="Center"></WpfViewers:KinectSkeletonViewer>
+        <my:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,20" Name="kinectSensorChooser1" VerticalAlignment="Bottom" Width="328" />
+        <my:KinectDepthViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Left" Margin="20,20,0,0" Name="kinectDepthViewer1" VerticalAlignment="Top" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}" />
+        <my:KinectColorViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectColorViewer>
+        <my:KinectSkeletonViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectSkeletonViewer>
     </Grid>
     
 </Window>
