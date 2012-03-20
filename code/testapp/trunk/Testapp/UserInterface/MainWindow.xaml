@@ -1,32 +1,82 @@
-﻿<Window x:Class="UserInterface.MainWindow"
+﻿<Window
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Controls="clr-namespace:FluidKit.Controls;assembly=FluidKit">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:System_Windows_Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
+             xmlns:WpfViewers="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
+             x:Class="UserInterface.MainWindow"
+             >
     <Window.Resources>
+        
+    	<Style x:Key="DocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+    		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+    		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    		<Setter Property="ContextMenu" Value="{DynamicResource {ComponentResourceKey ResourceId=PUIDocumentViewerContextMenu, TypeInTargetAssembly={x:Type System_Windows_Documents:PresentationUIStyleResources}}}"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type DocumentViewer}">
+    					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Focusable="False">
+    						<Grid Background="{TemplateBinding Background}" KeyboardNavigation.TabNavigation="Local">
+    							<Grid.ColumnDefinitions>
+    								<ColumnDefinition Width="*"/>
+    							</Grid.ColumnDefinitions>
+    							<Grid.RowDefinitions>
+    								<RowDefinition Height="Auto"/>
+    								<RowDefinition Height="*"/>
+    								<RowDefinition Height="Auto"/>
+    							</Grid.RowDefinitions>
+    							<ContentControl Grid.Column="0" Focusable="{TemplateBinding Focusable}" Grid.Row="0" Style="{DynamicResource {ComponentResourceKey ResourceId=PUIDocumentViewerToolBarStyleKey, TypeInTargetAssembly={x:Type System_Windows_Documents:PresentationUIStyleResources}}}" TabIndex="0"/>
+    							<ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Auto" IsTabStop="true" Grid.Row="1" TabIndex="1"/>
+    							<DockPanel Grid.Row="1">
+    								<FrameworkElement DockPanel.Dock="Right" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+    								<Rectangle Height="10" Visibility="Visible" VerticalAlignment="top">
+    									<Rectangle.Fill>
+    										<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+    											<LinearGradientBrush.GradientStops>
+    												<GradientStopCollection>
+    													<GradientStop Color="#66000000" Offset="0"/>
+    													<GradientStop Color="Transparent" Offset="1"/>
+    												</GradientStopCollection>
+    											</LinearGradientBrush.GradientStops>
+    										</LinearGradientBrush>
+    									</Rectangle.Fill>
+    								</Rectangle>
+    							</DockPanel>
+    							<ContentControl x:Name="PART_FindToolBarHost" Grid.Column="0" Focusable="{TemplateBinding Focusable}" Grid.Row="2" TabIndex="2"/>
+    						</Grid>
+    					</Border>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
         
     </Window.Resources>
     <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="100" Margin="10">Poster</Button>
-            <Button Width="100" Margin="10">Menü</Button>
+            <Button Width="100" Margin="10" Content="Poster"/>
+            <Button Width="100" Margin="10" Content="Menü"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Column="0" Fill="White" HorizontalAlignment="Left" Height="1200" Width="100"></Rectangle>
-            <DocumentViewer Grid.Column="1" HorizontalAlignment="Center"></DocumentViewer>
-            <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"></Rectangle>
+            <Rectangle Grid.Column="0" Fill="White" HorizontalAlignment="Left" Height="1200" Width="100"/>
+            <Button Grid.Column="0" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToLeftCommand}" Content="Nach links"/>
+            <DocumentViewer Grid.Column="1" HorizontalAlignment="Center" Document="{Binding CurrentPoster.Document}" Style="{DynamicResource DocumentViewerStyle}"/>
+            <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
+            <Button Grid.Column="2" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToRightCommand}" Content="Nach rechts"/>
         </Grid>
+        <WpfViewers:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Left" Name="Chooser"></WpfViewers:KinectSensorChooser>
+        <WpfViewers:KinectDepthViewer Height="240" Width="320" Grid.Row="2" Kinect="{Binding ElementName=Chooser, Path=Kinect}" HorizontalAlignment="Right"></WpfViewers:KinectDepthViewer>
+        <WpfViewers:KinectSkeletonViewer Kinect="{Binding ElementName=Chooser, Path=Kinect}" Background="White" Grid.Row="2" Height="240" Width="320" HorizontalAlignment="Center"></WpfViewers:KinectSkeletonViewer>
     </Grid>
     
 </Window>
