@@ -13,8 +13,8 @@ namespace UserInterface
     {
         //Declarations
         private IPoster _currentPoster;
-        private IList<IPoster> _posters; 
-        
+        private IList<IPoster> _posters;
+        private bool _isMenuViewVisible;
 
         //Constructor
         public MainWindowViewModel(IPostersService postersService)
@@ -27,14 +27,24 @@ namespace UserInterface
             ShowPosters = new Command(OnShowPosters);
         }
 
+        public bool IsMenuViewVisible
+        {
+            get { return _isMenuViewVisible; }
+            set 
+            {
+                _isMenuViewVisible = value;
+                Notify("IsMenuViewVisible");
+            }
+        }
+
         private void OnShowMenu(object obj)
         {
-            
+            IsMenuViewVisible = true;
         }
 
         private void OnShowPosters(object obj)
         {
-            throw new NotImplementedException();
+            IsMenuViewVisible = false;
         }
 
 

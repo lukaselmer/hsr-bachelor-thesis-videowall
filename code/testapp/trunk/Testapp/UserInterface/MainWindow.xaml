@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:System_Windows_Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
              xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
-             x:Class="UserInterface.MainWindow" Loaded="WindowLoaded" Closing="WindowClosing"
+             xmlns:UserInterface="clr-namespace:UserInterface" x:Class="UserInterface.MainWindow" Loaded="WindowLoaded" Closing="WindowClosing"
              >
     <Window.Resources>
         
@@ -40,6 +40,9 @@
             <DocumentViewer Grid.Column="1" HorizontalAlignment="Center" Document="{Binding CurrentPoster.Document}" Style="{DynamicResource DocumentViewerStyle}"/>
             <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
             <Button Grid.Column="2" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToRightCommand}" Content="Nach rechts"/>
+
+            <UserInterface:MenuView Grid.ColumnSpan="3" Visibility="{Binding IsMenuViewVisible, Converter={UserInterface:BoolToVisibilityConverter}}"/>
+
         </Grid>
         <my:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,20" Name="kinectSensorChooser1" Width="328" Height="240" />
         <my:KinectSkeletonViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectSkeletonViewer>
