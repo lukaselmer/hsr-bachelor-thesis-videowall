@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MenuView.xaml
+    /// Interaction logic for MenuWindow.xaml
     /// </summary>
-    public partial class MenuView : UserControl
+    public partial class MenuWindow : UserControl
     {
-        public MenuView()
+        public MenuWindow()
         {
             InitializeComponent();
         }

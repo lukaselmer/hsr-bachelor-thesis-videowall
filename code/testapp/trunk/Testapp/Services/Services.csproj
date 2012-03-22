@@ -45,6 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuService.cs" />
     <Compile Include="IPoster.cs" />
     <Compile Include="IPosterService.cs" />
     <Compile Include="Poster.cs" />

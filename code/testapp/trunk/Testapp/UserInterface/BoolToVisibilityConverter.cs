@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Markup;
 
 namespace UserInterface
 {
-    class BoolToVisibilityConverter : ValueConverterBase, IValueConverter
+    class BoolToVisibilityConverter : MarkupExtension, IValueConverter
 
     {
         #region Other
@@ -46,5 +47,11 @@ namespace UserInterface
         }
 
         #endregion
+
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return this;
+        }
     }
 }

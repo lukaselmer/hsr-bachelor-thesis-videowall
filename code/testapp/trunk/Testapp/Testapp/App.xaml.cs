@@ -21,7 +21,9 @@ namespace Testapp
             ConfigueContainer(container);
 
             var window = container.Resolve<MainWindow>();
+
             window.Show();
+            
         }
 
         private static void ConfigueContainer(UnityContainer container)
