@@ -37,7 +37,6 @@ namespace Data.Kinect
         {
             var parameters =  _kinectSensor.SkeletonStream.SmoothParameters;
             parameters.Smoothing = 0.9f;
-
             _kinectSensor.SkeletonStream.Enable(parameters);
             _kinectSensor.Start();
         }
