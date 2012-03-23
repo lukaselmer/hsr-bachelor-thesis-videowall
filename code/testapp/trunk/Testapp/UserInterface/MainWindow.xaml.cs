@@ -23,9 +23,11 @@ namespace UserInterface
         public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = viewModel;
+            DataContext = MainWindowViewModel = viewModel;
             PosterViewer.FitToHeight();
         }
+
+        public MainWindowViewModel MainWindowViewModel { get; set; }
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
@@ -79,6 +81,16 @@ namespace UserInterface
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             PosterViewer.FitToHeight();
+        }
+
+        private void ArrowRight_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindowViewModel.NavigateToRightCommand.Execute(e);
+        }
+
+        private void ArrowLeft_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindowViewModel.NavigateToLeftCommand.Execute(e);
         }
     }
 }
