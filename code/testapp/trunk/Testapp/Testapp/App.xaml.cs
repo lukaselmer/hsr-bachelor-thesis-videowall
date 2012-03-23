@@ -29,6 +29,7 @@ namespace Testapp
         private static void ConfigueContainer(UnityContainer container)
         {
             container.RegisterType<IPostersService, PostersService>();
+            container.RegisterType<IPostersService, PostersService>();
         }
     }
 }

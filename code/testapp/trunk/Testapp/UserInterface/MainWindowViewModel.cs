@@ -14,11 +14,11 @@ namespace UserInterface
         //Declarations
         private IPoster _currentPoster;
         private IList<IPoster> _posters;
-        private bool _isMenuViewVisible;
 
         //Constructor
-        public MainWindowViewModel(IPostersService postersService)
+        public MainWindowViewModel(IPostersService postersService, MenuWindowViewModel menuWindowViewModel)
         {
+            MenuWindowViewModel = menuWindowViewModel;
             _posters = postersService.Posters;
             CurrentPoster = _posters.First();
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
@@ -29,13 +29,15 @@ namespace UserInterface
 
         public bool IsMenuViewVisible
         {
-            get { return _isMenuViewVisible; }
-            set 
+            get { return MenuWindowViewModel.IsMenuViewVisible; }
+            set
             {
-                _isMenuViewVisible = value;
+                MenuWindowViewModel.IsMenuViewVisible = value;
                 Notify("IsMenuViewVisible");
             }
         }
+
+        public MenuWindowViewModel MenuWindowViewModel { get; set; }
 
         private void OnShowMenu(object obj)
         {
@@ -58,18 +60,18 @@ namespace UserInterface
 
 
         //Properties
-       public IPoster CurrentPoster
+        public IPoster CurrentPoster
         {
             get { return _currentPoster; }
-            private set 
-            { 
+            private set
+            {
                 _currentPoster = value;
                 Notify("CurrentPoster");
             }
         }
 
         //Commands
-        public ICommand NavigateToLeftCommand { get; private set; } 
+        public ICommand NavigateToLeftCommand { get; private set; }
         public ICommand NavigateToRightCommand { get; private set; }
         public ICommand ShowMenu { get; private set; }
         public ICommand ShowPosters { get; private set; }

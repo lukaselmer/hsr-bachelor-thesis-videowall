@@ -41,7 +41,7 @@
             <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
             <Button Grid.Column="2" Height="50" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding NavigateToRightCommand}" Content="Nach rechts"/>
 
-            <UserInterface:MenuWindow Grid.ColumnSpan="3" Visibility="{Binding IsMenuViewVisible, Converter={UserInterface:BoolToVisibilityConverter}}"/>
+            <UserInterface:MenuWindow DataContext="{Binding MenuWindowViewModel}" Grid.ColumnSpan="3" Visibility="{Binding IsMenuViewVisible, Converter={UserInterface:BoolToVisibilityConverter}}"/>
             
 
         </Grid>
