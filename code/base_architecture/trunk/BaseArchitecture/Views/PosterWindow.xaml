@@ -1,0 +1,19 @@
+﻿<Window x:Class="Views.PosterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PosterWindow" Height="350" Width="525"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance ViewModels:PosterViewModel}">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding Name}">
+            <TextBlock.Background>
+                <SolidColorBrush Color="{Binding Color}" />
+            </TextBlock.Background>
+            </TextBlock>
+            <Button Click="ButtonClicked">Click Me</Button>
+        </StackPanel>
+    </Grid>
+</Window>
