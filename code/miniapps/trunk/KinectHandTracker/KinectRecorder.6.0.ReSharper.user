@@ -1,0 +1,166 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:SkeletonsReadyEventArgs.cs" caret="0" fromTop="0" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:FileSkeletonReader.cs" caret="325" fromTop="13" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="173" fromTop="8" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:KinectSkeletonReader.cs" caret="400" fromTop="9" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="945" fromTop="0" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:KinectRecorder.cs" caret="1037" fromTop="9" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:KinectSkeletonReader.cs" caret="400" fromTop="9" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="59" fromTop="4" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="173" fromTop="21" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="173" fromTop="27" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="173" fromTop="13" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:ISkeletonReader.cs" caret="174" fromTop="11" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:FileSkeletonReader.cs" caret="641" fromTop="21" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1164" fromTop="25" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="18" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="35" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="12" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1006" fromTop="14" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="24" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="8" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="219" fromTop="15" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1005" fromTop="11" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1005" fromTop="10" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="384" fromTop="6" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="527" fromTop="11" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1264" fromTop="31" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="166" fromTop="6" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="16" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="4" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="25" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1352" fromTop="30" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1355" fromTop="21" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1332" fromTop="34" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="1075" fromTop="28" />
+      <File id="B5265FE7-1DDF-4B1F-97B3-FA41B77974B2/d:Kinect/f:KinectRecorder.cs" caret="1037" fromTop="9" />
+      <File id="71F4428C-9638-409F-BCFB-ED53C20C9374/d:Recorder/f:Recorder.cs" caret="706" fromTop="17" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="public" priority="158" />
+      <Item value="new" priority="191" />
+      <Item value="_kinectStreamer" priority="31" />
+      <Item value="KinectStreamer`0" priority="31" />
+      <Item value="void" priority="63" />
+      <Item value="IDisposable`0" priority="127" />
+      <Item value="SkeletonFrameReady" priority="31" />
+      <Item value="sender" priority="63" />
+      <Item value="fArgs" priority="31" />
+      <Item value="switch" priority="31" />
+      <Item value="_file" priority="31" />
+      <Item value="const" priority="31" />
+      <Item value="ctor" priority="223" />
+      <Item value="Kinect" priority="31" />
+      <Item value="Toolbox" priority="26" />
+      <Item value="Record" priority="26" />
+      <Item value="SkeletonReplay`0" priority="26" />
+      <Item value="StreamReader`0" priority="31" />
+      <Item value="class" priority="30" />
+      <Item value="e" priority="223" />
+      <Item value="skeletonFrame" priority="31" />
+      <Item value="Skeleton`0" priority="63" />
+      <Item value="_kinectSensor" priority="63" />
+      <Item value="event" priority="63" />
+      <Item value="SkeletonFrameReadyEventArgs`0" priority="128" />
+      <Item value="EventHandler" priority="65" />
+      <Item value="skeletons" priority="63" />
+      <Item value="var" priority="62" />
+      <Item value="frame" priority="127" />
+      <Item value="out" priority="31" />
+      <Item value="Skeleton" priority="28" />
+      <Item value="if" priority="127" />
+      <Item value="null" priority="31" />
+      <Item value="return" priority="95" />
+      <Item value="using" priority="63" />
+      <Item value="this" priority="63" />
+      <Item value="args" priority="31" />
+      <Item value="KinectStreamer" priority="29" />
+      <Item value="string" priority="63" />
+      <Item value="skeletonReplay" priority="32" />
+      <Item value="SkeletonReplay" priority="28" />
+      <Item value="FileSkeletonReader`0" priority="62" />
+      <Item value="fileName" priority="30" />
+      <Item value="IObservable" priority="30" />
+      <Item value="SkeletonsReady" priority="31" />
+      <Item value="_skeletonReplay" priority="31" />
+      <Item value="OnSkeletonFrameReady`0" priority="32" />
+      <Item value="KinectRecorder`0" priority="31" />
+      <Item value="_kinectRecorder" priority="31" />
+      <Item value="Notify`0" priority="32" />
+      <Item value="Recording" priority="31" />
+      <Item value="StopRecording`0" priority="31" />
+      <Item value="_skeletonRecorder" priority="31" />
+      <Item value="lock" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Data.KinectStreamer+KinectStreamSource">
+      <Item value="Kinect" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Data.KinectStreamer">
+      <Item value="Dispose`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Kinect.Toolbox.Record.SkeletonReplay">
+      <Item value="SkeletonFrameReady" priority="80" />
+      <Item value="Stop`0" priority="26" />
+      <Item value="Start`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs">
+      <Item value="SkeletonFrame" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Kinect.SkeletonFrameReadyEventArgs">
+      <Item value="OpenSkeletonFrame`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Kinect.SkeletonFrame">
+      <Item value="CopySkeletonDataTo`0" priority="80" />
+      <Item value="FrameNumber" priority="26" />
+      <Item value="SkeletonArrayLength" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Kinect.KinectSensor">
+      <Item value="Stop`0" priority="53" />
+      <Item value="Start`0" priority="26" />
+      <Item value="SkeletonStream" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Kinect.KinectSensor">
+      <Item value="KinectSensors" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Kinect.SkeletonStream">
+      <Item value="FrameSkeletonArrayLength" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="OpenRead`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Kinect.Toolbox.Record.ReplaySkeletonFrame">
+      <Item value="Skeletons" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Services.Recorder.KinectRecorder">
+      <Item value="Recording" priority="26" />
+      <Item value="PropertyChanged" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Kinect.Toolbox.Record.SkeletonRecorder">
+      <Item value="Stop`0" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>
