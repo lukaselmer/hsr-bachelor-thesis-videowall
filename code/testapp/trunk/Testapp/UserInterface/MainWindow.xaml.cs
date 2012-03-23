@@ -24,6 +24,7 @@ namespace UserInterface
         {
             InitializeComponent();
             DataContext = viewModel;
+            PosterViewer.FitToHeight();
         }
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
@@ -73,6 +74,11 @@ namespace UserInterface
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             StopKinect(kinectSensorChooser1.Kinect);
+        }
+
+        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            PosterViewer.FitToHeight();
         }
     }
 }

@@ -22,6 +22,12 @@ namespace UserInterface
         public MenuWindow()
         {
             InitializeComponent();
+            MenuViewer.FitToHeight();  
+        }
+
+        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            MenuViewer.FitToHeight();
         }
     }
 }
