@@ -1,0 +1,19 @@
+﻿<Window x:Class="HandCursorDemoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Name="MyGrid">
+        <Canvas Panel.ZIndex="100">
+            <Image Name="Hand" Source="/HandCursorDemoApp;component/Resources/hand.png" IsHitTestVisible="False"/>
+        </Canvas>
+        
+        <StackPanel>
+            <Button>a</Button>
+            <Button>b</Button>
+            <Button>c</Button>
+            <Button>d</Button>
+            <Button>e</Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>
