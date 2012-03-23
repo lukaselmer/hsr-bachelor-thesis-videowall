@@ -12,11 +12,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DocumentViewer}">
-                          <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="true" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Disabled" IsTabStop="true" Grid.Row="1" TabIndex="1"/>
+                        <ScrollViewer CacheMode="BitmapCache" HorizontalScrollBarVisibility="Hidden"   VerticalScrollBarVisibility="Hidden"  x:Name="PART_ContentHost" CanContentScroll="true" Grid.Column="0" Focusable="{TemplateBinding Focusable}" IsTabStop="true" Grid.Row="1" TabIndex="1"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
 
     </Window.Resources>
     <Grid>
