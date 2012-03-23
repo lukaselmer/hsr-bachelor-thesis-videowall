@@ -8,6 +8,7 @@ namespace Common
 {
     /// <summary>
     /// The view model base.
+    /// Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
     /// <remarks></remarks>
     public abstract class Notifier : INotifyPropertyChanged
