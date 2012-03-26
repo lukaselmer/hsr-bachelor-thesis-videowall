@@ -41,7 +41,7 @@ namespace ViewModels
         /// <value>
         /// The start/stop command.
         /// </value>
-        public ICommand StartOrStopCommand { get; set; }
+        public ICommand StartStopCommand { get; set; }
         #endregion
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace ViewModels
         {
             _player = player;
             _player.PropertyChanged += PlayerModelChanged;
-            StartOrStopCommand = new ActionCommand(() =>
+            StartStopCommand = new ActionCommand(() =>
             {
                 if (_player.Playing) _player.StopPlaying();
                 else _player.StartPlaying();

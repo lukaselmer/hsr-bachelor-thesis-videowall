@@ -35,7 +35,7 @@ namespace Data.Kinect
         }
 
         /// <summary>
-        /// Starts this instance.
+        /// Starts the reading process
         /// </summary>
         public void Start()
         {

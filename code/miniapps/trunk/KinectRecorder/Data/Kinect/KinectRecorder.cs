@@ -7,6 +7,9 @@ using Microsoft.Win32;
 
 namespace Services.Recorder
 {
+    /// <summary>
+    /// Reviewed by Christina Heidt, 23.03.2012
+    /// </summary>
     public class KinectRecorder : Common.Notifier
     {
         private bool _recording;
@@ -14,6 +17,12 @@ namespace Services.Recorder
         private FileStream _recordStream;
         private KinectSensor _kinectSensor;
 
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="KinectRecorder"/> is recording.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if recording; otherwise, <c>false</c>.
+        /// </value>
         public bool Recording
         {
             get { return _recording; }
@@ -24,11 +33,21 @@ namespace Services.Recorder
             }
         }
 
+        /// <summary>
+        /// Called when [kinect sensor on skeleton frame ready].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="fArgs">The <see cref="Microsoft.Kinect.SkeletonFrameReadyEventArgs"/> instance containing the event data.</param>
         private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs fArgs)
         {
             if (Recording) { _skeletonRecorder.Record(fArgs.OpenSkeletonFrame()); }
         }
 
+        /// <summary>
+        /// Starts the recording, saves the file to the specified path.
+        /// Checkes if a kinect sensor is conneted, throws excpetion otherwise.
+        /// </summary>
+        /// <param name="pathToFile">The path to file.</param>
         public void Start(string pathToFile)
         {
             lock (this)
@@ -52,6 +71,9 @@ namespace Services.Recorder
             }
         }
 
+        /// <summary>
+        /// Stops the recording.
+        /// </summary>
         public void Stop()
         {
             lock (this)

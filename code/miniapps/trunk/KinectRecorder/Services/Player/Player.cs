@@ -10,6 +10,9 @@ using Microsoft.Win32;
 
 namespace Services.Player
 {
+    /// <summary>
+    /// Reviewed by Christina Heidt, 23.03.2012
+    /// </summary>
     public class Player : Common.Notifier
     {
         private readonly ISkeletonReader _skeletonReader;
@@ -18,12 +21,22 @@ namespace Services.Player
         public Skeleton Skeleton { get; set; }
         //private KinectSensor _kinectSensor;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        /// <param name="skeletonReader">The skeleton reader.</param>
         public Player(ISkeletonReader skeletonReader)
         {
             Skeleton = new Skeleton();
            _skeletonReader = skeletonReader;
         }
 
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Player"/> is playing.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if playing; otherwise, <c>false</c>.
+        /// </value>
         public bool Playing
         {
             get { return _playing; }
@@ -34,6 +47,9 @@ namespace Services.Player
             }
         }
 
+        /// <summary>
+        /// Starts the skeleton reader.
+        /// </summary>
         public void StartPlaying()
         {
             Playing = true;
@@ -54,6 +70,11 @@ namespace Services.Player
             _kinectSensor.Start();*/
         }
 
+        /// <summary>
+        /// Called when [kinect sensor on skeleton frame ready].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="Data.SkeletonsReadyEventArgs"/> instance containing the event data.</param>
         private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonsReadyEventArgs e)
         {
             if (!Playing) return;
@@ -64,6 +85,9 @@ namespace Services.Player
             Notify("Skeleton");
         }
 
+        /// <summary>
+        /// Stops the skeleton reader.
+        /// </summary>
         public void StopPlaying()
         {
             Playing = false;

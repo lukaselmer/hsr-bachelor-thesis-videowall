@@ -13,7 +13,7 @@ namespace Data.Kinect
         event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
 
         /// <summary>
-        /// Starts this instance.
+        /// Starts the reading process
         /// </summary>
         void Start();
     }

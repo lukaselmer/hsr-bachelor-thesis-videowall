@@ -14,7 +14,7 @@
                 <Ellipse Width="8" Height="8" Fill="Blue" Margin="20 30 0 0"/>
                 <Ellipse Width="8" Height="8" Fill="Blue" Margin="155 10 0 0"/>-->
             </Canvas>
-            <Button Margin="5" Command="{Binding StartOrStopCommand}">
+            <Button Margin="5" Command="{Binding StartStopCommand}">
                 <StackPanel Orientation="Horizontal">
                     <Polygon Points="0,0 0,10 8,5" Width="8" Height="10" Fill="Green" Margin="0 0 5 0"/>
                     <TextBlock>Start / Stop Playing</TextBlock>
