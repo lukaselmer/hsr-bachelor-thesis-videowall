@@ -25,6 +25,13 @@ namespace UserInterface
             InitializeComponent();
             DataContext = MainWindowViewModel = viewModel;
             PosterViewer.FitToHeight();
+            Cursor = Cursors.None;
+        }
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            var pos = e.GetPosition(MyGrid);
+            Hand.Margin = new Thickness(pos.X - 80, pos.Y - 80, 0, 0);
         }
 
         public MainWindowViewModel MainWindowViewModel { get; set; }
@@ -92,5 +99,32 @@ namespace UserInterface
         {
             MainWindowViewModel.NavigateToLeftCommand.Execute(e);
         }
+
+      
+        private void Poster_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindowViewModel.ShowPosters.Execute(e);
+
+            Rectangle_Poster.Fill = Brushes.Blue;
+            Rectangle_Mittagsmenu.Fill = Brushes.White;
+            Text_Poster.FontSize = 14;
+            Text_Poster.FontWeight = FontWeights.Bold;
+            Text_Mittagsmenu.FontSize = 12;
+            Text_Mittagsmenu.FontWeight = FontWeights.Normal;
+        }
+
+        private void Mittagsmenu_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindowViewModel.ShowMenu.Execute(e);
+
+            Rectangle_Poster.Fill = Brushes.White;
+            Rectangle_Mittagsmenu.Fill = Brushes.Blue;
+            Text_Poster.FontSize = 12;
+            Text_Poster.FontWeight = FontWeights.Normal;
+            Text_Mittagsmenu.FontSize = 14;
+            Text_Mittagsmenu.FontWeight = FontWeights.Bold;
+
+        }
+      
     }
 }

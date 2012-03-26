@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:System_Windows_Documents="clr-namespace:System.Windows.Documents;assembly=PresentationUI"
              xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
-             xmlns:UserInterface="clr-namespace:UserInterface" x:Class="UserInterface.MainWindow" Loaded="WindowLoaded" Closing="WindowClosing" >
+             xmlns:UserInterface="clr-namespace:UserInterface" Title="MainWindow" x:Class="UserInterface.MainWindow" Loaded="WindowLoaded" Closing="WindowClosing">
     <Window.Resources>
         
         <Style x:Key="DocumentViewerStyle" BasedOn="{x:Null}" TargetType="{x:Type DocumentViewer}">
@@ -18,15 +18,32 @@
         </Style>
 
     </Window.Resources>
-    <Grid>
+    <Grid Name="MyGrid">
+       
+
+  
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="240"/>
         </Grid.RowDefinitions>
+        <Canvas Panel.ZIndex="100">
+            <Image Name="Hand" Source="/Testapp;component/Resources/hand.png" IsHitTestVisible="False"/>
+        </Canvas>
+
+
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="100" Margin="10" Content="Poster" Command="{Binding ShowPosters}"/>
-            <Button Width="100" Margin="10" Content="Menü" Command="{Binding ShowMenu}"/>
+            
+            <Grid Name="Poster" MouseUp="Poster_MouseUp">
+                <Rectangle Name="Rectangle_Poster" Width="120" Height="100" Fill="Blue" Opacity="0.2" Stroke="Black"/>
+                <TextBlock Name="Text_Poster" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Poster</TextBlock>
+            </Grid>
+            <Grid Name="Mittagsmenu" MouseUp="Mittagsmenu_MouseUp">
+                <Rectangle Name="Rectangle_Mittagsmenu" Width="120" Height="100" Opacity="0.2" Stroke="Black" StrokeThickness="1" />
+                <TextBlock Name="Text_Mittagsmenu" FontSize="12" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Center">Mittagsmenü</TextBlock>
+            </Grid>
+           
         </StackPanel>
         <Grid Grid.Row="1" SizeChanged="Grid_SizeChanged">
             <Grid.ColumnDefinitions>
@@ -41,7 +58,7 @@
             <DocumentViewer Grid.Column="1" HorizontalAlignment="Center" Document="{Binding CurrentPoster.Document}" Style="{DynamicResource DocumentViewerStyle}" Name="PosterViewer"/>
             
             <Rectangle Grid.Column="2" Fill="White" HorizontalAlignment="Right" Height="1200" Width="100"/>
-            <UserInterface:ArrowRight Grid.Column="2" MouseUp="ArrowRight_MouseUp" />
+            <UserInterface:ArrowRight Grid.Column="2" MouseUp="ArrowRight_MouseUp" DataContext="{Binding ArrowRight}" />
 
             <UserInterface:MenuWindow DataContext="{Binding MenuWindowViewModel}" Grid.ColumnSpan="3" Visibility="{Binding IsMenuViewVisible, Converter={UserInterface:BoolToVisibilityConverter}}"/>
             
@@ -49,5 +66,6 @@
         <my:KinectSensorChooser Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,0" Name="kinectSensorChooser1" Width="328" Height="240" />
         <my:KinectSkeletonViewer Grid.Row="2" Width="320" Height="240" HorizontalAlignment="Center" Margin="0,20,0,0" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}"></my:KinectSkeletonViewer>
     </Grid>
+    
 
 </Window>

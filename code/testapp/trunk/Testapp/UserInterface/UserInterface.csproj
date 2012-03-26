@@ -60,6 +60,7 @@
     <Compile Include="ArrowRight.xaml.cs">
       <DependentUpon>ArrowRight.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArrowRightViewModel.cs" />
     <Compile Include="BoolToVisibilityConverter.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="MainWindow.xaml.cs">

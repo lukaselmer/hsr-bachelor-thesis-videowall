@@ -4,7 +4,7 @@
     <Canvas Background="White" Height="150" Width="75">
         <Polygon  Points="0,75 75,0 75,150 0,75">
             <Polygon.Fill>
-                <SolidColorBrush Color="Blue" Opacity="0.8"/>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
             </Polygon.Fill>
         </Polygon>
     </Canvas>
