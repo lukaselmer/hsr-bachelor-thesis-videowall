@@ -26,6 +26,7 @@ namespace UserInterface
             DataContext = MainWindowViewModel = viewModel;
             PosterViewer.FitToHeight();
             Cursor = Cursors.None;
+            IsHand = true;
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -126,16 +127,20 @@ namespace UserInterface
 
         }
 
+        private bool IsHand { get; set; }
+
         private void MyGrid_KeyDown(object sender, KeyEventArgs e)
         {
-
-            var uriSource = new Uri(@"/Testapp;component/Resources/clock.png", UriKind.Relative);
-            Hand.Source = new BitmapImage(uriSource);
-        }
-
-        private void MyGrid_KeyUp(object sender, KeyEventArgs e)
-        {
-            var uriSource = new Uri(@"/Testapp;component/Resources/hand.png", UriKind.Relative);
+            Uri uriSource;
+            if (IsHand)
+            {
+                uriSource = new Uri(@"/Testapp;component/Resources/clock.png", UriKind.Relative);
+                IsHand = false;
+            } else
+            {
+                uriSource = new Uri(@"/Testapp;component/Resources/hand.png", UriKind.Relative);
+                IsHand = true;
+            }
             Hand.Source = new BitmapImage(uriSource);
         }
       

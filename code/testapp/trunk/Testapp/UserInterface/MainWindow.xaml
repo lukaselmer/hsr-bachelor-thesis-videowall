@@ -18,7 +18,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid Name="MyGrid" KeyDown="MyGrid_KeyDown" KeyUp="MyGrid_KeyUp" >
+    <Grid Name="MyGrid" KeyDown="MyGrid_KeyDown">
                
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
