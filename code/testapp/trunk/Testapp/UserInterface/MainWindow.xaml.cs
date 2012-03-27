@@ -125,6 +125,19 @@ namespace UserInterface
             Text_Mittagsmenu.FontWeight = FontWeights.Bold;
 
         }
+
+        private void MyGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            var uriSource = new Uri(@"/Testapp;component/Resources/clock.png", UriKind.Relative);
+            Hand.Source = new BitmapImage(uriSource);
+        }
+
+        private void MyGrid_KeyUp(object sender, KeyEventArgs e)
+        {
+            var uriSource = new Uri(@"/Testapp;component/Resources/hand.png", UriKind.Relative);
+            Hand.Source = new BitmapImage(uriSource);
+        }
       
     }
 }

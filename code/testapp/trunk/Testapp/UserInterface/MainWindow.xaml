@@ -18,11 +18,8 @@
         </Style>
 
     </Window.Resources>
-    <Grid Name="MyGrid">
-       
-
-  
-        
+    <Grid Name="MyGrid" KeyDown="MyGrid_KeyDown" KeyUp="MyGrid_KeyUp" >
+               
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
@@ -31,7 +28,6 @@
         <Canvas Panel.ZIndex="100">
             <Image Name="Hand" Source="/Testapp;component/Resources/hand.png" IsHitTestVisible="False"/>
         </Canvas>
-
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             
