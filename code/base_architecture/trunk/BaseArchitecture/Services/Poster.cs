@@ -37,7 +37,6 @@ namespace Services
         private void ReadFromPosterReader()
         {
             Name = PosterReader.ReadPoster();
-            Notify("Name");
         }
 
         protected PosterReader PosterReader { get; set; }

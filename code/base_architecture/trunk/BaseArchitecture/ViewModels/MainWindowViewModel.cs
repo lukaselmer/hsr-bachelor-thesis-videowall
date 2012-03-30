@@ -7,11 +7,14 @@ namespace ViewModels
 {
     public class MainWindowViewModel
     {
-        public MainWindowViewModel(PosterViewModel posterViewModel)
+        public MainWindowViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
         {
             PosterViewModel = posterViewModel;
+            LunchMenuViewModel = lunchMenuViewModel;
         }
 
         public PosterViewModel PosterViewModel { get; private set; }
+
+        public LunchMenuViewModel LunchMenuViewModel { get; private set; }
     }
 }
