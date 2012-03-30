@@ -19,17 +19,12 @@ namespace Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class PosterWindow : Window
+    public partial class MainWindow : Window
     {
-        public PosterWindow(PosterViewModel posterViewModel)
+        public MainWindow(MainWindowViewModel mainWindowViewModel)
         {
-            DataContext = posterViewModel;
+            DataContext = mainWindowViewModel;
             InitializeComponent();
-        }
-
-        private void ButtonClicked(object sender, RoutedEventArgs e)
-        {
-            ((PosterViewModel) DataContext).ChangeName();
         }
     }
 }

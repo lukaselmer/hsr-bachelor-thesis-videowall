@@ -19,7 +19,7 @@ namespace Views
         {
             base.OnStartup(e);
             var container = new UnityContainer().LoadConfiguration();
-            container.Resolve<PosterWindow>().Show();
+            container.Resolve<MainWindow>().Show();
         }
     }
 }
