@@ -8,7 +8,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
             <Button Content="{Binding PosterViewModel.Name}"></Button>
-            <Button Content="{Binding LunchMenuViewModel.Name}"></Button>
+            <Button Content="{Binding LunchMenuViewModel.Name}" Command="{Binding LunchMenuViewModel.ShowLunchMenuViewCommand}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

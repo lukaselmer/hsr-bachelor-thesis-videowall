@@ -16,5 +16,7 @@ namespace ViewModels
         public PosterViewModel PosterViewModel { get; private set; }
 
         public LunchMenuViewModel LunchMenuViewModel { get; private set; }
+
+
     }
 }

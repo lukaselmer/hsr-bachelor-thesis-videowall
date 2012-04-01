@@ -14,5 +14,6 @@
         </Grid.RowDefinitions>
         <Views:MenuView Grid.Row="0" DataContext="{Binding}"></Views:MenuView>
         <Views:PosterView Grid.Row="1" DataContext="{Binding PosterViewModel}"></Views:PosterView>
+        <Views:LunchMenuView Grid.Row="1" DataContext="{Binding LunchMenuViewModel}" Visibility="{Binding IsLunchMenuVisible, Converter={Views:BoolToVisibilityConverter}}"></Views:LunchMenuView>
     </Grid>
 </Window>
