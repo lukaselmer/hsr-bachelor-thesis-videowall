@@ -14,31 +14,22 @@ namespace ViewModels
         {
             LunchMenu = lunchMenu;
             LunchMenu.PropertyChanged += LunchMenuChanged;
-            IsLunchMenuVisible = false;
-            ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
         }
 
-        private bool _isLunchMenuVisible;
+        private bool _isLunchMenuViewVisible;
 
         public ILunchMenu LunchMenu { get; set; }
 
         public String Name { get { return LunchMenu.Name; } }
 
-        public bool IsLunchMenuVisible
+        public bool IsLunchMenuViewVisible
         {
-            get { return _isLunchMenuVisible; }
+            get { return _isLunchMenuViewVisible; }
             set
             {
-                _isLunchMenuVisible = value;
-                Notify("IsLunchMenuVisible");
+                _isLunchMenuViewVisible = value;
+                Notify("IsLunchMenuViewVisible");
             }
-        }
-
-        public Command ShowLunchMenuViewCommand { get; set; }
-
-        private void OnShowLunchMenuView(object obj)
-        {
-            IsLunchMenuVisible = true;
         }
 
         private void LunchMenuChanged(object sender, PropertyChangedEventArgs e)

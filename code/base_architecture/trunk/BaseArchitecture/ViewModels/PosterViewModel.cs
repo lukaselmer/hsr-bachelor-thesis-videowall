@@ -34,6 +34,18 @@ namespace ViewModels
             }
         }
 
+        private bool _isPosterViewVisible;
+
+        public bool IsPosterViewVisible
+        {
+            get { return _isPosterViewVisible; }
+            set
+            {
+                _isPosterViewVisible = value;
+                Notify("IsPosterViewVisible");
+            }
+        }
+
         public void ChangeName()
         {
             Poster.Name = "Hi! <3";
