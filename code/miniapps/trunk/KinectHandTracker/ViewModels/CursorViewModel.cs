@@ -29,12 +29,22 @@ namespace ViewModels
         {
             get
             {
-                if (_player.Skeleton == null) return new Point(50, 50);
+                if (_player.Skeleton == null) return new Point(0, 0);
+
                 var joint = _player.Skeleton.Joints[JointType.HandRight];
-                var pos = joint.ScaleTo(1000, 1000);
-                return new Point(pos.Position.X, pos.Position.Y);
+                var totalPos = joint.ScaleTo((int)WindowWidth, (int)WindowHeight);
+
+                // TODO: define the zone
+                //var zone = new Point
+                //var zonePos = new Point()
+
+                return new Point(totalPos.Position.X, totalPos.Position.Y);
             }
         }
+
+        public double WindowWidth { get; set; }
+        public double WindowHeight { get; set; }
+
         #endregion
 
         /// <summary>
@@ -45,6 +55,8 @@ namespace ViewModels
         {
             _player = player;
             _player.PropertyChanged += PlayerModelChanged;
+            WindowWidth = 600;
+            WindowHeight = 400;
         }
 
         /// <summary>
@@ -63,6 +75,12 @@ namespace ViewModels
         public void Dispose()
         {
             _player.PropertyChanged -= Notify;
+        }
+
+        public void WindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WindowWidth = e.NewSize.Width;
+            WindowHeight = e.NewSize.Height;
         }
     }
 }
