@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Views:MenuView Grid.Row="0" DataContext="{Binding}"></Views:MenuView>
         <Views:PosterView Grid.Row="1" DataContext="{Binding PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views:BoolToVisibilityConverter}}"></Views:PosterView>

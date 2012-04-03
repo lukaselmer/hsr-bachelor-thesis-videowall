@@ -1,7 +1,10 @@
 ﻿<Application x:Class="Views.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" 
+             Startup="ApplicationStartup">
     <Application.Resources>
         <!--StartupUri="PosterWindow.xaml"-->
+        <ViewModels:SkeletonPositionToMarginConverter x:Key="skeletonPositionConverter" />
     </Application.Resources>
 </Application>

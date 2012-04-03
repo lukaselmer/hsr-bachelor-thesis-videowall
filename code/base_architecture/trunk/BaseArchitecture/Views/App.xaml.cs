@@ -15,11 +15,20 @@ namespace Views
     /// </summary>
     public partial class App
     {
-        protected override void OnStartup(StartupEventArgs e)
+//        protected override void OnStartup(StartupEventArgs e)
+//        {
+//            base.OnStartup(e);
+//            var container = new UnityContainer().LoadConfiguration();
+//            //container.Resolve<MainWindow>().Show();
+//            container.Resolve<PlayerWindow>().Show();
+//        }
+
+        private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            base.OnStartup(e);
             var container = new UnityContainer().LoadConfiguration();
             container.Resolve<MainWindow>().Show();
+            container.Resolve<PlayerWindow>().Show();
+
         }
     }
 }
