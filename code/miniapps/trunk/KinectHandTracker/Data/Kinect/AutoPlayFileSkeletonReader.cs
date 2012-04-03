@@ -33,6 +33,8 @@ namespace Data.Kinect
 
             InitReplayTimer();
             InitSkeletonReplay();
+
+            Start();
         }
 
         private void InitReplayTimer()
@@ -55,8 +57,13 @@ namespace Data.Kinect
 
         private void ReplayTimerOnElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
         {
-            if (MillisecondsPassedSinceLastSkeletonMovment() <= RestartReplayAfterSoManyMilliseconds) return;
+            if (!CanStart()) return;
             Dispatcher.Invoke(new Action(Start));
+        }
+
+        private bool CanStart()
+        {
+            return MillisecondsPassedSinceLastSkeletonMovment() >= RestartReplayAfterSoManyMilliseconds;
         }
 
         private double MillisecondsPassedSinceLastSkeletonMovment()
@@ -82,6 +89,7 @@ namespace Data.Kinect
         /// </summary>
         public void Start()
         {
+            if (!CanStart()) return;
             Debug.Assert(_skeletonReplay != null, "_skeletonReplay != null");
             _skeletonReplay.Start();
             _lastTimeReady = DateTime.Now;
