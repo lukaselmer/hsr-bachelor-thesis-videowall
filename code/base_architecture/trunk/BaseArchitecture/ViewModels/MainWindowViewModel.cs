@@ -7,10 +7,11 @@ namespace ViewModels
 {
     public class MainWindowViewModel
     {
-        public MainWindowViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
+        public MainWindowViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel, PlayerViewModel playerViewModel)
         {
             PosterViewModel = posterViewModel;
             LunchMenuViewModel = lunchMenuViewModel;
+            PlayerViewModel = playerViewModel;
             ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
             ShowPosterViewCommand = new Command(OnShowPosterView);
             OnShowPosterView(null);
@@ -19,6 +20,8 @@ namespace ViewModels
         public PosterViewModel PosterViewModel { get; private set; }
 
         public LunchMenuViewModel LunchMenuViewModel { get; private set; }
+
+        public PlayerViewModel PlayerViewModel { get; private set; }
 
         public Command ShowLunchMenuViewCommand { get; set; }
 
@@ -35,7 +38,5 @@ namespace ViewModels
             PosterViewModel.IsPosterViewVisible = false;
             LunchMenuViewModel.IsLunchMenuViewVisible = true;
         }
-
-
     }
 }

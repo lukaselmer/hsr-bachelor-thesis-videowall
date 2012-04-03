@@ -17,9 +17,9 @@
     </d:UserControl.DataContext>
 
     <Canvas>
-        <TextBlock Text="{Binding Position.X}" />
+       <!-- <TextBlock Text="{Binding Position.X}" />
         <TextBlock Text="{Binding Position.Y}" />
-        <TextBlock Text="{Binding Position.Z}" />
+        <TextBlock Text="{Binding Position.Z}" />-->
 
         <ItemsControl ItemsSource="{Binding Joints}" ItemTemplate="{StaticResource jointsTemplate}" Width="500" Height="500">
             <ItemsControl.ItemsPanel>
