@@ -10,18 +10,17 @@ namespace Data
     public class PosterReader : Notifier
     {
 
-        private IEnumerable<string> _files;
         public PosterReader()
         {
             Path = @"...\...\...\Resources\Poster";
         }
 
-        public string Path { get; set; }
+        public string Path { get; private set; }
         public IEnumerable<string> Files
         {
             get
             {
-                return _files = Directory.GetFiles(Path, "*jpg");
+                return Directory.GetFiles(Path, "*jpg");
             }
         }
     }

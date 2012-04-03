@@ -10,7 +10,7 @@ using Data;
 
 namespace Services
 {
-    public interface IPosterService
+    public interface IPosterService : INotifyPropertyChanged
     {
         List<Poster> Posters { get; set; }
     }
@@ -34,7 +34,6 @@ namespace Services
         public PosterService(PosterReader posterReader)
         {
             PosterReader = posterReader;
-            Posters = new List<Poster>();
             PosterReader.PropertyChanged += PosterReaderChanged;
             ReadFromPosterReader();
         }
@@ -46,9 +45,10 @@ namespace Services
 
         private void ReadFromPosterReader()
         {
+            Posters = new List<Poster>();
             foreach (var file in PosterReader.Files)
             {
-                _posters.Add(new Poster(file));
+                Posters.Add(new Poster(file));
             }
         }
 

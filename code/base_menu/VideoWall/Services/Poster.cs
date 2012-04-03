@@ -11,14 +11,14 @@ namespace Services
     {
         public Poster(string fileName)
         {
-            var fileNameWihoutExtension = Path.GetFileNameWithoutExtension(fileName);
-            Name = fileNameWihoutExtension;
+            Name = Path.GetFileNameWithoutExtension(fileName);
             Image = new BitmapImage();
             Image.BeginInit();
             Image.StreamSource = File.OpenRead(fileName);
             Image.EndInit();
+            Image.Freeze();
         }
-        public string Name { get; set; }
-        public BitmapImage Image { get; set; }
+        public string Name { get; private set; }
+        public BitmapImage Image { get; private set; }
     }
 }

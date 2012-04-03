@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Media.Imaging;
 
 namespace Services
 {
-    class LunchMenu
+    public class LunchMenu
     {
-        public LunchMenu(string name, BitmapImage image)
+
+        public LunchMenu(string fileName)
         {
-            Name = name;
-            Image = image;
+            Name = Path.GetFileNameWithoutExtension(fileName);
+            Image = new BitmapImage();
+            Image.BeginInit();
+            Image.StreamSource = File.OpenRead(fileName);
+            Image.EndInit();
+            Image.Freeze();
         }
+
         public string Name { get; private set; }
         public BitmapImage Image { get; private set; }
     }

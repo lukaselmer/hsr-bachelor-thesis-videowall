@@ -11,7 +11,7 @@ namespace Services
     public class LunchMenuService : Notifier
     {
         private LunchMenuReader LunchMenuReader { get; set; }
-        //private LunchMenu 
+        private LunchMenu _lunchMenu;
 
         public LunchMenuService(LunchMenuReader lunchMenuReader)
         {
@@ -20,9 +20,19 @@ namespace Services
             ReadFromLunchMenuReader();
         }
 
+        public LunchMenu LunchMenu
+        {
+            get { return _lunchMenu; }
+            set
+            {
+                _lunchMenu = value;
+                Notify("LunchMenu");
+            }
+        }
+
         private void ReadFromLunchMenuReader()
         {
-            throw new NotImplementedException();
+            LunchMenu = new LunchMenu(LunchMenuReader.File);
         }
 
         private void LunchMenuReaderChanged(object sender, PropertyChangedEventArgs e)

@@ -1,28 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using Common;
 using Services;
 
 namespace ViewModels
 {
-    public class PosterViewModel : Notifier
+    public class PosterViewModel : Notifier, IDisposable
     {
 
         private List<Poster> _posters;
         private bool _isPosterViewVisible;
         private Poster _currentPoster;
         private string _name;
+        private IPosterService _posterService;
 
         public PosterViewModel(IPosterService posterService)
         {
-            Posters = posterService.Posters;
-            CurrentPoster = Posters.First();
+            _posterService = posterService;
+            _posterService.PropertyChanged += PosterServiceChanged;
+            ReadFromPosterService();
             Name = "Poster";
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
             NavigateToRightCommand = new Command(OnNavigateToRight);
+        }
+
+        private void PosterServiceChanged(object sender, PropertyChangedEventArgs e)
+        {
+            ReadFromPosterService();
+        }
+
+        private void ReadFromPosterService()
+        {
+            Posters = _posterService.Posters;
+            CurrentPoster = Posters.First();
         }
 
         private void OnNavigateToRight(object obj)
@@ -78,6 +91,11 @@ namespace ViewModels
                 _name = value;
                 Notify("Name");
             }
+        }
+
+        public void Dispose()
+        {
+            _posterService.PropertyChanged -= PosterServiceChanged;
         }
     }
 }
