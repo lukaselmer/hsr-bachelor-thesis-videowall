@@ -26,7 +26,7 @@ namespace WpfTest
         public MainWindow()
         {
             InitializeComponent();
-            _path = @"D:\Video Wall\doc\media\poster\Beispielposter\";
+            _path = @"D:\Video Wall\code\webbrowser_test\WpfTest\Resources\";
             _files = new List<string>
                                {
                                    "Poster_Android.pdf", "Poster_Bodyscanner.pdf", "Poster_EventAssistant.pdf", "Poster_Exchange.pdf",
