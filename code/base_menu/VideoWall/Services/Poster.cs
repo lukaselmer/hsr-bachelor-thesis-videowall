@@ -15,6 +15,7 @@ namespace Services
             Image = new BitmapImage();
             Image.BeginInit();
             Image.StreamSource = File.OpenRead(fileName);
+            Image.CacheOption = BitmapCacheOption.OnLoad;
             Image.EndInit();
             Image.Freeze();
         }
