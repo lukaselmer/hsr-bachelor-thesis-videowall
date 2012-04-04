@@ -8,6 +8,7 @@ using Common;
 using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
 using Services;
+using Services.HandCursor;
 using Services.Player;
 using Services.Recorder;
 
@@ -20,6 +21,7 @@ namespace ViewModels
     public class CursorViewModel : Notifier, IDisposable
     {
         private readonly Player _player;
+        private readonly CursorPositionCalculator _cursorPositionCalculator;
 
         #region Properties
         /// <summary>
@@ -29,16 +31,7 @@ namespace ViewModels
         {
             get
             {
-                if (_player.Skeleton == null) return new Point(0, 0);
-
-                var joint = _player.Skeleton.Joints[JointType.HandRight];
-                var totalPos = joint.ScaleTo((int)WindowWidth, (int)WindowHeight);
-
-                // TODO: define the zone
-                //var zone = new Point
-                //var zonePos = new Point()
-
-                return new Point(totalPos.Position.X, totalPos.Position.Y);
+                return _cursorPositionCalculator.CalculatePositionFromSkeleton(WindowWidth, WindowHeight, _player.Skeleton);
             }
         }
 
@@ -51,9 +44,11 @@ namespace ViewModels
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
-        public CursorViewModel(Player player)
+        /// <param name="cursorPositionCalculator">The cursor position calculator </param>
+        public CursorViewModel(Player player, CursorPositionCalculator cursorPositionCalculator)
         {
             _player = player;
+            _cursorPositionCalculator = cursorPositionCalculator;
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 600;
             WindowHeight = 400;
