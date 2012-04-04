@@ -12,7 +12,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Button Grid.Column="0" Command="{Binding NavigateToLeftCommand}">Links</Button>
-        <Image Grid.Column="1" Source="{Binding CurrentPoster.Image}"></Image>
+        <Image Grid.Column="1" Source="{Binding CurrentPoster.Image, IsAsync=True}"></Image>
         <Button Grid.Column="2" Command="{Binding NavigateToRightCommand}">Rechts</Button>
     </Grid>
 </UserControl>
