@@ -10,12 +10,7 @@ using Data;
 
 namespace Services
 {
-    public interface IPosterService : INotifyPropertyChanged
-    {
-        List<Poster> Posters { get; set; }
-    }
-
-    class PosterService : Notifier, IPosterService
+    public class PosterService : Notifier
     {
         private List<Poster> _posters;
 

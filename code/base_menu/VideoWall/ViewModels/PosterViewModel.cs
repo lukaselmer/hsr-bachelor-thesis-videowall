@@ -15,9 +15,9 @@ namespace ViewModels
         private bool _isPosterViewVisible;
         private Poster _currentPoster;
         private string _name;
-        private IPosterService _posterService;
+        private PosterService _posterService;
 
-        public PosterViewModel(IPosterService posterService)
+        public PosterViewModel(PosterService posterService)
         {
             _posterService = posterService;
             _posterService.PropertyChanged += PosterServiceChanged;

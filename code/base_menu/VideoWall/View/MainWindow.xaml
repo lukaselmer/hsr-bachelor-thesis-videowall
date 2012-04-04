@@ -7,6 +7,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
             <View:MenuView Grid.Row="0" DataContext="{Binding}"></View:MenuView>
-            <View:PosterView Grid.Row="1" DataContext="{Binding PosterViewModel}"></View:PosterView>
+        <View:PosterView Grid.Row="1" DataContext="{Binding PosterViewModel}"  Visibility="{Binding IsPosterViewVisible, Converter={View:BoolToVisibilityConverter}}"></View:PosterView>
+        <View:LunchMenuView Grid.Row="1" DataContext="{Binding LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={View:BoolToVisibilityConverter}}"></View:LunchMenuView>
     </Grid>
 </Window>

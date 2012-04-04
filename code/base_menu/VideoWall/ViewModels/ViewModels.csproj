@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="LunchMenuViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="PosterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
