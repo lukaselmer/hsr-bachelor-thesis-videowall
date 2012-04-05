@@ -21,7 +21,7 @@ namespace ViewModels
     public class CursorViewModel : Notifier, IDisposable
     {
         private readonly Player _player;
-        private readonly CursorPositionCalculator _cursorPositionCalculator;
+        private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
 
         #region Properties
         /// <summary>
@@ -31,7 +31,7 @@ namespace ViewModels
         {
             get
             {
-                return _cursorPositionCalculator.CalculatePositionFromSkeleton(WindowWidth, WindowHeight, _player.Skeleton);
+                return _handCursorPositionCalculator.CalculatePositionFromSkeleton(new Size(WindowWidth, WindowHeight), _player.Skeleton);
             }
         }
 
@@ -44,11 +44,11 @@ namespace ViewModels
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
-        /// <param name="cursorPositionCalculator">The cursor position calculator </param>
-        public CursorViewModel(Player player, CursorPositionCalculator cursorPositionCalculator)
+        /// <param name="handCursorPositionCalculator">The cursor position calculator </param>
+        public CursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
         {
             _player = player;
-            _cursorPositionCalculator = cursorPositionCalculator;
+            _handCursorPositionCalculator = handCursorPositionCalculator;
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 600;
             WindowHeight = 400;
