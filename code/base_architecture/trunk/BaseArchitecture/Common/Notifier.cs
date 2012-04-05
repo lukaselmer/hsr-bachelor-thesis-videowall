@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace Common
 {
     /// <summary>
-    /// The view model base.
+    /// Implementation of INotifyPropertyChanged
     /// </summary>
     /// <remarks></remarks>
     public abstract class Notifier : INotifyPropertyChanged

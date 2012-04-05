@@ -1,44 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using Common;
-using Data;
+﻿using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace Services
 {
-    class Poster : Notifier, IPoster
+    public class Poster
     {
-        private string _name;
-
-        public string Name
+        public Poster(string fileName)
         {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                Notify("Name");
-            }
+            Name = Path.GetFileNameWithoutExtension(fileName);
+            Image = new BitmapImage();
+            Image.BeginInit();
+            Image.StreamSource = File.OpenRead(fileName);
+            Image.CacheOption = BitmapCacheOption.OnLoad;
+            Image.EndInit();
+            Image.Freeze();
         }
-
-        public Poster(PosterReader posterReader)
-        {
-            PosterReader = posterReader;
-            PosterReader.PropertyChanged += PosterReaderChanged;
-            ReadFromPosterReader();
-        }
-
-        private void PosterReaderChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromPosterReader();
-        }
-
-        private void ReadFromPosterReader()
-        {
-            Name = PosterReader.ReadPoster();
-        }
-
-        protected PosterReader PosterReader { get; set; }
+        public string Name { get; private set; }
+        public BitmapImage Image { get; private set; }
     }
 }

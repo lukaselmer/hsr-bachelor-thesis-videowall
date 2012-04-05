@@ -1,26 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using Common;
 using Services;
 
 namespace ViewModels
 {
-    public class LunchMenuViewModel : Notifier
+    public class LunchMenuViewModel : Notifier, IDisposable
     {
-        public LunchMenuViewModel(ILunchMenu lunchMenu)
+        private LunchMenu _lunchMenu;
+        private bool _isLunchMenuViewVisible;
+        private string _name;
+        private LunchMenuService _lunchMenuService;
+
+        public LunchMenuViewModel(LunchMenuService lunchMenuService)
         {
-            LunchMenu = lunchMenu;
-            LunchMenu.PropertyChanged += LunchMenuChanged;
+            _lunchMenuService = lunchMenuService;
+            _lunchMenuService.PropertyChanged += LunchMenuServiceChanged;
+            ReadFromLunchMenuService();
+            Name = "Mittagsmenü";
         }
 
-        private bool _isLunchMenuViewVisible;
+        private void LunchMenuServiceChanged(object sender, PropertyChangedEventArgs e)
+        {
+            ReadFromLunchMenuService();
+        }
 
-        public ILunchMenu LunchMenu { get; set; }
+        private void ReadFromLunchMenuService()
+        {
+            LunchMenu = _lunchMenuService.LunchMenu;
+        }
 
-        public String Name { get { return LunchMenu.Name; } }
+        public LunchMenu LunchMenu
+        {
+            get { return _lunchMenu; }
+            set
+            {
+                _lunchMenu = value;
+                Notify("LunchMenu");
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                Notify("Name");
+            }
+        }
 
         public bool IsLunchMenuViewVisible
         {
@@ -32,9 +60,9 @@ namespace ViewModels
             }
         }
 
-        private void LunchMenuChanged(object sender, PropertyChangedEventArgs e)
+        public void Dispose()
         {
-            Notify("Name");
+            _lunchMenuService.PropertyChanged -= LunchMenuServiceChanged;
         }
     }
 }

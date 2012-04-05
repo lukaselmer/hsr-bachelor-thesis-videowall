@@ -7,8 +7,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="5" Content="{Binding PosterViewModel.Name}" Command="{Binding ShowPosterViewCommand}"></Button>
-            <Button Margin="5" Content="{Binding LunchMenuViewModel.Name}" Command="{Binding ShowLunchMenuViewCommand}"></Button>
+            <Button Content="{Binding PosterViewModel.Name}" Command="{Binding ShowPosterViewCommand}"></Button>
+            <Button Content="{Binding LunchMenuViewModel.Name}" Command="{Binding ShowLunchMenuViewCommand}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

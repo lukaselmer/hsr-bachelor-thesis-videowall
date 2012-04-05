@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using Microsoft.Kinect;
 
 namespace Data.Kinect
@@ -24,7 +25,7 @@ namespace Data.Kinect
                              select sensorToCheck).FirstOrDefault();
 
             if (_kinectSensor == null) throw new Exception("No ready Kinect connected!");
-
+            
             _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
         }
 

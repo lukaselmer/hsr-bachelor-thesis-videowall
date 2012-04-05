@@ -1,43 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Common;
-using Data;
+using System.Windows.Media.Imaging;
 
 namespace Services
 {
-    class LunchMenu : Notifier, ILunchMenu
+    public class LunchMenu
     {
-        private string _name;
-
-        public string Name {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                Notify("Name");
-            }
-        }
-
-        protected LunchMenuReader LunchMenuReader { get; set; }
-
-        public LunchMenu(LunchMenuReader lunchMenuReader)
+        public LunchMenu(string fileName)
         {
-            LunchMenuReader = lunchMenuReader;
-            LunchMenuReader.PropertyChanged += LunchMenuReaderChanged;
-            ReadFromLunchMenuReader();
+            Name = Path.GetFileNameWithoutExtension(fileName);
+            Image = new BitmapImage();
+            Image.BeginInit();
+            Image.StreamSource = File.OpenRead(fileName);
+            Image.EndInit();
+            Image.Freeze();
         }
 
-        private void LunchMenuReaderChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromLunchMenuReader();
-        }
-
-        private void ReadFromLunchMenuReader()
-        {
-            Name = LunchMenuReader.ReadMenu();
-        }
+        public string Name { get; private set; }
+        public BitmapImage Image { get; private set; }
     }
 }

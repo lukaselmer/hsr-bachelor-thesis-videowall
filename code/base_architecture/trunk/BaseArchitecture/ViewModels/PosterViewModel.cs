@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Windows.Media;
+using System.Windows.Input;
 using Common;
 using Services;
 
@@ -11,30 +10,67 @@ namespace ViewModels
 {
     public class PosterViewModel : Notifier, IDisposable
     {
-        public PosterViewModel(IPoster poster)
+        private List<Poster> _posters;
+        private bool _isPosterViewVisible;
+        private Poster _currentPoster;
+        private string _name;
+        private PosterService _posterService;
+
+        public PosterViewModel(PosterService posterService)
         {
-            Poster = poster;
-            Poster.PropertyChanged += PosterChanged;
+            _posterService = posterService;
+            _posterService.PropertyChanged += PosterServiceChanged;
+            ReadFromPosterService();
+            Name = "Poster";
+            NavigateToLeftCommand = new Command(OnNavigateToLeft);
+            NavigateToRightCommand = new Command(OnNavigateToRight);
         }
 
-        private void PosterChanged(object sender, PropertyChangedEventArgs e)
+        private void PosterServiceChanged(object sender, PropertyChangedEventArgs e)
         {
-            Notify("Name");
-            Notify("Color");
+            ReadFromPosterService();
         }
 
-        protected IPoster Poster { get; set; }
-
-        public string Name { get { return Poster.Name; } }
-        public Color Color
+        private void ReadFromPosterService()
         {
-            get
+            Posters = _posterService.Posters;
+            CurrentPoster = Posters.First();
+        }
+
+        private void OnNavigateToRight(object obj)
+        {
+            int index = _posters.IndexOf(CurrentPoster) + 1;
+            CurrentPoster = index >= _posters.Count ? _posters.First() : _posters[index];
+        }
+
+        private void OnNavigateToLeft(object obj)
+        {
+            int index = _posters.IndexOf(CurrentPoster) - 1;
+            CurrentPoster = index < 0 ? _posters.Last() : _posters[index];
+        }
+
+        public ICommand NavigateToLeftCommand { get; set; }
+        public ICommand NavigateToRightCommand { get; set; }
+
+        public Poster CurrentPoster
+        {
+            get { return _currentPoster; }
+            set
             {
-                return Name.ToLower().StartsWith("a") ? Colors.Red : Colors.Green;
+                _currentPoster = value;
+                Notify("CurrentPoster");
             }
         }
 
-        private bool _isPosterViewVisible;
+        public List<Poster> Posters
+        {
+            get { return _posters; }
+            set
+            {
+                _posters = value;
+                Notify("Posters");
+            }
+        }
 
         public bool IsPosterViewVisible
         {
@@ -46,14 +82,19 @@ namespace ViewModels
             }
         }
 
-        public void ChangeName()
+        public string Name
         {
-            Poster.Name = "Hi! <3";
+            get { return _name; }
+            set
+            {
+                _name = value;
+                Notify("Name");
+            }
         }
 
         public void Dispose()
         {
-            Poster.PropertyChanged -= PosterChanged;
+            _posterService.PropertyChanged -= PosterServiceChanged;
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Windows.Input;
 
 namespace ViewModels
 {
@@ -12,25 +9,15 @@ namespace ViewModels
             PosterViewModel = posterViewModel;
             LunchMenuViewModel = lunchMenuViewModel;
             PlayerViewModel = playerViewModel;
-            ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
             ShowPosterViewCommand = new Command(OnShowPosterView);
+            ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
             OnShowPosterView(null);
         }
 
-        public PosterViewModel PosterViewModel { get; private set; }
-
-        public LunchMenuViewModel LunchMenuViewModel { get; private set; }
-
-        public PlayerViewModel PlayerViewModel { get; private set; }
-
-        public Command ShowLunchMenuViewCommand { get; set; }
-
-        public Command ShowPosterViewCommand { get; set; }
-
         private void OnShowPosterView(object obj)
         {
-            PosterViewModel.IsPosterViewVisible = true;
             LunchMenuViewModel.IsLunchMenuViewVisible = false;
+            PosterViewModel.IsPosterViewVisible = true;
         }
 
         private void OnShowLunchMenuView(object obj)
@@ -38,5 +25,14 @@ namespace ViewModels
             PosterViewModel.IsPosterViewVisible = false;
             LunchMenuViewModel.IsLunchMenuViewVisible = true;
         }
+
+
+        public PosterViewModel PosterViewModel { get; set; }
+        public LunchMenuViewModel LunchMenuViewModel { get; set; }
+        public PlayerViewModel PlayerViewModel { get; set; }
+
+        public ICommand ShowLunchMenuViewCommand { get; set; }
+
+        public ICommand ShowPosterViewCommand { get; set; }
     }
 }

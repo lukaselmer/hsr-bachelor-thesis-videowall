@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.IO;
 using Common;
 
 namespace Data
 {
     public class PosterReader : Notifier
     {
-        private readonly IPosterReaderConfig PosterReaderConfig;
-
-        public PosterReader(IPosterReaderConfig posterReaderConfig)
+        public PosterReader()
         {
-            PosterReaderConfig = posterReaderConfig;
+            Path = @"...\...\...\Resources\Poster";
         }
 
-        public string ReadPoster()
+        public string Path { get; private set; }
+        public IEnumerable<string> Files
         {
-            return PosterReaderConfig.ReadsAs() ? "Aaaaa" : "Bla";
+            get
+            {
+                return Directory.GetFiles(Path, "*jpg");
+            }
         }
     }
 }

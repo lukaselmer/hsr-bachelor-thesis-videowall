@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{3CA470F0-3B93-43D2-A61C-5B938AD5618C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{C15E0103-44EA-457A-AB75-C9E00E6EFD17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|x86.ActiveCfg = Release|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C15E0103-44EA-457A-AB75-C9E00E6EFD17}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

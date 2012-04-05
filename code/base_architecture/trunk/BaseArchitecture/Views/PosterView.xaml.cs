@@ -24,11 +24,5 @@ namespace Views
         {
             InitializeComponent();
         }
-
-
-        private void ButtonClicked(object sender, RoutedEventArgs e)
-        {
-            ((PosterViewModel)DataContext).ChangeName();
-        }
     }
 }

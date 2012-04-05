@@ -7,8 +7,6 @@ namespace Views
     /// </summary>
     public partial class PlayerView
     {
-        private PlayerViewModel _player;
-
         public PlayerView()
         {
             InitializeComponent();
