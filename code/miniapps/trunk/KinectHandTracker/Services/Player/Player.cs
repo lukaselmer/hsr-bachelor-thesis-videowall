@@ -38,7 +38,7 @@ namespace Services.Player
         {
             Playing = true;
             _skeletonReader.SkeletonsReady += OnKinectSensorOnSkeletonFrameReady;
-            //_skeletonReader.Start();
+            _skeletonReader.Start();
 
             /*_skeletonRecorder = new SkeletonRecorder();
             var saveFileDialog = new SaveFileDialog { Title = "Select filename", Filter = "Replay files|*.replay" };

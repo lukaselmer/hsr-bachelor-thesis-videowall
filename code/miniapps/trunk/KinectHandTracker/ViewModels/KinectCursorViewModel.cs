@@ -18,10 +18,11 @@ namespace ViewModels
     /// The PlayerViewModel
     /// Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    public class CursorViewModel : Notifier, IDisposable
+    public class KinectCursorViewModel : Notifier, ICursorViewModel
     {
         private readonly Player _player;
         private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
+        private Color _background;
 
         #region Properties
         /// <summary>
@@ -38,6 +39,10 @@ namespace ViewModels
         public double WindowWidth { get; set; }
         public double WindowHeight { get; set; }
 
+        public ICommand GreenCommand { get; private set; }
+        public ICommand RedCommand { get; private set; }
+        public ICommand BlueCommand { get; private set; }
+
         #endregion
 
         /// <summary>
@@ -45,13 +50,35 @@ namespace ViewModels
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="handCursorPositionCalculator">The cursor position calculator </param>
-        public CursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
+        public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
         {
             _player = player;
             _handCursorPositionCalculator = handCursorPositionCalculator;
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 600;
             WindowHeight = 400;
+
+            InitCommands();
+        }
+
+        private void InitCommands()
+        {
+            GreenCommand = new ActionCommand(() => Background = Colors.Green);
+            RedCommand = new ActionCommand(() => Background = Colors.Red);
+            BlueCommand = new ActionCommand(() => Background = Colors.Blue);
+        }
+
+        public Color Background
+        {
+            get
+            {
+                return _background;
+            }
+            set
+            {
+                _background = value;
+                Notify("Background");
+            }
         }
 
         /// <summary>
@@ -69,7 +96,7 @@ namespace ViewModels
         /// </summary>
         public void Dispose()
         {
-            _player.PropertyChanged -= Notify;
+            _player.PropertyChanged -= PlayerModelChanged;
         }
 
         public void WindowSizeChanged(object sender, SizeChangedEventArgs e)

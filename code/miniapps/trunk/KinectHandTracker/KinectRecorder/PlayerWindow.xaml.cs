@@ -10,7 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Data.Kinect;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 using Services.Player;
 using Services.Recorder;
 using ViewModels;
@@ -29,10 +31,6 @@ namespace Views
             InitializeComponent();
             DataContext = _playerViewModel = playerViewModel;
             playerViewModel.StartOrStopCommand.Execute(null);
-
-            var container = new UnityContainer();
-            container.RegisterInstance(_playerViewModel.Player);
-            container.Resolve<CursorWindow>().Show();
         }
     }
 }

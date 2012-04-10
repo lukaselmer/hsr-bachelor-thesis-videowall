@@ -4,12 +4,35 @@
         Title="CursorWindow" Height="{Binding WindowHeight, Mode=TwoWay}" Width="{Binding WindowWidth, Mode=TwoWay}"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" mc:Ignorable="d" d:DataContext="{d:DesignInstance ViewModels:CursorViewModel}">
-    <Canvas>
-        <Ellipse Width="10" Height="10" Fill="DeepSkyBlue">
-            <Ellipse.RenderTransform>
+        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" xmlns:Views="clr-namespace:Views"
+        mc:Ignorable="d" d:DataContext="{d:DesignInstance ViewModels:ICursorViewModel, IsDesignTimeCreatable=False}">
+    <Window.Background>
+        <LinearGradientBrush SpreadMethod="Reflect">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Color="White" Offset="0"></GradientStop>
+                <GradientStop Color="{Binding Background}" Offset="0.5"></GradientStop>
+                <GradientStop Color="White" Offset="1"></GradientStop>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+      <!--  <SolidColorBrush Color="{Binding Background}" Opacity="0.5" /> -->
+    </Window.Background>
+    <Canvas Name="MainContainer" x:FieldModifier="private">
+        <Canvas Canvas.ZIndex="100">
+            <Canvas.RenderTransform>
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />
-            </Ellipse.RenderTransform>
-        </Ellipse>
+            </Canvas.RenderTransform>
+            
+            <Ellipse Width="10" Height="10" Fill="DeepSkyBlue" />
+            <Views:CursorAnimation x:Name="CursorAmimation" Width="50" Height="50" x:FieldModifier="private" Visibility="Hidden" />
+        </Canvas>
+
+        <StackPanel>
+            <TextBlock>Bla</TextBlock>
+            <TextBlock>Bla</TextBlock>
+            <TextBlock>Bla</TextBlock>
+            <Button Command="{Binding RedCommand}" Background="Red" Width="200" Height="40">Red</Button>
+            <Button Command="{Binding BlueCommand}" Background="Blue" Width="200" Height="40">Blue</Button>
+            <Button Command="{Binding GreenCommand}" Background="Green" Width="200" Height="40">Green</Button>
+        </StackPanel>
     </Canvas>
 </Window>

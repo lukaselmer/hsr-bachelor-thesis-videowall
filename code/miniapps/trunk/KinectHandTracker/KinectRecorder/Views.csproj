@@ -111,6 +111,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -120,9 +121,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CursorAnimation.xaml.cs">
+      <DependentUpon>CursorAnimation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CursorWindow.xaml.cs">
       <DependentUpon>CursorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedVisualTreeHelper.cs" />
     <Compile Include="PlayerWindow.xaml.cs">
       <DependentUpon>PlayerWindow.xaml</DependentUpon>
     </Compile>
@@ -131,6 +136,10 @@
     <Compile Include="SkeletonView.xaml.cs">
       <DependentUpon>SkeletonView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CursorAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CursorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

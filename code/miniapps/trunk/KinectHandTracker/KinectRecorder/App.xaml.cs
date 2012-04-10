@@ -15,7 +15,9 @@ namespace Views
     {
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            IUnityContainer container = new UnityContainer().LoadConfiguration();
+            var container = new UnityContainer().LoadConfiguration();
+            container.Resolve<CursorWindow>().Show();
+
             container.Resolve<PlayerWindow>().Show();
 
             //var x = container.Resolve<ISkeletonReader>();

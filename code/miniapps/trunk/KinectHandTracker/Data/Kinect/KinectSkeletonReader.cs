@@ -15,7 +15,7 @@ namespace Data.Kinect
             _kinectSensor = (from sensorToCheck in KinectSensor.KinectSensors
                              where sensorToCheck.Status == KinectStatus.Connected
                              select sensorToCheck).FirstOrDefault();
-            
+
             if (_kinectSensor == null) throw new Exception("No ready Kinect connected!");
 
             _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
@@ -29,14 +29,18 @@ namespace Data.Kinect
                 _skeletons = new Skeleton[frame.SkeletonArrayLength];
                 frame.CopySkeletonDataTo(_skeletons);
                 var args = new SkeletonsReadyEventArgs(_skeletons);
-                SkeletonsReady(this, args);
+                /*if (SkeletonsReady != null) */ SkeletonsReady(this, args);
             }
         }
 
         public void Start()
         {
-            var parameters =  _kinectSensor.SkeletonStream.SmoothParameters;
-            parameters.Smoothing = 0.9f;
+            /*correction:Number = 0.5, jitterRadius:Number = 0.05,
+                                                   maxDeviationRadius:Number = 0.04, prediction:Number = 0.5,
+                                                   smoothing:Number = 0.5*/
+
+            var parameters = _kinectSensor.SkeletonStream.SmoothParameters;
+            parameters.Smoothing = 0.95f;
             _kinectSensor.SkeletonStream.Enable(parameters);
             _kinectSensor.Start();
         }

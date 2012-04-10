@@ -13,7 +13,7 @@ namespace Services.HandCursor
 
         public HandCursorPositionCalculator()
         {
-            RelativePadding = new RelativePadding(0.45, 0.3, 0.3, 0.35);
+            RelativePadding = new RelativePadding(0.45, 0.1, 0.3, 0.49);
             //AbsoloutePadding = new Padding(0.5, 0, 0, 0);
         }
 
@@ -47,8 +47,8 @@ namespace Services.HandCursor
             // 0 <= posX <= zone.Width and 0 <= posY <= zone.Height
             posX -= padding.Left;
             posY -= padding.Top;
-            Debug.Assert(0 <= posX && posX <= zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
-            Debug.Assert(0 <= posY && posY <= zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
+            Debug.Assert(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
+            Debug.Assert(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
 
             // Scale the zone relative coordinate to the window size
             posX = posX * window.Width / zone.Width;
