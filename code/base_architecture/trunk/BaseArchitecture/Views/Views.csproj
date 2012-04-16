@@ -76,9 +76,6 @@
     <Compile Include="CursorAnimation.xaml.cs">
       <DependentUpon>CursorAnimation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CursorWindow.xaml.cs">
-      <DependentUpon>CursorWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ExtendedVisualTreeHelper.cs" />
     <Compile Include="PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
@@ -90,10 +87,6 @@
       <DependentUpon>SkeletonView.xaml</DependentUpon>
     </Compile>
     <Page Include="CursorAnimation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CursorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

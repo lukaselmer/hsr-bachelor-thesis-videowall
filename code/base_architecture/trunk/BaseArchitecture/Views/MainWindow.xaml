@@ -26,10 +26,8 @@
                 <RowDefinition Height="500"/>
             </Grid.RowDefinitions>
             <Views:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
-            
             <Views:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
             <Views:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
-            <!--:SkeletonView Grid.Row="2" BorderBrush="Blue" BorderThickness="3" DataContext="{Binding PlayerViewModel}"></Views:SkeletonView>-->
             <Views:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
         </Grid>
     </Grid>
