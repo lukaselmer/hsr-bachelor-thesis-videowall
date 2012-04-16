@@ -72,6 +72,7 @@
     <Compile Include="KinectCursorViewModel.cs" />
     <Compile Include="LunchMenuViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MenuViewModel.cs" />
     <Compile Include="MouseCursorViewModel.cs" />
     <Compile Include="PlayerViewModel.cs" />
     <Compile Include="PosterViewModel.cs" />
