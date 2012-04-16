@@ -25,7 +25,6 @@
             <Ellipse Width="10" Height="10" Fill="DeepSkyBlue" />
             <Views:CursorAnimation x:Name="CursorAmimation" Width="50" Height="50" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
-
         <StackPanel>
             <TextBlock>Bla</TextBlock>
             <TextBlock>Bla</TextBlock>

@@ -4,11 +4,12 @@ namespace ViewModels
 {
     public class MainWindowViewModel
     {
-        public MainWindowViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel, PlayerViewModel playerViewModel)
+        public MainWindowViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel)
         {
             PosterViewModel = posterViewModel;
             LunchMenuViewModel = lunchMenuViewModel;
             PlayerViewModel = playerViewModel;
+            CursorViewModel = cursorViewModel;
             ShowPosterViewCommand = new Command(OnShowPosterView);
             ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
             OnShowPosterView(null);
@@ -30,6 +31,7 @@ namespace ViewModels
         public PosterViewModel PosterViewModel { get; set; }
         public LunchMenuViewModel LunchMenuViewModel { get; set; }
         public PlayerViewModel PlayerViewModel { get; set; }
+        public ICursorViewModel CursorViewModel { get; set; }
 
         public ICommand ShowLunchMenuViewCommand { get; set; }
 
