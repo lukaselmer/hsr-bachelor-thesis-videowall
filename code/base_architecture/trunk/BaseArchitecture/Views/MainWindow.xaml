@@ -6,10 +6,11 @@
         Height="{Binding CursorViewModel.WindowHeight, Mode=TwoWay}"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" xmlns:Views="clr-namespace:Views"
-        mc:Ignorable="d"
+        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" 
+        xmlns:Views="clr-namespace:Views" mc:Ignorable="d"
         d:DataContext="{d:DesignInstance ViewModels:MainWindowViewModel}">
     <Grid Name="MainContainer" x:FieldModifier="private">
+        
         <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}">
             <Canvas.RenderTransform>
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />

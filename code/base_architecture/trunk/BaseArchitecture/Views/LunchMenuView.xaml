@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance ViewModels:LunchMenuViewModel}">
+             d:DesignHeight="300" d:DesignWidth="300" 
+             d:DataContext="{d:DesignInstance ViewModels:LunchMenuViewModel}">
     <Grid>
         <Image Source="{Binding LunchMenu.Image}"></Image>
     </Grid>

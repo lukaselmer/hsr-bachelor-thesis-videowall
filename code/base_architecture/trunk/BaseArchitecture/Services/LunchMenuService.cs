@@ -24,7 +24,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Gets or sets the lunch menu.
+        /// Gets or sets and notifies the lunch menu.
         /// </summary>
         /// <value>
         /// The lunch menu.

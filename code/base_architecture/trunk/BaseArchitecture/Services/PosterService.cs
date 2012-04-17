@@ -25,7 +25,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Gets or sets the posters.
+        /// Gets or sets and notifies the posters.
         /// </summary>
         /// <value>
         /// The posters.

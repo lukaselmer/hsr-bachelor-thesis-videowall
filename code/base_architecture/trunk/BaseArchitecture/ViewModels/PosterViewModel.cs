@@ -8,6 +8,9 @@ using Services;
 
 namespace ViewModels
 {
+    /// <summary>
+    /// Reviewed by Delia Treichler, 17.04.2012
+    /// </summary>
     public class PosterViewModel : Notifier, IDisposable
     {
         private List<Poster> _posters;
