@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 using Common;
 using Data;
 
 namespace Services
 {
+    /// <summary>
+    /// Reviewed by Delia Treichler, 17.04.2012
+    /// </summary>
     public class LunchMenuService : Notifier
     {
+        private LunchMenu _lunchMenu; 
         private LunchMenuReader LunchMenuReader { get; set; }
-        private LunchMenu _lunchMenu;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LunchMenuService"/> class.
+        /// </summary>
+        /// <param name="lunchMenuReader">The lunch menu reader.</param>
         public LunchMenuService(LunchMenuReader lunchMenuReader)
         {
             LunchMenuReader = lunchMenuReader;
@@ -20,6 +23,12 @@ namespace Services
             ReadFromLunchMenuReader();
         }
 
+        /// <summary>
+        /// Gets or sets the lunch menu.
+        /// </summary>
+        /// <value>
+        /// The lunch menu.
+        /// </value>
         public LunchMenu LunchMenu
         {
             get { return _lunchMenu; }
@@ -30,11 +39,19 @@ namespace Services
             }
         }
 
+        /// <summary>
+        /// Reads from lunch menu reader.
+        /// </summary>
         private void ReadFromLunchMenuReader()
         {
             LunchMenu = new LunchMenu(LunchMenuReader.File);
         }
 
+        /// <summary>
+        /// Calls ReadFromLunchMenuReader when LunchMenuReader was changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         private void LunchMenuReaderChanged(object sender, PropertyChangedEventArgs e)
         {
             ReadFromLunchMenuReader();

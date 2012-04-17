@@ -63,6 +63,7 @@
     <Compile Include="HandCursor\HandCursorPositionCalculator.cs" />
     <Compile Include="HandCursor\RelativePadding.cs" />
     <Compile Include="HandCursor\Zone.cs" />
+    <Compile Include="ImageExtension.cs" />
     <Compile Include="LunchMenu.cs" />
     <Compile Include="LunchMenuService.cs" />
     <Compile Include="Player\Player.cs" />
