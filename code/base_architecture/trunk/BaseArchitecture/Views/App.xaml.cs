@@ -13,7 +13,6 @@ namespace Views
         {
             var container = new UnityContainer().LoadConfiguration();
             container.Resolve<MainWindow>().Show();
-            //container.Resolve<CursorWindow>().Show();
             container.Resolve<PlayerWindow>().Show();
         }
     }
