@@ -3,12 +3,15 @@ using System.Windows;
 
 namespace Services.HandCursor
 {
-    internal class AbsoloutePadding
+    /// <summary>
+    /// Reviewed by Christina Heidt, 17.04.2012
+    /// </summary>
+    internal class AbsolutePadding
     {
         private readonly RelativePadding _relative;
         private readonly Size _window;
 
-        public AbsoloutePadding(RelativePadding relative, Size window)
+        public AbsolutePadding(RelativePadding relative, Size window)
         {
             _relative = relative;
             _window = window;
