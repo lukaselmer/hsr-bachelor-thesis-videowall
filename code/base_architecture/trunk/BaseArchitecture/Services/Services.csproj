@@ -59,7 +59,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HandCursor\AbsoloutePadding.cs" />
+    <Compile Include="HandCursor\AbsolutePadding.cs" />
     <Compile Include="HandCursor\HandCursorPositionCalculator.cs" />
     <Compile Include="HandCursor\RelativePadding.cs" />
     <Compile Include="HandCursor\Zone.cs" />

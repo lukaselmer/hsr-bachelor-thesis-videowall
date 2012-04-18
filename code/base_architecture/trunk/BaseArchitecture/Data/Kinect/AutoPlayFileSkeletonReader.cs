@@ -37,6 +37,9 @@ namespace Data.Kinect
             Start();
         }
 
+        /// <summary>
+        /// Initializes the replay timer.
+        /// </summary>
         private void InitReplayTimer()
         {
             _replayTimer = new Timer(CheckTimerInterval);
@@ -55,18 +58,33 @@ namespace Data.Kinect
         }
         #endregion
 
+        /// <summary>
+        /// Replays the timer on elapsed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="elapsedEventArgs">The <see cref="System.Timers.ElapsedEventArgs"/> instance containing the event data.</param>
         private void ReplayTimerOnElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
         {
             if (!CanStart()) return;
             Dispatcher.Invoke(new Action(Start));
         }
 
+        /// <summary>
+        /// Determines whether this instance can start.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if this instance can start; otherwise, <c>false</c>.
+        /// </returns>
         private bool CanStart()
         {
-            return MillisecondsPassedSinceLastSkeletonMovment() >= RestartReplayAfterSoManyMilliseconds;
+            return MillisecondsPassedSinceLastSkeletonMovement() >= RestartReplayAfterSoManyMilliseconds;
         }
 
-        private double MillisecondsPassedSinceLastSkeletonMovment()
+        /// <summary>
+        /// Millisecondses the passed since last skeleton movement.
+        /// </summary>
+        /// <returns></returns>
+        private double MillisecondsPassedSinceLastSkeletonMovement()
         {
             return DateTime.Now.Subtract(_lastTimeReady).TotalMilliseconds;
         }

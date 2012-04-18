@@ -3,13 +3,23 @@ using System.Diagnostics;
 
 namespace Services.HandCursor
 {
+    /// <summary>
+    /// Reviewed by Christina Heidt, 17.04.2012
+    /// </summary>
     public class RelativePadding
     {
-        public Double Left { get; private set; }
+        public double Left { get; private set; }
         public double Top { get; private set; }
         public double Right { get; private set; }
         public double Bottom { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RelativePadding"/> class.
+        /// </summary>
+        /// <param name="left">The left padding.</param>
+        /// <param name="top">The top padding.</param>
+        /// <param name="right">The right padding.</param>
+        /// <param name="bottom">The bottom padding.</param>
         public RelativePadding(double left, double top, double right, double bottom)
         {
             Left = left;

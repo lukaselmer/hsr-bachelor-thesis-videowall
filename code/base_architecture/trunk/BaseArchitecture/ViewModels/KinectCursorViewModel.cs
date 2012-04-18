@@ -9,6 +9,9 @@ using Services.HandCursor;
 
 namespace ViewModels
 {
+    /// <summary>
+    /// Reviewed by Christina Heidt, 17.04.2012
+    /// </summary>
     public class KinectCursorViewModel : Notifier, ICursorViewModel
     {
         private readonly Player _player;
@@ -17,7 +20,7 @@ namespace ViewModels
 
         #region Properties
         /// <summary>
-        /// Gets the status.
+        /// Gets the position.
         /// </summary>
         public Point Position
         {
