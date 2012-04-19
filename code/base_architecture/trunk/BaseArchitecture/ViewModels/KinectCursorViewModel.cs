@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -30,8 +31,8 @@ namespace ViewModels
             }
         }
 
-        public double WindowWidth { get; set; }
-        public double WindowHeight { get; set; }
+        public double WindowWidth { private get; set; }
+        public double WindowHeight { private get; set; }
 
         public ICommand GreenCommand { get; private set; }
         public ICommand RedCommand { get; private set; }
@@ -49,8 +50,8 @@ namespace ViewModels
             _player = player;
             _handCursorPositionCalculator = handCursorPositionCalculator;
             _player.PropertyChanged += PlayerModelChanged;
-            WindowWidth = 600;
-            WindowHeight = 400;
+            WindowWidth = 0;
+            WindowHeight = 0;
 
             InitCommands();
         }

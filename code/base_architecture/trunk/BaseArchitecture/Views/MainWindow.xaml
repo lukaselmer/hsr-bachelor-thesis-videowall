@@ -2,23 +2,24 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Video Wall"
-        Width="{Binding CursorViewModel.WindowWidth, Mode=TwoWay}"
-        Height="{Binding CursorViewModel.WindowHeight, Mode=TwoWay}"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" 
         xmlns:Views="clr-namespace:Views" mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance ViewModels:MainWindowViewModel}">
+        d:DataContext="{d:DesignInstance ViewModels:MainWindowViewModel}"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Focusable="True" ResizeMode="NoResize"
+        Width="{Binding CursorViewModel.WindowWidth, Mode=OneWayToSource}" Height="{Binding CursorViewModel.WindowHeight, Mode=OneWayToSource}">
     <Grid Name="MainContainer" x:FieldModifier="private">
-        
-        <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}">
+        <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}" Margin="-20 -20 0 0">
             <Canvas.RenderTransform>
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />
             </Canvas.RenderTransform>
 
-            <Ellipse Width="10" Height="10" Fill="DeepSkyBlue" Margin="-5 -5 0 0"/>
-            <Views:CursorAnimation x:Name="CursorAmimation" Width="50" Height="50" x:FieldModifier="private" Visibility="Hidden" />
+            <Ellipse Width="40" Height="40" Fill="DeepSkyBlue"/>
+            <Views:CursorAnimation x:Name="CursorAmimation" Width="70" Height="70" Margin="-15 -15 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
+
+        <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
 
         <Grid Canvas.Bottom="0" Canvas.Right="0" ClipToBounds="True">
             <Grid.RowDefinitions>

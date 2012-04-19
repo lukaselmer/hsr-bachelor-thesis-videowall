@@ -13,8 +13,8 @@ namespace ViewModels
         /// </summary>
         Point Position { get; }
 
-        double WindowWidth { get; set; }
-        double WindowHeight { get; set; }
+        double WindowWidth { set; }
+        double WindowHeight { set; }
 
         ICommand RedCommand { get; }
         ICommand BlueCommand { get; }

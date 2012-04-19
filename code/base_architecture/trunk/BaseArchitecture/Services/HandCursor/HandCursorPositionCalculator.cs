@@ -20,7 +20,7 @@ namespace Services.HandCursor
         {
             //TODO: Magic numbers. Where do these come from? Needs explanation
             //0.45, 0.1, 0.3, 0.49
-            RelativePadding = new RelativePadding(0.3, 0.3, 0.3, 0.3);
+            RelativePadding = new RelativePadding(0.45, 0.1, 0.3, 0.49);
         }
 
         /// <summary>

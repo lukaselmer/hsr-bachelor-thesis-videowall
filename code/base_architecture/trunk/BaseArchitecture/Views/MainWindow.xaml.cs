@@ -111,5 +111,7 @@ namespace Views
             MouseMove += updateMousePosition;
             Closing += (sender, args) => MouseMove -= updateMousePosition;
         }
+
+        private void OnExit(object sender, RoutedEventArgs e) { Close(); }
     }
 }

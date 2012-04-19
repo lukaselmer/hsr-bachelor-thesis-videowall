@@ -13,7 +13,7 @@ namespace Views
         {
             var container = new UnityContainer().LoadConfiguration();
             container.Resolve<MainWindow>().Show();
-            container.Resolve<PlayerWindow>().Show();
+            //Use this for debugging the skeleton tracking: container.Resolve<PlayerWindow>().Show();
         }
     }
 }
