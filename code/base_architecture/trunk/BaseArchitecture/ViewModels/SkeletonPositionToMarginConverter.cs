@@ -29,7 +29,7 @@ namespace ViewModels
             if (value == null) return new Thickness(0);
 
             var handJoint = (Joint)value;
-            var joint = handJoint.ScaleTo(500, 500);
+            var joint = handJoint.ScaleTo(153, 153);
             var skeletonPoint = joint.Position;
 
             return new Thickness(skeletonPoint.X, skeletonPoint.Y, 0, 0);

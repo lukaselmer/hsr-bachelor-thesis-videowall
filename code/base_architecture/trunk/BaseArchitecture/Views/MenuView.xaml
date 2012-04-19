@@ -8,8 +8,8 @@
              d:DataContext="{d:DesignInstance ViewModels:MenuViewModel}">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="{Binding PosterViewModel.Name}" Command="{Binding ShowPosterViewCommand}"></Button>
-            <Button Content="{Binding LunchMenuViewModel.Name}" Command="{Binding ShowLunchMenuViewCommand}"></Button>
+            <Button Padding="50 0 50 0" Margin="10" Content="{Binding PosterViewModel.Name}" Command="{Binding ShowPosterViewCommand}"></Button>
+            <Button Padding="50 0 50 0" Margin="10" Content="{Binding LunchMenuViewModel.Name}" Command="{Binding ShowLunchMenuViewCommand}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

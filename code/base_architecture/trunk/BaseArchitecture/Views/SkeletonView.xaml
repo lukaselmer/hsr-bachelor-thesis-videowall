@@ -4,7 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:Kinect="clr-namespace:Microsoft.Kinect;assembly=Microsoft.Kinect" mc:Ignorable="d"
-    Width="500" Height="500">
+    Width="153" Height="153">
 
     <UserControl.Resources>
         <DataTemplate x:Key="jointsTemplate">
@@ -21,7 +21,7 @@
         <TextBlock Text="{Binding Position.Y}" />
         <TextBlock Text="{Binding Position.Z}" />-->
 
-        <ItemsControl ItemsSource="{Binding Joints}" ItemTemplate="{StaticResource jointsTemplate}" Width="500" Height="500">
+        <ItemsControl ItemsSource="{Binding Joints}" ItemTemplate="{StaticResource jointsTemplate}" Width="153" Height="153">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas/>
