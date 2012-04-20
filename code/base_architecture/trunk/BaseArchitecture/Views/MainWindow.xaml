@@ -15,9 +15,9 @@
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />
             </Canvas.RenderTransform>
 
-            <Image Source="hand.png" Width="40" Height="40"/>
+            <Image Source="hand.png" Width="60" Height="60"  />
             <!--<Ellipse Width="40" Height="40" Fill="DeepSkyBlue"/>-->
-            <Views:CursorAnimation x:Name="CursorAmimation" Width="70" Height="70" Margin="-15 -15 0 0" x:FieldModifier="private" Visibility="Hidden" />
+            <Views:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 
         <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
