@@ -24,7 +24,7 @@ namespace ViewModels
         /// <returns>
         /// A thickness.
         /// </returns>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public virtual object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null) return new Thickness(0);
 

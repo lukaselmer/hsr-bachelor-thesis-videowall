@@ -83,6 +83,9 @@
     <Compile Include="PlayerWindow.xaml.cs">
       <DependentUpon>PlayerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SkeletonLinesView.xaml.cs">
+      <DependentUpon>SkeletonLinesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SkeletonView.xaml.cs">
       <DependentUpon>SkeletonView.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
     <Page Include="PosterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SkeletonLinesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SkeletonView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +189,9 @@
       <Project>{F8C66FF4-152F-42A7-B550-D134F5D26B0B}</Project>
       <Name>ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

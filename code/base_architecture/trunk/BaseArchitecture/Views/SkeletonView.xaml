@@ -4,7 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:Kinect="clr-namespace:Microsoft.Kinect;assembly=Microsoft.Kinect" mc:Ignorable="d"
-    Width="153" Height="153">
+    Width="500" Height="500" d:DataContext="{d:DesignInstance Kinect:Skeleton, IsDesignTimeCreatable=False}">
 
     <UserControl.Resources>
         <DataTemplate x:Key="jointsTemplate">
@@ -12,9 +12,7 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <d:UserControl.DataContext>
-        <Kinect:Skeleton />
-    </d:UserControl.DataContext>
+    
 
     <Canvas>
        <!-- <TextBlock Text="{Binding Position.X}" />
