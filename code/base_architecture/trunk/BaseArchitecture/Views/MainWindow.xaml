@@ -10,13 +10,12 @@
         WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Focusable="True" ResizeMode="NoResize"
         Width="{Binding CursorViewModel.WindowWidth, Mode=OneWayToSource}" Height="{Binding CursorViewModel.WindowHeight, Mode=OneWayToSource}">
     <Grid Name="MainContainer" x:FieldModifier="private">
-        <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}" Margin="-20 -20 0 0">
+        <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}" Margin="-30 -30 0 0">
             <Canvas.RenderTransform>
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />
             </Canvas.RenderTransform>
 
-            <Image Source="hand.png" Width="60" Height="60"  />
-            <!--<Ellipse Width="40" Height="40" Fill="DeepSkyBlue"/>-->
+            <Image Source="pack://application:,,,/Views;component/Resources/hand.png" Width="60" Height="60"/>
             <Views:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 
