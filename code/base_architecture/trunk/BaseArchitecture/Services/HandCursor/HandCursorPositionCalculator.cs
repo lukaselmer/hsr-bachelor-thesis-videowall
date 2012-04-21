@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Coding4Fun.Kinect.Wpf;
 using Microsoft.Kinect;
 using System.Windows;
@@ -24,12 +26,38 @@ namespace Services.HandCursor
         }
 
         /// <summary>
+        /// Calculates the position of the hand cursor from the position of multiple skeletons by taking their avertage.
+        /// </summary>
+        /// <param name="window">The size of the window.</param>
+        /// <param name="skeletons">The skeletons.</param>
+        /// <returns></returns>
+        public Point CalculatePositionFromSkeletons(Size window, Queue<Skeleton> skeletons)
+        {
+            var totalPosition = new Point(0, 0);
+            foreach (var singlePosition in skeletons.Select(skeleton => CalculatePositionFromSkeleton(window, skeleton)))
+            {
+                totalPosition.X += singlePosition.X;
+                totalPosition.Y += singlePosition.Y;
+            }
+            totalPosition.X /= skeletons.Count;
+            totalPosition.Y /= skeletons.Count;
+            return totalPosition;
+
+            // Alternative implementation. Is this better readable?
+            //var points = new List<Point>(skeletons.Count);
+            //points.AddRange(skeletons.Select(skeleton => CalculatePositionFromSkeleton(window, skeleton)));
+            //var xSum = points.Sum(point => point.X);
+            //var ySum = points.Sum(point => point.Y);
+            //return new Point(xSum / skeletons.Count, ySum / skeletons.Count);
+        }
+
+        /// <summary>
         /// Calculates the position of the hand cursor from the position of the skeleton.
         /// </summary>
         /// <param name="window">The size of the window.</param>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        public Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton)
+        private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton)
         {
             if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
 

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using Common;
 using Microsoft.Expression.Interactivity.Core;
+using Microsoft.Kinect;
 using Services;
 using Services.HandCursor;
 
@@ -15,9 +17,12 @@ namespace ViewModels
     /// </summary>
     public class KinectCursorViewModel : Notifier, ICursorViewModel
     {
+        private const int CursorSmoothingLevel = 10;
+
         private readonly Player _player;
         private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
         private Color _background;
+        private Queue<Skeleton> _skeletonHistory;
 
         #region Properties
         /// <summary>
@@ -27,7 +32,7 @@ namespace ViewModels
         {
             get
             {
-                return _handCursorPositionCalculator.CalculatePositionFromSkeleton(new Size(WindowWidth, WindowHeight), _player.Skeleton);
+                return _handCursorPositionCalculator.CalculatePositionFromSkeletons(new Size(WindowWidth, WindowHeight), _skeletonHistory);
             }
         }
 
@@ -47,6 +52,8 @@ namespace ViewModels
         /// <param name="handCursorPositionCalculator">The cursor position calculator </param>
         public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
         {
+            _skeletonHistory = new Queue<Skeleton>(CursorSmoothingLevel);
+
             _player = player;
             _handCursorPositionCalculator = handCursorPositionCalculator;
             _player.PropertyChanged += PlayerModelChanged;
@@ -83,6 +90,11 @@ namespace ViewModels
         /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         private void PlayerModelChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName != "Skeleton") return;
+
+            if (_skeletonHistory.Count >= CursorSmoothingLevel) _skeletonHistory.Dequeue();
+            _skeletonHistory.Enqueue(_player.Skeleton);
+
             Notify("Position");
         }
 
