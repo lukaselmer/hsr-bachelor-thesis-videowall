@@ -52,7 +52,7 @@ namespace ViewModels
         public PlayerViewModel(Player player)
         {
             Lines = new ObservableCollection<LineViewModel>();
-        
+
             _player = player;
             _player.PropertyChanged += PlayerModelChanged;
             _player.StartPlaying();

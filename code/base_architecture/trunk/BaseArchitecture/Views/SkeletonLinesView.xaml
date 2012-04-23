@@ -9,10 +9,10 @@
 
     <UserControl.Resources>
         <DataTemplate x:Key="linesTemplate">
-            <Line X1="{Binding StartPosition, Converter={StaticResource skeletonPositionConverterX}}"
-                  Y1="{Binding StartPosition, Converter={StaticResource skeletonPositionConverterY}}"
-                  X2="{Binding EndPosition, Converter={StaticResource skeletonPositionConverterX}}"
-                  Y2="{Binding EndPosition, Converter={StaticResource skeletonPositionConverterY}}" StrokeThickness="4" Stroke="Blue"
+            <Line X1="{Binding StartPosition.X}"
+                  Y1="{Binding StartPosition.Y}"
+                  X2="{Binding EndPosition.X}"
+                  Y2="{Binding EndPosition.Y}" StrokeThickness="4" Stroke="Blue"
                   d:DataContext="{d:DesignInstance ViewModels:LineViewModel}" />
         </DataTemplate>
     </UserControl.Resources>

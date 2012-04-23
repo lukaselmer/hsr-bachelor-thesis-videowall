@@ -9,7 +9,6 @@
     <Grid>
         <Border BorderBrush="AliceBlue" BorderThickness="3">
             <Canvas VerticalAlignment="Stretch"  Height="153" Width="153" HorizontalAlignment="Stretch">
-                <!--<Views:SkeletonView DataContext="{Binding Skeleton}" />-->
                 <Views:SkeletonLinesView DataContext="{Binding .}" />
             </Canvas>
         </Border>
