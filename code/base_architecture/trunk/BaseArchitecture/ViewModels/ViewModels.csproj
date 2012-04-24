@@ -70,7 +70,7 @@
     <Compile Include="HitButton\HitTestHelper.cs" />
     <Compile Include="ICursorViewModel.cs" />
     <Compile Include="KinectCursorViewModel.cs" />
-    <Compile Include="LineViewModel.cs" />
+    <Compile Include="SkeletonLine.cs" />
     <Compile Include="LunchMenuViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="MenuViewModel.cs" />

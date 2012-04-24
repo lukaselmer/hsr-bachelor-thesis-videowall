@@ -19,7 +19,13 @@ namespace Services
             Image.InitializeWith(fileName);
         }
 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
         public string Name { get; private set; }
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
         public BitmapImage Image { get; private set; }
     }
 }

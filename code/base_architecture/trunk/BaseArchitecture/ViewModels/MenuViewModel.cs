@@ -25,10 +25,36 @@ namespace ViewModels
             OnShowPosterView(null);
         }
 
+        /// <summary>
+        /// Gets or sets the poster view model.
+        /// </summary>
+        /// <value>
+        /// The poster view model.
+        /// </value>
         public PosterViewModel PosterViewModel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the lunch menu view model.
+        /// </summary>
+        /// <value>
+        /// The lunch menu view model.
+        /// </value>
         public LunchMenuViewModel LunchMenuViewModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the show lunch menu view command.
+        /// </summary>
+        /// <value>
+        /// The show lunch menu view command.
+        /// </value>
         public ICommand ShowLunchMenuViewCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the show poster view command.
+        /// </summary>
+        /// <value>
+        /// The show poster view command.
+        /// </value>
         public ICommand ShowPosterViewCommand { get; set; }
 
         /// <summary>

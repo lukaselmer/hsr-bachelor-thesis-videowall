@@ -7,6 +7,9 @@ namespace ViewModels.HitButton
     /// </summary>
     public class HitStateArgs
     {
+        /// <summary>
+        /// Gets the UI element.
+        /// </summary>
         public UIElement UIElement { get; private set; }
 
         /// <summary>

@@ -27,8 +27,19 @@ namespace ViewModels.HitButton
 
         private UIElement _currentElement;
 
+        /// <summary>
+        /// Occurs when [started].
+        /// </summary>
         public event HitStateChanged Started;
+
+        /// <summary>
+        /// Occurs when [stopped].
+        /// </summary>
         public event HitStateChanged Stopped;
+
+        /// <summary>
+        /// Occurs when [clicked].
+        /// </summary>
         public event HitStateChanged Clicked;
 
         /// <summary>

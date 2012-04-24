@@ -17,6 +17,9 @@ namespace Data
             Path = @"...\...\...\Resources\Poster";
         }
 
+        /// <summary>
+        /// Gets the path of the files.
+        /// </summary>
         public string Path { get; private set; }
         
         /// <summary>

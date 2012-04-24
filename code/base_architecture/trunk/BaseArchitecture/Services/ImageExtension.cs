@@ -8,7 +8,7 @@ namespace Services
         /// <summary>
         /// Initializes the BitmapImage with the string.
         /// </summary>
-        /// <param name="img">The img.</param>
+        /// <param name="img">The image.</param>
         /// <param name="fileName">Name of the file.</param>
         /// <returns></returns>
         public static BitmapImage InitializeWith(this BitmapImage img, string fileName)

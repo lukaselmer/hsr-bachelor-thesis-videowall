@@ -16,6 +16,10 @@ namespace Data
         {
             Path = @"...\...\...\Resources\LunchMenu";
         }
+
+        /// <summary>
+        /// Gets the path of the file.
+        /// </summary>
         public string Path { get; private set; }
 
         /// <summary>

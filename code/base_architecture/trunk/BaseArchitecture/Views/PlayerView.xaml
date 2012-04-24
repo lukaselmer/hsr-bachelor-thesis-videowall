@@ -8,7 +8,7 @@
         mc:Ignorable="d" d:DataContext="{d:DesignInstance ViewModels:PlayerViewModel}">
     <Grid>
         <Border BorderBrush="AliceBlue" BorderThickness="3">
-            <Canvas VerticalAlignment="Stretch"  Height="153" Width="153" HorizontalAlignment="Stretch">
+            <Canvas VerticalAlignment="Stretch"  Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}" HorizontalAlignment="Stretch">
                 <Views:SkeletonLinesView DataContext="{Binding .}" />
             </Canvas>
         </Border>

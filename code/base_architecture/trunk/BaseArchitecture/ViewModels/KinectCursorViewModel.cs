@@ -21,8 +21,7 @@ namespace ViewModels
 
         private readonly Player _player;
         private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
-        private Color _background;
-        private Queue<Skeleton> _skeletonHistory;
+        private readonly Queue<Skeleton> _skeletonHistory;
 
         #region Properties
         /// <summary>
@@ -36,12 +35,21 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Sets the width of the window.
+        /// </summary>
+        /// <value>
+        /// The width of the window.
+        /// </value>
         public double WindowWidth { private get; set; }
-        public double WindowHeight { private get; set; }
 
-        public ICommand GreenCommand { get; private set; }
-        public ICommand RedCommand { get; private set; }
-        public ICommand BlueCommand { get; private set; }
+        /// <summary>
+        /// Sets the height of the window.
+        /// </summary>
+        /// <value>
+        /// The height of the window.
+        /// </value>
+        public double WindowHeight { private get; set; }
 
         #endregion
 
@@ -59,28 +67,6 @@ namespace ViewModels
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
-
-            InitCommands();
-        }
-
-        private void InitCommands()
-        {
-            GreenCommand = new ActionCommand(() => Background = Colors.Green);
-            RedCommand = new ActionCommand(() => Background = Colors.Red);
-            BlueCommand = new ActionCommand(() => Background = Colors.Blue);
-        }
-
-        public Color Background
-        {
-            get
-            {
-                return _background;
-            }
-            set
-            {
-                _background = value;
-                Notify("Background");
-            }
         }
 
         /// <summary>
@@ -106,6 +92,11 @@ namespace ViewModels
             _player.PropertyChanged -= PlayerModelChanged;
         }
 
+        /// <summary>
+        /// Notifies when the window size is changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.SizeChangedEventArgs"/> instance containing the event data.</param>
         public void WindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
             WindowWidth = e.NewSize.Width;

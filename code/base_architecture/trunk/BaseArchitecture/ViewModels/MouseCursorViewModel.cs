@@ -6,12 +6,14 @@ using Microsoft.Expression.Interactivity.Core;
 
 namespace ViewModels
 {
+    /// <summary>
+    /// The Mouse Cursor View Model
+    /// </summary>
     public class MouseCursorViewModel : Notifier, ICursorViewModel
     {
         #region Properties
 
         private Point _position;
-        private Color _background;
 
         /// <summary>
         /// Gets the status.
@@ -26,26 +28,32 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Sets the width of the window.
+        /// </summary>
+        /// <value>
+        /// The width of the window.
+        /// </value>
         public double WindowWidth { get; set; }
-        public double WindowHeight { get; set; }
 
-        public ICommand GreenCommand { get; private set; }
-        public ICommand RedCommand { get; private set; }
-        public ICommand BlueCommand { get; private set; }
+        /// <summary>
+        /// Sets the height of the window.
+        /// </summary>
+        /// <value>
+        /// The height of the window.
+        /// </value>
+        public double WindowHeight { get; set; }
 
         #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MouseCursorViewModel"/> class.
         /// </summary>
-        /// <param name="handCursorPositionCalculator">The cursor position calculator </param>
         public MouseCursorViewModel()
         {
             WindowWidth = 600;
             WindowHeight = 400;
             Notify("Position");
-            InitCommands();
-            Background = Colors.Gold;
         }
 
         /// <summary>
@@ -55,31 +63,15 @@ namespace ViewModels
         {
         }
 
+        /// <summary>
+        /// Notifies when the window size is changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.SizeChangedEventArgs"/> instance containing the event data.</param>
         public void WindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
             WindowWidth = e.NewSize.Width;
             WindowHeight = e.NewSize.Height;
-        }
-
-
-        private void InitCommands()
-        {
-            GreenCommand = new ActionCommand(() => Background = Colors.Green);
-            RedCommand = new ActionCommand(() => Background = Colors.Red);
-            BlueCommand = new ActionCommand(() => Background = Colors.Blue);
-        }
-
-        public Color Background
-        {
-            get
-            {
-                return _background;
-            }
-            private set
-            {
-                _background = value;
-                Notify("Background");
-            }
         }
     }
 }

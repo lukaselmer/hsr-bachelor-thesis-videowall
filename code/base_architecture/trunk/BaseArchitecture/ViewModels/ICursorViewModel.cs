@@ -6,6 +6,10 @@ using System.Windows.Media;
 
 namespace ViewModels
 {
+
+    /// <summary>
+    /// The Interface of the Cursor View Model
+    /// </summary>
     public interface ICursorViewModel : IDisposable, INotifyPropertyChanged
     {
         /// <summary>
@@ -13,12 +17,19 @@ namespace ViewModels
         /// </summary>
         Point Position { get; }
 
+        /// <summary>
+        /// Sets the width of the window.
+        /// </summary>
+        /// <value>
+        /// The width of the window.
+        /// </value>
         double WindowWidth { set; }
+        /// <summary>
+        /// Sets the height of the window.
+        /// </summary>
+        /// <value>
+        /// The height of the window.
+        /// </value>
         double WindowHeight { set; }
-
-        ICommand RedCommand { get; }
-        ICommand BlueCommand { get; }
-        ICommand GreenCommand { get; }
-        Color Background { get; }
     }
 }

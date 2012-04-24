@@ -13,7 +13,7 @@
                   Y1="{Binding StartPosition.Y}"
                   X2="{Binding EndPosition.X}"
                   Y2="{Binding EndPosition.Y}" StrokeThickness="4" Stroke="Blue"
-                  d:DataContext="{d:DesignInstance ViewModels:LineViewModel}" />
+                  d:DataContext="{d:DesignInstance ViewModels:SkeletonLine}" />
         </DataTemplate>
     </UserControl.Resources>
     <Canvas>
