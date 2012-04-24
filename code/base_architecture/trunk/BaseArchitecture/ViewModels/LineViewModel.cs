@@ -16,7 +16,7 @@ namespace ViewModels
 
         public LineViewModel(Joint startPosition, Joint endPosition)
         {
-            //TODO: Refactor with PlayerViewModel
+            //TODO: Refactor with PlayerViewModel (Make 153 a Property for both)
             var startJoint = startPosition.ScaleTo(153, 153);
             var endJoint = endPosition.ScaleTo(153, 153);
             _startPosition = new Point(startJoint.Position.X, startJoint.Position.Y);

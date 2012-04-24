@@ -61,11 +61,19 @@ namespace Services.HandCursor
         {
             if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
 
-            var joint = skeleton.Joints[JointType.HandRight];
+            Joint joint;
+                if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
+                {
+                    joint = skeleton.Joints[JointType.HandLeft];
+                    RelativePadding.SetPaddingForLeftHanded();
+                }
+                else
+                {
+                    joint = skeleton.Joints[JointType.HandRight];
+                    RelativePadding.SetPaddingForRightHanded();
+                }
             
             var absolutePosition = joint.ScaleTo((int)window.Width, (int)window.Height);
-
-            //return new Point(absolutePosition.Position.X, absolutePosition.Position.Y);
 
             return RelativePositionFor(window, new Point(absolutePosition.Position.X, absolutePosition.Position.Y));
         }

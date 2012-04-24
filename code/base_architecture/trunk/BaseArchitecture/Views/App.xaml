@@ -5,8 +5,5 @@
              Startup="ApplicationStartup">
     <Application.Resources>
         <!--StartupUri="PosterWindow.xaml"-->
-        <ViewModels:SkeletonPositionToMarginConverter x:Key="skeletonPositionConverter" />
-        <ViewModels:SkeletonPositionToMarginConverterX x:Key="skeletonPositionConverterX" />
-        <ViewModels:SkeletonPositionToMarginConverterY x:Key="skeletonPositionConverterY" />
     </Application.Resources>
 </Application>
