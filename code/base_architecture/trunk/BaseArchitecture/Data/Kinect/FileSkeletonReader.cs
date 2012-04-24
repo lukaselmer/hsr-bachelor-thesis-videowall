@@ -28,7 +28,9 @@ namespace Data.Kinect
         /// Called when [skeleton frame ready].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see>
+        ///                       <cref>Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs</cref>
+        ///                     </see> instance containing the event data.</param>
         private void OnSkeletonFrameReady(object sender, ReplaySkeletonFrameReadyEventArgs e)
         {
             SkeletonsReady(this, new SkeletonsReadyEventArgs(e.SkeletonFrame.Skeletons));

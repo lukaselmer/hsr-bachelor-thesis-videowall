@@ -9,6 +9,10 @@ namespace Views
     {
         private PlayerViewModel _player;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerWindow"/> class.
+        /// </summary>
+        /// <param name="player">The player.</param>
         public PlayerWindow(PlayerViewModel player)
         {
             InitializeComponent();

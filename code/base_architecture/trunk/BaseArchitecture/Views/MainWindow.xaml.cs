@@ -32,6 +32,12 @@ namespace Views
             InitStoryboard();
         }
 
+        /// <summary>
+        /// Gets or sets the main window view model.
+        /// </summary>
+        /// <value>
+        /// The main window view model.
+        /// </value>
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
         /// <summary>

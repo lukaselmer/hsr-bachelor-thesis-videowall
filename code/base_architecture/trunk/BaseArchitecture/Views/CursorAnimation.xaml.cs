@@ -10,10 +10,18 @@ namespace Views
     /// </summary>
     public partial class CursorAnimation
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CursorAnimation"/> class.
+        /// </summary>
         public CursorAnimation()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Initializes the storyboard.
+        /// </summary>
+        /// <param name="interval">The interval.</param>
+        /// <returns></returns>
         public Storyboard InitStoryboard(double interval)
         {
             var dAnim = new DoubleAnimation

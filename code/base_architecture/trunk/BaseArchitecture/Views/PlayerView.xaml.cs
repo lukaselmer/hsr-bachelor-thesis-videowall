@@ -7,6 +7,9 @@ namespace Views
     /// </summary>
     public partial class PlayerView
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerView"/> class.
+        /// </summary>
         public PlayerView()
         {
             InitializeComponent();
