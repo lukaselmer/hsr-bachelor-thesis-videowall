@@ -22,6 +22,13 @@ namespace VideoWithWPF
         public MainWindow()
         {
             InitializeComponent();
+            PlayButtonClick(null, null);
+        }
+
+        private void PlayButtonClick(object sender, RoutedEventArgs e)
+        {
+            video.Stop();
+            video.Play();
         }
     }
 }

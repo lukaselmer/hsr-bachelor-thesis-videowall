@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="VideoWithWPF.exe" version="1.0.0.1" publicKeyToken="a87f36e94a40e52f" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="VideoWithWPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="VideoWithWPF.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VideoWithWPF.exe" size="8704">
+      <assemblyIdentity name="VideoWithWPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ZTGDccO6qLLy5u52rNiuJeQeiq8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Resources\Wildlife.wmv" size="26246026">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>fHyYQGZ1PVzFLpfyb094kt9nuss=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=HSR\lelmer" issuerKeyHash="1f6013091df03fa4ba6ebe9b7c197f7caece7264" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ADsHkeMLXK8i9Xb8wnu7zaH++uE=</DigestValue></Reference></SignedInfo><SignatureValue>TEteNEul0RtFzateRfYggBQXwIPqUKYgvYcZ3gw0KL2GKJolwwN0nVCPIeWR696zax2Q/1YPXSwD1AuW8u/GWKEvKf7sG0+AGxjVUAZLJOLbuBQ8kNERR9uNWtXrllARxPDwzgqBapw3nhiwkobDAP03KQQEIQCnE4kyPGuMCyI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zpd76uWJEImH1vldnCBNyksSDd3qRYAV6J2TYre2UpXgB03TEUUpW7gCB2zV8nIbxRh81JaujzNZiy11HMNn/2qgop/9nP41lIwpHwv6V1iBf3o+DJ7MYwwwmwHXRJMkcHMHu8HpTb0G9J0ji9zFDiOME9fmAbQR7G65DxUpIYM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="e1fafea1cdbb7bc2fc76f522af5c0be391073b00" Description="" Url=""><as:assemblyIdentity name="VideoWithWPF.exe" version="1.0.0.1" publicKeyToken="a87f36e94a40e52f" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=HSR\lelmer</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>htVmoLgRJX46EKPCuEE06T6Tjwc=</DigestValue></Reference></SignedInfo><SignatureValue>xeLkrI//N3jXVuVITE1S8hRb2+QBLbjQrRWR3ovuB6B3EL/lYIRQhyozYIim57fW3IN7r7V9rxonXuJtTtoCXtplp+tqb7YRAUAoYEj4hVM8Ih8NPNhyJln+0t1uYlIaX622Ir8zPdo+n0fk07PnsknY+j7AReY92Gw9DAIo2FY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zpd76uWJEImH1vldnCBNyksSDd3qRYAV6J2TYre2UpXgB03TEUUpW7gCB2zV8nIbxRh81JaujzNZiy11HMNn/2qgop/9nP41lIwpHwv6V1iBf3o+DJ7MYwwwmwHXRJMkcHMHu8HpTb0G9J0ji9zFDiOME9fmAbQR7G65DxUpIYM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQVgzY5f9f25hNcx7X+3kFjzANBgkqhkiG9w0BAQUFADAfMR0wGwYDVQQDHhQASABTAFIAXABsAGUAbABtAGUAcjAeFw0xMjA0MjUxMDU0NDBaFw0xMzA0MjUxNjU0NDBaMB8xHTAbBgNVBAMeFABIAFMAUgBcAGwAZQBsAG0AZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOl3vq5YkQiYfW+V2cIE3KSxIN3epFgBXonZNit7ZSleAHTdMRRSlbuAIHbNXychvFGHzUlq6PM1mLLXUcw2f/aqCin/2c/jWUjCkfC/pXWIF/ej4MnsxjDDCbAddEkyRwcwe7welNvQb0nSOL3MUOI4wT1+YBtBHsbrkPFSkhgwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBALOmcSGybJwtF5o25m4z9LPPRvK92D7lFBEaJlRPoUyVFru7J6oUjWJ+5tBCqOZLDUQIPljiMvME9dUMZzjjtOfvWIM+C0vSEL6r6aq242jRWhoKPd0Nue2kyfP9gbvsWy6A/B9STMdsEAkkpXBxFgdAMD6+RYe/CiMVkHu7i0Sc</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
