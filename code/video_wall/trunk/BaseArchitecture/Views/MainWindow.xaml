@@ -23,8 +23,8 @@
 
         <Grid Canvas.Bottom="0" Canvas.Right="0" ClipToBounds="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="742"/>
                 <RowDefinition Height="153"/>
             </Grid.RowDefinitions>
             <Views:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
