@@ -7,7 +7,7 @@ namespace Views
 {
     static internal class ExtendedVisualTreeHelper
     {
-        public static IEnumerable<TSearched> FindInVisualTreeDown<TSearched>(DependencyObject obj) where TSearched : class
+        internal static IEnumerable<TSearched> FindInVisualTreeDown<TSearched>(DependencyObject obj) where TSearched : class
         {
             if (obj == null) yield break;
             var typedObj = obj as TSearched;

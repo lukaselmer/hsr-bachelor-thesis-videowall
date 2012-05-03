@@ -14,10 +14,12 @@ namespace Services
         public static BitmapImage InitializeWith(this BitmapImage img, string fileName)
         {
             img.BeginInit();
-            img.StreamSource = File.OpenRead(fileName);
-            img.CacheOption = BitmapCacheOption.OnLoad;
-            img.EndInit();
-            img.Freeze();
+            using (img.StreamSource = File.OpenRead(fileName))
+            {
+                img.CacheOption = BitmapCacheOption.OnLoad;
+                img.EndInit();
+                img.Freeze();
+            }
             return img;
         }
     }
