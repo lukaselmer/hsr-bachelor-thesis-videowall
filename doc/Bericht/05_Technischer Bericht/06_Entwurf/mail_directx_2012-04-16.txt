@@ -1,0 +1,20 @@
+Ich habe mich mal mit den Windows Jungs kurzgeschlossen. Hier ein paar Aussagen:
+
+> WPF ist nicht grundsätzlich langsam. Es eignet sich nur nicht für Games, CAD-Anwendungen,
+> Kartenanwendungen oder grosse komplexe grafische Anwendungen. Das Haupteinsatzgebiet
+> von WPF sind klassische Windows Anwendungen (Line of Business Anwendungen).
+
+> > Welche Technologie kann man unter Windows verwenden, wenn es darum geht auf
+> > einem virtuellen Screen mit 5000*3000 Pixel vernünftige schnelle Animationen hinzukriegen,
+> > mit Transparenzen und allem grafischen Pipapo?
+> Ganz einfach: DirectX oder OpenGL. Wenn man ein Game programmieren will oder ein CAD
+> oder eine krasse Animation, dann setzte man entweder DirectX oder OpenGL ein.
+> Es wäre ein sinnloses Unterfangen dafür WPF einzusetzen.
+
+
+> Sehe ich das richtig, habt Ihr eine bereits bestehende Applikation?
+> JA: (1) Entweder alle unnötigen Animationen und Effekte auf ein
+> Minimum reduzieren (2) Die ganze Übung in DirectX oder OpenGL wiederholen.
+> Ich würde DirectX mit C# verwenden. Da können die Studenten den BusinessLayer
+> Applikation weiterverwenden und müssen nur den UserInterface Teil auswechseln.
+> NEIN: Gleich von Anfang an DirectX oder OpenGL verwenden.
