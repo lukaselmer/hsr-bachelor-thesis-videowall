@@ -1,15 +1,23 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Windows.Input;
+using Common;
+using Interfaces;
+using Services.Apps;
 
 namespace ViewModels
 {
     /// <summary>
     /// Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-    public class MainWindowViewModel
+    public class MainWindowViewModel : Notifier
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
         /// </summary>
+        /// <param name="appController">The app controller. </param>
         /// <param name="menuViewModel">The menu view model.</param>
         /// <param name="playerViewModel">The player view model.</param>
         /// <param name="cursorViewModel">The cursor view model.</param>
@@ -43,5 +51,6 @@ namespace ViewModels
         /// The cursor view model.
         /// </value>
         public ICursorViewModel CursorViewModel { get; set; }
+
     }
 }

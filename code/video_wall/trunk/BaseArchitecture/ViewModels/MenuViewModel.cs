@@ -1,28 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Common;
+using Interfaces;
+using Services.Apps;
 
 namespace ViewModels
 {
     /// <summary>
     /// Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-    public class MenuViewModel
+    public class MenuViewModel : Notifier
     {
+        private readonly AppController _appController;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuViewModel"/> class.
         /// </summary>
+        /// <param name="appController">The app controller </param>
         /// <param name="posterViewModel">The poster view model.</param>
         /// <param name="lunchMenuViewModel">The lunch menu view model.</param>
-        public MenuViewModel(PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
+        public MenuViewModel(AppController appController, PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
         {
+            _appController = appController;
+            Apps = _appController.Apps;
+            CurrentApp = Apps[0];
+
             PosterViewModel = posterViewModel;
             LunchMenuViewModel = lunchMenuViewModel;
             ShowPosterViewCommand = new Command(OnShowPosterView);
             ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
             OnShowPosterView(null);
+        }
+
+        protected ObservableCollection<IApp> Apps { get; private set; }
+
+        private IApp _currentApp;
+        /// <summary>
+        /// Gets the current app.
+        /// </summary>
+        public IApp CurrentApp
+        {
+            get { return _currentApp; }
+            private set
+            {
+                _currentApp = value;
+                Notify("CurrentApp");
+            }
         }
 
         /// <summary>
