@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnosticsApp2", "DiagnosticsApp2\DiagnosticsApp2.csproj", "{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnosticsApp", "DiagnosticsApp2\DiagnosticsApp.csproj", "{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "..\BaseArchitecture\Interfaces\Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
 EndProject
