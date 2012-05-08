@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using Common;
 using Interfaces;
+
+#endregion
 
 namespace Services.Apps
 {
     /// <summary>
-    /// Controls the apps
+    ///   Controls the apps
     /// </summary>
     public class AppController
     {
         /// <summary>
-        /// The video wall applications
-        /// </summary>
-        [ImportMany(AllowRecomposition = true)]
-        public ObservableCollection<IApp> Apps { get; private set; }
-
-        /// <summary>
-        /// Initializes the AppController
+        ///   Initializes the AppController
         /// </summary>
         public AppController()
         {
@@ -31,5 +40,11 @@ namespace Services.Apps
             // At least one app has to be loaded
             PreCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");
         }
+
+        /// <summary>
+        ///   The video wall applications
+        /// </summary>
+        [ImportMany(AllowRecomposition = true)]
+        public ObservableCollection<IApp> Apps { get; private set; }
     }
 }
