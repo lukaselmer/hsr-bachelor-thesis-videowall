@@ -23,17 +23,17 @@ using log4net;
 namespace Common
 {
     /// <summary>
-    /// The Logger wrapper
+    ///   The Logger wrapper
     /// </summary>
     public static class Logger
     {
         /// <summary>
-        ///  The Logger
+        ///   The Logger
         /// </summary>
         private static readonly ILog TheLogger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
-        /// Gets the currrent logger
+        ///   Gets the currrent logger
         /// </summary>
         public static ILog Get { get { return TheLogger; } }
     }
