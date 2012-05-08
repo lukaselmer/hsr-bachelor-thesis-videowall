@@ -1,36 +1,55 @@
-﻿using System.Linq;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.Linq;
+using Common;
 using Data.Kinect;
 using Microsoft.Kinect;
+
+#endregion
 
 namespace Services
 {
     /// <summary>
-    /// Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    public class Player : Common.Notifier
+    public class Player : Notifier
     {
         private readonly ISkeletonReader _skeletonReader;
         //private FileStream _recordStream;
         private bool _playing;
-        public Skeleton Skeleton { get; set; }
         //private KinectSensor _kinectSensor;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Player"/> class.
+        ///   Initializes a new instance of the <see cref="Player" /> class.
         /// </summary>
-        /// <param name="skeletonReader">The skeleton reader.</param>
+        /// <param name="skeletonReader"> The skeleton reader. </param>
         public Player(ISkeletonReader skeletonReader)
         {
             Skeleton = new Skeleton();
             _skeletonReader = skeletonReader;
         }
 
+        public Skeleton Skeleton { get; set; }
+
         /// <summary>
-        /// Gets a value indicating whether this <see cref="Player"/> is playing.
+        ///   Gets a value indicating whether this <see cref="Player" /> is playing.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if playing; otherwise, <c>false</c>.
-        /// </value>
+        /// <value> <c>true</c> if playing; otherwise, <c>false</c> . </value>
         public bool Playing
         {
             get { return _playing; }
@@ -42,7 +61,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Starts the skeleton reader.
+        ///   Starts the skeleton reader.
         /// </summary>
         public void StartPlaying()
         {
@@ -65,10 +84,10 @@ namespace Services
         }
 
         /// <summary>
-        /// Called when [kinect sensor on skeleton frame ready].
+        ///   Called when [kinect sensor on skeleton frame ready].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SkeletonsReadyEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="SkeletonsReadyEventArgs" /> instance containing the event data. </param>
         private void OnKinectSensorOnSkeletonFrameReady(object sender, SkeletonsReadyEventArgs e)
         {
             if (!Playing) return;
@@ -80,7 +99,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Stops the skeleton reader.
+        ///   Stops the skeleton reader.
         /// </summary>
         public void StopPlaying()
         {

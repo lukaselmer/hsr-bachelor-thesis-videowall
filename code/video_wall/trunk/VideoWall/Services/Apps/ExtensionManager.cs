@@ -1,31 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Windows.Controls;
-using System.Windows.Threading;
-using Interfaces;
+
+#endregion
 
 namespace Services.Apps
 {
     /// <summary>
-    /// The extension manager is responsible for loading the extensions
+    ///   The extension manager is responsible for loading the extensions
     /// </summary>
     public static class ExtensionManager
     {
         /// <summary>
-        /// The folder name for the extensions
+        ///   The folder name for the extensions
         /// </summary>
         private const string FolderNameOfExtensions = "../../../Extensions";
 
         /// <summary>
-        /// Inits the specified app with extension.
+        ///   Inits the specified app with extension.
         /// </summary>
-        /// <param name="appWithExtension">The app with extension.</param>
+        /// <param name="appWithExtension"> The app with extension. </param>
         public static void Init(object appWithExtension)
         {
             CreateExtensionsDirectory();
@@ -40,7 +52,7 @@ namespace Services.Apps
         }
 
         /// <summary>
-        /// Creates the extensions directory if it does not exist.
+        ///   Creates the extensions directory if it does not exist.
         /// </summary>
         private static void CreateExtensionsDirectory()
         {

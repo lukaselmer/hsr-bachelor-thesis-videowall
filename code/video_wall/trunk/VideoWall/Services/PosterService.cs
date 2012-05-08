@@ -1,22 +1,40 @@
-﻿using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.Collections.Generic;
 using System.ComponentModel;
 using Common;
 using Data;
 
+#endregion
+
 namespace Services
 {
     /// <summary>
-    /// Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     public class PosterService : Notifier
     {
         private List<Poster> _posters;
-        private PosterReader PosterReader { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PosterService"/> class.
+        ///   Initializes a new instance of the <see cref="PosterService" /> class.
         /// </summary>
-        /// <param name="posterReader">The poster reader.</param>
+        /// <param name="posterReader"> The poster reader. </param>
         public PosterService(PosterReader posterReader)
         {
             PosterReader = posterReader;
@@ -24,12 +42,12 @@ namespace Services
             ReadFromPosterReader();
         }
 
+        private PosterReader PosterReader { get; set; }
+
         /// <summary>
-        /// Gets or sets and notifies the posters.
+        ///   Gets or sets and notifies the posters.
         /// </summary>
-        /// <value>
-        /// The posters.
-        /// </value>
+        /// <value> The posters. </value>
         public List<Poster> Posters
         {
             get { return _posters; }
@@ -41,7 +59,7 @@ namespace Services
         }
 
         /// <summary>
-        /// Reads from poster reader.
+        ///   Reads from poster reader.
         /// </summary>
         private void ReadFromPosterReader()
         {
@@ -53,10 +71,10 @@ namespace Services
         }
 
         /// <summary>
-        /// Calls ReadFromPosterReader when PosterReader was changed.
+        ///   Calls ReadFromPosterReader when PosterReader was changed.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
         private void PosterReaderChanged(object sender, PropertyChangedEventArgs e)
         {
             ReadFromPosterReader();

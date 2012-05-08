@@ -1,16 +1,35 @@
-﻿using System.IO;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.IO;
 using System.Windows.Media.Imaging;
+
+#endregion
 
 namespace Services
 {
     public static class ImageExtension
     {
         /// <summary>
-        /// Initializes the BitmapImage with the string.
+        ///   Initializes the BitmapImage with the string.
         /// </summary>
-        /// <param name="img">The image.</param>
-        /// <param name="fileName">Name of the file.</param>
-        /// <returns></returns>
+        /// <param name="img"> The image. </param>
+        /// <param name="fileName"> Name of the file. </param>
+        /// <returns> </returns>
         public static BitmapImage InitializeWith(this BitmapImage img, string fileName)
         {
             img.BeginInit();

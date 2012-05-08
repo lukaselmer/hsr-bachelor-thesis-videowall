@@ -1,27 +1,41 @@
-﻿using System;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.Diagnostics;
+
+#endregion
 
 namespace Services.HandCursor
 {
     /// <summary>
-    /// Reviewed by Christina Heidt, 17.04.2012
+    ///   Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
     public class RelativePadding
     {
-        public double Left { get; private set; }
-        public double Top { get; private set; }
-        public double Right { get; private set; }
-        public double Bottom { get; private set; }
         private readonly double _rightHandedLeft;
         private readonly double _rightHandedRight;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RelativePadding"/> class.
+        ///   Initializes a new instance of the <see cref="RelativePadding" /> class.
         /// </summary>
-        /// <param name="left">The left padding.</param>
-        /// <param name="top">The top padding.</param>
-        /// <param name="right">The right padding.</param>
-        /// <param name="bottom">The bottom padding.</param>
+        /// <param name="left"> The left padding. </param>
+        /// <param name="top"> The top padding. </param>
+        /// <param name="right"> The right padding. </param>
+        /// <param name="bottom"> The bottom padding. </param>
         public RelativePadding(double left, double top, double right, double bottom)
         {
             Left = _rightHandedLeft = left;
@@ -36,6 +50,11 @@ namespace Services.HandCursor
             Debug.Assert(Left + Right < 1.0, "left+right < 1.0");
             Debug.Assert(Top + Bottom < 1.0, "top + bottom < 1.0");
         }
+
+        public double Left { get; private set; }
+        public double Top { get; private set; }
+        public double Right { get; private set; }
+        public double Bottom { get; private set; }
 
         public void SetPaddingForRightHanded()
         {
