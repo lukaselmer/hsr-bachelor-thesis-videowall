@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoModeMain", "DemoModeMain\DemoModeMain.csproj", "{C683AAFC-3771-4E19-9DEF-5A2A046A605C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoMode", "DemoMode\DemoMode.csproj", "{B4CF5D9B-9D2E-430C-BFD3-32D5565722BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C683AAFC-3771-4E19-9DEF-5A2A046A605C}.Debug|x86.ActiveCfg = Debug|x86
+		{C683AAFC-3771-4E19-9DEF-5A2A046A605C}.Debug|x86.Build.0 = Debug|x86
+		{C683AAFC-3771-4E19-9DEF-5A2A046A605C}.Release|x86.ActiveCfg = Release|x86
+		{C683AAFC-3771-4E19-9DEF-5A2A046A605C}.Release|x86.Build.0 = Release|x86
+		{B4CF5D9B-9D2E-430C-BFD3-32D5565722BE}.Debug|x86.ActiveCfg = Debug|x86
+		{B4CF5D9B-9D2E-430C-BFD3-32D5565722BE}.Debug|x86.Build.0 = Debug|x86
+		{B4CF5D9B-9D2E-430C-BFD3-32D5565722BE}.Release|x86.ActiveCfg = Release|x86
+		{B4CF5D9B-9D2E-430C-BFD3-32D5565722BE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
