@@ -1,75 +1,60 @@
-﻿using System;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Timers;
 using System.Windows;
 
+#endregion
+
 namespace ViewModels.HitButton
 {
     /// <summary>
-    /// Delegate when the hit state is changed
+    ///   Delegate when the hit state is changed
     /// </summary>
-    /// <param name="sender">The sender.</param>
-    /// <param name="args">The args.</param>
+    /// <param name="sender"> The sender. </param>
+    /// <param name="args"> The args. </param>
     public delegate void HitStateChanged(object sender, HitStateArgs args);
 
     /// <summary>
-    /// Reviewed by Christina Heidt, 17.04.2012
-    /// When the position of the ICursorViewModel is changed, this class will test if the cursor
-    /// is over a button. A timer will be started as soon as the cursor is over an element.
-    /// The element will be clicked after a timer elapsed
+    ///   Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed
     /// </summary>
     public class HitTestHelper
     {
+        private readonly Timer _currentTimer;
         private readonly ICursorViewModel _cursorViewModel;
         private readonly Window _window;
-        private readonly Timer _currentTimer;
 
         private UIElement _currentElement;
 
         /// <summary>
-        /// Occurs when [started].
+        ///   Initializes a new instance of the <see cref="HitTestHelper" /> class.
         /// </summary>
-        public event HitStateChanged Started;
-
-        /// <summary>
-        /// Occurs when [stopped].
-        /// </summary>
-        public event HitStateChanged Stopped;
-
-        /// <summary>
-        /// Occurs when [clicked].
-        /// </summary>
-        public event HitStateChanged Clicked;
-
-        /// <summary>
-        /// Called when [started].
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        private void OnStarted(HitStateArgs args) { if (Started != null) Started(this, args); }
-        /// <summary>
-        /// Called when [stopped].
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        private void OnStopped(HitStateArgs args) { if (Stopped != null) Stopped(this, args); }
-        /// <summary>
-        /// Called when [clicked].
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        private void OnClicked(HitStateArgs args) { if (Clicked != null) Clicked(this, args); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HitTestHelper"/> class.
-        /// </summary>
-        /// <param name="cursorViewModel">The cursor view model.</param>
-        /// <param name="window">The window.</param>
-        /// <param name="interval">The interval.</param>
+        /// <param name="cursorViewModel"> The cursor view model. </param>
+        /// <param name="window"> The window. </param>
+        /// <param name="interval"> The interval. </param>
         public HitTestHelper(ICursorViewModel cursorViewModel, Window window, double interval)
         {
             _cursorViewModel = cursorViewModel;
             _window = window;
             _cursorViewModel.PropertyChanged += OnModelChanged;
-            _currentTimer = new Timer(interval) { AutoReset = true, Enabled = false };
+            _currentTimer = new Timer(interval) {AutoReset = true, Enabled = false};
             _currentTimer.Elapsed += OnCurrentTimerElapsed;
 
             Started += (sender, args) => Console.WriteLine("UIElement " + args.UIElement + " started!");
@@ -78,10 +63,58 @@ namespace ViewModels.HitButton
         }
 
         /// <summary>
-        /// Called when [current timer elapsed].
+        ///   Gets or sets the hit elements.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="System.Timers.ElapsedEventArgs"/> instance containing the event data.</param>
+        /// <value> The hit elements. </value>
+        public IEnumerable<UIElement> HitElements { get; set; }
+
+        /// <summary>
+        ///   Occurs when [started].
+        /// </summary>
+        public event HitStateChanged Started;
+
+        /// <summary>
+        ///   Occurs when [stopped].
+        /// </summary>
+        public event HitStateChanged Stopped;
+
+        /// <summary>
+        ///   Occurs when [clicked].
+        /// </summary>
+        public event HitStateChanged Clicked;
+
+        /// <summary>
+        ///   Called when [started].
+        /// </summary>
+        /// <param name="args"> The arguments. </param>
+        private void OnStarted(HitStateArgs args)
+        {
+            if (Started != null) Started(this, args);
+        }
+
+        /// <summary>
+        ///   Called when [stopped].
+        /// </summary>
+        /// <param name="args"> The arguments. </param>
+        private void OnStopped(HitStateArgs args)
+        {
+            if (Stopped != null) Stopped(this, args);
+        }
+
+        /// <summary>
+        ///   Called when [clicked].
+        /// </summary>
+        /// <param name="args"> The arguments. </param>
+        private void OnClicked(HitStateArgs args)
+        {
+            if (Clicked != null) Clicked(this, args);
+        }
+
+        /// <summary>
+        ///   Called when [current timer elapsed].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data. </param>
         private void OnCurrentTimerElapsed(object sender, ElapsedEventArgs args)
         {
             if (_currentElement == null) return;
@@ -90,10 +123,10 @@ namespace ViewModels.HitButton
         }
 
         /// <summary>
-        /// Called when [model changed].
+        ///   Called when [model changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
         private void OnModelChanged(object sender, PropertyChangedEventArgs e)
         {
             foreach (var element in HitElements)
@@ -102,7 +135,11 @@ namespace ViewModels.HitButton
                 var hit = element.InputHitTest(relativePosition) != null;
 
                 // if the current element is the same as the element but that one was not hit, stop the timer
-                if (_currentElement == element && !hit) { StopTimerAndResetCurrentElement(); continue; }
+                if (_currentElement == element && !hit)
+                {
+                    StopTimerAndResetCurrentElement();
+                    continue;
+                }
 
                 // if the button was not hit, move to the next element
                 if (!hit) continue;
@@ -118,9 +155,9 @@ namespace ViewModels.HitButton
         }
 
         /// <summary>
-        /// Starts the timer.
+        ///   Starts the timer.
         /// </summary>
-        /// <param name="button">The button.</param>
+        /// <param name="button"> The button. </param>
         private void StartTimerAndSetCurrentElementTo(UIElement button)
         {
             _currentElement = button;
@@ -129,7 +166,7 @@ namespace ViewModels.HitButton
         }
 
         /// <summary>
-        /// Stops the timer.
+        ///   Stops the timer.
         /// </summary>
         private void StopTimerAndResetCurrentElement()
         {
@@ -139,20 +176,12 @@ namespace ViewModels.HitButton
         }
 
         /// <summary>
-        /// Creates the hit state args.
+        ///   Creates the hit state args.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         private HitStateArgs CreateHitStateArgs()
         {
             return new HitStateArgs(_currentElement);
         }
-
-        /// <summary>
-        /// Gets or sets the hit elements.
-        /// </summary>
-        /// <value>
-        /// The hit elements.
-        /// </value>
-        public IEnumerable<UIElement> HitElements { get; set; }
     }
 }

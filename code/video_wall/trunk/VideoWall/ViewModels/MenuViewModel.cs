@@ -1,28 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using Common;
 using Interfaces;
 using Services.Apps;
 
+#endregion
+
 namespace ViewModels
 {
     /// <summary>
-    /// Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     public class MenuViewModel : Notifier
     {
         private readonly AppController _appController;
+        private IApp _currentApp;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MenuViewModel"/> class.
+        ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
         /// </summary>
-        /// <param name="appController">The app controller </param>
-        /// <param name="posterViewModel">The poster view model.</param>
-        /// <param name="lunchMenuViewModel">The lunch menu view model.</param>
+        /// <param name="appController"> The app controller </param>
+        /// <param name="posterViewModel"> The poster view model. </param>
+        /// <param name="lunchMenuViewModel"> The lunch menu view model. </param>
         public MenuViewModel(AppController appController, PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
         {
             _appController = appController;
@@ -38,9 +54,8 @@ namespace ViewModels
 
         protected ObservableCollection<IApp> Apps { get; private set; }
 
-        private IApp _currentApp;
         /// <summary>
-        /// Gets the current app.
+        ///   Gets the current app.
         /// </summary>
         public IApp CurrentApp
         {
@@ -53,41 +68,33 @@ namespace ViewModels
         }
 
         /// <summary>
-        /// Gets or sets the poster view model.
+        ///   Gets or sets the poster view model.
         /// </summary>
-        /// <value>
-        /// The poster view model.
-        /// </value>
+        /// <value> The poster view model. </value>
         public PosterViewModel PosterViewModel { get; set; }
 
         /// <summary>
-        /// Gets or sets the lunch menu view model.
+        ///   Gets or sets the lunch menu view model.
         /// </summary>
-        /// <value>
-        /// The lunch menu view model.
-        /// </value>
+        /// <value> The lunch menu view model. </value>
         public LunchMenuViewModel LunchMenuViewModel { get; set; }
 
         /// <summary>
-        /// Gets or sets the show lunch menu view command.
+        ///   Gets or sets the show lunch menu view command.
         /// </summary>
-        /// <value>
-        /// The show lunch menu view command.
-        /// </value>
+        /// <value> The show lunch menu view command. </value>
         public ICommand ShowLunchMenuViewCommand { get; set; }
 
         /// <summary>
-        /// Gets or sets the show poster view command.
+        ///   Gets or sets the show poster view command.
         /// </summary>
-        /// <value>
-        /// The show poster view command.
-        /// </value>
+        /// <value> The show poster view command. </value>
         public ICommand ShowPosterViewCommand { get; set; }
 
         /// <summary>
-        /// Called when [show poster view].
+        ///   Called when [show poster view].
         /// </summary>
-        /// <param name="obj">The obj.</param>
+        /// <param name="obj"> The obj. </param>
         private void OnShowPosterView(object obj)
         {
             LunchMenuViewModel.IsLunchMenuViewVisible = false;
@@ -95,9 +102,9 @@ namespace ViewModels
         }
 
         /// <summary>
-        /// Called when [show lunch menu view].
+        ///   Called when [show lunch menu view].
         /// </summary>
-        /// <param name="obj">The obj.</param>
+        /// <param name="obj"> The obj. </param>
         private void OnShowLunchMenuView(object obj)
         {
             PosterViewModel.IsPosterViewVisible = false;
