@@ -16,7 +16,7 @@ namespace DemoMode
 
         public DemoModeViewModel()
         {
-            _timer = new Timer();
+            _timer = new Timer()
             //_timer = new Timer(Interval) { AutoReset = true, Enabled = true};
             //_progress = Interval / Second;
             //_secondTimer = new Timer(Second) { AutoReset = true, Enabled = true };
