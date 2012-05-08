@@ -13,12 +13,19 @@ using Interfaces;
 namespace Services.Apps
 {
     /// <summary>
-    /// TODO
+    /// The extension manager is responsible for loading the extensions
     /// </summary>
-    public class ExtensionManager
+    public static class ExtensionManager
     {
-        private const string FolderNameOfExtensions = "Extensions";
+        /// <summary>
+        /// The folder name for the extensions
+        /// </summary>
+        private const string FolderNameOfExtensions = "../../../Extensions";
 
+        /// <summary>
+        /// Inits the specified app with extension.
+        /// </summary>
+        /// <param name="appWithExtension">The app with extension.</param>
         public static void Init(object appWithExtension)
         {
             CreateExtensionsDirectory();
@@ -32,17 +39,20 @@ namespace Services.Apps
             //watcher.Changed += (o, args) => disp.Invoke(new Action(() => RefreshCatalogs(catalog)));
         }
 
+        /// <summary>
+        /// Creates the extensions directory if it does not exist.
+        /// </summary>
         private static void CreateExtensionsDirectory()
         {
             if (!Directory.Exists(FolderNameOfExtensions)) Directory.CreateDirectory(FolderNameOfExtensions);
         }
 
-        private static void RefreshCatalogs(AggregateCatalog catalog)
+        /*private static void RefreshCatalogs(AggregateCatalog catalog)
         {
             foreach (var directoryCatalog in catalog.Catalogs.OfType<DirectoryCatalog>())
             {
                 directoryCatalog.Refresh();
             }
-        }
+        }*/
     }
 }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnosticsApp", "..\DiagnosticsApp\DiagnosticsApp\DiagnosticsApp.csproj", "{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,16 @@ Global
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Release|x86.ActiveCfg = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
