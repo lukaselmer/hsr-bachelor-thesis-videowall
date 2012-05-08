@@ -67,8 +67,23 @@ namespace ViewModels
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
+            _handCursorPositionCalculator.HandChanged += OnHandCursorHandChanged;
         }
 
+        public event HandChanged HandChanged;
+
+        private void OnHandChanged(bool isRightHand)
+        {
+            if (HandChanged != null)
+            {
+                HandChanged(isRightHand);
+            }
+        }
+
+        private void OnHandCursorHandChanged(bool isRightHand)
+        {
+            OnHandChanged(isRightHand);
+        }
         /// <summary>
         /// Notifies when the PlayerModel was changed.
         /// </summary>

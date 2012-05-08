@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using Services.HandCursor;
 
 namespace ViewModels
 {
@@ -16,6 +17,8 @@ namespace ViewModels
         /// Gets the status.
         /// </summary>
         Point Position { get; }
+
+        event HandChanged HandChanged;
 
         /// <summary>
         /// Sets the width of the window.

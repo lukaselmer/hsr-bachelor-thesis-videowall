@@ -8,6 +8,7 @@ using System.Windows;
 
 namespace Services.HandCursor
 {
+    public delegate void HandChanged(bool isRightHand);
     /// <summary>
     /// Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
@@ -23,6 +24,16 @@ namespace Services.HandCursor
             //TODO: Magic numbers. Where do these come from? Needs explanation
             //0.45, 0.1, 0.3, 0.49
             RelativePadding = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+        }
+
+        public event HandChanged HandChanged;
+
+        private void OnHandChanged(bool isRightHand)
+        {
+            if (HandChanged != null)
+            {
+                HandChanged(isRightHand);
+            }
         }
 
         /// <summary>
@@ -65,11 +76,13 @@ namespace Services.HandCursor
                 if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
                 {
                     joint = skeleton.Joints[JointType.HandLeft];
+                    OnHandChanged(false);
                     RelativePadding.SetPaddingForLeftHanded();
                 }
                 else
                 {
                     joint = skeleton.Joints[JointType.HandRight];
+                    OnHandChanged(true);
                     RelativePadding.SetPaddingForRightHanded();
                 }
             

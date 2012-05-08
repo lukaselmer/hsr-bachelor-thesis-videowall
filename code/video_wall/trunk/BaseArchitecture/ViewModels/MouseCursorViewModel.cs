@@ -3,6 +3,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Common;
 using Microsoft.Expression.Interactivity.Core;
+using Services.HandCursor;
 
 namespace ViewModels
 {
@@ -27,6 +28,8 @@ namespace ViewModels
                 Notify("Position");
             }
         }
+
+        public event HandChanged HandChanged;
 
         /// <summary>
         /// Sets the width of the window.

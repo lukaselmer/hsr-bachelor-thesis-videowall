@@ -1,10 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using ViewModels;
 using ViewModels.HitButton;
 
@@ -18,6 +21,11 @@ namespace Views
         private const double Interval = 1500;
         private HitTestHelper _hitTestHelper;
         private Storyboard _storyboard;
+        private ImageSource _rightHandSource;
+        private ImageSource _leftHandSource;
+        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
+        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -30,6 +38,19 @@ namespace Views
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
+            InitImages();
+            MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
+        }
+
+        private void InitImages()
+        {
+            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
+            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
+        }
+
+        private void OnHandChanged(bool isRightHand)
+        {
+            cursorImage.Source = isRightHand ? _rightHandSource : _leftHandSource;
         }
 
         /// <summary>
