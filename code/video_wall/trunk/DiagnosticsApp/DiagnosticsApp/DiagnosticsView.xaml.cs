@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Windows;
 
 #endregion
@@ -46,9 +47,9 @@ namespace DiagnosticsApp
             Click("C");
         }
 
-        private static void Click(string s)
+        private void Click(string s)
         {
-            MessageBox.Show(s);
+            actionLog.Text = String.Format("{0} : {1}\n{2}", DateTime.Now, s, actionLog.Text);
         }
     }
 }
