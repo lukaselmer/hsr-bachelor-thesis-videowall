@@ -13,7 +13,6 @@ namespace DemoMode
         {
             MainView = new DemoModeView();
             Name = "Demo Mode App";
-            //MainView.DataContext =
         }
 
         public UserControl MainView { get; private set; }
