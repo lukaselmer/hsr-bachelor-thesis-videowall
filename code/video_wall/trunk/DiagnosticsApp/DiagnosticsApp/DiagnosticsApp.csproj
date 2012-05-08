@@ -85,7 +85,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BaseArchitecture\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\VideoWall\Interfaces\Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
