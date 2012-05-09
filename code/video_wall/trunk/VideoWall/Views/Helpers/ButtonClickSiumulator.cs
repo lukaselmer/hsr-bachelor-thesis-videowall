@@ -19,8 +19,7 @@ namespace Views.Helpers
         {
             var peer = new ButtonAutomationPeer(button);
             var invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-            Debug.Assert(invokeProv != null, "invokeProv != null");
-            invokeProv.Invoke();
+            if (invokeProv != null) invokeProv.Invoke();
         }
     }
 }
