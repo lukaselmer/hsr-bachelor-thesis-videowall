@@ -7,6 +7,6 @@
              d:DesignHeight="300" d:DesignWidth="300" 
              d:DataContext="{d:DesignInstance ViewModels:LunchMenuViewModel}">
     <Grid>
-        <Image Source="{Binding LunchMenu.Image}"></Image>
+        <Image RenderOptions.BitmapScalingMode="Fant" Source="{Binding LunchMenu.Image}"></Image>
     </Grid>
 </UserControl>
