@@ -16,6 +16,7 @@
 #region Usings
 
 using System.Windows;
+using System.Windows.Media;
 using Common;
 using ServiceModels.HandCursor;
 
@@ -51,6 +52,11 @@ namespace ViewModels.Cursor
         public event HandChanged HandChanged;
 
         /// <summary>
+        /// Gets the hand cursor image source (for left or right hand).
+        /// </summary>
+        public ImageSource HandCursorImageSource { get; private set; }
+
+        /// <summary>
         ///   Sets the width of the window.
         /// </summary>
         /// <value> The width of the window. </value>
@@ -71,7 +77,25 @@ namespace ViewModels.Cursor
         {
             WindowWidth = 600;
             WindowHeight = 400;
+            InitCursorImages();
             Notify("Position");
+        }
+
+        private ImageSource _rightHandSource;
+        private ImageSource _leftHandSource;
+        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
+        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
+
+        private void InitCursorImages()
+        {
+            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
+            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
+            HandCursorImageSource = _rightHandSource;
+        }
+
+        public void HuhuhuUpdateCursorImage(HandType handType)
+        {
+            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
         }
 
         #region ICursorViewModel Members

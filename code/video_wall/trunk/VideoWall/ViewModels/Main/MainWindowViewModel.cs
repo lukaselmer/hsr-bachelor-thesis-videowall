@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System.Windows.Media;
 using Common;
 using ViewModels.Cursor;
 using ViewModels.Menu;

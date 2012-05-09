@@ -18,6 +18,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Media;
 using ServiceModels.HandCursor;
 
 #endregion
@@ -50,5 +51,12 @@ namespace ViewModels.Cursor
         ///   Occurs when hand has changed.
         /// </summary>
         event HandChanged HandChanged;
+
+        /// <summary>
+        /// Gets the hand cursor image source.
+        /// </summary>
+        ImageSource HandCursorImageSource { get; }
+
+        void HuhuhuUpdateCursorImage(HandType handType);
     }
 }

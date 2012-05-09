@@ -16,13 +16,12 @@ namespace Views.Xaml
     /// </summary>
     public partial class MainWindow
     {
+        /// <summary>
+        /// The time which the cursor has to stay on a button until a click is executed
+        /// </summary>
         private const double Interval = 1500;
         private HitTestHelper _hitTestHelper;
         private Storyboard _storyboard;
-        private ImageSource _rightHandSource;
-        private ImageSource _leftHandSource;
-        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
-        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
 
 
         /// <summary>
@@ -42,13 +41,16 @@ namespace Views.Xaml
 
         private void InitImages()
         {
-            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
-            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
+           
+            //_leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
+            //_rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
         }
 
         private void OnHandChanged(HandType handType)
         {
-            cursorImage.Source = handType == HandType.Right ? _rightHandSource : _leftHandSource;
+            MainWindowViewModel.CursorViewModel.HuhuhuUpdateCursorImage(handType);
+            cursorImage.Source = MainWindowViewModel.CursorViewModel.HandCursorImageSource;
+            //cursorImage.Source = handType == HandType.Right ? _rightHandSource : _leftHandSource;
         }
 
         /// <summary>

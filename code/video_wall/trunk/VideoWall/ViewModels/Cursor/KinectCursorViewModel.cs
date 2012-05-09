@@ -18,6 +18,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Media;
 using Common;
 using Microsoft.Kinect;
 using ServiceModels.HandCursor;
@@ -39,8 +40,6 @@ namespace ViewModels.Cursor
         private readonly Player _player;
         private readonly Queue<Skeleton> _skeletonHistory;
 
-        #region Properties
-
         /// <summary>
         ///   Gets the position.
         /// </summary>
@@ -58,7 +57,20 @@ namespace ViewModels.Cursor
         /// <value> The height of the window. </value>
         public double WindowHeight { private get; set; }
 
-        #endregion
+        /// <summary>
+        /// Gets the hand cursor image source (for left or right hand).
+        /// </summary>
+        public ImageSource HandCursorImageSource { get; private set; }
+
+        public void HuhuhuUpdateCursorImage(HandType handType)
+        {
+            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
+        }
+
+        private ImageSource _rightHandSource;
+        private ImageSource _leftHandSource;
+        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
+        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
@@ -74,7 +86,15 @@ namespace ViewModels.Cursor
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
+            InitCursorImages();
             _handCursorPositionCalculator.HandChanged += OnHandChanged;
+        }
+
+        private void InitCursorImages()
+        {
+            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
+            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
+            HandCursorImageSource = _rightHandSource;
         }
 
         #region ICursorViewModel Members
