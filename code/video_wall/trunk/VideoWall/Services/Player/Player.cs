@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Linq;
 using Common;
 using Data.Kinect;
