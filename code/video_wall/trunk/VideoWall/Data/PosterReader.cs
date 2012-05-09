@@ -33,7 +33,8 @@ namespace Data
         /// </summary>
         public PosterReader()
         {
-            Path = @"...\...\...\Resources\Poster";
+            //Path = @"...\...\...\Resources\Poster";
+            Path = @"..\..\..\ResourceLoader\Files\Poster";
         }
 
         /// <summary>
@@ -44,6 +45,6 @@ namespace Data
         /// <summary>
         ///   Gets the files.
         /// </summary>
-        public IEnumerable<string> Files { get { return Directory.GetFiles(Path, "*jpg"); } }
+        public IEnumerable<string> Files { get { return Directory.GetFiles(Path, "*.jpg"); } }
     }
 }

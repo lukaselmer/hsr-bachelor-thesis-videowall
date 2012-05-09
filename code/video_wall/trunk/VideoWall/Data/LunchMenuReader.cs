@@ -33,7 +33,7 @@ namespace Data
         /// </summary>
         public LunchMenuReader()
         {
-            Path = @"...\...\...\Resources\LunchMenu";
+            Path = @"..\..\..\ResourceLoader\Files\LunchMenu";
         }
 
         /// <summary>
