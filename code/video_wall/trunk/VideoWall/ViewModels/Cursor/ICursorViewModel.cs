@@ -56,7 +56,5 @@ namespace ViewModels.Cursor
         /// Gets the hand cursor image source.
         /// </summary>
         ImageSource HandCursorImageSource { get; }
-
-        void HuhuhuUpdateCursorImage(HandType handType);
     }
 }

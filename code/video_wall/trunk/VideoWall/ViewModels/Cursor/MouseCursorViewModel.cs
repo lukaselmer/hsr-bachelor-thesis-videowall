@@ -81,21 +81,11 @@ namespace ViewModels.Cursor
             Notify("Position");
         }
 
-        private ImageSource _rightHandSource;
-        private ImageSource _leftHandSource;
         private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
-        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
 
         private void InitCursorImages()
         {
-            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
-            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
-            HandCursorImageSource = _rightHandSource;
-        }
-
-        public void HuhuhuUpdateCursorImage(HandType handType)
-        {
-            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
+            HandCursorImageSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
         }
 
         #region ICursorViewModel Members

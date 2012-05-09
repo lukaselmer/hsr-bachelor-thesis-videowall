@@ -57,14 +57,24 @@ namespace ViewModels.Cursor
         /// <value> The height of the window. </value>
         public double WindowHeight { private get; set; }
 
+        private ImageSource _handCursorImageSource;
+
         /// <summary>
         /// Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource { get; private set; }
-
-        public void HuhuhuUpdateCursorImage(HandType handType)
+        public ImageSource HandCursorImageSource
         {
-            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
+            get
+            {
+                return _handCursorImageSource;
+            }
+            private set
+            {
+                if (_handCursorImageSource == value) return;
+                _handCursorImageSource = value; 
+                // TODO: discuss this problem!! Too many notifications here... D: D: D:
+                //Notify("HandCursorImageSource");
+            }
         }
 
         private ImageSource _rightHandSource;
@@ -116,6 +126,7 @@ namespace ViewModels.Cursor
 
         private void OnHandChanged(HandType handType)
         {
+            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
             if (HandChanged != null) HandChanged(handType);
         }
 

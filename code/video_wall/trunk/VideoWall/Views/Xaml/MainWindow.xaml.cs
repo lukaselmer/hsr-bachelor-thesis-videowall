@@ -23,7 +23,6 @@ namespace Views.Xaml
         private HitTestHelper _hitTestHelper;
         private Storyboard _storyboard;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -35,22 +34,12 @@ namespace Views.Xaml
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
-            InitImages();
             MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
-        }
-
-        private void InitImages()
-        {
-           
-            //_leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
-            //_rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
         }
 
         private void OnHandChanged(HandType handType)
         {
-            MainWindowViewModel.CursorViewModel.HuhuhuUpdateCursorImage(handType);
             cursorImage.Source = MainWindowViewModel.CursorViewModel.HandCursorImageSource;
-            //cursorImage.Source = handType == HandType.Right ? _rightHandSource : _leftHandSource;
         }
 
         /// <summary>
