@@ -8,15 +8,15 @@ namespace DemoMode
         public DemoModeView()
         {
             InitializeComponent();
-            DemoModeViewModel = new DemoModeViewModel();
-            DataContext = DemoModeViewModel;
+            DemoModeTimer = new DemoModeTimer();
+            DataContext = DemoModeTimer;
         }
 
-        protected DemoModeViewModel DemoModeViewModel { get; private set; }
+        protected DemoModeTimer DemoModeTimer { get; private set; }
 
         private void ButtonClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            DemoModeViewModel.SkeletonWasChanged();
+            DemoModeTimer.SkeletonWasChanged();
         }
     }
 }

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:DemoMode="clr-namespace:DemoMode"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
+             d:DataContext="{d:DesignInstance DemoMode:DemoModeTimer}">
     <StackPanel>
         <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="30" Text="{Binding TimerStatus}"></TextBlock>
         <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="40" Text="{Binding Progress}"></TextBlock>

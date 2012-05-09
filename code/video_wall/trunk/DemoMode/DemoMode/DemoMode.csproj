@@ -64,7 +64,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoModeViewModel.cs" />
+    <Compile Include="DemoModeTimer.cs" />
+    <Compile Include="Notifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,11 +90,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BaseArchitecture\Common\Common.csproj">
-      <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BaseArchitecture\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\VideoWall\Interfaces\Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
