@@ -8,6 +8,6 @@
     <StackPanel>
         <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="30" Text="{Binding TimerStatus}"></TextBlock>
         <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="40" Text="{Binding Progress}"></TextBlock>
-        <Button HorizontalAlignment="Center" Click="ButtonClick" VerticalAlignment="Center">Timer unterbrechen</Button>
+        <Button HorizontalAlignment="Center" Click="ButtonClick" VerticalAlignment="Center">Skelettbewegung simulieren</Button>
     </StackPanel>
 </UserControl>

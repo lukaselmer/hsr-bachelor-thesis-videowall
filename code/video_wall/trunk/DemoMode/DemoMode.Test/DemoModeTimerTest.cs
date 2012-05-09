@@ -72,7 +72,7 @@ namespace DemoMode.Test
         {
             var target = new DemoModeTimer_Accessor();
             var progress = target.Progress;
-            target.OnSecondTimerTick(null, null);
+            target.OnSkeletonCheckTimerTick(null, null);
             Assert.AreEqual(progress - 1, target.Progress);
         }
 
@@ -85,7 +85,7 @@ namespace DemoMode.Test
         {
             var target = new DemoModeTimer_Accessor();
             Assert.IsTrue(target.IsInInteractionMode);
-            target.OnTimerTick(null, null);
+            target.OnInteractionModeTimerTick(null, null);
             Assert.IsFalse(target.IsInInteractionMode);
         }
 
@@ -98,7 +98,7 @@ namespace DemoMode.Test
             var target = new DemoModeTimer_Accessor();
             target.SkeletonWasChanged();
             Assert.IsTrue(target.IsInInteractionMode);
-            Assert.AreEqual(DemoModeTimer_Accessor.Interval, target.Progress);
+            Assert.AreEqual(DemoModeTimer_Accessor.InteractionModeWaitingPeriod, target.Progress);
         }
     }
 }
