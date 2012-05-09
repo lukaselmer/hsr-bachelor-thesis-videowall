@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using Services.HandCursor;
 using ViewModels;
 using ViewModels.HitButton;
 
@@ -48,9 +49,9 @@ namespace Views
             _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
         }
 
-        private void OnHandChanged(bool isRightHand)
+        private void OnHandChanged(HandType handType)
         {
-            cursorImage.Source = isRightHand ? _rightHandSource : _leftHandSource;
+            cursorImage.Source = handType == HandType.Right ? _rightHandSource : _leftHandSource;
         }
 
         /// <summary>

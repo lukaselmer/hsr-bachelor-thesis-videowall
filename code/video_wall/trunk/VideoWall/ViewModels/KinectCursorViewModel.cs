@@ -73,7 +73,7 @@ namespace ViewModels
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
-            _handCursorPositionCalculator.HandChanged += OnHandCursorHandChanged;
+            _handCursorPositionCalculator.HandChanged += OnHandChanged;
         }
 
         #region ICursorViewModel Members
@@ -90,17 +90,9 @@ namespace ViewModels
 
         #endregion
 
-        private void OnHandChanged(bool isRightHand)
+        private void OnHandChanged(HandType handType)
         {
-            if (HandChanged != null)
-            {
-                HandChanged(isRightHand);
-            }
-        }
-
-        private void OnHandCursorHandChanged(bool isRightHand)
-        {
-            OnHandChanged(isRightHand);
+            if (HandChanged != null) HandChanged(handType);
         }
 
         /// <summary>

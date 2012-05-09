@@ -30,8 +30,23 @@ namespace Services.HandCursor
     /// <summary>
     /// The delegate for when the hand is changed (left or right hand)
     /// </summary>
-    /// <param name="isRightHand">if set to <c>true</c> is right hand.</param>
-    public delegate void HandChanged(bool isRightHand);
+    /// <param name="handType">Type of the hand.</param>
+    public delegate void HandChanged(HandType isRightHand);
+
+    /// <summary>
+    /// The hand type (left or right hand)
+    /// </summary>
+    public enum HandType
+    {
+        /// <summary>
+        /// The left hand
+        /// </summary>
+        Left,
+        /// <summary>
+        /// The right hand
+        /// </summary>
+        Right
+    }
 
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012
@@ -63,11 +78,11 @@ namespace Services.HandCursor
         /// </summary>
         public event HandChanged HandChanged;
 
-        private void OnHandChanged(bool isRightHand)
+        private void OnHandChanged(HandType handType)
         {
             if (HandChanged != null)
             {
-                HandChanged(isRightHand);
+                HandChanged(handType);
             }
         }
 
@@ -105,23 +120,23 @@ namespace Services.HandCursor
         /// <returns> </returns>
         private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton)
         {
-            if (skeleton == null || (int) window.Height <= 0 || (int) window.Width <= 0) return new Point(0, 0);
+            if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
 
             Joint joint;
             if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
             {
                 joint = skeleton.Joints[JointType.HandLeft];
-                OnHandChanged(false);
+                OnHandChanged(HandType.Left);
                 RelativePadding = _relativePaddingForLeftHanded;
             }
             else
             {
                 joint = skeleton.Joints[JointType.HandRight];
-                OnHandChanged(true);
+                OnHandChanged(HandType.Right);
                 RelativePadding = _relativePaddingForRightHanded;
             }
 
-            var absolutePosition = joint.ScaleTo((int) window.Width, (int) window.Height);
+            var absolutePosition = joint.ScaleTo((int)window.Width, (int)window.Height);
 
             return RelativePositionFor(window, new Point(absolutePosition.Position.X, absolutePosition.Position.Y));
         }
@@ -151,12 +166,12 @@ namespace Services.HandCursor
             // 0 <= posX <= zone.Width and 0 <= posY <= zone.Height
             posX -= padding.Left;
             posY -= padding.Top;
-            Debug.Assert(0 <= (int) posX && (int) posX <= (int) zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
-            Debug.Assert(0 <= (int) posY && (int) posY <= (int) zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
+            Debug.Assert(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
+            Debug.Assert(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
 
             // Scale the zone relative coordinate to the window size
-            posX = posX*window.Width/zone.Width;
-            posY = posY*window.Height/zone.Height;
+            posX = posX * window.Width / zone.Width;
+            posY = posY * window.Height / zone.Height;
 
             return new Point(posX, posY);
         }
