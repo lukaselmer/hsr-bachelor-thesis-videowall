@@ -21,7 +21,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using Common;
-using Services;
+using ServiceModels;
 
 #endregion
 

@@ -93,9 +93,9 @@
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\ServiceModels.csproj">
       <Project>{C8F81AF4-F9CB-4DE1-9848-B50C4D12C42F}</Project>
-      <Name>Services</Name>
+      <Name>ServiceModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

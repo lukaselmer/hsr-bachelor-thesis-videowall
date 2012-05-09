@@ -19,7 +19,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Common;
 using Interfaces;
-using Services.Apps;
+using ServiceModels.Apps;
 
 #endregion
 

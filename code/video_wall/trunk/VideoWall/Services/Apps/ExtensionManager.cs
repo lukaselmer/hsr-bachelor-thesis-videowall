@@ -22,7 +22,7 @@ using System.Reflection;
 
 #endregion
 
-namespace Services.Apps
+namespace ServiceModels.Apps
 {
     /// <summary>
     ///   The extension manager is responsible for loading the extensions

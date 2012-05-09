@@ -25,13 +25,13 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace Services.HandCursor
+namespace ServiceModels.HandCursor
 {
     /// <summary>
     /// The delegate for when the hand is changed (left or right hand)
     /// </summary>
     /// <param name="handType">Type of the hand.</param>
-    public delegate void HandChanged(HandType isRightHand);
+    public delegate void HandChanged(HandType handType);
 
     /// <summary>
     /// The hand type (left or right hand)

@@ -18,7 +18,7 @@
 using System;
 using System.ComponentModel;
 using Common;
-using Services;
+using ServiceModels;
 
 #endregion
 

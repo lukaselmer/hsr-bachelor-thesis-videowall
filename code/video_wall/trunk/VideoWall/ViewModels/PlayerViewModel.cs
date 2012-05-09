@@ -22,7 +22,7 @@ using System.Windows.Input;
 using Common;
 using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
-using Services;
+using ServiceModels.Player;
 
 #endregion
 

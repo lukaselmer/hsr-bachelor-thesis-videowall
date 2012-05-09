@@ -23,7 +23,7 @@ using Interfaces;
 
 #endregion
 
-namespace Services.Apps
+namespace ServiceModels.Apps
 {
     /// <summary>
     ///   Controls the apps

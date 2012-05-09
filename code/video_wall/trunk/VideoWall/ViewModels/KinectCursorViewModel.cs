@@ -20,8 +20,8 @@ using System.ComponentModel;
 using System.Windows;
 using Common;
 using Microsoft.Kinect;
-using Services;
-using Services.HandCursor;
+using ServiceModels.HandCursor;
+using ServiceModels.Player;
 
 #endregion
 

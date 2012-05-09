@@ -17,7 +17,7 @@
 
 using System.Windows;
 using Common;
-using Services.HandCursor;
+using ServiceModels.HandCursor;
 
 #endregion
 

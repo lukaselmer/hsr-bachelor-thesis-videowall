@@ -21,7 +21,7 @@ using Common;
 
 #endregion
 
-namespace Services
+namespace ServiceModels
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

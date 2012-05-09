@@ -19,7 +19,7 @@ using System.Diagnostics;
 
 #endregion
 
-namespace Services.HandCursor
+namespace ServiceModels.HandCursor
 {
     /// <summary>
     /// Reviewed by Christina Heidt, 17.04.2012

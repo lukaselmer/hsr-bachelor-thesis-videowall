@@ -22,7 +22,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace Services
+namespace ServiceModels.Player
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012

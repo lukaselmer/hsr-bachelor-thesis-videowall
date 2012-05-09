@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using Services.HandCursor;
+using ServiceModels.HandCursor;
 using ViewModels;
 using ViewModels.HitButton;
 using Views.Helpers;
