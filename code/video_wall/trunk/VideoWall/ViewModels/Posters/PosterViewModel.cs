@@ -22,10 +22,11 @@ using System.Linq;
 using System.Windows.Input;
 using Common;
 using ServiceModels;
+using ViewModels.Helpers;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Posters
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

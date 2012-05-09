@@ -21,7 +21,7 @@ using ServiceModels.HandCursor;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Cursor
 {
     /// <summary>
     ///   The Mouse Cursor View Model

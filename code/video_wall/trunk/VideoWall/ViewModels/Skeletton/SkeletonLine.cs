@@ -21,7 +21,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Skeletton
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.04.2012

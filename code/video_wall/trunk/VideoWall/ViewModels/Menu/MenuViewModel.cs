@@ -20,10 +20,13 @@ using System.Windows.Input;
 using Common;
 using Interfaces;
 using ServiceModels.Apps;
+using ViewModels.Helpers;
+using ViewModels.Lunch;
+using ViewModels.Posters;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Menu
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

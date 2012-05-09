@@ -1,12 +1,12 @@
-﻿<Window x:Class="Views.MainWindow"
+﻿<Window x:Class="Views.Xaml.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Video Wall"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" 
-        xmlns:Views="clr-namespace:Views" mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance ViewModels:MainWindowViewModel}"
+        xmlns:Main="clr-namespace:ViewModels.Main;assembly=ViewModels" xmlns:Views1="clr-namespace:Views"
+        xmlns:Xaml="clr-namespace:Views.Xaml" mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Main:MainWindowViewModel}"
         WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Focusable="True" ResizeMode="NoResize"
         Width="{Binding CursorViewModel.WindowWidth, Mode=OneWayToSource}" Height="{Binding CursorViewModel.WindowHeight, Mode=OneWayToSource}">
     <Grid Name="MainContainer" x:FieldModifier="private">
@@ -16,7 +16,7 @@
             </Canvas.RenderTransform>
 
             <Image Name="cursorImage" Source="pack://application:,,,/Views;component/Resources/hand_right.png" Width="60" Height="60"/>
-            <Views:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
+            <Xaml:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 
         <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
@@ -28,14 +28,14 @@
                 <RowDefinition Height="{Binding PlayerViewModel.WidthAndHeight}"/>
             </Grid.RowDefinitions>
 
-            <Views:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
+            <Xaml:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
 
-            <Views:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
-            <Views:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
+            <Xaml:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views1:BoolToVisibilityConverter}}"/>
+            <Xaml:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views1:BoolToVisibilityConverter}}"/>
             
             <ContentControl Grid.Row="1" Opacity="0.5" Content="{Binding MenuViewModel.CurrentApp.MainView}"></ContentControl>
 
-            <Views:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
+            <Xaml:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
         </Grid>
     </Grid>
 </Window>

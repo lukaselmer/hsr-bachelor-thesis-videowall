@@ -22,7 +22,7 @@ using ServiceModels;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Lunch
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

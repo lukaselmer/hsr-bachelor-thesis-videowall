@@ -96,32 +96,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\ButtonClickSiumulator.cs" />
-    <Compile Include="Views\CursorAnimation.xaml.cs">
+    <Compile Include="Xaml\CursorAnimation.xaml.cs">
       <DependentUpon>CursorAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtendedVisualTreeHelper.cs" />
-    <Compile Include="Views\PlayerView.xaml.cs">
+    <Compile Include="Xaml\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PlayerWindow.xaml.cs">
+    <Compile Include="Xaml\PlayerWindow.xaml.cs">
       <DependentUpon>PlayerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SkeletonLinesView.xaml.cs">
+    <Compile Include="Xaml\SkeletonLinesView.xaml.cs">
       <DependentUpon>SkeletonLinesView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\CursorAnimation.xaml">
+    <Page Include="Xaml\CursorAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PlayerView.xaml">
+    <Page Include="Xaml\PlayerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LunchMenuView.xaml">
+    <Page Include="Xaml\LunchMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Xaml\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -130,35 +130,35 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\BoolToVisibilityConverter.cs" />
-    <Compile Include="Views\LunchMenuView.xaml.cs">
+    <Compile Include="Xaml\LunchMenuView.xaml.cs">
       <DependentUpon>LunchMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="Xaml\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MenuView.xaml">
+    <Page Include="Xaml\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PlayerWindow.xaml">
+    <Page Include="Xaml\PlayerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\PosterView.xaml">
+    <Page Include="Xaml\PosterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SkeletonLinesView.xaml">
+    <Page Include="Xaml\SkeletonLinesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MenuView.xaml.cs">
+    <Compile Include="Xaml\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PosterView.xaml.cs">
+    <Compile Include="Xaml\PosterView.xaml.cs">
       <DependentUpon>PosterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

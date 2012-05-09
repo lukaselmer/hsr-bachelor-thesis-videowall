@@ -1,4 +1,4 @@
-﻿namespace Views
+﻿namespace Views.Xaml
 {
     /// <summary>
     /// Interaction logic for PosterView.xaml

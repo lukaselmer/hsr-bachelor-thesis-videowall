@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using Microsoft.Expression.Shapes;
-namespace Views
+
+namespace Views.Xaml
 {
     /// <summary>
     /// Interaction logic for CursorAnimation.xaml

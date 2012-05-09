@@ -22,10 +22,11 @@ using Common;
 using Microsoft.Kinect;
 using ServiceModels.HandCursor;
 using ServiceModels.Player;
+using ViewModels.Skeletton;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Cursor
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012
@@ -60,10 +61,10 @@ namespace ViewModels
         #endregion
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="PlayerViewModel" /> class.
+        /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
         /// </summary>
-        /// <param name="player"> The player. </param>
-        /// <param name="handCursorPositionCalculator"> The cursor position calculator </param>
+        /// <param name="player">The player.</param>
+        /// <param name="handCursorPositionCalculator">The player.</param>
         public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
         {
             _skeletonHistory = new Queue<Skeleton>(CursorSmoothingLevel);

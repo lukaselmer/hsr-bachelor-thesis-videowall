@@ -16,10 +16,13 @@
 #region Usings
 
 using Common;
+using ViewModels.Cursor;
+using ViewModels.Menu;
+using ViewModels.Skeletton;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Main
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

@@ -21,6 +21,7 @@ using System.ComponentModel;
 using System.Timers;
 using System.Windows;
 using Common;
+using ViewModels.Cursor;
 
 #endregion
 

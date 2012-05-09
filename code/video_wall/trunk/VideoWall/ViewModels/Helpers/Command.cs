@@ -20,7 +20,7 @@ using System.Windows.Input;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Helpers
 {
     /// <summary>
     ///   Implementation of the ICommand Interface

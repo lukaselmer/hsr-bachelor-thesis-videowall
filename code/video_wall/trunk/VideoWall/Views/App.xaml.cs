@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Views.Xaml;
 
 namespace Views
 {

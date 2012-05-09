@@ -22,7 +22,7 @@ using ServiceModels.HandCursor;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Cursor
 {
     /// <summary>
     ///   The Interface of the Cursor View Model

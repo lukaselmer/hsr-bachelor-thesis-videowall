@@ -1,6 +1,4 @@
-using ViewModels;
-
-namespace Views
+namespace Views.Xaml
 {
     /// <summary>
     /// Interaction logic for PlayerWindow.xaml

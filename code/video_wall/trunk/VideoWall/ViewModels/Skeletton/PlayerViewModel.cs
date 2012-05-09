@@ -26,7 +26,7 @@ using ServiceModels.Player;
 
 #endregion
 
-namespace ViewModels
+namespace ViewModels.Skeletton
 {
     /// <summary>
     ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
