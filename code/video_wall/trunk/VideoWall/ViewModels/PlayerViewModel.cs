@@ -80,7 +80,7 @@ namespace ViewModels
 
             StopCommand = new ActionCommand(() => { if (_player.Playing) _player.StopPlaying(); });
 
-            WidthAndHeight = 153;
+            WidthAndHeight = 160;
         }
 
         #region IDisposable Members

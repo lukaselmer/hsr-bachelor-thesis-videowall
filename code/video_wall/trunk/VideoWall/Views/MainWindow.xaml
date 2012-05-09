@@ -25,7 +25,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="6*"/>
-                <RowDefinition Height="153"/>
+                <RowDefinition Height="{Binding PlayerViewModel.WidthAndHeight}"/>
             </Grid.RowDefinitions>
 
             <Views:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
