@@ -22,7 +22,7 @@ using System.Diagnostics;
 namespace ServiceModels.HandCursor
 {
     /// <summary>
-    /// Reviewed by Christina Heidt, 17.04.2012
+    ///   Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
     public class RelativePadding
     {
@@ -52,19 +52,22 @@ namespace ServiceModels.HandCursor
         }
 
         /// <summary>
-        /// Gets the left padding.
+        ///   Gets the left padding.
         /// </summary>
         public double Left { get; private set; }
+
         /// <summary>
-        /// Gets the top padding.
+        ///   Gets the top padding.
         /// </summary>
         public double Top { get; private set; }
+
         /// <summary>
-        /// Gets the right padding.
+        ///   Gets the right padding.
         /// </summary>
         public double Right { get; private set; }
+
         /// <summary>
-        /// Gets the bottom padding.
+        ///   Gets the bottom padding.
         /// </summary>
         public double Bottom { get; private set; }
     }

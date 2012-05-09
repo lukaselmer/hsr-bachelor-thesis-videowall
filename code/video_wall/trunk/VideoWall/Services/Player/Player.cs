@@ -45,11 +45,9 @@ namespace ServiceModels.Player
         }
 
         /// <summary>
-        /// Gets or sets the skeleton.
+        ///   Gets or sets the skeleton.
         /// </summary>
-        /// <value>
-        /// The skeleton.
-        /// </value>
+        /// <value> The skeleton. </value>
         public Skeleton Skeleton { get; set; }
 
         /// <summary>

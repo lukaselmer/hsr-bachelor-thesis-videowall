@@ -28,22 +28,23 @@ using Microsoft.Kinect;
 namespace ServiceModels.HandCursor
 {
     /// <summary>
-    /// The delegate for when the hand is changed (left or right hand)
+    ///   The delegate for when the hand is changed (left or right hand)
     /// </summary>
-    /// <param name="handType">Type of the hand.</param>
+    /// <param name="handType"> Type of the hand. </param>
     public delegate void HandChanged(HandType handType);
 
     /// <summary>
-    /// The hand type (left or right hand)
+    ///   The hand type (left or right hand)
     /// </summary>
     public enum HandType
     {
         /// <summary>
-        /// The left hand
+        ///   The left hand
         /// </summary>
         Left,
+
         /// <summary>
-        /// The right hand
+        ///   The right hand
         /// </summary>
         Right
     }
@@ -53,8 +54,8 @@ namespace ServiceModels.HandCursor
     /// </summary>
     public class HandCursorPositionCalculator
     {
-        private readonly RelativePadding _relativePaddingForRightHanded;
         private readonly RelativePadding _relativePaddingForLeftHanded;
+        private readonly RelativePadding _relativePaddingForRightHanded;
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
@@ -69,12 +70,12 @@ namespace ServiceModels.HandCursor
         }
 
         /// <summary>
-        /// Gets the relative padding.
+        ///   Gets the relative padding.
         /// </summary>
         protected RelativePadding RelativePadding { get; private set; }
 
         /// <summary>
-        /// Occurs when the hand changed.
+        ///   Occurs when the hand changed.
         /// </summary>
         public event HandChanged HandChanged;
 
@@ -120,7 +121,7 @@ namespace ServiceModels.HandCursor
         /// <returns> </returns>
         private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton)
         {
-            if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
+            if (skeleton == null || (int) window.Height <= 0 || (int) window.Width <= 0) return new Point(0, 0);
 
             Joint joint;
             if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
@@ -136,7 +137,7 @@ namespace ServiceModels.HandCursor
                 RelativePadding = _relativePaddingForRightHanded;
             }
 
-            var absolutePosition = joint.ScaleTo((int)window.Width, (int)window.Height);
+            var absolutePosition = joint.ScaleTo((int) window.Width, (int) window.Height);
 
             return RelativePositionFor(window, new Point(absolutePosition.Position.X, absolutePosition.Position.Y));
         }
@@ -166,12 +167,12 @@ namespace ServiceModels.HandCursor
             // 0 <= posX <= zone.Width and 0 <= posY <= zone.Height
             posX -= padding.Left;
             posY -= padding.Top;
-            Debug.Assert(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
-            Debug.Assert(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
+            Debug.Assert(0 <= (int) posX && (int) posX <= (int) zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
+            Debug.Assert(0 <= (int) posY && (int) posY <= (int) zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
 
             // Scale the zone relative coordinate to the window size
-            posX = posX * window.Width / zone.Width;
-            posY = posY * window.Height / zone.Height;
+            posX = posX*window.Width/zone.Width;
+            posY = posY*window.Height/zone.Height;
 
             return new Point(posX, posY);
         }

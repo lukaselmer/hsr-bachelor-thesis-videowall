@@ -55,7 +55,7 @@ namespace ViewModels.HitButton
             _cursorViewModel = cursorViewModel;
             _window = window;
             _cursorViewModel.PropertyChanged += OnModelChanged;
-            _currentTimer = new Timer(interval) { AutoReset = true, Enabled = false };
+            _currentTimer = new Timer(interval) {AutoReset = true, Enabled = false};
             _currentTimer.Elapsed += OnCurrentTimerElapsed;
 
             Started += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " started!");

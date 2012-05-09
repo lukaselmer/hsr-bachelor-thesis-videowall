@@ -53,7 +53,7 @@ namespace ViewModels
         }
 
         /// <summary>
-        /// Gets the apps.
+        ///   Gets the apps.
         /// </summary>
         protected ObservableCollection<IApp> Apps { get; private set; }
 
