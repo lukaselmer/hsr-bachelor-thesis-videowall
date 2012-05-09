@@ -34,8 +34,7 @@ namespace Services
         public Poster(string fileName)
         {
             Name = Path.GetFileNameWithoutExtension(fileName);
-            Image = new BitmapImage();
-            Image.InitializeWith(fileName);
+            Image = ImageHelper.InitWithFileName(fileName);
         }
 
         /// <summary>

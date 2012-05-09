@@ -34,8 +34,7 @@ namespace Services
         public LunchMenu(string fileName)
         {
             Name = Path.GetFileNameWithoutExtension(fileName);
-            Image = new BitmapImage();
-            Image.InitializeWith(fileName);
+            Image = ImageHelper.InitWithFileName(fileName);
         }
 
         /// <summary>
