@@ -44,6 +44,12 @@ namespace Services
             _skeletonReader = skeletonReader;
         }
 
+        /// <summary>
+        /// Gets or sets the skeleton.
+        /// </summary>
+        /// <value>
+        /// The skeleton.
+        /// </value>
         public Skeleton Skeleton { get; set; }
 
         /// <summary>

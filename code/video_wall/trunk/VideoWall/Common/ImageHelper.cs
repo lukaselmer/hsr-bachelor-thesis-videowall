@@ -20,7 +20,7 @@ using System.Windows.Media.Imaging;
 
 #endregion
 
-namespace Services
+namespace Common
 {
     /// <summary>
     ///   The image helper provides helper methods for images.

@@ -27,6 +27,10 @@ using Microsoft.Kinect;
 
 namespace Services.HandCursor
 {
+    /// <summary>
+    /// The delegate for when the hand is changed (left or right hand)
+    /// </summary>
+    /// <param name="isRightHand">if set to <c>true</c> is right hand.</param>
     public delegate void HandChanged(bool isRightHand);
 
     /// <summary>
@@ -34,6 +38,9 @@ namespace Services.HandCursor
     /// </summary>
     public class HandCursorPositionCalculator
     {
+        private readonly RelativePadding _relativePaddingForRightHanded;
+        private readonly RelativePadding _relativePaddingForLeftHanded;
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
         /// </summary>
@@ -41,11 +48,19 @@ namespace Services.HandCursor
         {
             //TODO: Magic numbers. Where do these come from? Needs explanation
             //0.45, 0.1, 0.3, 0.49
-            RelativePadding = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+            _relativePaddingForRightHanded = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+            _relativePaddingForLeftHanded = new RelativePadding(_relativePaddingForRightHanded.Right, _relativePaddingForRightHanded.Top, _relativePaddingForRightHanded.Left, _relativePaddingForRightHanded.Bottom);
+            RelativePadding = _relativePaddingForRightHanded;
         }
 
+        /// <summary>
+        /// Gets the relative padding.
+        /// </summary>
         protected RelativePadding RelativePadding { get; private set; }
 
+        /// <summary>
+        /// Occurs when the hand changed.
+        /// </summary>
         public event HandChanged HandChanged;
 
         private void OnHandChanged(bool isRightHand)
@@ -97,13 +112,13 @@ namespace Services.HandCursor
             {
                 joint = skeleton.Joints[JointType.HandLeft];
                 OnHandChanged(false);
-                RelativePadding.SetPaddingForLeftHanded();
+                RelativePadding = _relativePaddingForLeftHanded;
             }
             else
             {
                 joint = skeleton.Joints[JointType.HandRight];
                 OnHandChanged(true);
-                RelativePadding.SetPaddingForRightHanded();
+                RelativePadding = _relativePaddingForRightHanded;
             }
 
             var absolutePosition = joint.ScaleTo((int) window.Width, (int) window.Height);

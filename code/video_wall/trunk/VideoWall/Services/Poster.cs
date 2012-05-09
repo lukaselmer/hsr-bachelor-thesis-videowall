@@ -17,6 +17,7 @@
 
 using System.IO;
 using System.Windows.Media.Imaging;
+using Common;
 
 #endregion
 
@@ -34,7 +35,7 @@ namespace Services
         public Poster(string fileName)
         {
             Name = Path.GetFileNameWithoutExtension(fileName);
-            Image = ImageHelper.InitWithFileName(fileName);
+            Image = Common.ImageHelper.InitWithFileName(fileName);
         }
 
         /// <summary>
