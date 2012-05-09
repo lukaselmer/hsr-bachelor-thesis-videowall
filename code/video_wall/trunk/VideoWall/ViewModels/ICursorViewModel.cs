@@ -46,6 +46,9 @@ namespace ViewModels
         /// <value> The height of the window. </value>
         double WindowHeight { set; }
 
+        /// <summary>
+        /// Occurs when hand has changed.
+        /// </summary>
         event HandChanged HandChanged;
     }
 }

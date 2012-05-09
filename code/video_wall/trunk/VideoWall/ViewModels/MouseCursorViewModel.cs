@@ -45,6 +45,9 @@ namespace ViewModels
             }
         }
 
+        /// <summary>
+        /// Occurs when hand has changed.
+        /// </summary>
         public event HandChanged HandChanged;
 
         /// <summary>

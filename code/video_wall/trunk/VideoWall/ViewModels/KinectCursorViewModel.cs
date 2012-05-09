@@ -78,6 +78,9 @@ namespace ViewModels
 
         #region ICursorViewModel Members
 
+        /// <summary>
+        /// Occurs when hand has changed.
+        /// </summary>
         public event HandChanged HandChanged;
 
         /// <summary>

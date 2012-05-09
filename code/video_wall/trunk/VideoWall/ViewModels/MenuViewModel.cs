@@ -52,6 +52,9 @@ namespace ViewModels
             OnShowPosterView(null);
         }
 
+        /// <summary>
+        /// Gets the apps.
+        /// </summary>
         protected ObservableCollection<IApp> Apps { get; private set; }
 
         /// <summary>

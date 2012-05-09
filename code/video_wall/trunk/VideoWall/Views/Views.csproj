@@ -95,6 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\ButtonClickSiumulator.cs" />
     <Compile Include="Views\CursorAnimation.xaml.cs">
       <DependentUpon>CursorAnimation.xaml</DependentUpon>
     </Compile>

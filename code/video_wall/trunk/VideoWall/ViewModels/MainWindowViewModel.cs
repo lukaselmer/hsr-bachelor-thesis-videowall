@@ -29,7 +29,6 @@ namespace ViewModels
         /// <summary>
         ///   Initializes a new instance of the <see cref="MainWindowViewModel" /> class.
         /// </summary>
-        /// <param name="appController"> The app controller. </param>
         /// <param name="menuViewModel"> The menu view model. </param>
         /// <param name="playerViewModel"> The player view model. </param>
         /// <param name="cursorViewModel"> The cursor view model. </param>
