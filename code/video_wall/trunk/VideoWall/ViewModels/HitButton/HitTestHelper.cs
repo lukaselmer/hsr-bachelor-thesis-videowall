@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Timers;
 using System.Windows;
+using Common;
 
 #endregion
 
@@ -54,12 +55,12 @@ namespace ViewModels.HitButton
             _cursorViewModel = cursorViewModel;
             _window = window;
             _cursorViewModel.PropertyChanged += OnModelChanged;
-            _currentTimer = new Timer(interval) {AutoReset = true, Enabled = false};
+            _currentTimer = new Timer(interval) { AutoReset = true, Enabled = false };
             _currentTimer.Elapsed += OnCurrentTimerElapsed;
 
-            Started += (sender, args) => Console.WriteLine("UIElement " + args.UIElement + " started!");
-            Stopped += (sender, args) => Console.WriteLine("UIElement " + args.UIElement + " stopped!");
-            Clicked += (sender, args) => Console.WriteLine("UIElement " + args.UIElement + " clicked!");
+            Started += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " started!");
+            Stopped += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " stopped!");
+            Clicked += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " clicked!");
         }
 
         /// <summary>
