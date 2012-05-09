@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using Services.HandCursor;
 using ViewModels;
 using ViewModels.HitButton;
+using Views.Helpers;
 
 namespace Views
 {
@@ -91,18 +92,7 @@ namespace Views
         {
             StartAnimation(sender, args);
             var button = args.UIElement as Button;
-            if (button != null) RaiseEventOfUIElement(button);
-        }
-        /// <summary>
-        /// Raises the event of UI element.
-        /// </summary>
-        /// <param name="uiElement">The UI element.</param>
-        private void RaiseEventOfUIElement(Button uiElement)
-        {
-            var peer = new ButtonAutomationPeer(uiElement);
-            var invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-            Debug.Assert(invokeProv != null, "invokeProv != null");
-            invokeProv.Invoke();
+            if (button != null) button.SimulateClick();
         }
 
         /// <summary>

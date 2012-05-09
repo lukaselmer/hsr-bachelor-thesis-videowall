@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Views
+namespace Views.Helpers
 {
     static internal class ExtendedVisualTreeHelper
     {
