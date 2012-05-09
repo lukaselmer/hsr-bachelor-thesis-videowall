@@ -24,14 +24,14 @@
         <Grid Canvas.Bottom="0" Canvas.Right="0" ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="742"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition Height="153"/>
             </Grid.RowDefinitions>
 
             <Views:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
 
-            <Views:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
-            <Views:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
+            <!--<Views:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>
+            <Views:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views:BoolToVisibilityConverter}}"/>-->
             
             <ContentControl Grid.Row="1" Opacity="0.5" Content="{Binding MenuViewModel.CurrentApp.MainView}"></ContentControl>
 

@@ -11,8 +11,6 @@ namespace Views
 {
     class BoolToVisibilityConverter : MarkupExtension, IValueConverter
     {
-        #region Other
-
         /// <summary>
         /// Converts a boolean to a visibility.
         /// True = Visibility.Visible
@@ -44,9 +42,6 @@ namespace Views
         {
             return ((Visibility)value) == Visibility.Visible;
         }
-
-        #endregion
-
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
