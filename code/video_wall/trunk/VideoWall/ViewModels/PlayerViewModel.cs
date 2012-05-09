@@ -117,29 +117,34 @@ namespace ViewModels
         private void DrawLines()
         {
             //right arm
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.HandRight], Skeleton.Joints[JointType.WristRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.WristRight], Skeleton.Joints[JointType.ElbowRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.ElbowRight], Skeleton.Joints[JointType.ShoulderRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.ShoulderRight], Skeleton.Joints[JointType.ShoulderCenter], WidthAndHeight));
+            DrawLine(JointType.HandRight, JointType.WristRight);
+            DrawLine(JointType.WristRight, JointType.ElbowRight);
+            DrawLine(JointType.ElbowRight, JointType.ShoulderRight);
+            DrawLine(JointType.ShoulderRight, JointType.ShoulderCenter);
             //left arm
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.HandLeft], Skeleton.Joints[JointType.WristLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.WristLeft], Skeleton.Joints[JointType.ElbowLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.ElbowLeft], Skeleton.Joints[JointType.ShoulderLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.ShoulderLeft], Skeleton.Joints[JointType.ShoulderCenter], WidthAndHeight));
+            DrawLine(JointType.HandLeft, JointType.WristLeft);
+            DrawLine(JointType.WristLeft, JointType.ElbowLeft);
+            DrawLine(JointType.ElbowLeft, JointType.ShoulderLeft);
+            DrawLine(JointType.ShoulderLeft, JointType.ShoulderCenter);
             //right leg
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.FootRight], Skeleton.Joints[JointType.AnkleRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.AnkleRight], Skeleton.Joints[JointType.KneeRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.KneeRight], Skeleton.Joints[JointType.HipRight], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.HipRight], Skeleton.Joints[JointType.HipCenter], WidthAndHeight));
+            DrawLine(JointType.FootRight, JointType.AnkleRight);
+            DrawLine(JointType.AnkleRight, JointType.KneeRight);
+            DrawLine(JointType.KneeRight, JointType.HipRight);
+            DrawLine(JointType.HipRight, JointType.HipCenter);
             //left leg
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.FootLeft], Skeleton.Joints[JointType.AnkleLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.AnkleLeft], Skeleton.Joints[JointType.KneeLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.KneeLeft], Skeleton.Joints[JointType.HipLeft], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.HipLeft], Skeleton.Joints[JointType.HipCenter], WidthAndHeight));
+            DrawLine(JointType.FootLeft, JointType.AnkleLeft);
+            DrawLine(JointType.AnkleLeft, JointType.KneeLeft);
+            DrawLine(JointType.KneeLeft, JointType.HipLeft);
+            DrawLine(JointType.HipLeft, JointType.HipCenter);
             //join
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.HipCenter], Skeleton.Joints[JointType.Spine], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.Spine], Skeleton.Joints[JointType.ShoulderCenter], WidthAndHeight));
-            Lines.Add(new SkeletonLine(Skeleton.Joints[JointType.ShoulderCenter], Skeleton.Joints[JointType.Head], WidthAndHeight));
+            DrawLine(JointType.HipCenter, JointType.Spine);
+            DrawLine(JointType.Spine, JointType.ShoulderCenter);
+            DrawLine(JointType.ShoulderCenter, JointType.Head);
+        }
+
+        private void DrawLine(JointType joint1, JointType joint2)
+        {
+            Lines.Add(new SkeletonLine(Skeleton.Joints[joint1], Skeleton.Joints[joint2], WidthAndHeight));
         }
     }
 }
