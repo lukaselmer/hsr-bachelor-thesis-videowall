@@ -64,41 +64,50 @@ namespace DemoMode.Test
         #endregion
 
         /// <summary>
-        ///A test for OnSecondTimerTick
+        ///A test for OnDemoModeTimerTick
         ///</summary>
         [TestMethod()]
         [DeploymentItem("DemoMode.dll")]
-        public void OnSecondTimerTickTest()
+        public void OnDemoModeTimerTickTest()
         {
             var target = new DemoModeTimer_Accessor();
-            var progress = target.Progress;
-            target.OnSkeletonCheckTimerTick(null, null);
-            Assert.AreEqual(progress - 1, target.Progress);
+            target.OnDemoModeTimerTick(null, null);
+            Assert.IsTrue(target.IsInInteractionMode);
         }
 
         /// <summary>
-        ///A test for OnTimerTick
+        ///A test for OnInteractionModeTimerTick
         ///</summary>
         [TestMethod()]
         [DeploymentItem("DemoMode.dll")]
-        public void OnTimerTickTest()
+        public void OnInteractionModeTimerTickTest()
         {
             var target = new DemoModeTimer_Accessor();
-            Assert.IsTrue(target.IsInInteractionMode);
             target.OnInteractionModeTimerTick(null, null);
             Assert.IsFalse(target.IsInInteractionMode);
         }
 
         /// <summary>
-        ///A test for SkeletonWasChanged
+        ///A test for WasSkeletonChanged
         ///</summary>
         [TestMethod()]
+        [DeploymentItem("DemoMode.dll")]
         public void SkeletonWasChangedTest()
         {
             var target = new DemoModeTimer_Accessor();
-            target.SkeletonWasChanged();
-            Assert.IsTrue(target.IsInInteractionMode);
-            Assert.AreEqual(DemoModeTimer_Accessor.InteractionModeWaitingPeriod, target.Progress);
+            target.SkeletonChanged();
+            Assert.IsTrue(target.WasSkeletonChanged());
+        }
+
+        /// <summary>
+        ///A test for WasSkeletonChanged
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("DemoMode.dll")]
+        public void SkeletonWasNotChangedTest()
+        {
+            var target = new DemoModeTimer_Accessor();
+            Assert.IsFalse(target.WasSkeletonChanged());
         }
     }
 }

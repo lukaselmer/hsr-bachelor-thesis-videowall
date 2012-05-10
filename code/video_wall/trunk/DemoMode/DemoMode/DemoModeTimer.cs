@@ -68,7 +68,6 @@ namespace DemoMode
             Progress = _interactionModeTimeSpan;
             _interactionModeTimer.Start();
             _demoModeTimer.Stop();
-            _skeletonCheckTimer.Reset();
         }
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
@@ -77,7 +76,6 @@ namespace DemoMode
             Progress = _demoModeTimeSpan;
             _demoModeTimer.Start();
             _interactionModeTimer.Stop();
-            _skeletonCheckTimer.Reset();
         }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
@@ -85,7 +83,6 @@ namespace DemoMode
             if (WasSkeletonChanged() && IsInInteractionMode)
             {
                 _interactionModeTimer.Reset();
-                _skeletonCheckTimer.Reset();
                 Progress = _interactionModeTimeSpan;
             }
             else if (!WasSkeletonChanged() && !IsInInteractionMode)
@@ -129,7 +126,7 @@ namespace DemoMode
             get { return IsInInteractionMode ? "Interaktionsmodus" : "Demomodus"; }
         }
 
-        public void SkeletonWasChanged()
+        public void SkeletonChanged()
         {
                 _lastSkeletonTime = DateTime.Now;               
         }

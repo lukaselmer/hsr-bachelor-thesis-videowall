@@ -16,7 +16,7 @@ namespace DemoMode
 
         private void ButtonClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            DemoModeTimer.SkeletonWasChanged();
+            DemoModeTimer.SkeletonChanged();
         }
     }
 }
