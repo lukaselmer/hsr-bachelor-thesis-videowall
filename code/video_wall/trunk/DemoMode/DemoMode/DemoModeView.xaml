@@ -1,13 +1,16 @@
-<UserControl x:Class="DemoMode.DemoModeView"
+<UserControl Visibility="Hidden" x:Class="DemoMode.DemoModeView"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:DemoMode="clr-namespace:DemoMode"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance DemoMode:DemoModeTimer}">
+             d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
+    <UserControl.Background>
+        <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
+    </UserControl.Background>
     <StackPanel>
-        <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="30" Text="{Binding TimerStatus}"></TextBlock>
-        <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="40" Text="{Binding Progress}"></TextBlock>
-        <Button HorizontalAlignment="Center" Click="ButtonClick" VerticalAlignment="Center">Skelettbewegung simulieren</Button>
+        <TextBlock Margin="0,180,0,0" HorizontalAlignment="Center" FontSize="250" Text="Hunger?" Foreground="White"></TextBlock>
+        <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm naeher"></TextBlock>
+        <Button Margin="20" HorizontalAlignment="Center" Click="ButtonClick" VerticalAlignment="Center">Skelettbewegung simulieren</Button>
     </StackPanel>
 </UserControl>

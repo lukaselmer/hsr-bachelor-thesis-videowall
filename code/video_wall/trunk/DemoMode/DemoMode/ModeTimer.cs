@@ -13,12 +13,9 @@ namespace DemoMode
         }
     }
 
-    public class DemoModeTimer : Notifier
+    public class ModeTimer : Notifier
     {
-        private DispatcherTimer _interactionModeTimer;
         private TimeSpan _interactionModeTimeSpan;
-
-        private DispatcherTimer _demoModeTimer;
         private TimeSpan _demoModeTimeSpan;
         
         private DispatcherTimer _skeletonCheckTimer;
@@ -29,7 +26,7 @@ namespace DemoMode
         private DateTime _lastSkeletonTime;
 
 
-        public DemoModeTimer()
+        public ModeTimer()
         {
             InitInteractionModeTimer();
             InitDemoModeTimer();
@@ -39,19 +36,23 @@ namespace DemoMode
             IsInInteractionMode = true;
         }
 
+        public DispatcherTimer DemoModeTimer { get; private set; }
+
+        public DispatcherTimer InteractionModeTimer { get; set; }
+
         private void InitDemoModeTimer()
         {
             _demoModeTimeSpan = new TimeSpan(0, 0, 5);
-            _demoModeTimer = new DispatcherTimer() {Interval = _demoModeTimeSpan};
-            _demoModeTimer.Tick += OnDemoModeTimerTick;
+            DemoModeTimer = new DispatcherTimer() { Interval = _demoModeTimeSpan };
+            DemoModeTimer.Tick += OnDemoModeTimerTick;
         }
 
         private void InitInteractionModeTimer()
         {
-            _interactionModeTimeSpan = new TimeSpan(0, 0, 15);
-            _interactionModeTimer = new DispatcherTimer() {Interval = _interactionModeTimeSpan};
-            _interactionModeTimer.Tick += OnInteractionModeTimerTick;
-            _interactionModeTimer.Start();
+            _interactionModeTimeSpan = new TimeSpan(0, 0, 5);
+            InteractionModeTimer = new DispatcherTimer() { Interval = _interactionModeTimeSpan };
+            InteractionModeTimer.Tick += OnInteractionModeTimerTick;
+            InteractionModeTimer.Start();
         }
 
         private void InitSkeletonCheckTimer()
@@ -66,28 +67,28 @@ namespace DemoMode
         {
             IsInInteractionMode = true;
             Progress = _interactionModeTimeSpan;
-            _interactionModeTimer.Start();
-            _demoModeTimer.Stop();
+            InteractionModeTimer.Start();
+            DemoModeTimer.Stop();
         }
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
             IsInInteractionMode = false;
             Progress = _demoModeTimeSpan;
-            _demoModeTimer.Start();
-            _interactionModeTimer.Stop();
+            DemoModeTimer.Start();
+            InteractionModeTimer.Stop();
         }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
         {
             if (WasSkeletonChanged() && IsInInteractionMode)
             {
-                _interactionModeTimer.Reset();
+                InteractionModeTimer.Reset();
                 Progress = _interactionModeTimeSpan;
             }
             else if (!WasSkeletonChanged() && !IsInInteractionMode)
             {
-                _demoModeTimer.Reset();
+                DemoModeTimer.Reset();
                 Progress = _demoModeTimeSpan;
             }
             else

@@ -70,7 +70,7 @@ namespace DemoMode.Test
         [DeploymentItem("DemoMode.dll")]
         public void OnDemoModeTimerTickTest()
         {
-            var target = new DemoModeTimer_Accessor();
+            var target = new ModeTimer_Accessor();
             target.OnDemoModeTimerTick(null, null);
             Assert.IsTrue(target.IsInInteractionMode);
         }
@@ -82,7 +82,7 @@ namespace DemoMode.Test
         [DeploymentItem("DemoMode.dll")]
         public void OnInteractionModeTimerTickTest()
         {
-            var target = new DemoModeTimer_Accessor();
+            var target = new ModeTimer_Accessor();
             target.OnInteractionModeTimerTick(null, null);
             Assert.IsFalse(target.IsInInteractionMode);
         }
@@ -94,7 +94,7 @@ namespace DemoMode.Test
         [DeploymentItem("DemoMode.dll")]
         public void SkeletonWasChangedTest()
         {
-            var target = new DemoModeTimer_Accessor();
+            var target = new ModeTimer_Accessor();
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
         }
@@ -106,7 +106,7 @@ namespace DemoMode.Test
         [DeploymentItem("DemoMode.dll")]
         public void SkeletonWasNotChangedTest()
         {
-            var target = new DemoModeTimer_Accessor();
+            var target = new ModeTimer_Accessor();
             Assert.IsFalse(target.WasSkeletonChanged());
         }
     }

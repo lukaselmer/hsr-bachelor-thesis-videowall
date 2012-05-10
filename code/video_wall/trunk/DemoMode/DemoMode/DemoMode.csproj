@@ -64,7 +64,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoModeTimer.cs" />
+    <Compile Include="ModeTimer.cs" />
+    <Compile Include="DemoModeViewModel.cs" />
     <Compile Include="Notifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
