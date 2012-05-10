@@ -41,14 +41,14 @@ namespace DemoMode
 
         private void InitDemoModeTimer()
         {
-            _demoModeTimeSpan = new TimeSpan(0, 0, 10);
+            _demoModeTimeSpan = new TimeSpan(0, 0, 5);
             _demoModeTimer = new DispatcherTimer() {Interval = _demoModeTimeSpan};
             _demoModeTimer.Tick += OnDemoModeTimerTick;
         }
 
         private void InitInteractionModeTimer()
         {
-            _interactionModeTimeSpan = new TimeSpan(0, 0, 5);
+            _interactionModeTimeSpan = new TimeSpan(0, 0, 15);
             _interactionModeTimer = new DispatcherTimer() {Interval = _interactionModeTimeSpan};
             _interactionModeTimer.Tick += OnInteractionModeTimerTick;
             _interactionModeTimer.Start();
