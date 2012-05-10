@@ -79,8 +79,8 @@ namespace ViewModels.Cursor
 
         private ImageSource _rightHandSource;
         private ImageSource _leftHandSource;
-        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
-        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png";
+        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png"; // TODO: load resources from resource project
+        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png"; // TODO: load resources from resource project
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
