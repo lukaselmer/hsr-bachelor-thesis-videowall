@@ -15,14 +15,15 @@
 
 #region Usings
 
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Common;
 using Interfaces;
 using ServiceModels.Apps;
 using ViewModels.Helpers;
 using ViewModels.Lunch;
-using ViewModels.Posters;
 
 #endregion
 
@@ -40,25 +41,30 @@ namespace ViewModels.Menu
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
         /// </summary>
         /// <param name="appController"> The app controller </param>
-        /// <param name="posterViewModel"> The poster view model. </param>
-        /// <param name="lunchMenuViewModel"> The lunch menu view model. </param>
-        public MenuViewModel(AppController appController, PosterViewModel posterViewModel, LunchMenuViewModel lunchMenuViewModel)
+        public MenuViewModel(AppController appController)
         {
             _appController = appController;
             Apps = _appController.Apps;
-            CurrentApp = Apps[0];
+            CurrentApp = Apps.First();
+            ChangeAppCommand = new Command(OnChangeApp);
+        }
 
-            PosterViewModel = posterViewModel;
-            LunchMenuViewModel = lunchMenuViewModel;
-            ShowPosterViewCommand = new Command(OnShowPosterView);
-            ShowLunchMenuViewCommand = new Command(OnShowLunchMenuView);
-            OnShowPosterView(null);
+        private void OnChangeApp(object appObject)
+        {
+            var app = appObject as IApp;
+            PreOrPostCondition.AssertNotNull(app, "appObject is null or not of type IApp");
+            CurrentApp = app;
         }
 
         /// <summary>
         ///   Gets the apps.
         /// </summary>
-        protected ObservableCollection<IApp> Apps { get; private set; }
+        public ObservableCollection<IApp> Apps { get; private set; }
+
+        /// <summary>
+        /// This command changes the current application.
+        /// </summary>
+        public ICommand ChangeAppCommand { get; private set; }
 
         /// <summary>
         ///   Gets the current app.
@@ -71,50 +77,6 @@ namespace ViewModels.Menu
                 _currentApp = value;
                 Notify("CurrentApp");
             }
-        }
-
-        /// <summary>
-        ///   Gets or sets the poster view model.
-        /// </summary>
-        /// <value> The poster view model. </value>
-        public PosterViewModel PosterViewModel { get; set; }
-
-        /// <summary>
-        ///   Gets or sets the lunch menu view model.
-        /// </summary>
-        /// <value> The lunch menu view model. </value>
-        public LunchMenuViewModel LunchMenuViewModel { get; set; }
-
-        /// <summary>
-        ///   Gets or sets the show lunch menu view command.
-        /// </summary>
-        /// <value> The show lunch menu view command. </value>
-        public ICommand ShowLunchMenuViewCommand { get; set; }
-
-        /// <summary>
-        ///   Gets or sets the show poster view command.
-        /// </summary>
-        /// <value> The show poster view command. </value>
-        public ICommand ShowPosterViewCommand { get; set; }
-
-        /// <summary>
-        ///   Called when [show poster view].
-        /// </summary>
-        /// <param name="obj"> The obj. </param>
-        private void OnShowPosterView(object obj)
-        {
-            LunchMenuViewModel.IsLunchMenuViewVisible = false;
-            PosterViewModel.IsPosterViewVisible = true;
-        }
-
-        /// <summary>
-        ///   Called when [show lunch menu view].
-        /// </summary>
-        /// <param name="obj"> The obj. </param>
-        private void OnShowLunchMenuView(object obj)
-        {
-            PosterViewModel.IsPosterViewVisible = false;
-            LunchMenuViewModel.IsLunchMenuViewVisible = true;
         }
     }
 }

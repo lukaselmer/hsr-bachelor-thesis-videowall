@@ -77,7 +77,6 @@
     <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="Cursor\MouseCursorViewModel.cs" />
     <Compile Include="Skeletton\PlayerViewModel.cs" />
-    <Compile Include="Posters\PosterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

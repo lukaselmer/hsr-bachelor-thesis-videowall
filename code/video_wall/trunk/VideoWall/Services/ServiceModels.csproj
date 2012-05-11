@@ -71,8 +71,6 @@
     <Compile Include="LunchMenu.cs" />
     <Compile Include="LunchMenuService.cs" />
     <Compile Include="Player\Player.cs" />
-    <Compile Include="Poster.cs" />
-    <Compile Include="PosterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

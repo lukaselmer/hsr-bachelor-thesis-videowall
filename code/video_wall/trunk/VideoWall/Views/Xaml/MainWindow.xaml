@@ -30,9 +30,6 @@
 
             <Xaml:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
 
-            <Xaml:PosterView Grid.Row="1" DataContext="{Binding MenuViewModel.PosterViewModel}" Visibility="{Binding IsPosterViewVisible, Converter={Views1:BoolToVisibilityConverter}}"/>
-            <Xaml:LunchMenuView Grid.Row="1" DataContext="{Binding MenuViewModel.LunchMenuViewModel}" Visibility="{Binding IsLunchMenuViewVisible, Converter={Views1:BoolToVisibilityConverter}}"/>
-            
             <ContentControl Grid.Row="1" Opacity="0.5" Content="{Binding MenuViewModel.CurrentApp.MainView}"></ContentControl>
 
             <Xaml:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>

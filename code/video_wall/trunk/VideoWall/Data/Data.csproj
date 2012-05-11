@@ -68,7 +68,6 @@
     <Compile Include="Kinect\KinectReplayFile.cs" />
     <Compile Include="Kinect\KinectSkeletonReader.cs" />
     <Compile Include="LunchMenuReader.cs" />
-    <Compile Include="PosterReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Kinect\SkeletonsReadyEventArgs.cs" />
   </ItemGroup>

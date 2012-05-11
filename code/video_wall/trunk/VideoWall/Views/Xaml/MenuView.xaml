@@ -7,9 +7,18 @@
              d:DesignHeight="300" d:DesignWidth="300" 
              d:DataContext="{d:DesignInstance Menu:MenuViewModel}">
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Padding="50 0 50 0" Margin="10" Content="{Binding PosterViewModel.Name}" Command="{Binding ShowPosterViewCommand}"></Button>
-            <Button Padding="50 0 50 0" Margin="10" Content="{Binding LunchMenuViewModel.Name}" Command="{Binding ShowLunchMenuViewCommand}"></Button>
-        </StackPanel>
+        <ItemsControl ItemsSource="{Binding Apps}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Padding="50 0 50 0" Margin="10" Content="{Binding Name}" CommandParameter="{Binding}"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
