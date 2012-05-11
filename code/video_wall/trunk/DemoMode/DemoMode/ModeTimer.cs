@@ -97,7 +97,7 @@ namespace DemoMode
             }
         }
 
-        private bool WasSkeletonChanged()
+        public bool WasSkeletonChanged()
         {
             return _lastSkeletonTime.Add(_skeletonCheckTimeSpan) > DateTime.Now;
         }
