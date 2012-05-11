@@ -93,6 +93,10 @@
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ResourceLoader\ResourceLoader.csproj">
+      <Project>{D9369F90-7D93-4490-B2F4-E8A752B3524B}</Project>
+      <Name>ResourceLoader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\ServiceModels.csproj">
       <Project>{C8F81AF4-F9CB-4DE1-9848-B50C4D12C42F}</Project>
       <Name>ServiceModels</Name>

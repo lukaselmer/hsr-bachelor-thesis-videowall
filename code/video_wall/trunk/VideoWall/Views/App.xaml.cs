@@ -14,6 +14,9 @@ namespace Views
     {
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
+            ResourceLoader.ResourceProvider.GetResources();
+
+
             AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
 
             var container = new UnityContainer().LoadConfiguration();

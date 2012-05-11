@@ -18,6 +18,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Common;
 using Microsoft.Kinect;
@@ -79,8 +80,6 @@ namespace ViewModels.Cursor
 
         private ImageSource _rightHandSource;
         private ImageSource _leftHandSource;
-        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png"; // TODO: load resources from resource project
-        private const string LeftHandPath = "pack://application:,,,/Views;component/Resources/hand_left.png"; // TODO: load resources from resource project
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
@@ -102,8 +101,8 @@ namespace ViewModels.Cursor
 
         private void InitCursorImages()
         {
-            _leftHandSource = new ImageSourceConverter().ConvertFromString(LeftHandPath) as ImageSource;
-            _rightHandSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
+            _leftHandSource = ResourceLoader.ResourceProvider.HandLeft.Source;
+            _rightHandSource = ResourceLoader.ResourceProvider.HandRight.Source;
             HandCursorImageSource = _rightHandSource;
         }
 
