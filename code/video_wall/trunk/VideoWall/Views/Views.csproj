@@ -100,6 +100,9 @@
       <DependentUpon>CursorAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtendedVisualTreeHelper.cs" />
+    <Compile Include="Xaml\DemoModeView.xaml.cs">
+      <DependentUpon>DemoModeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Xaml\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
       <DependentUpon>SkeletonLinesView.xaml</DependentUpon>
     </Compile>
     <Page Include="Xaml\CursorAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\DemoModeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

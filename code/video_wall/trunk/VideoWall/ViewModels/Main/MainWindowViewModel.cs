@@ -18,6 +18,7 @@
 using System.Windows.Media;
 using Common;
 using ViewModels.Cursor;
+using ViewModels.DemoMode;
 using ViewModels.Menu;
 using ViewModels.Skeletton;
 
@@ -36,12 +37,22 @@ namespace ViewModels.Main
         /// <param name="menuViewModel"> The menu view model. </param>
         /// <param name="playerViewModel"> The player view model. </param>
         /// <param name="cursorViewModel"> The cursor view model. </param>
-        public MainWindowViewModel(MenuViewModel menuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel)
+        /// <param name="demoModeViewModel">The demo mode view model. </param>
+        public MainWindowViewModel(MenuViewModel menuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel, DemoModeViewModel demoModeViewModel)
         {
             MenuViewModel = menuViewModel;
             PlayerViewModel = playerViewModel;
             CursorViewModel = cursorViewModel;
+            DemoModeViewModel = demoModeViewModel;
         }
+
+        /// <summary>
+        /// Gets or sets the demo mode view model.
+        /// </summary>
+        /// <value>
+        /// The demo mode view model.
+        /// </value>
+        public DemoModeViewModel DemoModeViewModel { get; set; }
 
         /// <summary>
         ///   Gets or sets the menu view model.

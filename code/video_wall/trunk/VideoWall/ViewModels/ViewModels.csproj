@@ -66,6 +66,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoMode\DemoModeViewModel.cs" />
+    <Compile Include="DemoMode\ModeTimer.cs" />
     <Compile Include="Helpers\Command.cs" />
     <Compile Include="HitButton\HitStateArgs.cs" />
     <Compile Include="HitButton\HitTestHelper.cs" />

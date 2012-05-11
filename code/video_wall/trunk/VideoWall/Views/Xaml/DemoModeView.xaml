@@ -1,0 +1,17 @@
+﻿<UserControl Visibility="{Binding IsVisible, Converter={Views1:BoolToVisibilityConverter}}" x:Class="Views.Xaml.DemoModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views1="clr-namespace:Views"
+             xmlns:DemoMode="clr-namespace:ViewModels.DemoMode;assembly=ViewModels" mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
+    <UserControl.Background>
+        <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
+    </UserControl.Background>
+    <Grid>
+        <StackPanel Visibility="{Binding IsTextVisible, Converter={Views1:BoolToVisibilityConverter}}">
+            <TextBlock Margin="0, 180, 0, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250" Text="Hunger?" Foreground="White"></TextBlock>
+            <TextBlock Margin="0, 10, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm naeher"></TextBlock>
+        </StackPanel>
+        <TextBlock Grid.Row="1" FontSize="700" HorizontalAlignment="Center" Foreground="White" Text="{Binding Countdown}" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}"></TextBlock>
+    </Grid>
+</UserControl>
