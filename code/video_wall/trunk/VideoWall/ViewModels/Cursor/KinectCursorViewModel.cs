@@ -58,28 +58,39 @@ namespace ViewModels.Cursor
         /// <value> The height of the window. </value>
         public double WindowHeight { private get; set; }
 
-        private ImageSource _handCursorImageSource;
+        /// <summary>
+        /// The active hand.
+        /// </summary>
+        private HandType _activeHand = HandType.Right;
+
+        /// <summary>
+        /// Gets or sets the active hand.
+        /// </summary>
+        /// <value>
+        /// The active hand.
+        /// </value>
+        private HandType ActiveHand
+        {
+            get { return _activeHand; }
+            set
+            {
+                if (_activeHand == value) return;
+                _activeHand = value;
+                // Problem was discussed on 2012-05-10 (Lukas Elmer, Silvan Gehrig, Michael Gfeller). Workaround: Event based update instead of INotifyPropertyChanged.
+                // Other workaround could be: implement a timestamp to not fire the event too often.
+                // This code, as it is, will produce a stack overflow, because Notify() is called too often in little time.
+                // Notify("ActiveHand");
+                // Notify("HandCursorImageSource");
+            }
+        }
 
         /// <summary>
         /// Gets the hand cursor image source (for left or right hand).
         /// </summary>
         public ImageSource HandCursorImageSource
         {
-            get
-            {
-                return _handCursorImageSource;
-            }
-            private set
-            {
-                if (_handCursorImageSource == value) return;
-                _handCursorImageSource = value; 
-                // TODO: discuss this problem!! Too many notifications here... D: D: D:
-                //Notify("HandCursorImageSource");
-            }
+            get { return ActiveHand == HandType.Right ? ResourceLoader.ResourceProvider.HandRight.Source : ResourceLoader.ResourceProvider.HandLeft.Source; }
         }
-
-        private ImageSource _rightHandSource;
-        private ImageSource _leftHandSource;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerViewModel"/> class.
@@ -95,15 +106,7 @@ namespace ViewModels.Cursor
             _player.PropertyChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
-            InitCursorImages();
             _handCursorPositionCalculator.HandChanged += OnHandChanged;
-        }
-
-        private void InitCursorImages()
-        {
-            _leftHandSource = ResourceLoader.ResourceProvider.HandLeft.Source;
-            _rightHandSource = ResourceLoader.ResourceProvider.HandRight.Source;
-            HandCursorImageSource = _rightHandSource;
         }
 
         #region ICursorViewModel Members
@@ -125,7 +128,7 @@ namespace ViewModels.Cursor
 
         private void OnHandChanged(HandType handType)
         {
-            HandCursorImageSource = handType == HandType.Right ? _rightHandSource : _leftHandSource;
+            ActiveHand = handType;
             if (HandChanged != null) HandChanged(handType);
         }
 

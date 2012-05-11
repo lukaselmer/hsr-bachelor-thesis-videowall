@@ -18,6 +18,7 @@
 using System.Windows;
 using System.Windows.Media;
 using Common;
+using ResourceLoader;
 using ServiceModels.HandCursor;
 
 #endregion
@@ -54,7 +55,7 @@ namespace ViewModels.Cursor
         /// <summary>
         /// Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource { get; private set; }
+        public ImageSource HandCursorImageSource { get { return ResourceProvider.HandRight.Source; } }
 
         /// <summary>
         ///   Sets the width of the window.
@@ -77,15 +78,7 @@ namespace ViewModels.Cursor
         {
             WindowWidth = 600;
             WindowHeight = 400;
-            InitCursorImages();
             Notify("Position");
-        }
-
-        private const string RightHandPath = "pack://application:,,,/Views;component/Resources/hand_right.png";
-
-        private void InitCursorImages()
-        {
-            HandCursorImageSource = new ImageSourceConverter().ConvertFromString(RightHandPath) as ImageSource;
         }
 
         #region ICursorViewModel Members
