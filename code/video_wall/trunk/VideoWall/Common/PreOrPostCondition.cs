@@ -23,10 +23,18 @@ using System.Diagnostics;
 namespace Common
 {
     /// <summary>
-    ///   Contains PreCondition check features, which allows to throw exceptions or work with assertions.
+    ///   Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
     /// </summary>
-    public static class PreCondition
+    public static class PreOrPostCondition
     {
+        #region Constructors / Destructor
+
+        //--------------------------------------------------------------------
+        // Constructors / Destructor
+        //--------------------------------------------------------------------
+
+        #endregion
+
         #region Declarations
 
         //--------------------------------------------------------------------
@@ -47,14 +55,6 @@ namespace Common
         ///   Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
         /// </summary>
         public static bool EnableDebugAssertions { get { return _assertionsEnabled; } set { _assertionsEnabled = value; } }
-
-        #endregion
-
-        #region Constructors / Destructor
-
-        //--------------------------------------------------------------------
-        // Constructors / Destructor
-        //--------------------------------------------------------------------
 
         #endregion
 

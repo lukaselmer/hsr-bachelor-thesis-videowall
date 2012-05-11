@@ -36,9 +36,9 @@ namespace ServiceModels.Apps
         public AppController()
         {
             ExtensionManager.Init(this);
-            PreCondition.AssertNotNull(Apps, "Apps");
+            PreOrPostCondition.AssertNotNull(Apps, "Apps");
             // At least one app has to be loaded
-            PreCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");
+            PreOrPostCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");
         }
 
         /// <summary>
