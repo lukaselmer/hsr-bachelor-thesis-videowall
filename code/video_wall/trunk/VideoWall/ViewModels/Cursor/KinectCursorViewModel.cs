@@ -84,12 +84,10 @@ namespace ViewModels.Cursor
                 // Problem was discussed on 2012-05-10 (Lukas Elmer, Silvan Gehrig, Michael Gfeller). Workaround: Event based update instead of INotifyPropertyChanged.
                 // Other workaround could be: implement a timestamp to not fire the event too often.
                 // This code, as it is, will produce a stack overflow, because Notify() is called too often in little time.
-                // Notify("ActiveHand");
-                // Notify("HandCursorImageSource");
+                Notify("ActiveHand");
+                Notify("HandCursorImageSource");
             }
         }
-
-        #region ICursorViewModel Members
 
         /// <summary>
         ///   Gets the position.
@@ -125,8 +123,6 @@ namespace ViewModels.Cursor
         {
             _player.PropertyChanged -= PlayerModelChanged;
         }
-
-        #endregion
 
         private void OnHandChanged(HandType handType)
         {
