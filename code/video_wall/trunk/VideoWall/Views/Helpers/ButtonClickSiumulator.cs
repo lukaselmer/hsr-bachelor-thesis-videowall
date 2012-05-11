@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.Windows.Automation.Peers;
 using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 
+#endregion
+
 namespace Views.Helpers
 {
-    static class ButtonClickSiumulator
+    internal static class ButtonClickSiumulator
     {
         /// <summary>
-        /// Simulates a click on a button.
+        ///   Simulates a click on a button.
         /// </summary>
-        /// <param name="button">The button.</param>
+        /// <param name="button"> The button. </param>
         public static void SimulateClick(this Button button)
         {
             var peer = new ButtonAutomationPeer(button);

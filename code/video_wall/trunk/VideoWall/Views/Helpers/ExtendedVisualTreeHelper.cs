@@ -1,11 +1,30 @@
-﻿using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 
+#endregion
+
 namespace Views.Helpers
 {
-    static internal class ExtendedVisualTreeHelper
+    internal static class ExtendedVisualTreeHelper
     {
         internal static IEnumerable<TSearched> FindInVisualTreeDown<TSearched>(DependencyObject obj) where TSearched : class
         {
