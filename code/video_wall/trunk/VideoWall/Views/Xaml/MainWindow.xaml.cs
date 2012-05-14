@@ -34,12 +34,13 @@ namespace Views.Xaml
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
-            MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
+// TODO: cleanup this
+            //MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
         }
 
         private void OnHandChanged(HandType handType)
         {
-            cursorImage.Source = MainWindowViewModel.CursorViewModel.HandCursorImageSource;
+            //cursorImage.Source = MainWindowViewModel.CursorViewModel.HandCursorImageSource;
         }
 
         /// <summary>
