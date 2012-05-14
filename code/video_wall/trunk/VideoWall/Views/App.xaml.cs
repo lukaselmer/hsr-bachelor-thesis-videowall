@@ -45,8 +45,6 @@ namespace Views
             var container = new UnityContainer().LoadConfiguration();
             var mainWindow = container.Resolve<MainWindow>();
             mainWindow.Show();
-
-            throw new Exception("aisdufhiwuehfiuh");
         }
 
         /// <summary>
