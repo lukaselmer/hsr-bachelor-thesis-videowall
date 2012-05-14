@@ -31,12 +31,14 @@ namespace DiagnosticsApp
         {
             MainView = new DiagnosticsView();
             Name = "Diagnostics";
+            DemomodeText = "Interessierst du dich für die Diagnostics App?";
         }
 
         #region IApp Members
 
         public UserControl MainView { get; private set; }
-        public String Name { get; private set; }
+        public string Name { get; private set; }
+        public string DemomodeText { get; private set; }
 
         #endregion
     }
