@@ -1,20 +1,42 @@
-﻿using System;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
+using System.Windows;
 using System.Windows.Media;
 using Common;
 using ServiceModels.Player;
+
+#endregion
 
 namespace ViewModels.DemoMode
 {
     public class DemoModeViewModel : Notifier
     {
-        private readonly Random _random;
-        private Color _currentColor;
-        private bool _isVisible;
         private readonly Player _player;
+        private readonly Random _random;
+        private int _countdown;
+        private Color _currentColor;
+        private bool _isCountDownVisible;
+        private bool _isTextVisible;
+        private Visibility _visibility;
 
         public DemoModeViewModel(Player player)
         {
@@ -30,6 +52,62 @@ namespace ViewModels.DemoMode
             IsCountDownVisible = false;
             IsTextVisible = false;
         }
+
+
+        public Visibility Visibility
+        {
+            get { return _visibility; }
+            private set
+            {
+                _visibility = value;
+                Notify("Visibility");
+            }
+        }
+
+        public bool IsCountDownVisible
+        {
+            get { return _isCountDownVisible; }
+            private set
+            {
+                _isCountDownVisible = value;
+                Notify("IsCountDownVisible");
+            }
+        }
+
+        public bool IsTextVisible
+        {
+            get { return _isTextVisible; }
+            private set
+            {
+                _isTextVisible = value;
+                Notify("IsTextVisible");
+            }
+        }
+
+        private List<Color> Colors { get; set; }
+
+
+        public Color CurrentColor
+        {
+            get { return _currentColor; }
+            set
+            {
+                _currentColor = value;
+                Notify("CurrentColor");
+            }
+        }
+
+        public int Countdown
+        {
+            get { return _countdown; }
+            private set
+            {
+                _countdown = value;
+                Notify("Countdown");
+            }
+        }
+
+        public ModeTimer ModeTimer { get; set; }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
         {
@@ -57,71 +135,23 @@ namespace ViewModels.DemoMode
 
         private void OnDemoModeTimerTick(object sender, EventArgs e)
         {
-            IsVisible = false;
+            Visibility = Visibility.Hidden;
         }
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
             ChangeColor();
-            IsVisible = true;
+            Visibility = Visibility.Collapsed;
             IsCountDownVisible = false;
             IsTextVisible = true;
         }
 
         private void InitColors()
         {
-            var blue = new Color() { R = 0, G = 98, B = 158, A = 255 };
-            var pink = new Color() { R = 200, G = 0, B = 89, A = 255 };
-            var green = new Color() { R = 132, G = 181, B = 16, A = 255 };
-            var orange = new Color() { R = 242, G = 144, B = 0, A = 255 };
-            Colors = new List<Color>() { blue, pink, green, orange };
+            Colors = new List<Color> { Color.FromRgb(0, 98, 158), Color.FromRgb(200, 0, 89), Color.FromRgb(132, 181, 16), Color.FromRgb(242, 144, 0) };
             CurrentColor = Colors.First();
-            IsVisible = false;
+            Visibility = Visibility.Collapsed;
         }
-
-
-        public bool IsVisible { get { return _isVisible; }
-            private set
-            {
-                _isVisible = value;
-                Notify("IsVisible");
-            } }
-
-        private bool _isCountDownVisible;
-        public bool IsCountDownVisible { get { return _isCountDownVisible; } private set
-        {
-            _isCountDownVisible = value;
-            Notify("IsCountDownVisible");
-        } }
-
-        private bool _isTextVisible;
-        public bool IsTextVisible { get { return _isTextVisible; } private set
-        {
-            _isTextVisible = value;
-            Notify("IsTextVisible");
-        } }
-
-        private List<Color> Colors { get; set; }
-
-
-        public Color CurrentColor
-        {
-            get { return _currentColor; }
-            set
-            {
-                _currentColor = value;
-                Notify("CurrentColor");
-            }
-        }
-
-        private int _countdown;
-        public int Countdown { get { return _countdown; }
-            private set {
-                _countdown = value;
-                Notify("Countdown");
-        } }
-
-        public ModeTimer ModeTimer { get; set; }
 
         private void ChangeColor()
         {

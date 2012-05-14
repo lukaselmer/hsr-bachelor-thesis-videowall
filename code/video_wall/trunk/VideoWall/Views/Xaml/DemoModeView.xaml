@@ -1,4 +1,4 @@
-﻿<UserControl Visibility="{Binding IsVisible, Converter={Views1:BoolToVisibilityConverter}}" x:Class="Views.Xaml.DemoModeView"
+﻿<UserControl Visibility="{Binding Visibility}" x:Class="Views.Xaml.DemoModeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

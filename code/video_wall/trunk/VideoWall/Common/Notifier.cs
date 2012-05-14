@@ -16,6 +16,7 @@
 #region Usings
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Threading;
@@ -52,13 +53,13 @@ namespace Common
 
         private DateTime _mostRecentNotify;
 
-        private static readonly TimeSpan NotifyDelay = TimeSpan.FromMilliseconds(1);
+        private static readonly TimeSpan NotifyDelay = TimeSpan.FromMilliseconds(10);
 
         #endregion
 
         #region Other
 
-        private Action _action;
+        private readonly ConcurrentDictionary<string, Action> _actions = new ConcurrentDictionary<string, Action>();
 
         /// <summary>
         ///   Notifies that the property with the specified name has changed.
@@ -68,15 +69,16 @@ namespace Common
         /// </remarks>
         protected void Notify(string propertyName)
         {
+            var interval = DateTime.Now.Subtract(_mostRecentNotify);
+            _mostRecentNotify = DateTime.Now;
+
+            // We SHOULD not need the lock because only one gui thread SHOULD exist. Nevertheless, locking this is defensive programming.
             lock (_lock)
             {
-                var interval = DateTime.Now.Subtract(_mostRecentNotify);
-                _mostRecentNotify = DateTime.Now;
-
                 // Notify without delay when the last Notify() call was long ago (interval > NotifyDelay)
-                if (interval > NotifyDelay) DoNotify(propertyName);
+                if (_timer == null && interval > NotifyDelay) DoNotify(propertyName);
 
-                _action = () => DoNotify(propertyName);
+                _actions[propertyName] = () => DoNotify(propertyName);
 
                 if (_timer != null) return;
 
@@ -90,8 +92,8 @@ namespace Common
         {
             lock (_lock)
             {
-                _action();
-                _action = null;
+                foreach (var action in _actions) action.Value();
+                _actions.Clear();
                 _timer.Stop();
                 _timer = null;
             }

@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
@@ -84,8 +85,8 @@ namespace ViewModels.Cursor
                 // Problem was discussed on 2012-05-10 (Lukas Elmer, Silvan Gehrig, Michael Gfeller). Workaround: Event based update instead of INotifyPropertyChanged.
                 // Other workaround could be: implement a timestamp to not fire the event too often.
                 // This code, as it is, will produce a stack overflow, because Notify() is called too often in little time.
-                Notify("ActiveHand");
                 Notify("HandCursorImageSource");
+                Notify("ActiveHand");
             }
         }
 
@@ -109,7 +110,13 @@ namespace ViewModels.Cursor
         /// <summary>
         ///   Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource { get { return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source; } }
+        public ImageSource HandCursorImageSource
+        {
+            get
+            {
+                return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source;
+            }
+        }
 
         /// <summary>
         ///   Occurs when hand has changed.
