@@ -17,6 +17,7 @@
 
 using System;
 using System.Windows;
+using System.Windows.Threading;
 using Common;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
@@ -38,21 +39,44 @@ namespace Views
         /// <param name="e"> The <see cref="System.Windows.StartupEventArgs" /> instance containing the event data. </param>
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+            DispatcherUnhandledException += OnApplicationUnhandledException;
+            AppDomain.CurrentDomain.UnhandledException += OnAppDomainUnhandledException;
 
             var container = new UnityContainer().LoadConfiguration();
             var mainWindow = container.Resolve<MainWindow>();
             mainWindow.Show();
+
+            throw new Exception("aisdufhiwuehfiuh");
         }
 
         /// <summary>
-        ///   Handles an unhandled exception.
+        /// Called when a unhandled exception occurs in the GUI thread.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.Threading.DispatcherUnhandledExceptionEventArgs"/> instance containing the event data.</param>
+        private static void OnApplicationUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            OnUnhandledException(e.Exception);
+        }
+
+        /// <summary>
+        ///   Called when a unhandled exception occurs in any thread.
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.UnhandledExceptionEventArgs" /> instance containing the event data. </param>
-        private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private static void OnAppDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            LogAndDisplayException(new Exception("Exception: " + e.ExceptionObject));
+            OnUnhandledException(e.ExceptionObject as Exception ?? new Exception("Exception: " + e.ExceptionObject));
+            HandleException();
+        }
+
+        /// <summary>
+        /// Called when a unhandled exception occured.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        private static void OnUnhandledException(Exception exception)
+        {
+            LogAndDisplayException(exception);
             HandleException();
         }
 
@@ -71,9 +95,10 @@ namespace Views
         private static void LogAndDisplayException(Exception ex)
         {
             Logger.Get.Error(ex.Message, ex);
-            MessageBox.Show(String.Format("Hi! We are sorry, but the an exception occured. The application will now terminate, see log for details." +
+            var message = String.Format("Hi! We are sorry, but the an exception occured. The application will now terminate, see log for details." +
                 "Your Video Wall team.\n\n" +
-                    "{0}\nMessage: {1}", ex.GetType(), ex.Message));
+                    "{0}\nMessage: {1}", ex.GetType(), ex.Message);
+            MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
