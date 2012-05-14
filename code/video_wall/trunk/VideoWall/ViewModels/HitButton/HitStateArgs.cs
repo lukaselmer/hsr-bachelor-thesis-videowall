@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Windows;
 
 #endregion
@@ -24,7 +25,7 @@ namespace ViewModels.HitButton
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-    public class HitStateArgs
+    public class HitStateArgs : EventArgs
     {
         /// <summary>
         ///   Initializes a new instance of the <see cref="HitStateArgs" /> class.
