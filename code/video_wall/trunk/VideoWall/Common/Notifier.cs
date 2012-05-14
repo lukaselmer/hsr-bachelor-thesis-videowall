@@ -59,7 +59,7 @@ namespace Common
 
         #region Other
 
-        private readonly ConcurrentDictionary<string, Action> _actions = new ConcurrentDictionary<string, Action>();
+        private readonly IDictionary<string, Action> _actions = new ConcurrentDictionary<string, Action>();
 
         /// <summary>
         ///   Notifies that the property with the specified name has changed.
