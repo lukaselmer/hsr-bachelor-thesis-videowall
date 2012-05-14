@@ -72,8 +72,7 @@ namespace Common
             var interval = DateTime.Now.Subtract(_mostRecentNotify);
             _mostRecentNotify = DateTime.Now;
 
-            // We SHOULD not need the lock because only one gui thread SHOULD exist. Nevertheless, locking this is defensive programming.
-            lock (_lock)
+            //TODO: something like lock (_lock) ?
             {
                 // Notify without delay when the last Notify() call was long ago (interval > NotifyDelay)
                 if (_timer == null && interval > NotifyDelay) DoNotify(propertyName);
@@ -90,7 +89,7 @@ namespace Common
 
         private void Tick(object sender, EventArgs e)
         {
-            lock (_lock)
+            //TODO: something like lock (_lock) ?
             {
                 foreach (var action in _actions) action.Value();
                 _actions.Clear();
