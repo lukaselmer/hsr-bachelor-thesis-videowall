@@ -16,8 +16,11 @@ namespace LunchMenuApp
         {
             Name = "Mittagsmenü";
             MainView = new LunchMenuView();
+            DemomodeText = "Hunger?";
         }
         public UserControl MainView { get; private set; }
         public string Name { get; private set; }
+
+        public string DemomodeText { get; private set; }
     }
 }
