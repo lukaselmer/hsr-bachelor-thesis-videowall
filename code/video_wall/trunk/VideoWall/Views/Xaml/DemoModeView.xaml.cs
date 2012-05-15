@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ViewModels.DemoMode;
-
-namespace Views.Xaml
+﻿namespace Views.Xaml
 {
     /// <summary>
     /// Interaction logic for DemoModeView.xaml
     /// </summary>
-    public partial class DemoModeView : UserControl
+    public partial class DemoModeView
     {
-        private readonly DemoModeViewModel _demoModeViewModel;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoModeView"/> class.
+        /// </summary>
         public DemoModeView()
         {
             InitializeComponent();
