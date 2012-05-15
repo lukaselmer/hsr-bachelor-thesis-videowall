@@ -7,6 +7,11 @@
              d:DesignHeight="300" d:DesignWidth="300" 
              d:DataContext="{d:DesignInstance Menu:MenuViewModel}">
     <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding CurrentApp.Name}"></TextBlock>
+            <TextBlock Text="{Binding CurrentApp.DemomodeText}"></TextBlock>
+
+        </StackPanel>
         <ItemsControl ItemsSource="{Binding Apps}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

@@ -29,6 +29,9 @@ using ViewModels.Menu;
 
 namespace ViewModels.DemoMode
 {
+    /// <summary>
+    /// The DemoModeViewModel
+    /// </summary>
     public class DemoModeViewModel : Notifier
     {
         private readonly Player _player;
@@ -39,6 +42,11 @@ namespace ViewModels.DemoMode
         private bool _isTextVisible;
         private Visibility _visibility;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
+        /// </summary>
+        /// <param name="player">The player.</param>
+        /// <param name="menuViewModel">The menu view model.</param>
         public DemoModeViewModel(Player player, MenuViewModel menuViewModel)
         {
             InitColors();
@@ -46,8 +54,8 @@ namespace ViewModels.DemoMode
             ModeTimer.InteractionModeTimer.Tick += OnInteractionModeTimerTick;
             ModeTimer.DemoModeTimer.Tick += OnDemoModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
-            DemomodeText = menuViewModel.CurrentApp.DemomodeText;
             _player = player;
+            MenuViewModel = menuViewModel;
             _player.PropertyChanged += OnPlayerChanged;
             _random = new Random();
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
@@ -57,6 +65,9 @@ namespace ViewModels.DemoMode
         }
 
 
+        /// <summary>
+        /// Gets the visibility.
+        /// </summary>
         public Visibility Visibility
         {
             get { return _visibility; }
@@ -67,6 +78,9 @@ namespace ViewModels.DemoMode
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the countdown is visible or not.
+        /// </summary>
         public bool IsCountDownVisible
         {
             get { return _isCountDownVisible; }
@@ -77,6 +91,9 @@ namespace ViewModels.DemoMode
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the text is visible or not.
+        /// </summary>
         public bool IsTextVisible
         {
             get { return _isTextVisible; }
@@ -88,14 +105,15 @@ namespace ViewModels.DemoMode
         }
 
         /// <summary>
-        /// Gets the text to be displayed.
+        /// Gets or sets the MenuViewModel.
         /// </summary>
-        public string DemomodeText { get; private set; }
-
+        public MenuViewModel MenuViewModel { get; set; }
 
         private List<Color> Colors { get; set; }
 
-
+        /// <summary>
+        /// Gets or sets the current color.
+        /// </summary>
         public Color CurrentColor
         {
             get { return _currentColor; }
@@ -106,6 +124,9 @@ namespace ViewModels.DemoMode
             }
         }
 
+        /// <summary>
+        /// Gets the Countdown.
+        /// </summary>
         public int Countdown
         {
             get { return _countdown; }
@@ -116,6 +137,9 @@ namespace ViewModels.DemoMode
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ModeTimer.
+        /// </summary>
         public ModeTimer ModeTimer { get; set; }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)

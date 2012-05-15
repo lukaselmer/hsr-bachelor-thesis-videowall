@@ -9,7 +9,7 @@
     </UserControl.Background>
     <Grid>
         <StackPanel VerticalAlignment="Center"  Visibility="{Binding IsTextVisible, Converter={Views1:BoolToVisibilityConverter}}">
-            <TextBlock Margin="100, 180, 100, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250"  Text="{Binding DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
+            <TextBlock Margin="100, 180, 100, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
             <TextBlock Margin="0, 300, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
         </StackPanel>
         <TextBlock FontSize="700" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}"></TextBlock>
