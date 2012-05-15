@@ -51,6 +51,7 @@ namespace ViewModels.DemoMode
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
             IsCountDownVisible = false;
             IsTextVisible = false;
+            Visibility = Visibility.Collapsed;
         }
 
 
@@ -135,13 +136,13 @@ namespace ViewModels.DemoMode
 
         private void OnDemoModeTimerTick(object sender, EventArgs e)
         {
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
         }
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
             ChangeColor();
-            Visibility = Visibility.Collapsed;
+            Visibility = Visibility.Visible;
             IsCountDownVisible = false;
             IsTextVisible = true;
         }
@@ -150,7 +151,6 @@ namespace ViewModels.DemoMode
         {
             Colors = new List<Color> { Color.FromRgb(0, 98, 158), Color.FromRgb(200, 0, 89), Color.FromRgb(132, 181, 16), Color.FromRgb(242, 144, 0) };
             CurrentColor = Colors.First();
-            Visibility = Visibility.Collapsed;
         }
 
         private void ChangeColor()
