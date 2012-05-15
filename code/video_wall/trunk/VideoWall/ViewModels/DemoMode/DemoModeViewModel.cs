@@ -23,6 +23,7 @@ using System.Windows;
 using System.Windows.Media;
 using Common;
 using ServiceModels.Player;
+using ViewModels.Menu;
 
 #endregion
 
@@ -38,13 +39,14 @@ namespace ViewModels.DemoMode
         private bool _isTextVisible;
         private Visibility _visibility;
 
-        public DemoModeViewModel(Player player)
+        public DemoModeViewModel(Player player, MenuViewModel menuViewModel)
         {
             InitColors();
             ModeTimer = new ModeTimer();
             ModeTimer.InteractionModeTimer.Tick += OnInteractionModeTimerTick;
             ModeTimer.DemoModeTimer.Tick += OnDemoModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
+            DemomodeText = menuViewModel.CurrentApp.DemomodeText;
             _player = player;
             _player.PropertyChanged += OnPlayerChanged;
             _random = new Random();
@@ -84,6 +86,12 @@ namespace ViewModels.DemoMode
                 Notify("IsTextVisible");
             }
         }
+
+        /// <summary>
+        /// Gets the text to be displayed.
+        /// </summary>
+        public string DemomodeText { get; private set; }
+
 
         private List<Color> Colors { get; set; }
 
