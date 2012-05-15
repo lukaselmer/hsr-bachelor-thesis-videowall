@@ -37,7 +37,7 @@ namespace ViewModels.DemoMode
         }
     }
 
-    public class ModeTimer : Notifier
+    public class ModeTimer
     {
         private TimeSpan _demoModeTimeSpan;
         private TimeSpan _interactionModeTimeSpan;
@@ -68,7 +68,6 @@ namespace ViewModels.DemoMode
             private set
             {
                 _isInInteractionMode = value;
-                Notify("IsInInteractionMode");
             }
         }
 
