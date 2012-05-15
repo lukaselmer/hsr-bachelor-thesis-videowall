@@ -27,5 +27,11 @@ namespace Interfaces
         UserControl MainView { get; }
         string Name { get; }
         string DemomodeText { get; }
+
+        /// <summary>
+        /// Loads the app. At this place, the app can load or store application specific files for the application.
+        /// </summary>
+        /// <param name="videoWallServiceProvider">The app info.</param>
+        void Activate(IVideoWallServiceProvider videoWallServiceProvider);
     }
 }

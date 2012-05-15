@@ -4,57 +4,6 @@
         <name>Common</name>
     </assembly>
     <members>
-        <member name="T:Common.Notifier">
-            <summary>
-              Implementation of INotifyPropertyChanged
-            </summary>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="F:Common.Notifier._timer">
-            <summary>
-            The timer for the notify delay
-            </summary>
-        </member>
-        <member name="F:Common.Notifier._lock">
-            <summary>
-            The Lock for the notify delay
-            </summary>
-        </member>
-        <member name="M:Common.Notifier.Notify(System.String)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="propertyName"> Name of the property. </param>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="M:Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
-        </member>
-        <member name="E:Common.Notifier.PropertyChanged">
-            <summary>
-              Occurs when a property value changes.
-            </summary>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="T:Common.ImageHelper">
-            <summary>
-              The image helper provides helper methods for images.
-            </summary>
-        </member>
-        <member name="M:Common.ImageHelper.InitWithFileName(System.String)">
-            <summary>
-              Initializes an image with a file name.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-            <returns> </returns>
-        </member>
         <member name="T:Common.PreOrPostCondition">
             <summary>
               Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
@@ -102,6 +51,57 @@
             <summary>
               Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
             </summary>
+        </member>
+        <member name="T:Common.ImageHelper">
+            <summary>
+              The image helper provides helper methods for images.
+            </summary>
+        </member>
+        <member name="M:Common.ImageHelper.InitWithFileName(System.String)">
+            <summary>
+              Initializes an image with a file name.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:Common.Notifier">
+            <summary>
+              Implementation of INotifyPropertyChanged
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:Common.Notifier._timer">
+            <summary>
+            The timer for the notify delay
+            </summary>
+        </member>
+        <member name="F:Common.Notifier._lock">
+            <summary>
+            The Lock for the notify delay
+            </summary>
+        </member>
+        <member name="M:Common.Notifier.Notify(System.String)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="propertyName"> Name of the property. </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="E:Common.Notifier.PropertyChanged">
+            <summary>
+              Occurs when a property value changes.
+            </summary>
+            <remarks>
+            </remarks>
         </member>
         <member name="T:Common.Logger">
             <summary>

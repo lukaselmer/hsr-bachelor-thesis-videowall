@@ -39,12 +39,21 @@ namespace ServiceModels.Apps
             PreOrPostCondition.AssertNotNull(Apps, "Apps");
             // At least one app has to be loaded
             PreOrPostCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");
+            LoadApps();
+        }
+
+        private void LoadApps()
+        {
+            foreach (var app in Apps)
+            {
+                app.Activate(new ProductionVideoWallServiceProvider(app));
+            }
         }
 
         /// <summary>
         ///   The video wall applications
         /// </summary>
-        [ImportMany(AllowRecomposition = true)]
+        [ImportMany(AllowRecomposition = false)]
         public ObservableCollection<IApp> Apps { get; private set; }
     }
 }

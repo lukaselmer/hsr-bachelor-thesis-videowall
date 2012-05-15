@@ -15,9 +15,11 @@
 
 #region Usings
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Common;
+using Interfaces;
 
 #endregion
 
@@ -31,10 +33,12 @@ namespace Data
         /// <summary>
         ///   Initializes a new instance of the <see cref="PosterReader" /> class.
         /// </summary>
-        public PosterReader()
+        public PosterReader(IVideoWallServiceProvider serviceProvider)
         {
             //Path = @"...\...\...\Resources\Poster";
-            Path = @"..\..\..\ResourceLoader\Files\Poster";
+            //Path = @"..\..\..\ResourceLoader\Files\Poster";
+            var fileService = serviceProvider.GetExtension<IFileService>();
+            Path = fileService.ResourceDirectory;
         }
 
         /// <summary>

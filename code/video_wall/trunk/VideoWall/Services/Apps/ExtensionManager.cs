@@ -15,10 +15,12 @@
 
 #region Usings
 
+using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Reflection;
+using Interfaces;
 
 #endregion
 
@@ -66,5 +68,12 @@ namespace ServiceModels.Apps
                 directoryCatalog.Refresh();
             }
         }*/
+
+        public static string InitApp(IApp app)
+        {
+            var directoryName = String.Format("{0}/Files/{1}", FolderNameOfExtensions, app.Name);
+            if (!Directory.Exists(directoryName)) Directory.CreateDirectory(directoryName);
+            return directoryName;
+        }
     }
 }

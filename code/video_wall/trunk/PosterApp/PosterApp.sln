@@ -13,7 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\VideoWall\Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.Views", "PosterApp.Views\PosterApp.Views.csproj", "{94825BC8-35BB-4261-AF86-88185C005656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp", "PosterApp\PosterApp.csproj", "{8C0716AC-7B19-40CB-9E25-8FF77D9A1AD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.Main", "PosterApp\PosterApp.Main.csproj", "{8C0716AC-7B19-40CB-9E25-8FF77D9A1AD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.Startup", "PosterApp.Startup\PosterApp.Startup.csproj", "{761DB5CD-0F0C-4725-9390-9CB7755A02AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.ResourceLoader", "PosterApp.ResourceLoader\PosterApp.ResourceLoader.csproj", "{E719EC3D-6431-4DA4-B884-37D1984AC992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,8 +99,31 @@ Global
 		{8C0716AC-7B19-40CB-9E25-8FF77D9A1AD8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8C0716AC-7B19-40CB-9E25-8FF77D9A1AD8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8C0716AC-7B19-40CB-9E25-8FF77D9A1AD8}.Release|x86.ActiveCfg = Release|Any CPU
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Debug|x86.ActiveCfg = Debug|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Debug|x86.Build.0 = Debug|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Release|Any CPU.ActiveCfg = Release|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Release|Mixed Platforms.Build.0 = Release|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Release|x86.ActiveCfg = Release|x86
+		{761DB5CD-0F0C-4725-9390-9CB7755A02AB}.Release|x86.Build.0 = Release|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Debug|x86.ActiveCfg = Debug|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Debug|x86.Build.0 = Debug|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Release|Any CPU.ActiveCfg = Release|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Release|x86.ActiveCfg = Release|x86
+		{E719EC3D-6431-4DA4-B884-37D1984AC992}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

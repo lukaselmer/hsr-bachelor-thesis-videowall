@@ -1,4 +1,6 @@
-﻿namespace Views.Xaml
+﻿using ViewModels.Posters;
+
+namespace Views.Xaml
 {
     /// <summary>
     /// Interaction logic for PosterView.xaml
@@ -8,8 +10,9 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="PosterView"/> class.
         /// </summary>
-        public PosterView()
+        public PosterView(PosterViewModel posterViewModel)
         {
+            DataContext = posterViewModel;
             InitializeComponent();
         }
     }
