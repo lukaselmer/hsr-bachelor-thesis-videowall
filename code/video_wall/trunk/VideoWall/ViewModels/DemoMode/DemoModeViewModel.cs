@@ -174,6 +174,7 @@ namespace ViewModels.DemoMode
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
             ChangeColor();
+            MenuViewModel.ChangeApp();
             Visibility = Visibility.Visible;
             IsCountDownVisible = false;
             IsTextVisible = true;

@@ -36,6 +36,7 @@ namespace ViewModels.Menu
     {
         private readonly AppController _appController;
         private IApp _currentApp;
+        private Random _random;
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
@@ -47,6 +48,7 @@ namespace ViewModels.Menu
             Apps = _appController.Apps;
             CurrentApp = Apps.First();
             ChangeAppCommand = new Command(OnChangeApp);
+            _random = new Random();
         }
 
         private void OnChangeApp(object appObject)
@@ -54,6 +56,11 @@ namespace ViewModels.Menu
             var app = appObject as IApp;
             PreOrPostCondition.AssertNotNull(app, "appObject is null or not of type IApp");
             CurrentApp = app;
+        }
+
+        public void ChangeApp()
+        {
+            CurrentApp = Apps[_random.Next(0, Apps.Count)];
         }
 
         /// <summary>
