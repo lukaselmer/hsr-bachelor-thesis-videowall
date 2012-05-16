@@ -8,6 +8,5 @@
              d:DataContext="{d:DesignInstance Lunch:LunchMenuViewModel}">
     <Grid>
         <Image RenderOptions.BitmapScalingMode="Fant" Source="{Binding LunchMenu.Image}"></Image>
-        <Button Background="Red">jhsldföakflöaskdfölkasdjflkasd</Button>
     </Grid>
 </UserControl>

@@ -4,27 +4,6 @@
         <name>LunchMenuApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:ServiceModels.LunchMenu">
-            <summary>
-              Reviewed by Delia Treichler, 17.04.2012
-            </summary>
-        </member>
-        <member name="M:ServiceModels.LunchMenu.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:ServiceModels.LunchMenu"/> class.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-        </member>
-        <member name="P:ServiceModels.LunchMenu.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:ServiceModels.LunchMenu.Image">
-            <summary>
-              Gets the image.
-            </summary>
-        </member>
         <member name="T:ServiceModels.LunchMenuService">
             <summary>
               Reviewed by Delia Treichler, 17.04.2012
@@ -53,6 +32,27 @@
               Gets or sets and notifies the lunch menu.
             </summary>
             <value> The lunch menu. </value>
+        </member>
+        <member name="T:ServiceModels.LunchMenu">
+            <summary>
+              Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:ServiceModels.LunchMenu.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:ServiceModels.LunchMenu"/> class.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+        </member>
+        <member name="P:ServiceModels.LunchMenu.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:ServiceModels.LunchMenu.Image">
+            <summary>
+              Gets the image.
+            </summary>
         </member>
     </members>
 </doc>
