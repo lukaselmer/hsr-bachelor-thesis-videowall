@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LunchMenuApp.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Data.LunchMenuReader">
+            <summary>
+              Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:Data.LunchMenuReader.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Data.LunchMenuReader"/> class.
+            </summary>
+        </member>
+        <member name="P:Data.LunchMenuReader.Path">
+            <summary>
+              Gets the path of the file.
+            </summary>
+        </member>
+        <member name="P:Data.LunchMenuReader.File">
+            <summary>
+              Gets the file.
+            </summary>
+        </member>
+    </members>
+</doc>

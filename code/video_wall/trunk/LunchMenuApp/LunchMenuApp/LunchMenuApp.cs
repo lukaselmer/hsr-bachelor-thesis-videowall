@@ -12,15 +12,16 @@ namespace LunchMenuApp
     [Export(typeof(IApp))]
     public class LunchMenuApp : IApp
     {
-        public LunchMenuApp()
+        public string Name { get; private set; }
+        public string DemomodeText { get; private set; }
+
+        public UserControl MainView { get; private set; }
+        
+        public void Activate(IVideoWallServiceProvider videoWallServiceProvider)
         {
             Name = "Mittagsmenü";
-            MainView = new LunchMenuView();
             DemomodeText = "Hunger?";
+            MainView = new LunchMenuView();
         }
-        public UserControl MainView { get; private set; }
-        public string Name { get; private set; }
-
-        public string DemomodeText { get; private set; }
     }
 }

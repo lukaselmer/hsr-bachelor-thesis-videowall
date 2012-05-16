@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LunchMenuApp.ViewModels</name>
+    </assembly>
+    <members>
+        <member name="T:ViewModels.Lunch.LunchMenuViewModel">
+            <summary>
+              Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:ViewModels.Lunch.LunchMenuViewModel.#ctor(ServiceModels.LunchMenuService)">
+            <summary>
+              Initializes a new instance of the <see cref="T:ViewModels.Lunch.LunchMenuViewModel"/> class.
+            </summary>
+            <param name="lunchMenuService"> The lunch menu service. </param>
+        </member>
+        <member name="M:ViewModels.Lunch.LunchMenuViewModel.Dispose">
+            <summary>
+              Unregisters the notification.
+            </summary>
+        </member>
+        <member name="M:ViewModels.Lunch.LunchMenuViewModel.ReadFromLunchMenuService">
+            <summary>
+              Reads from lunch menu service.
+            </summary>
+        </member>
+        <member name="M:ViewModels.Lunch.LunchMenuViewModel.LunchMenuServiceChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Calls ReadFromLunchMenuService when LunchMenuService was changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="P:ViewModels.Lunch.LunchMenuViewModel.LunchMenu">
+            <summary>
+              Gets or sets and notifies the lunch menu.
+            </summary>
+            <value> The lunch menu. </value>
+        </member>
+        <member name="P:ViewModels.Lunch.LunchMenuViewModel.Name">
+            <summary>
+              Gets or sets and notifies the name.
+            </summary>
+            <value> The name. </value>
+        </member>
+        <member name="P:ViewModels.Lunch.LunchMenuViewModel.IsLunchMenuViewVisible">
+            <summary>
+              Gets or sets and notifies a value indicating whether the lunch menu view is visible.
+            </summary>
+            <value> <c>true</c> if the lunch menu view is visible; otherwise, <c>false</c> . </value>
+        </member>
+    </members>
+</doc>
