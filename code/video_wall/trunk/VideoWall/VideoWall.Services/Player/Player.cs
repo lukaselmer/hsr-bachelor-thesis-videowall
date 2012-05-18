@@ -17,8 +17,8 @@
 
 using System.Linq;
 using Common;
-using Data.Kinect;
 using Microsoft.Kinect;
+using VideoWall.Data.Kinect;
 
 #endregion
 

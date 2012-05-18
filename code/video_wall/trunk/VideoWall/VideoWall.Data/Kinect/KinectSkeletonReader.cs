@@ -21,7 +21,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace Data.Kinect
+namespace VideoWall.Data.Kinect
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
