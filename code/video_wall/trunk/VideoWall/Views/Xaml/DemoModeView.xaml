@@ -9,9 +9,9 @@
         <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
     </UserControl.Background>
     <Grid>
-        <StackPanel VerticalAlignment="Center"  Visibility="{Binding IsTextVisible, Converter={Views1:BoolToVisibilityConverter}}">
-            <TextBlock Margin="100, 180, 100, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
-            <TextBlock Margin="0, 300, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsTextVisible, Converter={Views1:BoolToVisibilityConverter}}">
+            <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
+            <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}">
             <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}"></TextBlock>
