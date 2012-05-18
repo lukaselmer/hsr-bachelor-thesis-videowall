@@ -13,10 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenuApp.ServiceModels"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenuApp.Data", "LunchMenuApp.Data\LunchMenuApp.Data.csproj", "{7AD97ADB-6559-4690-8923-FDC307299321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "..\VideoWall\Interfaces\Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\VideoWall\Common\Common.csproj", "{3CA470F0-3B93-43D2-A61C-5B938AD5618C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchMenuApp.Tests", "LunchMenuApp.Tests\LunchMenuApp.Tests.csproj", "{692360EA-B001-4038-A635-F346382ABE9B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C05616F8-2968-44FF-959C-F8954A03A0A9}"
@@ -25,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LunchMenuApp.vsmdi = LunchMenuApp.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Interfaces", "..\VideoWall\Interfaces\VideoWall.Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Common", "..\VideoWall\Common\VideoWall.Common.csproj", "{3CA470F0-3B93-43D2-A61C-5B938AD5618C}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -99,6 +99,16 @@ Global
 		{7AD97ADB-6559-4690-8923-FDC307299321}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7AD97ADB-6559-4690-8923-FDC307299321}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7AD97ADB-6559-4690-8923-FDC307299321}.Release|x86.ActiveCfg = Release|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{692360EA-B001-4038-A635-F346382ABE9B}.Release|x86.ActiveCfg = Release|Any CPU
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{923DA79D-28D6-483A-8654-60745D9F804C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -119,16 +129,6 @@ Global
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3CA470F0-3B93-43D2-A61C-5B938AD5618C}.Release|x86.ActiveCfg = Release|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{692360EA-B001-4038-A635-F346382ABE9B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

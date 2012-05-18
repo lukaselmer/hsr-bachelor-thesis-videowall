@@ -8,8 +8,8 @@
     <ProjectGuid>{97598089-A81D-4EF4-8ED0-BF17D3B6FAC6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Views</RootNamespace>
-    <AssemblyName>Views</AssemblyName>
+    <RootNamespace>VideoWall.Views</RootNamespace>
+    <AssemblyName>VideoWall.Views</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -25,7 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Views.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\VideoWall.Views.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -190,29 +190,29 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\VideoWall.Common.csproj">
       <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>Common</Name>
+      <Name>VideoWall.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
+    <ProjectReference Include="..\Data\VideoWall.Data.csproj">
       <Project>{A59F6BBD-F6FC-49D3-B613-B92E38E031D9}</Project>
-      <Name>Data</Name>
+      <Name>VideoWall.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\Interfaces\VideoWall.Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
-      <Name>Interfaces</Name>
+      <Name>VideoWall.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ResourceLoader\ResourceLoader.csproj">
+    <ProjectReference Include="..\ResourceLoader\VideoWall.ResourceLoader.csproj">
       <Project>{D9369F90-7D93-4490-B2F4-E8A752B3524B}</Project>
-      <Name>ResourceLoader</Name>
+      <Name>VideoWall.ResourceLoader</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\ServiceModels.csproj">
+    <ProjectReference Include="..\Services\VideoWall.ServiceModels.csproj">
       <Project>{C8F81AF4-F9CB-4DE1-9848-B50C4D12C42F}</Project>
-      <Name>ServiceModels</Name>
+      <Name>VideoWall.ServiceModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+    <ProjectReference Include="..\ViewModels\VideoWall.ViewModels.csproj">
       <Project>{F8C66FF4-152F-42A7-B550-D134F5D26B0B}</Project>
-      <Name>ViewModels</Name>
+      <Name>VideoWall.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

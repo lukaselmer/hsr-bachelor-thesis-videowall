@@ -110,9 +110,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\VideoWall\Interfaces\VideoWall.Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
-      <Name>Interfaces</Name>
+      <Name>VideoWall.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosterApp.ResourceLoader\PosterApp.ResourceLoader.csproj">
       <Project>{E719EC3D-6431-4DA4-B884-37D1984AC992}</Project>

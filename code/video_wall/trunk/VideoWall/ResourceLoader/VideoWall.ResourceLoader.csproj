@@ -8,10 +8,11 @@
     <ProjectGuid>{D9369F90-7D93-4490-B2F4-E8A752B3524B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ResourceLoader</RootNamespace>
-    <AssemblyName>ResourceLoader</AssemblyName>
+    <RootNamespace>VideoWall.ResourceLoader</RootNamespace>
+    <AssemblyName>VideoWall.ResourceLoader</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>

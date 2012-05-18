@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using ResourceLoader.Properties;
+using VideoWall.ResourceLoader.Properties;
 
 namespace ResourceLoader
 {
@@ -18,7 +18,7 @@ namespace ResourceLoader
         /// </summary>
         static readonly ResourceDictionary ResourceDictionary = new ResourceDictionary
         {
-            Source = new Uri("pack://application:,,,/ResourceLoader;component/Resources.xaml")
+            Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
         };
 
         /// <summary>

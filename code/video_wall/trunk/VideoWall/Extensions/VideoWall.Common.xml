@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Common</name>
+        <name>VideoWall.Common</name>
     </assembly>
     <members>
         <member name="T:Common.PreOrPostCondition">
@@ -24,6 +24,13 @@
             </summary>
             <param name="arg"> Specifies the argument to check. </param>
             <param name="name"> Specifies the name of the argument to check. </param>
+        </member>
+        <member name="M:Common.PreOrPostCondition.AssertNotNullOrEmpty(System.String,System.String)">
+            <summary>
+              Asserts that the given object is not null or empty. Otherwise an exception will be thrown.
+            </summary>
+            <param name="arg">The arg.</param>
+            <param name="name">The name.</param>
         </member>
         <member name="M:Common.PreOrPostCondition.AssertTrue(System.Boolean,System.String)">
             <summary>

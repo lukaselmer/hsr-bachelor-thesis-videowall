@@ -88,13 +88,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\Common\Common.csproj">
+    <ProjectReference Include="..\..\VideoWall\Common\VideoWall.Common.csproj">
       <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VideoWall\Interfaces\Interfaces.csproj">
-      <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
-      <Name>Interfaces</Name>
+      <Name>VideoWall.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosterApp.ViewModels\PosterApp.ViewModels.csproj">
       <Project>{A85A8E5F-6336-48F9-AFCB-F8D56D8052A8}</Project>

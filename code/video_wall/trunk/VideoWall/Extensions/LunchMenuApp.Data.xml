@@ -4,19 +4,19 @@
         <name>LunchMenuApp.Data</name>
     </assembly>
     <members>
-        <member name="T:Data.LunchMenuReader">
+        <member name="T:LunchMenuApp.Data.LunchMenuReader">
             <summary>
-              Reviewed by Delia Treichler, 17.04.2012
+              The LuchMenu reader.
             </summary>
         </member>
-        <member name="M:Data.LunchMenuReader.#ctor">
+        <member name="M:LunchMenuApp.Data.LunchMenuReader.#ctor">
             <summary>
-              Initializes a new instance of the <see cref="T:Data.LunchMenuReader"/> class.
+              Initializes a new instance of the <see cref="T:LunchMenuApp.Data.LunchMenuReader"/> class.
             </summary>
         </member>
-        <member name="P:Data.LunchMenuReader.Html">
+        <member name="P:LunchMenuApp.Data.LunchMenuReader.Html">
             <summary>
-            Gets the HTML of the current mensa menu.
+              Gets the HTML of the current mensa menu.
             </summary>
         </member>
     </members>

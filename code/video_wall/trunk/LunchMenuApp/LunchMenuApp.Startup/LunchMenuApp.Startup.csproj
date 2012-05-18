@@ -112,13 +112,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\Common\Common.csproj">
-      <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VideoWall\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\VideoWall\Interfaces\VideoWall.Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
-      <Name>Interfaces</Name>
+      <Name>VideoWall.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\LunchMenuApp.Data\LunchMenuApp.Data.csproj">
       <Project>{7AD97ADB-6559-4690-8923-FDC307299321}</Project>

@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\Common\Common.csproj">
+    <ProjectReference Include="..\..\VideoWall\Common\VideoWall.Common.csproj">
       <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>Common</Name>
+      <Name>VideoWall.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosterApp.ServiceModels\PosterApp.ServiceModels.csproj">
       <Project>{09C8D809-E782-4936-8503-9AD9E53A4987}</Project>
