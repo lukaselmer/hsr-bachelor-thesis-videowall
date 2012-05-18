@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dish.cs" />
+    <Compile Include="DishParser.cs" />
     <Compile Include="LunchMenu.cs" />
     <Compile Include="LunchMenuParser.cs" />
     <Compile Include="LunchMenuService.cs" />

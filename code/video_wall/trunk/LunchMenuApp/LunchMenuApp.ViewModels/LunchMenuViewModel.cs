@@ -75,11 +75,6 @@ namespace LunchMenuApp.ViewModels
             {
                 return _dishes;
             }
-            private set
-            {
-                _dishes = value;
-                Notify("Dishes");
-            }
         }
 
         #endregion

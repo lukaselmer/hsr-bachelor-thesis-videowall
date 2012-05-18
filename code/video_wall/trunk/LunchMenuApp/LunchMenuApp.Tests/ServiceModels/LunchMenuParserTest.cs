@@ -522,13 +522,13 @@ Menüsalat</div>
         }
 
         /// <summary>
-        ///A test for ExtractMenus
+        ///A test for ExtractDishes
         ///</summary>
         [TestMethod]
         public void ExtractMenusTest()
         {
             var parser = new LunchMenuParser(_html);
-            var dishes = parser.ExtractMenus();
+            var dishes = parser.ExtractDishes();
 
             Assert.AreEqual(4, dishes.Count);
             

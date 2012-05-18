@@ -15,7 +15,6 @@ namespace PosterApp.Main
         {
             Name = "Posters";
             DemomodeText = "Lust etwas zu lernen?";
-            //var posterLoader = new ResourceLoader.ResourceLoader();
         }
 
         public void Activate(IVideoWallServiceProvider serviceProvider)
@@ -23,9 +22,6 @@ namespace PosterApp.Main
             var unityContainer = new UnityContainer();
             unityContainer.RegisterInstance(serviceProvider);
             MainView = unityContainer.Resolve<PosterView>();
-            //var folder = serviceProvider.ResourceDirectory;
-            //Directory.GetFiles(folder);
-            //Directory.GetFiles(folder)
         }
 
         public UserControl MainView { get; private set; }

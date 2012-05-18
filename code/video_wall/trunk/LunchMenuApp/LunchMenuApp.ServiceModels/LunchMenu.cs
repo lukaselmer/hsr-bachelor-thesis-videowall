@@ -35,7 +35,7 @@ namespace LunchMenuApp.ServiceModels
             var parser = new LunchMenuParser(html);
 
             Date = parser.ExtractDate();
-            Dishes = parser.ExtractMenus();
+            Dishes = parser.ExtractDishes();
         }
 
         #region Properties

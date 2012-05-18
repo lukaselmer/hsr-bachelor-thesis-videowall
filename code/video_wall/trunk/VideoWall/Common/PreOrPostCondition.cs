@@ -93,6 +93,16 @@ namespace Common
         }
 
         /// <summary>
+        ///   Asserts that the given object is not null or empty. Otherwise an exception will be thrown.
+        /// </summary>
+        /// <param name="arg">The arg.</param>
+        /// <param name="name">The name.</param>
+        public static void AssertNotNullOrEmpty(string arg, string name)
+        {
+            AssertTrue(!String.IsNullOrEmpty(arg), () => new ArgumentNullException(name));
+        }
+
+        /// <summary>
         ///   Asserts that the given condition is true. Otherwise an exception will be thrown.
         /// </summary>
         /// <param name="condition"> Condition which should be true. </param>
@@ -139,5 +149,6 @@ namespace Common
         }
 
         #endregion
+
     }
 }
