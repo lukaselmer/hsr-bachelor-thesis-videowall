@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\Interfaces\VideoWall.Interfaces.csproj">
+    <ProjectReference Include="..\..\VideoWall\VideoWall.Interfaces\VideoWall.Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>VideoWall.Interfaces</Name>
     </ProjectReference>
