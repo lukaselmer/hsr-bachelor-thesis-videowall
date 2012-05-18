@@ -45,7 +45,7 @@ namespace ViewModels.Skeletton
         /// <summary>
         ///   Gets the width/height of the canvas for the skeleton.
         /// </summary>
-        public int WidthAndHeight { get; private set; }
+        public int WidthAndHeight { get; set; }
 
         /// <summary>
         ///   Gets the skeleton.
