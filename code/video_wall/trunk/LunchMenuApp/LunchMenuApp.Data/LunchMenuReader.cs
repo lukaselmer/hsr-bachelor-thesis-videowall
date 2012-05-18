@@ -17,7 +17,11 @@
 
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
+using System.Text;
 using Common;
+using HtmlAgilityPack;
 
 #endregion
 
@@ -26,24 +30,30 @@ namespace Data
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-    public class LunchMenuReader : Notifier
+    public class LunchMenuReader
     {
+        private const string UrlToMensaMenu = "http://hochschule-rapperswil.sv-group.ch/de.html";
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
         /// </summary>
         public LunchMenuReader()
         {
-            Path = @"..\..\..\Extensions";
+            DownloadHtml(UrlToMensaMenu);
+        }
+
+        private void DownloadHtml(string url)
+        {
+            using (var client = new WebClient())
+            {
+                client.Encoding = Encoding.UTF8;
+                Html = client.DownloadString(url);
+            }
         }
 
         /// <summary>
-        ///   Gets the path of the file.
+        /// Gets the HTML of the current mensa menu.
         /// </summary>
-        public string Path { get; private set; }
-
-        /// <summary>
-        ///   Gets the file.
-        /// </summary>
-        public string File { get { return Directory.GetFiles(Path, "*.jpg").First(); } }
+        public string Html { get; private set; }
     }
 }

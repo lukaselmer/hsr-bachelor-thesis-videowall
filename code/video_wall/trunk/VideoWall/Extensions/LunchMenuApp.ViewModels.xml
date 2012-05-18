@@ -15,40 +15,48 @@
             </summary>
             <param name="lunchMenuService"> The lunch menu service. </param>
         </member>
-        <member name="M:ViewModels.Lunch.LunchMenuViewModel.Dispose">
-            <summary>
-              Unregisters the notification.
-            </summary>
-        </member>
-        <member name="M:ViewModels.Lunch.LunchMenuViewModel.ReadFromLunchMenuService">
-            <summary>
-              Reads from lunch menu service.
-            </summary>
-        </member>
         <member name="M:ViewModels.Lunch.LunchMenuViewModel.LunchMenuServiceChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
-              Calls ReadFromLunchMenuService when LunchMenuService was changed.
+              Calls LoadMenu when LunchMenuService was changed.
             </summary>
             <param name="sender"> The sender. </param>
             <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
         </member>
-        <member name="P:ViewModels.Lunch.LunchMenuViewModel.LunchMenu">
+        <member name="P:ViewModels.Lunch.LunchMenuViewModel.Title">
             <summary>
-              Gets or sets and notifies the lunch menu.
+            Gets the title.
             </summary>
-            <value> The lunch menu. </value>
         </member>
-        <member name="P:ViewModels.Lunch.LunchMenuViewModel.Name">
+        <member name="P:ViewModels.Lunch.LunchMenuViewModel.Dishes">
             <summary>
-              Gets or sets and notifies the name.
+            Gets the dishes.
             </summary>
-            <value> The name. </value>
         </member>
-        <member name="P:ViewModels.Lunch.LunchMenuViewModel.IsLunchMenuViewVisible">
+        <member name="T:LunchMenuApp.ViewModels.DishViewModel">
             <summary>
-              Gets or sets and notifies a value indicating whether the lunch menu view is visible.
+            The dish view model represents a dish
             </summary>
-            <value> <c>true</c> if the lunch menu view is visible; otherwise, <c>false</c> . </value>
+        </member>
+        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Dish)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
+            </summary>
+            <param name="dish">The dish.</param>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Price">
+            <summary>
+            Gets the price.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
+            <summary>
+            Gets the name.
+            </summary>
         </member>
     </members>
 </doc>

@@ -15,9 +15,11 @@
 
 #region Usings
 
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Imaging;
 using Common;
+using LunchMenuApp.ServiceModels;
 
 #endregion
 
@@ -29,23 +31,25 @@ namespace ServiceModels
     public class LunchMenu
     {
         /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
+        /// Gets the dishes.
         /// </summary>
-        /// <param name="fileName"> Name of the file. </param>
-        public LunchMenu(string fileName)
+        public List<Dish> Dishes { get; private set; }
+
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        public string Date { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LunchMenu"/> class.
+        /// </summary>
+        /// <param name="html">The HTML.</param>
+        public LunchMenu(string html)
         {
-            Name = Path.GetFileNameWithoutExtension(fileName);
-            Image = ImageHelper.InitWithFileName(fileName);
+            var parser = new LunchMenuParser(html);
+
+            Date = parser.ExtractDate();
+            Dishes = parser.ExtractMenus();
         }
-
-        /// <summary>
-        ///   Gets the name.
-        /// </summary>
-        public string Name { get; private set; }
-
-        /// <summary>
-        ///   Gets the image.
-        /// </summary>
-        public BitmapImage Image { get; private set; }
     }
 }

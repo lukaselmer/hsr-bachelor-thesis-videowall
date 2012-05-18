@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LunchMenuApp.Main</name>
+    </assembly>
+    <members>
+        <member name="T:LunchMenuApp.Main.LunchMenuApp">
+            <summary>
+            Initializes a new launch menu app
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Main.LunchMenuApp.#ctor">
+            <summary>
+            Constructs a new lunch menu app
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Main.LunchMenuApp.Activate(Interfaces.IVideoWallServiceProvider)">
+            <summary>
+            Loads the app. At this place, the app can load or store application specific files for the application.
+            </summary>
+            <param name="videoWallServiceProvider">The app info.</param>
+        </member>
+        <member name="P:LunchMenuApp.Main.LunchMenuApp.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.Main.LunchMenuApp.DemomodeText">
+            <summary>
+            Gets the demomode text.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.Main.LunchMenuApp.MainView">
+            <summary>
+            Gets the main view.
+            </summary>
+        </member>
+    </members>
+</doc>

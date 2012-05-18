@@ -14,14 +14,9 @@
               Initializes a new instance of the <see cref="T:Data.LunchMenuReader"/> class.
             </summary>
         </member>
-        <member name="P:Data.LunchMenuReader.Path">
+        <member name="P:Data.LunchMenuReader.Html">
             <summary>
-              Gets the path of the file.
-            </summary>
-        </member>
-        <member name="P:Data.LunchMenuReader.File">
-            <summary>
-              Gets the file.
+            Gets the HTML of the current mensa menu.
             </summary>
         </member>
     </members>

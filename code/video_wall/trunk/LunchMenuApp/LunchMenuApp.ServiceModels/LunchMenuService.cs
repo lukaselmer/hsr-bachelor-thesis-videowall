@@ -37,8 +37,7 @@ namespace ServiceModels
         public LunchMenuService(LunchMenuReader lunchMenuReader)
         {
             LunchMenuReader = lunchMenuReader;
-            LunchMenuReader.PropertyChanged += LunchMenuReaderChanged;
-            ReadFromLunchMenuReader();
+            LunchMenu = new LunchMenu(LunchMenuReader.Html);
         }
 
         private LunchMenuReader LunchMenuReader { get; set; }
@@ -55,24 +54,6 @@ namespace ServiceModels
                 _lunchMenu = value;
                 Notify("LunchMenu");
             }
-        }
-
-        /// <summary>
-        ///   Reads from lunch menu reader.
-        /// </summary>
-        private void ReadFromLunchMenuReader()
-        {
-            LunchMenu = new LunchMenu(LunchMenuReader.File);
-        }
-
-        /// <summary>
-        ///   Calls ReadFromLunchMenuReader when LunchMenuReader was changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void LunchMenuReaderChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromLunchMenuReader();
         }
     }
 }

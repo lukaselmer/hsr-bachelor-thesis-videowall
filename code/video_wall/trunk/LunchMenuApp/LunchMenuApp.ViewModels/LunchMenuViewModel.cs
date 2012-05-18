@@ -16,8 +16,12 @@
 #region Usings
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Common;
+using LunchMenuApp.ServiceModels;
+using LunchMenuApp.ViewModels;
 using ServiceModels;
 
 #endregion
@@ -27,12 +31,11 @@ namespace ViewModels.Lunch
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-    public class LunchMenuViewModel : Notifier, IDisposable
+    public class LunchMenuViewModel : Notifier
     {
         private readonly LunchMenuService _lunchMenuService;
-        private bool _isLunchMenuViewVisible;
-        private LunchMenu _lunchMenu;
-        private string _name;
+        private string _title;
+        private ObservableCollection<DishViewModel> _dishes = new ObservableCollection<DishViewModel>();
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuViewModel" /> class.
@@ -42,80 +45,62 @@ namespace ViewModels.Lunch
         {
             _lunchMenuService = lunchMenuService;
             _lunchMenuService.PropertyChanged += LunchMenuServiceChanged;
-            ReadFromLunchMenuService();
-            Name = "Mittagsmenü";
+            UpdateLunchMenu();
         }
 
-        /// <summary>
-        ///   Gets or sets and notifies the lunch menu.
-        /// </summary>
-        /// <value> The lunch menu. </value>
-        public LunchMenu LunchMenu
+        private void UpdateLunchMenu()
         {
-            get { return _lunchMenu; }
-            set
+            Title = _lunchMenuService.LunchMenu.Date;
+            Notify("Title");
+
+            Dishes.Clear();
+            foreach (var dish in _lunchMenuService.LunchMenu.Dishes)
             {
-                _lunchMenu = value;
-                Notify("LunchMenu");
+                Dishes.Add(new DishViewModel(dish));
             }
         }
 
         /// <summary>
-        ///   Gets or sets and notifies the name.
-        /// </summary>
-        /// <value> The name. </value>
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                Notify("Name");
-            }
-        }
-
-        /// <summary>
-        ///   Gets or sets and notifies a value indicating whether the lunch menu view is visible.
-        /// </summary>
-        /// <value> <c>true</c> if the lunch menu view is visible; otherwise, <c>false</c> . </value>
-        public bool IsLunchMenuViewVisible
-        {
-            get { return _isLunchMenuViewVisible; }
-            set
-            {
-                _isLunchMenuViewVisible = value;
-                Notify("IsLunchMenuViewVisible");
-            }
-        }
-
-        #region IDisposable Members
-
-        /// <summary>
-        ///   Unregisters the notification.
-        /// </summary>
-        public void Dispose()
-        {
-            _lunchMenuService.PropertyChanged -= LunchMenuServiceChanged;
-        }
-
-        #endregion
-
-        /// <summary>
-        ///   Reads from lunch menu service.
-        /// </summary>
-        private void ReadFromLunchMenuService()
-        {
-            LunchMenu = _lunchMenuService.LunchMenu;
-        }
-
-        /// <summary>
-        ///   Calls ReadFromLunchMenuService when LunchMenuService was changed.
+        ///   Calls LoadMenu when LunchMenuService was changed.
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
         private void LunchMenuServiceChanged(object sender, PropertyChangedEventArgs e)
         {
-            ReadFromLunchMenuService();
+            UpdateLunchMenu();
         }
+
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            private set
+            {
+                _title = value;
+                Notify("Title");
+            }
+        }
+
+        /// <summary>
+        /// Gets the dishes.
+        /// </summary>
+        public ObservableCollection<DishViewModel> Dishes
+        {
+            get
+            {
+                return _dishes;
+            }
+            private set
+            {
+                _dishes = value;
+                Notify("Dishes");
+            }
+        }
+
     }
 }
