@@ -24,6 +24,7 @@ using System.Windows.Media;
 using Common;
 using ServiceModels.Player;
 using ViewModels.Menu;
+using ViewModels.Skeletton;
 
 #endregion
 
@@ -47,7 +48,7 @@ namespace ViewModels.DemoMode
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="menuViewModel">The menu view model.</param>
-        public DemoModeViewModel(Player player, MenuViewModel menuViewModel)
+        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel)
         {
             InitColors();
             ModeTimer = new ModeTimer();
@@ -56,6 +57,8 @@ namespace ViewModels.DemoMode
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
             _player = player;
             MenuViewModel = menuViewModel;
+            PlayerViewModel = playerViewModel;
+            PlayerViewModel.WidthAndHeight = 500;
             _player.PropertyChanged += OnPlayerChanged;
             _random = new Random();
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
@@ -63,6 +66,8 @@ namespace ViewModels.DemoMode
             IsTextVisible = false;
             Visibility = Visibility.Collapsed;
         }
+
+        public PlayerViewModel PlayerViewModel { get; set;}
 
 
         /// <summary>

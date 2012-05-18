@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views1="clr-namespace:Views"
-             xmlns:DemoMode="clr-namespace:ViewModels.DemoMode;assembly=ViewModels" mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
+             xmlns:DemoMode="clr-namespace:ViewModels.DemoMode;assembly=ViewModels"
+             xmlns:Xaml="clr-namespace:Views.Xaml" mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
     <UserControl.Background>
         <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
     </UserControl.Background>
@@ -12,6 +13,9 @@
             <TextBlock Margin="100, 180, 100, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
             <TextBlock Margin="0, 300, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
         </StackPanel>
-        <TextBlock FontSize="700" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}"></TextBlock>
+        <StackPanel VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}">
+            <TextBlock FontSize="100" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}"></TextBlock>
+            <Xaml:SkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml:SkeletonLinesView>
+        </StackPanel>
     </Grid>
 </UserControl>
