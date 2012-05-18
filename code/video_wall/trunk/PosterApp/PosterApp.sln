@@ -15,9 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.Startup", "Poster
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosterApp.ResourceLoader", "PosterApp.ResourceLoader\PosterApp.ResourceLoader.csproj", "{E719EC3D-6431-4DA4-B884-37D1984AC992}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Interfaces", "..\VideoWall\Interfaces\VideoWall.Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Interfaces", "..\VideoWall\VideoWall.Interfaces\VideoWall.Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Common", "..\VideoWall\Common\VideoWall.Common.csproj", "{3CA470F0-3B93-43D2-A61C-5B938AD5618C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Common", "..\VideoWall\VideoWall.Common\VideoWall.Common.csproj", "{3CA470F0-3B93-43D2-A61C-5B938AD5618C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
