@@ -29,9 +29,10 @@ namespace Interfaces
         string DemomodeText { get; }
 
         /// <summary>
-        /// Loads the app. At this place, the app can load or store application specific files for the application.
+        /// Loads the app. At this place, the app can load application specific services.
         /// </summary>
         /// <param name="videoWallServiceProvider">The app info.</param>
         void Activate(IVideoWallServiceProvider videoWallServiceProvider);
     }
 }
+

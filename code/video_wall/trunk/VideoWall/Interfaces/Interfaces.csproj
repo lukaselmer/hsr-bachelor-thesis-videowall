@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IApp.cs" />
+    <Compile Include="IFileService.cs" />
+    <Compile Include="IVideoWallService.cs" />
     <Compile Include="IVideoWallServiceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
