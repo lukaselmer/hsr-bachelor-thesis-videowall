@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ using Common;
 namespace LunchMenuApp.Data
 {
     /// <summary>
-    /// The LuchMenu reader.
+    ///   The LuchMenu reader.
     /// </summary>
     public class LunchMenuReader
     {
@@ -32,12 +32,17 @@ namespace LunchMenuApp.Data
         private const string UrlToMensaMenu = "http://hochschule-rapperswil.sv-group.ch/de.html";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LunchMenuReader" /> class.
+        ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
         /// </summary>
         public LunchMenuReader()
         {
             DownloadHtml(UrlToMensaMenu);
         }
+
+        /// <summary>
+        ///   Gets the HTML of the current mensa menu.
+        /// </summary>
+        public string Html { get; private set; }
 
         private void DownloadHtml(string url)
         {
@@ -52,13 +57,8 @@ namespace LunchMenuApp.Data
                 catch (WebException ex)
                 {
                     Logger.Get.Error(ex.Message, ex);
-                }   
+                }
             }
         }
-
-        /// <summary>
-        /// Gets the HTML of the current mensa menu.
-        /// </summary>
-        public string Html { get; private set; }
     }
 }

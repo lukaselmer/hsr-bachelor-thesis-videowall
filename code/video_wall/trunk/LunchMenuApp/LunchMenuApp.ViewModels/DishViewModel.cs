@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -23,18 +23,18 @@ using LunchMenuApp.ServiceModels;
 namespace LunchMenuApp.ViewModels
 {
     /// <summary>
-    /// The dish view model represents a dish
+    ///   The dish view model represents a dish
     /// </summary>
     public class DishViewModel : Notifier
     {
         private string _name;
-        private string _type;
         private string _price;
+        private string _type;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DishViewModel"/> class.
+        ///   Initializes a new instance of the <see cref="DishViewModel" /> class.
         /// </summary>
-        /// <param name="dish">The dish.</param>
+        /// <param name="dish"> The dish. </param>
         public DishViewModel(Dish dish)
         {
             Type = dish.Type;
@@ -45,14 +45,11 @@ namespace LunchMenuApp.ViewModels
         #region Properties
 
         /// <summary>
-        /// Gets the price.
+        ///   Gets the price.
         /// </summary>
         public string Price
         {
-            get
-            {
-                return _price;
-            }
+            get { return _price; }
             private set
             {
                 _price = value;
@@ -61,14 +58,11 @@ namespace LunchMenuApp.ViewModels
         }
 
         /// <summary>
-        /// Gets the type.
+        ///   Gets the type.
         /// </summary>
         public string Type
         {
-            get
-            {
-                return _type;
-            }
+            get { return _type; }
             private set
             {
                 _type = value;
@@ -77,14 +71,11 @@ namespace LunchMenuApp.ViewModels
         }
 
         /// <summary>
-        /// Gets the name.
+        ///   Gets the name.
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get { return _name; }
             private set
             {
                 _name = value;

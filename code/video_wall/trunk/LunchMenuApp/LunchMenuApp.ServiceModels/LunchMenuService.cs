@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -23,15 +23,14 @@ using LunchMenuApp.Data;
 namespace LunchMenuApp.ServiceModels
 {
     /// <summary>
-    /// The LunchMenuService.
+    ///   The LunchMenuService.
     /// </summary>
     public class LunchMenuService : Notifier
     {
         private LunchMenu _lunchMenu;
-        private LunchMenuReader LunchMenuReader { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LunchMenuService" /> class.
+        ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
         /// </summary>
         /// <param name="lunchMenuReader"> The lunch menu reader. </param>
         public LunchMenuService(LunchMenuReader lunchMenuReader)
@@ -40,8 +39,10 @@ namespace LunchMenuApp.ServiceModels
             LunchMenu = string.IsNullOrEmpty(LunchMenuReader.Html) ? null : new LunchMenu(LunchMenuReader.Html);
         }
 
+        private LunchMenuReader LunchMenuReader { get; set; }
+
         /// <summary>
-        /// Gets or sets and notifies the lunch menu.
+        ///   Gets or sets and notifies the lunch menu.
         /// </summary>
         /// <value> The lunch menu. </value>
         public LunchMenu LunchMenu

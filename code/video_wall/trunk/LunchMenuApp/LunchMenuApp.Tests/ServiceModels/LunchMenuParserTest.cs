@@ -1,17 +1,37 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using LunchMenuApp.ServiceModels;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+#endregion
 
 namespace LunchMenuApp.Tests.ServiceModels
 {
-    /// <summary>
-    ///This is a test class for LunchMenuParserTest and is intended
-    ///to contain all LunchMenuParserTest Unit Tests
+    ///<summary>
+    ///  This is a test class for LunchMenuParserTest and is intended to contain all LunchMenuParserTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class LunchMenuParserTest
     {
         #region TestHtml
-        private static string _html = @"<?xml version=""1.0"" encoding=""utf-8""?>
+
+        private static string _html =
+            @"<?xml version=""1.0"" encoding=""utf-8""?>
 <!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
 
 <!--[if lt IE 7 ]> <html xmlns=""http://www.w3.org/1999/xhtml"" class=""ie6""> <![endif]-->
@@ -499,10 +519,11 @@ Menüsalat</div>
 
 </body>
 </html>";
+
         #endregion
 
-        /// <summary>
-        ///A test for LunchMenuParser Constructor
+        ///<summary>
+        ///  A test for LunchMenuParser Constructor
         ///</summary>
         [TestMethod]
         public void LunchMenuParserConstructorTest()
@@ -511,8 +532,8 @@ Menüsalat</div>
             Assert.IsNotNull(parser._menuNode);
         }
 
-        /// <summary>
-        ///A test for ExtractDate
+        ///<summary>
+        ///  A test for ExtractDate
         ///</summary>
         [TestMethod]
         public void ExtractDateTest()
@@ -521,8 +542,8 @@ Menüsalat</div>
             Assert.AreEqual("Freitag, 18.05.2012", parser.ExtractDate());
         }
 
-        /// <summary>
-        ///A test for ExtractDishes
+        ///<summary>
+        ///  A test for ExtractDishes
         ///</summary>
         [TestMethod]
         public void ExtractMenusTest()
@@ -531,7 +552,7 @@ Menüsalat</div>
             var dishes = parser.ExtractDishes();
 
             Assert.AreEqual(4, dishes.Count);
-            
+
             // Test dish #1
             Assert.AreEqual("Tagesteller", dishes[0].Type);
             Assert.AreEqual(@"Thai-Fischröllchen

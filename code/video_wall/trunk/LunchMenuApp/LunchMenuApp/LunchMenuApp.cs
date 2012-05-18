@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -26,13 +26,13 @@ using Microsoft.Practices.Unity;
 namespace LunchMenuApp.Main
 {
     /// <summary>
-    /// Initializes a new launch menu app
+    ///   Initializes a new launch menu app
     /// </summary>
-    [Export(typeof(IApp))]
+    [Export(typeof (IApp))]
     public class LunchMenuApp : IApp
     {
         /// <summary>
-        /// Constructs a new lunch menu app.
+        ///   Constructs a new lunch menu app.
         /// </summary>
         public LunchMenuApp()
         {
@@ -43,30 +43,34 @@ namespace LunchMenuApp.Main
         #region Properties
 
         /// <summary>
-        /// Gets the name.
+        ///   Gets the name.
         /// </summary>
         public string Name { get; private set; }
 
         /// <summary>
-        /// Gets the demomode text.
+        ///   Gets the demomode text.
         /// </summary>
         public string DemomodeText { get; private set; }
 
         /// <summary>
-        /// Gets the main view.
+        ///   Gets the main view.
         /// </summary>
         public UserControl MainView { get; private set; }
 
         #endregion
 
+        #region IApp Members
+
         /// <summary>
-        /// Loads the app. At this place, the app can load or store application specific files for the application.
+        ///   Loads the app. At this place, the app can load or store application specific files for the application.
         /// </summary>
-        /// <param name="videoWallServiceProvider">The app info.</param>
+        /// <param name="videoWallServiceProvider"> The app info. </param>
         public void Activate(IVideoWallServiceProvider videoWallServiceProvider)
         {
             var container = new UnityContainer();
             MainView = container.Resolve<LunchMenuView>();
         }
+
+        #endregion
     }
 }

@@ -1,10 +1,28 @@
-﻿using Interfaces;
-using LunchMenuApp = LunchMenuApp.Main.LunchMenuApp;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+//  Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using Interfaces;
+
+#endregion
 
 namespace LunchMenuApp.Startup
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///   Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
@@ -23,9 +41,13 @@ namespace LunchMenuApp.Startup
 
     public class LocalAppInfo : IVideoWallServiceProvider
     {
+        #region IVideoWallServiceProvider Members
+
         public T GetExtension<T>() where T : IVideoWallService
         {
             return default(T);
         }
+
+        #endregion
     }
 }

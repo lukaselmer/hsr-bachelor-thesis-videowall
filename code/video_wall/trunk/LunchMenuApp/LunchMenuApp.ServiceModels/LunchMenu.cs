@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -27,9 +27,9 @@ namespace LunchMenuApp.ServiceModels
     public class LunchMenu
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LunchMenu"/> class.
+        ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
         /// </summary>
-        /// <param name="html">The HTML.</param>
+        /// <param name="html"> The HTML. </param>
         public LunchMenu(string html)
         {
             var parser = new LunchMenuParser(html);
@@ -41,12 +41,12 @@ namespace LunchMenuApp.ServiceModels
         #region Properties
 
         /// <summary>
-        /// Gets the dishes.
+        ///   Gets the dishes.
         /// </summary>
         public List<Dish> Dishes { get; private set; }
 
         /// <summary>
-        /// Gets the date.
+        ///   Gets the date.
         /// </summary>
         public string Date { get; private set; }
 

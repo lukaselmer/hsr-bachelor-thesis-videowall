@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -16,16 +16,16 @@
 namespace LunchMenuApp.ServiceModels
 {
     /// <summary>
-    /// The dish.
+    ///   The dish.
     /// </summary>
     public class Dish
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Dish"/> class.
+        ///   Initializes a new instance of the <see cref="Dish" /> class.
         /// </summary>
-        /// <param name="type">The type.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="price">The price.</param>
+        /// <param name="type"> The type. </param>
+        /// <param name="name"> The name. </param>
+        /// <param name="price"> The price. </param>
         public Dish(string type, string name, string price)
         {
             Type = type;
@@ -36,17 +36,17 @@ namespace LunchMenuApp.ServiceModels
         #region Properties
 
         /// <summary>
-        /// Gets the type.
+        ///   Gets the type.
         /// </summary>
         public string Type { get; private set; }
 
         /// <summary>
-        /// Gets the name.
+        ///   Gets the name.
         /// </summary>
         public string Name { get; private set; }
 
         /// <summary>
-        /// Gets the price.
+        ///   Gets the price.
         /// </summary>
         public string Price { get; private set; }
 

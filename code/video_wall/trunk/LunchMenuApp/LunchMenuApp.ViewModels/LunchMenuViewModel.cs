@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-// Lukas Elmer, Christina Heidt, Delia Treichler
+//  Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -25,20 +25,20 @@ using LunchMenuApp.ServiceModels;
 namespace LunchMenuApp.ViewModels
 {
     /// <summary>
-    /// The LunchMenuViewModel
+    ///   The LunchMenuViewModel
     /// </summary>
     public class LunchMenuViewModel : Notifier
     {
         #region Declarations
 
+        private readonly ObservableCollection<DishViewModel> _dishes = new ObservableCollection<DishViewModel>();
         private readonly LunchMenuService _lunchMenuService;
         private string _title;
-        private ObservableCollection<DishViewModel> _dishes = new ObservableCollection<DishViewModel>();
 
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LunchMenuViewModel" /> class.
+        ///   Initializes a new instance of the <see cref="LunchMenuViewModel" /> class.
         /// </summary>
         /// <param name="lunchMenuService"> The lunch menu service. </param>
         public LunchMenuViewModel(LunchMenuService lunchMenuService)
@@ -51,14 +51,11 @@ namespace LunchMenuApp.ViewModels
         #region Properties
 
         /// <summary>
-        /// Gets the title.
+        ///   Gets the title.
         /// </summary>
         public string Title
         {
-            get
-            {
-                return _title;
-            }
+            get { return _title; }
             private set
             {
                 _title = value;
@@ -67,21 +64,15 @@ namespace LunchMenuApp.ViewModels
         }
 
         /// <summary>
-        /// Gets the dishes.
+        ///   Gets the dishes.
         /// </summary>
-        public ObservableCollection<DishViewModel> Dishes
-        {
-            get
-            {
-                return _dishes;
-            }
-        }
+        public ObservableCollection<DishViewModel> Dishes { get { return _dishes; } }
 
         #endregion
 
         private void UpdateLunchMenu()
         {
-            if (_lunchMenuService.LunchMenu == null) 
+            if (_lunchMenuService.LunchMenu == null)
             {
                 Title = "nicht verfügbar";
                 Dishes.Clear();
@@ -99,7 +90,7 @@ namespace LunchMenuApp.ViewModels
         }
 
         /// <summary>
-        /// Calls LoadMenu when LunchMenuService was changed.
+        ///   Calls LoadMenu when LunchMenuService was changed.
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
@@ -107,8 +98,5 @@ namespace LunchMenuApp.ViewModels
         {
             UpdateLunchMenu();
         }
-
-
-
     }
 }
