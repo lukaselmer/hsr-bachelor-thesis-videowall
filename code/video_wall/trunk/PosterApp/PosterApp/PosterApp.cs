@@ -1,7 +1,7 @@
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Windows.Controls;
-using Interfaces;
+using VideoWall.Interfaces;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Views.Xaml;

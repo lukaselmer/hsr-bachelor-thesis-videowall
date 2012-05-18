@@ -20,7 +20,7 @@ using System.Windows;
 
 #endregion
 
-namespace ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012

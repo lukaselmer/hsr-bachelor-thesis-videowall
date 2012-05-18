@@ -21,14 +21,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
-using Common;
-using ServiceModels.Player;
-using ViewModels.Menu;
-using ViewModels.Skeletton;
+using VideoWall.Common;
+using VideoWall.ServiceModels.Player;
+using VideoWall.ViewModels.Menu;
+using VideoWall.ViewModels.Skeletton;
 
 #endregion
 
-namespace ViewModels.DemoMode
+namespace VideoWall.ViewModels.DemoMode
 {
     /// <summary>
     /// The DemoModeViewModel
@@ -36,18 +36,19 @@ namespace ViewModels.DemoMode
     public class DemoModeViewModel : Notifier
     {
         private readonly Player _player;
-        private readonly Random _random;
+        private readonly Random _random = new Random();
         private int _countdown;
         private Color _currentColor;
         private bool _isCountDownVisible;
         private bool _isTextVisible;
-        private Visibility _visibility;
+        private Visibility _visibility = Visibility.Collapsed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="menuViewModel">The menu view model.</param>
+        /// <param name="playerViewModel"> </param>
         public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel)
         {
             InitColors();
@@ -55,18 +56,24 @@ namespace ViewModels.DemoMode
             ModeTimer.InteractionModeTimer.Tick += OnInteractionModeTimerTick;
             ModeTimer.DemoModeTimer.Tick += OnDemoModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
+
             _player = player;
-            MenuViewModel = menuViewModel;
-            PlayerViewModel = playerViewModel;
-            PlayerViewModel.WidthAndHeight = 600;
             _player.PropertyChanged += OnPlayerChanged;
-            _random = new Random();
+
+            MenuViewModel = menuViewModel;
+
+            PlayerViewModel = playerViewModel;
+            PlayerViewModel.WidthAndHeight = 600; //TODO: use relative value
+
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
-            IsCountDownVisible = false;
-            IsTextVisible = false;
-            Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Gets or sets the player view model.
+        /// </summary>
+        /// <value>
+        /// The player view model.
+        /// </value>
         public PlayerViewModel PlayerViewModel { get; set;}
 
 

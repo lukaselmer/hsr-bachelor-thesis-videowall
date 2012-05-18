@@ -1,15 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using ServiceModels.HandCursor;
-using ViewModels.Cursor;
-using ViewModels.HitButton;
-using ViewModels.Main;
-using Views.Helpers;
+using VideoWall.ServiceModels.HandCursor;
+using VideoWall.ViewModels.Cursor;
+using VideoWall.ViewModels.HitButton;
+using VideoWall.ViewModels.Main;
+using VideoWall.Views.Helpers;
 
-namespace Views.Xaml
+namespace VideoWall.Views.Xaml
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

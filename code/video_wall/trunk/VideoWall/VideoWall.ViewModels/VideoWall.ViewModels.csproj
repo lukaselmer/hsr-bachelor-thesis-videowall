@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\VideoWall.ViewModels.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Coding4Fun.Kinect.Wpf, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -67,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoMode\DemoModeViewModel.cs" />
+    <Compile Include="DemoMode\DispatcherTimerExtension.cs" />
     <Compile Include="DemoMode\ModeTimer.cs" />
     <Compile Include="Helpers\Command.cs" />
     <Compile Include="HitButton\HitStateArgs.cs" />

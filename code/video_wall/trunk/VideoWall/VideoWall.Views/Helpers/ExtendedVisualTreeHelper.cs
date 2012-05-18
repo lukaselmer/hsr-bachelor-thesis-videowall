@@ -22,7 +22,7 @@ using System.Windows.Media;
 
 #endregion
 
-namespace Views.Helpers
+namespace VideoWall.Views.Helpers
 {
     internal static class ExtendedVisualTreeHelper
     {

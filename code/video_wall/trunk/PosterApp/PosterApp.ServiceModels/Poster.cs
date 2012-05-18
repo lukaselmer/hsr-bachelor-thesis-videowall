@@ -17,7 +17,7 @@
 
 using System.IO;
 using System.Windows.Media.Imaging;
-using Common;
+using VideoWall.Common;
 
 #endregion
 

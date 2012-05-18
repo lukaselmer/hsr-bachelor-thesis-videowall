@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using Microsoft.Expression.Shapes;
 
-namespace Views.Xaml
+namespace VideoWall.Views.Xaml
 {
     /// <summary>
     /// Interaction logic for CursorAnimation.xaml

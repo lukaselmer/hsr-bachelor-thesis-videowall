@@ -20,7 +20,7 @@ using log4net;
 
 #endregion
 
-namespace Common
+namespace VideoWall.Common
 {
     /// <summary>
     ///   The Logger wrapper

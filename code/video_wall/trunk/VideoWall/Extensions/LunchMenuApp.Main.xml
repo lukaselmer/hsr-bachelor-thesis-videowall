@@ -14,7 +14,7 @@
               Constructs a new lunch menu app.
             </summary>
         </member>
-        <member name="M:LunchMenuApp.Main.LunchMenuApp.Activate(Interfaces.IVideoWallServiceProvider)">
+        <member name="M:LunchMenuApp.Main.LunchMenuApp.Activate(VideoWall.Interfaces.IVideoWallServiceProvider)">
             <summary>
               Loads the app. At this place, the app can load or store application specific files for the application.
             </summary>

@@ -23,7 +23,7 @@ using System.Windows.Markup;
 
 #endregion
 
-namespace Views
+namespace VideoWall.Views.Helpers
 {
     internal class BoolToVisibilityConverter : MarkupExtension, IValueConverter
     {

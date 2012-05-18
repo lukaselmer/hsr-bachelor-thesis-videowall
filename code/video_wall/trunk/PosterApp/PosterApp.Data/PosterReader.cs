@@ -18,8 +18,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Common;
-using Interfaces;
+using VideoWall.Common;
+using VideoWall.Interfaces;
 
 #endregion
 

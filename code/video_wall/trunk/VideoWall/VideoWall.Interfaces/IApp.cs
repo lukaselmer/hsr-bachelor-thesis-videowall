@@ -15,17 +15,30 @@
 
 #region Usings
 
-using System;
 using System.Windows.Controls;
 
 #endregion
 
-namespace Interfaces
+namespace VideoWall.Interfaces
 {
+    /// <summary>
+    /// This is the entry point for the framework. Every application must implement that interface.
+    /// </summary>
     public interface IApp
     {
+        /// <summary>
+        /// Gets the main view.
+        /// </summary>
         UserControl MainView { get; }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// Gets the demomode text.
+        /// </summary>
         string DemomodeText { get; }
 
         /// <summary>

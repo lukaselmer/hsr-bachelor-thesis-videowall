@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace VideoWall.Interfaces
 {
     /// <summary>
     /// The file service provides a directory where an exension has read and write access

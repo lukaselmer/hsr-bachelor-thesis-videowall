@@ -23,7 +23,7 @@ using System.Windows.Threading;
 
 #endregion
 
-namespace Common
+namespace VideoWall.Common
 {
     /// <summary>
     ///   Implementation of INotifyPropertyChanged

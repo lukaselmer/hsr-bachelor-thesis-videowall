@@ -21,7 +21,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace Views.Helpers
+namespace VideoWall.Views.Helpers
 {
     internal static class ButtonClickSiumulator
     {

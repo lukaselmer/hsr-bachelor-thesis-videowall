@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Interfaces
+﻿namespace VideoWall.Interfaces
 {
     /// <summary>
     /// Provides services for the video wall, like hand tracking,

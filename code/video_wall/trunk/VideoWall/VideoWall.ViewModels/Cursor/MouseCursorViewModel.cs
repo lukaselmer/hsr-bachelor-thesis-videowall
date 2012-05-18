@@ -17,13 +17,13 @@
 
 using System.Windows;
 using System.Windows.Media;
-using Common;
-using ResourceLoader;
-using ServiceModels.HandCursor;
+using VideoWall.Common;
+using VideoWall.ResourceLoader;
+using VideoWall.ServiceModels.HandCursor;
 
 #endregion
 
-namespace ViewModels.Cursor
+namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
     ///   The Mouse Cursor View Model

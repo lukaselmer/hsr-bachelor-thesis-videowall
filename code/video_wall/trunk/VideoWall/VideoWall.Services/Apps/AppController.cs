@@ -18,12 +18,12 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using Common;
-using Interfaces;
+using VideoWall.Common;
+using VideoWall.Interfaces;
 
 #endregion
 
-namespace ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
     ///   Controls the apps

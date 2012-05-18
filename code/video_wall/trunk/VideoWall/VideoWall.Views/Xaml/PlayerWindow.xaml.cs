@@ -1,6 +1,6 @@
-using ViewModels.Skeletton;
+using VideoWall.ViewModels.Skeletton;
 
-namespace Views.Xaml
+namespace VideoWall.Views.Xaml
 {
     /// <summary>
     /// Interaction logic for PlayerWindow.xaml

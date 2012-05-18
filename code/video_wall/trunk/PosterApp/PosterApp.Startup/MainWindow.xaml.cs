@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Interfaces;
+using VideoWall.Interfaces;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Views.Xaml;

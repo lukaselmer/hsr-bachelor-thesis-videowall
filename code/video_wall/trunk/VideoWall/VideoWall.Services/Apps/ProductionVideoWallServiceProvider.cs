@@ -1,7 +1,7 @@
-﻿using Interfaces;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
+using VideoWall.Interfaces;
 
-namespace ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
     /// The AppInfo for a application which runs on the video wall

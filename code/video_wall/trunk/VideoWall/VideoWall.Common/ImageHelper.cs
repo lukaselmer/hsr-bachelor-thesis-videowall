@@ -20,7 +20,7 @@ using System.Windows.Media.Imaging;
 
 #endregion
 
-namespace Common
+namespace VideoWall.Common
 {
     /// <summary>
     ///   The image helper provides helper methods for images.

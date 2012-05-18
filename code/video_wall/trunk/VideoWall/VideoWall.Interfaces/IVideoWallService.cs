@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace VideoWall.Interfaces
 {
     /// <summary>
     /// Marker interface: represents a video wall extension

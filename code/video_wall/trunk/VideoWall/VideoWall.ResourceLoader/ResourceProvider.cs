@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using VideoWall.ResourceLoader.Properties;
 
-namespace ResourceLoader
+namespace VideoWall.ResourceLoader
 {
     /// <summary>
     /// The ResourceProvider is responsible to provide resources

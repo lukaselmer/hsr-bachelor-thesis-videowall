@@ -20,7 +20,7 @@ using System.Diagnostics;
 
 #endregion
 
-namespace Common
+namespace VideoWall.Common
 {
     /// <summary>
     ///   Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.

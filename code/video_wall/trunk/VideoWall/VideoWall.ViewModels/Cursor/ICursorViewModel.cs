@@ -19,11 +19,11 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using ServiceModels.HandCursor;
+using VideoWall.ServiceModels.HandCursor;
 
 #endregion
 
-namespace ViewModels.Cursor
+namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
     ///   The Interface of the Cursor View Model

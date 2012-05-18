@@ -16,13 +16,13 @@
 #region Usings
 
 using System.Linq;
-using Common;
 using Microsoft.Kinect;
+using VideoWall.Common;
 using VideoWall.Data.Kinect;
 
 #endregion
 
-namespace ServiceModels.Player
+namespace VideoWall.ServiceModels.Player
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012

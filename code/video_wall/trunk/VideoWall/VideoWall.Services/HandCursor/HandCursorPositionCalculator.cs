@@ -25,7 +25,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor
 {
     /// <summary>
     ///   The delegate for when the hand is changed (left or right hand)

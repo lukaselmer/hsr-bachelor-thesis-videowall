@@ -18,14 +18,14 @@
 using System;
 using System.Windows;
 using System.Windows.Threading;
-using Common;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
-using Views.Xaml;
+using VideoWall.Common;
+using VideoWall.Views.Xaml;
 
 #endregion
 
-namespace Views
+namespace VideoWall.Views
 {
     /// <summary>
     ///   Interaction logic for App.xaml

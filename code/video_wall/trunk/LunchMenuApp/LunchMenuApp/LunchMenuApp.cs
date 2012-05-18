@@ -17,9 +17,9 @@
 
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
-using Interfaces;
 using LunchMenuApp.Views;
 using Microsoft.Practices.Unity;
+using VideoWall.Interfaces;
 
 #endregion
 

@@ -21,7 +21,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace ViewModels.Skeletton
+namespace VideoWall.ViewModels.Skeletton
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.04.2012

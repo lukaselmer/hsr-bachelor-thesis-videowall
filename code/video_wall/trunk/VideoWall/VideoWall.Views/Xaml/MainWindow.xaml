@@ -1,11 +1,11 @@
-﻿<Window x:Class="Views.Xaml.MainWindow"
+﻿<Window x:Class="VideoWall.Views.Xaml.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Video Wall"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Main="clr-namespace:ViewModels.Main;assembly=ViewModels" xmlns:Views1="clr-namespace:Views"
-        xmlns:Xaml="clr-namespace:Views.Xaml" mc:Ignorable="d"
+        xmlns:Main="clr-namespace:VideoWall.ViewModels.Main;assembly=VideoWall.ViewModels"
+        xmlns:Xaml1="clr-namespace:VideoWall.Views.Xaml" mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Main:MainWindowViewModel}"
         WindowStartupLocation="CenterScreen" Focusable="True"
         Width="{Binding CursorViewModel.WindowWidth, Mode=OneWayToSource}" Height="{Binding CursorViewModel.WindowHeight, Mode=OneWayToSource}">
@@ -16,7 +16,7 @@
             </Canvas.RenderTransform>
 
             <Image Name="cursorImage" Source="{Binding HandCursorImageSource}" Width="60" Height="60"/>
-            <Xaml:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
+            <Xaml1:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 
         <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
@@ -27,12 +27,12 @@
                 <RowDefinition Height="{Binding PlayerViewModel.WidthAndHeight}"/>
             </Grid.RowDefinitions>
 
-            <Xaml:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
+            <Xaml1:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
 
             <ContentControl Grid.Row="1" Content="{Binding MenuViewModel.CurrentApp.MainView}"></ContentControl>
 
-            <Xaml:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
+            <Xaml1:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
         </Grid>
-        <Xaml:DemoModeView DataContext="{Binding DemoModeViewModel}"></Xaml:DemoModeView>
+        <Xaml1:DemoModeView DataContext="{Binding DemoModeViewModel}"></Xaml1:DemoModeView>
     </Grid>
 </Window>

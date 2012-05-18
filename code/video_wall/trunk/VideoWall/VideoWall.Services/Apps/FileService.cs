@@ -1,6 +1,6 @@
-using Interfaces;
+using VideoWall.Interfaces;
 
-namespace ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
     /// The file service provides a directory where an exension has read and write access

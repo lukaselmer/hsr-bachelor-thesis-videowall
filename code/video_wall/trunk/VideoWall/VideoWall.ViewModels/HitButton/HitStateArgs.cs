@@ -20,7 +20,7 @@ using System.Windows;
 
 #endregion
 
-namespace ViewModels.HitButton
+namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012

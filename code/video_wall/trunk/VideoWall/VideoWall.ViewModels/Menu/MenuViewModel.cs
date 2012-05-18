@@ -19,14 +19,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Common;
-using Interfaces;
-using ServiceModels.Apps;
-using ViewModels.Helpers;
+using VideoWall.Common;
+using VideoWall.Interfaces;
+using VideoWall.ServiceModels.Apps;
+using VideoWall.ViewModels.Helpers;
 
 #endregion
 
-namespace ViewModels.Menu
+namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
@@ -57,6 +57,9 @@ namespace ViewModels.Menu
             CurrentApp = app;
         }
 
+        /// <summary>
+        /// Changes the app.
+        /// </summary>
         public void ChangeApp()
         {
             CurrentApp = Apps[_random.Next(0, Apps.Count)];

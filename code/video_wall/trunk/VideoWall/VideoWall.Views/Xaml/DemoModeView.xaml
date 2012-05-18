@@ -1,21 +1,22 @@
-﻿<UserControl Visibility="{Binding Visibility}" x:Class="Views.Xaml.DemoModeView"
+﻿<UserControl Visibility="{Binding Visibility}" x:Class="VideoWall.Views.Xaml.DemoModeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views1="clr-namespace:Views"
-             xmlns:DemoMode="clr-namespace:ViewModels.DemoMode;assembly=ViewModels"
-             xmlns:Xaml="clr-namespace:Views.Xaml" mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:DemoMode="clr-namespace:VideoWall.ViewModels.DemoMode;assembly=VideoWall.ViewModels"
+             xmlns:Helpers="clr-namespace:VideoWall.Views.Helpers" xmlns:Xaml1="clr-namespace:VideoWall.Views.Xaml"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
     <UserControl.Background>
         <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
     </UserControl.Background>
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsTextVisible, Converter={Views1:BoolToVisibilityConverter}}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsTextVisible, Converter={Helpers:BoolToVisibilityConverter}}">
             <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
             <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Helpers:BoolToVisibilityConverter}}">
             <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}"></TextBlock>
-            <Xaml:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml:DemoModeSkeletonLinesView>
+            <Xaml1:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml1:DemoModeSkeletonLinesView>
         </StackPanel>
     </Grid>
 </UserControl>

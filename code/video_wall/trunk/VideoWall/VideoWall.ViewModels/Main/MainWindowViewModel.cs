@@ -15,16 +15,15 @@
 
 #region Usings
 
-using System.Windows.Media;
-using Common;
-using ViewModels.Cursor;
-using ViewModels.DemoMode;
-using ViewModels.Menu;
-using ViewModels.Skeletton;
+using VideoWall.Common;
+using VideoWall.ViewModels.Cursor;
+using VideoWall.ViewModels.DemoMode;
+using VideoWall.ViewModels.Menu;
+using VideoWall.ViewModels.Skeletton;
 
 #endregion
 
-namespace ViewModels.Main
+namespace VideoWall.ViewModels.Main
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012

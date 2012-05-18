@@ -20,11 +20,11 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Reflection;
-using Interfaces;
+using VideoWall.Interfaces;
 
 #endregion
 
-namespace ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
     ///   The extension manager is responsible for loading the extensions

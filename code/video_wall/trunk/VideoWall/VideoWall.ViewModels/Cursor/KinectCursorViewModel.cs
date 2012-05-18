@@ -15,21 +15,20 @@
 
 #region Usings
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using Common;
 using Microsoft.Kinect;
-using ResourceLoader;
-using ServiceModels.HandCursor;
-using ServiceModels.Player;
-using ViewModels.Skeletton;
+using VideoWall.Common;
+using VideoWall.ResourceLoader;
+using VideoWall.ServiceModels.HandCursor;
+using VideoWall.ServiceModels.Player;
+using VideoWall.ViewModels.Skeletton;
 
 #endregion
 
-namespace ViewModels.Cursor
+namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012

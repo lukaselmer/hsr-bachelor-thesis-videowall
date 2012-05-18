@@ -17,26 +17,14 @@
 
 using System;
 using System.Windows.Threading;
-using Common;
 
 #endregion
 
-namespace ViewModels.DemoMode
+namespace VideoWall.ViewModels.DemoMode
 {
-    public static class DispatcherTimerExtension
-    {
-        public static void Reset(this DispatcherTimer timer)
-        {
-            timer.Stop();
-            timer.Start();
-        }
-
-        public static int GetIntervalSeconds(this DispatcherTimer timer)
-        {
-            return timer.Interval.Seconds;
-        }
-    }
-
+    /// <summary>
+    /// The mode timer
+    /// </summary>
     public class ModeTimer
     {
         private TimeSpan _demoModeTimeSpan;
@@ -47,6 +35,9 @@ namespace ViewModels.DemoMode
         private TimeSpan _skeletonCheckTimeSpan;
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModeTimer"/> class.
+        /// </summary>
         public ModeTimer()
         {
             InitInteractionModeTimer();
@@ -56,12 +47,27 @@ namespace ViewModels.DemoMode
             IsInInteractionMode = true;
         }
 
+        /// <summary>
+        /// Gets the demo mode timer.
+        /// </summary>
         public DispatcherTimer DemoModeTimer { get; private set; }
 
+        /// <summary>
+        /// Gets the interaction mode timer.
+        /// </summary>
         public DispatcherTimer InteractionModeTimer { get; private set; }
 
+        /// <summary>
+        /// Gets the skeleton check timer.
+        /// </summary>
         public DispatcherTimer SkeletonCheckTimer { get; private set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is in interaction mode.
+        /// </summary>
+        /// <value>
+        /// 	<c>true</c> if this instance is in interaction mode; otherwise, <c>false</c>.
+        /// </value>
         public bool IsInInteractionMode
         {
             get { return _isInInteractionMode; }
@@ -108,6 +114,11 @@ namespace ViewModels.DemoMode
             InteractionModeTimer.Stop();
         }
 
+        /// <summary>
+        /// Called when skeleton check timer tickes.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
         {
             if (WasSkeletonChanged() && IsInInteractionMode)
@@ -120,11 +131,18 @@ namespace ViewModels.DemoMode
             }
         }
 
+        /// <summary>
+        /// Wether the skeleton changed.
+        /// </summary>
+        /// <returns></returns>
         public bool WasSkeletonChanged()
         {
             return _lastSkeletonTime.Add(_skeletonCheckTimeSpan) > DateTime.Now;
         }
 
+        /// <summary>
+        /// Skeletons the changed.
+        /// </summary>
         public void SkeletonChanged()
         {
             _lastSkeletonTime = DateTime.Now;

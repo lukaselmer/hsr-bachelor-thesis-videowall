@@ -1,4 +1,4 @@
-namespace Views.Xaml
+namespace VideoWall.Views.Xaml
 {
     /// <summary>
     /// Interaction logic for SkeletonlinesView.xaml

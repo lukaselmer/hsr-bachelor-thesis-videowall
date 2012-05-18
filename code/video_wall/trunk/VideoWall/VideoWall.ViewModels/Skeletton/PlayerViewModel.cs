@@ -19,14 +19,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using Common;
 using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
-using ServiceModels.Player;
+using VideoWall.Common;
+using VideoWall.ServiceModels.Player;
 
 #endregion
 
-namespace ViewModels.Skeletton
+namespace VideoWall.ViewModels.Skeletton
 {
     /// <summary>
     ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012

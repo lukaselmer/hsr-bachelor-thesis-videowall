@@ -31,6 +31,9 @@ namespace VideoWall.Data.Kinect
     /// </summary>
     internal class AutoPlayFileSkeletonReader : ISkeletonReader
     {
+
+        #region Declarations
+
         private const double CheckTimerInterval = 1400;
         private const double RestartReplayAfterSoManyMilliseconds = 4000;
 
@@ -38,9 +41,25 @@ namespace VideoWall.Data.Kinect
         private DateTime _lastTimeReady;
         private Timer _replayTimer;
         private SkeletonReplay _skeletonReplay;
+
+        #endregion
+
+        #region Properties
+
         private Dispatcher Dispatcher { get; set; }
 
-        #region Ctor
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        ///   Occurs when the next skeletons frame is ready.
+        /// </summary>
+        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="FileSkeletonReader" /> class.
@@ -56,6 +75,11 @@ namespace VideoWall.Data.Kinect
             Start();
         }
 
+        #endregion
+
+        #region Methods
+
+
         /// <summary>
         ///   Initializes the replay timer.
         /// </summary>
@@ -67,6 +91,9 @@ namespace VideoWall.Data.Kinect
             _replayTimer.Start();
         }
 
+        /// <summary>
+        /// Inits the skeleton replay.
+        /// </summary>
         private void InitSkeletonReplay()
         {
             using (var stream = File.OpenRead(_kinectReplayFile.Path))
@@ -75,10 +102,6 @@ namespace VideoWall.Data.Kinect
                 _skeletonReplay.SkeletonFrameReady += OnSkeletonFrameReady;
             }
         }
-
-        #endregion
-
-        #region ISkeletonReader Members
 
         /// <summary>
         ///   Starts this instance.
@@ -101,13 +124,6 @@ namespace VideoWall.Data.Kinect
             _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
             _skeletonReplay.Stop();
         }
-
-        /// <summary>
-        ///   Occurs when the next skeletons frame is ready.
-        /// </summary>
-        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
-
-        #endregion
 
         /// <summary>
         ///   Replays the timer on elapsed.
@@ -150,5 +166,8 @@ namespace VideoWall.Data.Kinect
             _lastTimeReady = DateTime.Now;
             SkeletonsReady(this, new SkeletonsReadyEventArgs(e.SkeletonFrame.Skeletons));
         }
+
+        #endregion
+
     }
 }

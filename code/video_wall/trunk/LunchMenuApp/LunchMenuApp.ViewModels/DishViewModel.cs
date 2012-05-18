@@ -15,7 +15,7 @@
 
 #region Usings
 
-using Common;
+using VideoWall.Common;
 using LunchMenuApp.ServiceModels;
 
 #endregion

@@ -20,12 +20,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Timers;
 using System.Windows;
-using Common;
-using ViewModels.Cursor;
+using VideoWall.Common;
+using VideoWall.ViewModels.Cursor;
 
 #endregion
 
-namespace ViewModels.HitButton
+namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
     ///   Delegate when the hit state is changed
