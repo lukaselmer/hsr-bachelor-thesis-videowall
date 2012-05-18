@@ -36,7 +36,7 @@ namespace ViewModels.Menu
     {
         private readonly AppController _appController;
         private IApp _currentApp;
-        private Random _random;
+        private readonly Random _random;
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
