@@ -1,9 +1,28 @@
+#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.Collections.Generic;
 using System.Linq;
+using Common;
 using HtmlAgilityPack;
-using LunchMenuApp.ServiceModels;
 
-namespace ServiceModels
+#endregion
+
+namespace LunchMenuApp.ServiceModels
 {
     internal class LunchMenuParser
     {
@@ -12,9 +31,11 @@ namespace ServiceModels
         /// <summary>
         /// Parses the dishes and the menu date from the html
         /// </summary>
-        /// <param name="html"></param>
+        /// /// <param name="html">The html.</param>
         internal LunchMenuParser(string html)
         {
+            //TODO: notNullOrEmpty
+            PreOrPostCondition.AssertNotNull(html, "html");
             var document = new HtmlDocument();
             document.LoadHtml(html);
             _menuNode = LoadMenuContent(document);
@@ -22,6 +43,7 @@ namespace ServiceModels
 
         private HtmlNode LoadMenuContent(HtmlDocument document)
         {
+            PreOrPostCondition.AssertNotNull(document, "document");
             return document.DocumentNode.SelectSingleNode(@"//div[@class='menu-plan-content']");
         }
 
@@ -41,8 +63,12 @@ namespace ServiceModels
     {
         private readonly HtmlNodeCollection _nodes;
 
+        /// <summary>
+        /// Extracts and parses the dishes.
+        /// </summary>
         public DishParser(HtmlNodeCollection nodes)
         {
+            PreOrPostCondition.AssertNotNull(nodes, "nodes");
             _nodes = nodes;
         }
 
@@ -58,9 +84,9 @@ namespace ServiceModels
 
         private Dish ParseDish(HtmlNode node)
         {
-            string type = node.SelectSingleNode("div[@class='offer-description']").InnerText.Trim();
-            string name = node.SelectSingleNode("div[@class='menu-description']").InnerText.Trim();
-            string price = node.SelectSingleNode("div[@class='price']").InnerText.Trim();
+            var type = node.SelectSingleNode("div[@class='offer-description']").InnerText.Trim();
+            var name = node.SelectSingleNode("div[@class='menu-description']").InnerText.Trim();
+            var price = node.SelectSingleNode("div[@class='price']").InnerText.Trim();
             return new Dish(type, name, price);
         }
     }

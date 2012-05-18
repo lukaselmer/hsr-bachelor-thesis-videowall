@@ -1,9 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using Common;
 using LunchMenuApp.ServiceModels;
+
+#endregion
 
 namespace LunchMenuApp.ViewModels
 {
@@ -26,6 +41,8 @@ namespace LunchMenuApp.ViewModels
             Name = dish.Name;
             Price = dish.Price;
         }
+
+        #region Properties
 
         /// <summary>
         /// Gets the price.
@@ -74,5 +91,7 @@ namespace LunchMenuApp.ViewModels
                 Notify("Name");
             }
         }
+
+        #endregion
     }
 }

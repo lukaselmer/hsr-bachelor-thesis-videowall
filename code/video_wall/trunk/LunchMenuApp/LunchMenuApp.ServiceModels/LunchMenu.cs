@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -16,30 +16,16 @@
 #region Usings
 
 using System.Collections.Generic;
-using System.IO;
-using System.Windows.Media.Imaging;
-using Common;
-using LunchMenuApp.ServiceModels;
 
 #endregion
 
-namespace ServiceModels
+namespace LunchMenuApp.ServiceModels
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     public class LunchMenu
     {
-        /// <summary>
-        /// Gets the dishes.
-        /// </summary>
-        public List<Dish> Dishes { get; private set; }
-
-        /// <summary>
-        /// Gets the date.
-        /// </summary>
-        public string Date { get; private set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="LunchMenu"/> class.
         /// </summary>
@@ -51,5 +37,19 @@ namespace ServiceModels
             Date = parser.ExtractDate();
             Dishes = parser.ExtractMenus();
         }
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the dishes.
+        /// </summary>
+        public List<Dish> Dishes { get; private set; }
+
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        public string Date { get; private set; }
+
+        #endregion
     }
 }

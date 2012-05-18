@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -15,35 +15,33 @@
 
 #region Usings
 
-using System.ComponentModel;
 using Common;
-using Data;
+using LunchMenuApp.Data;
 
 #endregion
 
-namespace ServiceModels
+namespace LunchMenuApp.ServiceModels
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    /// The LunchMenuService.
     /// </summary>
     public class LunchMenuService : Notifier
     {
         private LunchMenu _lunchMenu;
+        private LunchMenuReader LunchMenuReader { get; set; }
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
+        /// Initializes a new instance of the <see cref="LunchMenuService" /> class.
         /// </summary>
         /// <param name="lunchMenuReader"> The lunch menu reader. </param>
         public LunchMenuService(LunchMenuReader lunchMenuReader)
         {
             LunchMenuReader = lunchMenuReader;
-            LunchMenu = new LunchMenu(LunchMenuReader.Html);
+            LunchMenu = string.IsNullOrEmpty(LunchMenuReader.Html) ? null : new LunchMenu(LunchMenuReader.Html);
         }
 
-        private LunchMenuReader LunchMenuReader { get; set; }
-
         /// <summary>
-        ///   Gets or sets and notifies the lunch menu.
+        /// Gets or sets and notifies the lunch menu.
         /// </summary>
         /// <value> The lunch menu. </value>
         public LunchMenu LunchMenu

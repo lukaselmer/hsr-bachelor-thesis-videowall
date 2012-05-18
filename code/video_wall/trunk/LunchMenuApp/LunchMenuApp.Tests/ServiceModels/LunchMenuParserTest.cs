@@ -1,16 +1,8 @@
-﻿using System.IO;
-using System.Reflection;
-using ServiceModels;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LunchMenuApp.ServiceModels;
-using System.Collections.Generic;
-using HtmlAgilityPack;
 
-namespace LunchMenuApp.Tests
+namespace LunchMenuApp.Tests.ServiceModels
 {
-
-
     /// <summary>
     ///This is a test class for LunchMenuParserTest and is intended
     ///to contain all LunchMenuParserTest Unit Tests

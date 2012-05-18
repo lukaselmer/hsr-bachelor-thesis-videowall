@@ -1,6 +1,6 @@
-﻿using ViewModels.Lunch;
+﻿using LunchMenuApp.ViewModels;
 
-namespace Views.Xaml
+namespace LunchMenuApp.Views
 {
     /// <summary>
     /// Interaction logic for LunchMenuView.xaml

@@ -1,11 +1,8 @@
-﻿using Data;
+﻿using LunchMenuApp.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace LunchMenuApp.Tests
+namespace LunchMenuApp.Tests.Data
 {
-    
-    
     /// <summary>
     ///This is a test class for LunchMenuReaderTest and is intended
     ///to contain all LunchMenuReaderTest Unit Tests

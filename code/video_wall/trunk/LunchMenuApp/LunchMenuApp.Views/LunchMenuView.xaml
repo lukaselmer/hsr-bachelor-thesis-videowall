@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Views.Xaml.LunchMenuView"
+﻿<UserControl x:Class="LunchMenuApp.Views.LunchMenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:Lunch="clr-namespace:ViewModels.Lunch;assembly=LunchMenuApp.ViewModels"
+             xmlns:Lunch="clr-namespace:LunchMenuApp.ViewModels;assembly=LunchMenuApp.ViewModels"
              xmlns:Views="clr-namespace:LunchMenuApp.Views" mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="900"
              d:DataContext="{d:DesignInstance Lunch:LunchMenuViewModel}">

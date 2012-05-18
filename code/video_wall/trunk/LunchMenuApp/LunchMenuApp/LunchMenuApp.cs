@@ -1,16 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
 using System.Windows.Controls;
-using Data;
 using Interfaces;
+using LunchMenuApp.Views;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
-using ServiceModels;
-using ViewModels.Lunch;
-using Views.Xaml;
+
+#endregion
 
 namespace LunchMenuApp.Main
 {
@@ -21,9 +32,21 @@ namespace LunchMenuApp.Main
     public class LunchMenuApp : IApp
     {
         /// <summary>
+        /// Constructs a new lunch menu app.
+        /// </summary>
+        public LunchMenuApp()
+        {
+            Name = "Mittagsmenü";
+            DemomodeText = "Hunger?";
+        }
+
+        #region Properties
+
+        /// <summary>
         /// Gets the name.
         /// </summary>
         public string Name { get; private set; }
+
         /// <summary>
         /// Gets the demomode text.
         /// </summary>
@@ -34,14 +57,7 @@ namespace LunchMenuApp.Main
         /// </summary>
         public UserControl MainView { get; private set; }
 
-        /// <summary>
-        /// Constructs a new lunch menu app
-        /// </summary>
-        public LunchMenuApp()
-        {
-            Name = "Mittagsmenü";
-            DemomodeText = "Hunger?";
-        }
+        #endregion
 
         /// <summary>
         /// Loads the app. At this place, the app can load or store application specific files for the application.

@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -15,27 +15,24 @@
 
 #region Usings
 
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Security.Policy;
 using System.Text;
 using Common;
-using HtmlAgilityPack;
 
 #endregion
 
-namespace Data
+namespace LunchMenuApp.Data
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    /// The LuchMenu reader.
     /// </summary>
     public class LunchMenuReader
     {
+        //TODO: implement solution for websites with wrong or missing contents
         private const string UrlToMensaMenu = "http://hochschule-rapperswil.sv-group.ch/de.html";
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
+        /// Initializes a new instance of the <see cref="LunchMenuReader" /> class.
         /// </summary>
         public LunchMenuReader()
         {
@@ -47,7 +44,15 @@ namespace Data
             using (var client = new WebClient())
             {
                 client.Encoding = Encoding.UTF8;
-                Html = client.DownloadString(url);
+                Html = null;
+                try
+                {
+                    Html = client.DownloadString(url);
+                }
+                catch (WebException ex)
+                {
+                    Logger.Get.Error(ex.Message, ex);
+                }   
             }
         }
 
