@@ -74,7 +74,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\VideoWall.Common.csproj">
+    <ProjectReference Include="..\VideoWall.Common\VideoWall.Common.csproj">
       <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
       <Name>VideoWall.Common</Name>
     </ProjectReference>
