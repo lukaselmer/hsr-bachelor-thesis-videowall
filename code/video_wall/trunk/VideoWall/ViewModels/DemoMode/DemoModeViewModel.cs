@@ -58,7 +58,7 @@ namespace ViewModels.DemoMode
             _player = player;
             MenuViewModel = menuViewModel;
             PlayerViewModel = playerViewModel;
-            PlayerViewModel.WidthAndHeight = 500;
+            PlayerViewModel.WidthAndHeight = 600;
             _player.PropertyChanged += OnPlayerChanged;
             _random = new Random();
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();

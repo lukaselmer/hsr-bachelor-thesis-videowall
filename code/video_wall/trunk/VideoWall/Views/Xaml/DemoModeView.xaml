@@ -13,9 +13,9 @@
             <TextBlock Margin="100, 180, 100, 0" Grid.Row="1" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
             <TextBlock Margin="0, 300, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
         </StackPanel>
-        <StackPanel VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}">
-            <TextBlock FontSize="100" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}"></TextBlock>
-            <Xaml:SkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml:SkeletonLinesView>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Views1:BoolToVisibilityConverter}}">
+            <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}"></TextBlock>
+            <Xaml:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml:DemoModeSkeletonLinesView>
         </StackPanel>
     </Grid>
 </UserControl>
