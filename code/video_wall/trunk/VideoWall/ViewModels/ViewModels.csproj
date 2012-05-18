@@ -74,7 +74,6 @@
     <Compile Include="Cursor\ICursorViewModel.cs" />
     <Compile Include="Cursor\KinectCursorViewModel.cs" />
     <Compile Include="Skeletton\SkeletonLine.cs" />
-    <Compile Include="Lunch\LunchMenuViewModel.cs" />
     <Compile Include="Main\MainWindowViewModel.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="Cursor\MouseCursorViewModel.cs" />

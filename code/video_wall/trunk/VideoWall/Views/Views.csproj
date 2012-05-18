@@ -131,10 +131,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xaml\LunchMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Xaml\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,9 +140,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\BoolToVisibilityConverter.cs" />
-    <Compile Include="Xaml\LunchMenuView.xaml.cs">
-      <DependentUpon>LunchMenuView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Xaml\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

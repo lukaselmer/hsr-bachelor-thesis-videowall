@@ -70,8 +70,6 @@
     <Compile Include="HandCursor\HandCursorPositionCalculator.cs" />
     <Compile Include="HandCursor\RelativePadding.cs" />
     <Compile Include="HandCursor\Zone.cs" />
-    <Compile Include="LunchMenu.cs" />
-    <Compile Include="LunchMenuService.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

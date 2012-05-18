@@ -23,7 +23,6 @@ using Common;
 using Interfaces;
 using ServiceModels.Apps;
 using ViewModels.Helpers;
-using ViewModels.Lunch;
 
 #endregion
 
