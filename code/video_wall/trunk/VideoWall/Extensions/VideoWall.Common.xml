@@ -4,6 +4,45 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.Notifier">
+            <summary>
+              Implementation of INotifyPropertyChanged
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:VideoWall.Common.Notifier._timer">
+            <summary>
+            The timer for the notify delay
+            </summary>
+        </member>
+        <member name="F:VideoWall.Common.Notifier._lock">
+            <summary>
+            The Lock for the notify delay
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="propertyName"> Name of the property. </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="E:VideoWall.Common.Notifier.PropertyChanged">
+            <summary>
+              Occurs when a property value changes.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
         <member name="T:VideoWall.Common.Logger">
             <summary>
               The Logger wrapper
@@ -85,45 +124,6 @@
             <summary>
               Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
             </summary>
-        </member>
-        <member name="T:VideoWall.Common.Notifier">
-            <summary>
-              Implementation of INotifyPropertyChanged
-            </summary>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="F:VideoWall.Common.Notifier._timer">
-            <summary>
-            The timer for the notify delay
-            </summary>
-        </member>
-        <member name="F:VideoWall.Common.Notifier._lock">
-            <summary>
-            The Lock for the notify delay
-            </summary>
-        </member>
-        <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="propertyName"> Name of the property. </param>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
-        </member>
-        <member name="E:VideoWall.Common.Notifier.PropertyChanged">
-            <summary>
-              Occurs when a property value changes.
-            </summary>
-            <remarks>
-            </remarks>
         </member>
     </members>
 </doc>

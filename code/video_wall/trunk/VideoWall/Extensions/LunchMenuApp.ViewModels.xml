@@ -4,32 +4,6 @@
         <name>LunchMenuApp.ViewModels</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.ViewModels.DishViewModel">
-            <summary>
-              The dish view model represents a dish
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Dish)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
-            </summary>
-            <param name="dish"> The dish. </param>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Price">
-            <summary>
-              Gets the price.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.ViewModels.LunchMenuViewModel">
             <summary>
               The LunchMenuViewModel
@@ -56,6 +30,32 @@
         <member name="P:LunchMenuApp.ViewModels.LunchMenuViewModel.Dishes">
             <summary>
               Gets the dishes.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ViewModels.DishViewModel">
+            <summary>
+              The dish view model represents a dish
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Dish)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
+            </summary>
+            <param name="dish"> The dish. </param>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
+            <summary>
+              Gets the name.
             </summary>
         </member>
     </members>

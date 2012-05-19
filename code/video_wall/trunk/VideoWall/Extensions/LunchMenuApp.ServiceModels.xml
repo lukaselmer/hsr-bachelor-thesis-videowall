@@ -4,30 +4,22 @@
         <name>LunchMenuApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.#ctor(System.String)">
+        <member name="T:LunchMenuApp.ServiceModels.LunchMenuService">
             <summary>
-              Parses the dishes and the menu date from the html
+              The LunchMenuService.
             </summary>
-            ///
-            <param name="html"> The html. </param>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.LoadMenuContent">
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuService.#ctor(LunchMenuApp.Data.LunchMenuReader)">
             <summary>
-              Loads the content of the menu.
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenuService"/> class.
             </summary>
-            <returns> </returns>
+            <param name="lunchMenuReader"> The lunch menu reader. </param>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDate">
+        <member name="P:LunchMenuApp.ServiceModels.LunchMenuService.LunchMenu">
             <summary>
-              Extracts the date.
+              Gets or sets and notifies the lunch menu.
             </summary>
-            <returns> </returns>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDishes">
-            <summary>
-              Extracts the dishes.
-            </summary>
-            <returns> </returns>
+            <value> The lunch menu. </value>
         </member>
         <member name="T:LunchMenuApp.ServiceModels.Dish">
             <summary>
@@ -87,22 +79,30 @@
             <param name="node"> The node. </param>
             <returns> </returns>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.LunchMenuService">
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.#ctor(System.String)">
             <summary>
-              The LunchMenuService.
+              Parses the dishes and the menu date from the html
             </summary>
+            ///
+            <param name="html"> The html. </param>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuService.#ctor(LunchMenuApp.Data.LunchMenuReader)">
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.LoadMenuContent">
             <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenuService"/> class.
+              Loads the content of the menu.
             </summary>
-            <param name="lunchMenuReader"> The lunch menu reader. </param>
+            <returns> </returns>
         </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenuService.LunchMenu">
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDate">
             <summary>
-              Gets or sets and notifies the lunch menu.
+              Extracts the date.
             </summary>
-            <value> The lunch menu. </value>
+            <returns> </returns>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDishes">
+            <summary>
+              Extracts the dishes.
+            </summary>
+            <returns> </returns>
         </member>
         <member name="T:LunchMenuApp.ServiceModels.LunchMenu">
             <summary>
