@@ -27,14 +27,13 @@ namespace VideoWall.ViewModels.DemoMode
     /// </summary>
     public class ModeTimer
     {
+        private TimeSpan _interactionModeTimeSpan; 
         private TimeSpan _demoModeTimeSpan;
-        private TimeSpan _interactionModeTimeSpan;
-
-        private bool _isInInteractionMode;
-        private DateTime _lastSkeletonTime;
         private TimeSpan _skeletonCheckTimeSpan;
+        private TimeSpan _changeAppTimeSpan;
 
-
+        private DateTime _lastSkeletonTime;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="ModeTimer"/> class.
         /// </summary>
@@ -43,9 +42,12 @@ namespace VideoWall.ViewModels.DemoMode
             InitInteractionModeTimer();
             InitDemoModeTimer();
             InitSkeletonCheckTimer();
+            InitChangeAppTimer();
 
             IsInInteractionMode = true;
         }
+
+        #region Properties
 
         /// <summary>
         /// Gets the demo mode timer.
@@ -63,19 +65,16 @@ namespace VideoWall.ViewModels.DemoMode
         public DispatcherTimer SkeletonCheckTimer { get; private set; }
 
         /// <summary>
+        /// Gets the change app timer.
+        /// </summary>
+        public DispatcherTimer ChangeAppTimer { get; private set; }
+
+        /// <summary>
         /// Gets a value indicating whether this instance is in interaction mode.
         /// </summary>
-        /// <value>
-        /// 	<c>true</c> if this instance is in interaction mode; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsInInteractionMode
-        {
-            get { return _isInInteractionMode; }
-            private set
-            {
-                _isInInteractionMode = value;
-            }
-        }
+        public bool IsInInteractionMode { get; private set; }
+
+        #endregion
 
         private void InitDemoModeTimer()
         {
@@ -100,17 +99,26 @@ namespace VideoWall.ViewModels.DemoMode
             SkeletonCheckTimer.Start();
         }
 
+        private void InitChangeAppTimer()
+        {
+            _changeAppTimeSpan = TimeSpan.FromSeconds(5);
+            ChangeAppTimer = new DispatcherTimer { Interval = _changeAppTimeSpan };
+            ChangeAppTimer.Tick += OnChangeAppTimerTick;
+        }
+
         private void OnDemoModeTimerTick(object sender, EventArgs e)
         {
             IsInInteractionMode = true;
             InteractionModeTimer.Start();
             DemoModeTimer.Stop();
+            ChangeAppTimer.Stop();
         }
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
             IsInInteractionMode = false;
             DemoModeTimer.Start();
+            ChangeAppTimer.Start();
             InteractionModeTimer.Stop();
         }
 
@@ -128,7 +136,17 @@ namespace VideoWall.ViewModels.DemoMode
             else if (!WasSkeletonChanged() && !IsInInteractionMode)
             {
                 DemoModeTimer.Reset();
+                ChangeAppTimer.Start();
             }
+            else if (WasSkeletonChanged() && !IsInInteractionMode)
+            {
+                ChangeAppTimer.Stop();
+            }
+        }
+
+        private void OnChangeAppTimerTick(object sender, EventArgs e)
+        {
+            ChangeAppTimer.Reset();
         }
 
         /// <summary>

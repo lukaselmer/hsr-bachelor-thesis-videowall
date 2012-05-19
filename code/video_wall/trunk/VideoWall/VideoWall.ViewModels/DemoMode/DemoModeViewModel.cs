@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -56,6 +56,7 @@ namespace VideoWall.ViewModels.DemoMode
             ModeTimer.InteractionModeTimer.Tick += OnInteractionModeTimerTick;
             ModeTimer.DemoModeTimer.Tick += OnDemoModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
+            ModeTimer.ChangeAppTimer.Tick += OnChangeAppTimerTick;
 
             _player = player;
             _player.PropertyChanged += OnPlayerChanged;
@@ -67,6 +68,7 @@ namespace VideoWall.ViewModels.DemoMode
 
             Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
         }
+       
 
         /// <summary>
         /// Gets or sets the player view model.
@@ -190,6 +192,11 @@ namespace VideoWall.ViewModels.DemoMode
             Visibility = Visibility.Visible;
             IsCountDownVisible = false;
             IsTextVisible = true;
+        }
+
+        private void OnChangeAppTimerTick(object sender, EventArgs e)
+        {
+            OnInteractionModeTimerTick(sender, e);
         }
 
         private void InitColors()
