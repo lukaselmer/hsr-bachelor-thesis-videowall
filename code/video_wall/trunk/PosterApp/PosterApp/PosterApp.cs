@@ -1,10 +1,27 @@
+#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System.ComponentModel.Composition;
-using System.IO;
 using System.Windows.Controls;
 using VideoWall.Interfaces;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using Views.Xaml;
+
+#endregion
 
 namespace PosterApp.Main
 {
@@ -17,15 +34,19 @@ namespace PosterApp.Main
             DemomodeText = "Neugierig?";
         }
 
+        #region Properties
+
+        public UserControl MainView { get; private set; }
+        public string Name { get; private set; }
+        public string DemomodeText { get; private set; }
+
+        #endregion
+
         public void Activate(IVideoWallServiceProvider serviceProvider)
         {
             var unityContainer = new UnityContainer();
             unityContainer.RegisterInstance(serviceProvider);
             MainView = unityContainer.Resolve<PosterView>();
         }
-
-        public UserControl MainView { get; private set; }
-        public string Name { get; private set; }
-        public string DemomodeText { get; private set; }
     }
 }

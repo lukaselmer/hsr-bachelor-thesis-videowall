@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ using System.Windows.Input;
 
 #endregion
 
-namespace ViewModels.Helpers
+namespace PosterApp.ViewModels
 {
     /// <summary>
     ///   Implementation of the ICommand Interface

@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -17,15 +17,15 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using PosterApp.Data;
 using VideoWall.Common;
-using Data;
 
 #endregion
 
-namespace ServiceModels
+namespace PosterApp.ServiceModels
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The PosterService
     /// </summary>
     public class PosterService : Notifier
     {
@@ -41,6 +41,8 @@ namespace ServiceModels
             PosterReader.PropertyChanged += PosterReaderChanged;
             ReadFromPosterReader();
         }
+
+        #region Properties
 
         private PosterReader PosterReader { get; set; }
 
@@ -58,6 +60,18 @@ namespace ServiceModels
             }
         }
 
+        #endregion
+
+        /// <summary>
+        ///   Calls ReadFromPosterReader when PosterReader was changed.
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
+        private void PosterReaderChanged(object sender, PropertyChangedEventArgs e)
+        {
+            ReadFromPosterReader();
+        }
+
         /// <summary>
         ///   Reads from poster reader.
         /// </summary>
@@ -68,16 +82,6 @@ namespace ServiceModels
             {
                 Posters.Add(new Poster(file));
             }
-        }
-
-        /// <summary>
-        ///   Calls ReadFromPosterReader when PosterReader was changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void PosterReaderChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromPosterReader();
         }
     }
 }

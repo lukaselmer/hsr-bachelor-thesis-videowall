@@ -1,4 +1,4 @@
-﻿using ViewModels.Posters;
+﻿using PosterApp.ViewModels;
 
 namespace Views.Xaml
 {

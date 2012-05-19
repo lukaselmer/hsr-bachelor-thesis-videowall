@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -20,24 +20,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using PosterApp.ServiceModels;
 using VideoWall.Common;
-using ServiceModels;
-using ViewModels.Helpers;
 
 #endregion
 
-namespace ViewModels.Posters
+namespace PosterApp.ViewModels
 {
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     public class PosterViewModel : Notifier, IDisposable
     {
+        #region Declarations
+
         private readonly PosterService _posterService;
         private Poster _currentPoster;
         private bool _isPosterViewVisible;
         private string _name;
         private List<Poster> _posters;
+
+        #endregion
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="PosterViewModel" /> class.
@@ -52,6 +55,8 @@ namespace ViewModels.Posters
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
             NavigateToRightCommand = new Command(OnNavigateToRight);
         }
+
+        #region Properties
 
         /// <summary>
         ///   Gets or sets the navigate to left command.
@@ -120,6 +125,8 @@ namespace ViewModels.Posters
                 Notify("Name");
             }
         }
+
+        #endregion
 
         #region IDisposable Members
 

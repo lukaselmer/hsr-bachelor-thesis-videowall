@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -15,7 +15,6 @@
 
 #region Usings
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using VideoWall.Common;
@@ -23,10 +22,10 @@ using VideoWall.Interfaces;
 
 #endregion
 
-namespace Data
+namespace PosterApp.Data
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    /// The Poster Reader
     /// </summary>
     public class PosterReader : Notifier
     {
@@ -41,6 +40,8 @@ namespace Data
             Path = fileService.ResourceDirectory;
         }
 
+        #region Properties
+
         /// <summary>
         ///   Gets the path of the files.
         /// </summary>
@@ -50,5 +51,7 @@ namespace Data
         ///   Gets the files.
         /// </summary>
         public IEnumerable<string> Files { get { return Directory.GetFiles(Path, "*.jpg"); } }
+
+        #endregion
     }
 }

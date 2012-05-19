@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -21,10 +21,10 @@ using VideoWall.Common;
 
 #endregion
 
-namespace ServiceModels
+namespace PosterApp.ServiceModels
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The Poster.
     /// </summary>
     public class Poster
     {
@@ -38,6 +38,8 @@ namespace ServiceModels
             Image = ImageHelper.InitWithFileName(fileName);
         }
 
+        #region Properties
+
         /// <summary>
         ///   Gets the name.
         /// </summary>
@@ -47,5 +49,7 @@ namespace ServiceModels
         ///   Gets the image.
         /// </summary>
         public BitmapImage Image { get; private set; }
+
+        #endregion
     }
 }
