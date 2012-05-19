@@ -14,7 +14,7 @@ namespace PosterApp.Main
         public PosterApp()
         {
             Name = "Posters";
-            DemomodeText = "Lust etwas zu lernen?";
+            DemomodeText = "Neugierig?";
         }
 
         public void Activate(IVideoWallServiceProvider serviceProvider)
