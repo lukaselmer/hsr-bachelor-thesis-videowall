@@ -15,7 +15,7 @@
 
 #region Usings
 
-using Interfaces;
+using VideoWall.Interfaces;
 
 #endregion
 

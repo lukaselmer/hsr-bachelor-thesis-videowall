@@ -36,7 +36,14 @@ namespace LunchMenuApp.ServiceModels
         public LunchMenuService(LunchMenuReader lunchMenuReader)
         {
             LunchMenuReader = lunchMenuReader;
-            LunchMenu = string.IsNullOrEmpty(LunchMenuReader.Html) ? null : new LunchMenu(LunchMenuReader.Html);
+            var k = LunchMenuReader.Html;
+            // TODO: wie suche ich korrekt nach einem im HTML enthaltenen div-tag? -> workaround for weekends
+            /* <div class="date-missing">
+				<div class="date-missing-content">
+					Für diesen Betrieb ist kein aktueller Menuplan verfügbar.
+				</div>
+			</div>*/
+            LunchMenu = (string.IsNullOrEmpty(LunchMenuReader.Html) || LunchMenuReader.Html.Contains("date-missing-content")) ? null : new LunchMenu(LunchMenuReader.Html);
         }
 
         private LunchMenuReader LunchMenuReader { get; set; }

@@ -33,7 +33,7 @@ namespace LunchMenuApp.ServiceModels
         public LunchMenu(string html)
         {
             var parser = new LunchMenuParser(html);
-
+            
             Date = parser.ExtractDate();
             Dishes = parser.ExtractDishes();
         }
