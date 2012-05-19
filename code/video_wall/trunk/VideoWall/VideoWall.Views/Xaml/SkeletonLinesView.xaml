@@ -3,11 +3,9 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:ViewModels="clr-namespace:VideoWall.ViewModels;assembly=VideoWall.VideoWall.ViewModels"
              xmlns:Skeletton="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels" mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel }"
+             d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel}"
              Width="500" Height="500">
-
     <UserControl.Resources>
         <DataTemplate x:Key="linesTemplate">
             <Line X1="{Binding StartPosition.X}"
@@ -24,7 +22,6 @@
                     <Canvas/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-
         </ItemsControl>
     </Canvas>
 </UserControl>

@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:Skeletton1="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels"
+             xmlns:Skeletton="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Skeletton1:PlayerViewModel }"
+             d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel }"
              Width="500" Height="500">
 
     <UserControl.Resources>
@@ -24,7 +24,6 @@
                     <Canvas/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-
         </ItemsControl>
     </Canvas>
 </UserControl>
