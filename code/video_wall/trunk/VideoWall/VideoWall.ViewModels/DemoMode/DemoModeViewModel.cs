@@ -52,11 +52,7 @@ namespace VideoWall.ViewModels.DemoMode
         public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel)
         {
             InitColors();
-            ModeTimer = new ModeTimer();
-            ModeTimer.InteractionModeTimer.Tick += OnInteractionModeTimerTick;
-            ModeTimer.DemoModeTimer.Tick += OnDemoModeTimerTick;
-            ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
-            ModeTimer.ChangeAppTimer.Tick += OnChangeAppTimerTick;
+            InitModeTimer();
 
             _player = player;
             _player.PropertyChanged += OnPlayerChanged;
@@ -66,9 +62,26 @@ namespace VideoWall.ViewModels.DemoMode
             PlayerViewModel = playerViewModel;
             PlayerViewModel.WidthAndHeight = 600; //TODO: use relative value
 
-            Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
+            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }
-       
+
+        private void InitModeTimer()
+        {
+            ModeTimer = new ModeTimer();
+            ModeTimer.ToDemoModeTimer.Tick += OnInteractionModeTimerTick;
+            ModeTimer.ToInteractionModeTimer.Tick += OnDemoModeTimerTick;
+            ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
+            ModeTimer.FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
+            ModeTimer.ChangeAppTimer.Tick += OnChangeAppTimerTick;
+        }
+
+        private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
+        {
+            if (!ModeTimer.WasSkeletonChanged()) return;
+            IsCountDownVisible = true;
+            IsTextVisible = false;
+        }
+
 
         /// <summary>
         /// Gets or sets the player view model.
@@ -162,13 +175,11 @@ namespace VideoWall.ViewModels.DemoMode
             {
                 if (ModeTimer.WasSkeletonChanged())
                 {
-                    IsCountDownVisible = true;
-                    IsTextVisible = false;
                     Countdown -= ModeTimer.SkeletonCheckTimer.GetIntervalSeconds();
                 }
                 else
                 {
-                    Countdown = ModeTimer.DemoModeTimer.GetIntervalSeconds();
+                    Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
                     IsCountDownVisible = false;
                     IsTextVisible = true;
                 }
@@ -187,16 +198,21 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void OnInteractionModeTimerTick(object sender, EventArgs e)
         {
-            ChangeColor();
-            MenuViewModel.ChangeApp();
+            ChangeColorAndApp();
             Visibility = Visibility.Visible;
             IsCountDownVisible = false;
             IsTextVisible = true;
         }
 
+        private void ChangeColorAndApp()
+        {
+            ChangeColor();
+            MenuViewModel.ChangeApp();
+        }
+
         private void OnChangeAppTimerTick(object sender, EventArgs e)
         {
-            OnInteractionModeTimerTick(sender, e);
+            ChangeColorAndApp();
         }
 
         private void InitColors()

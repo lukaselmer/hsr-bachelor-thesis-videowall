@@ -27,22 +27,24 @@ namespace VideoWall.ViewModels.DemoMode
     /// </summary>
     public class ModeTimer
     {
-        private TimeSpan _interactionModeTimeSpan; 
-        private TimeSpan _demoModeTimeSpan;
+        private TimeSpan _toDemoModeTimeSpan; 
+        private TimeSpan _toInteractionModeTimeSpan;
         private TimeSpan _skeletonCheckTimeSpan;
         private TimeSpan _changeAppTimeSpan;
+        private TimeSpan _fastSkeletonTimeSpan;
 
         private DateTime _lastSkeletonTime;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ModeTimer"/> class.
         /// </summary>
         public ModeTimer()
         {
-            InitInteractionModeTimer();
-            InitDemoModeTimer();
+            InitToDemoModeTimer();
+            InitToInteractionModeTimer();
             InitSkeletonCheckTimer();
             InitChangeAppTimer();
+            InitFastSkeletonCheckTimer();
 
             IsInInteractionMode = true;
         }
@@ -52,12 +54,17 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         /// Gets the demo mode timer.
         /// </summary>
-        public DispatcherTimer DemoModeTimer { get; private set; }
+        public DispatcherTimer ToInteractionModeTimer { get; private set; }
+
+        /// <summary>
+        /// Gets the fast skeleton check timer.
+        /// </summary>
+        public DispatcherTimer FastSkeletonCheckTimer { get; private set; }
 
         /// <summary>
         /// Gets the interaction mode timer.
         /// </summary>
-        public DispatcherTimer InteractionModeTimer { get; private set; }
+        public DispatcherTimer ToDemoModeTimer { get; private set; }
 
         /// <summary>
         /// Gets the skeleton check timer.
@@ -76,19 +83,27 @@ namespace VideoWall.ViewModels.DemoMode
 
         #endregion
 
-        private void InitDemoModeTimer()
+        private void InitToInteractionModeTimer()
         {
-            _demoModeTimeSpan = TimeSpan.FromSeconds(5);
-            DemoModeTimer = new DispatcherTimer { Interval = _demoModeTimeSpan };
-            DemoModeTimer.Tick += OnDemoModeTimerTick;
+            _toInteractionModeTimeSpan = TimeSpan.FromSeconds(5);
+            ToInteractionModeTimer = new DispatcherTimer { Interval = _toInteractionModeTimeSpan };
+            ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
         }
 
-        private void InitInteractionModeTimer()
+        private void InitToDemoModeTimer()
         {
-            _interactionModeTimeSpan = TimeSpan.FromSeconds(10);
-            InteractionModeTimer = new DispatcherTimer { Interval = _interactionModeTimeSpan };
-            InteractionModeTimer.Tick += OnInteractionModeTimerTick;
-            InteractionModeTimer.Start();
+            _toDemoModeTimeSpan = TimeSpan.FromSeconds(10);
+            ToDemoModeTimer = new DispatcherTimer { Interval = _toDemoModeTimeSpan };
+            ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
+            ToDemoModeTimer.Start();
+        }
+
+
+        private void InitFastSkeletonCheckTimer()
+        {
+            _fastSkeletonTimeSpan = TimeSpan.FromMilliseconds(10);
+            FastSkeletonCheckTimer = new DispatcherTimer { Interval = _fastSkeletonTimeSpan };
+            FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
         }
 
         private void InitSkeletonCheckTimer()
@@ -106,20 +121,42 @@ namespace VideoWall.ViewModels.DemoMode
             ChangeAppTimer.Tick += OnChangeAppTimerTick;
         }
 
-        private void OnDemoModeTimerTick(object sender, EventArgs e)
+        private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {
             IsInInteractionMode = true;
-            InteractionModeTimer.Start();
-            DemoModeTimer.Stop();
+
+            ToDemoModeTimer.Start();
+            ToInteractionModeTimer.Stop();
+
+            SkeletonCheckTimer.Stop();
+            FastSkeletonCheckTimer.Start();
+
             ChangeAppTimer.Stop();
         }
 
-        private void OnInteractionModeTimerTick(object sender, EventArgs e)
+        private void OnToDemoModeTimerTick(object sender, EventArgs e)
         {
             IsInInteractionMode = false;
-            DemoModeTimer.Start();
+
+            ToInteractionModeTimer.Start();
+            ToDemoModeTimer.Stop();
+
+            SkeletonCheckTimer.Start();
+            FastSkeletonCheckTimer.Stop();
+
             ChangeAppTimer.Start();
-            InteractionModeTimer.Stop();
+        }
+
+        private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
+        {
+                if (WasSkeletonChanged())
+                {
+                    SkeletonCheckTimer.Start();
+                    FastSkeletonCheckTimer.Stop();
+                } else
+                {
+                    ToInteractionModeTimer.Reset();
+                }
         }
 
         /// <summary>
@@ -129,18 +166,24 @@ namespace VideoWall.ViewModels.DemoMode
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
         {
-            if (WasSkeletonChanged() && IsInInteractionMode)
+            if (IsInInteractionMode)
             {
-                InteractionModeTimer.Reset();
-            }
-            else if (!WasSkeletonChanged() && !IsInInteractionMode)
+                if (WasSkeletonChanged())
+                {
+                    ToDemoModeTimer.Reset();
+                }
+            } else
             {
-                DemoModeTimer.Reset();
-                ChangeAppTimer.Start();
-            }
-            else if (WasSkeletonChanged() && !IsInInteractionMode)
-            {
-                ChangeAppTimer.Stop();
+                if (WasSkeletonChanged())
+                {
+                    ChangeAppTimer.Reset();
+                }
+                else
+                {
+                    ToInteractionModeTimer.Reset();
+                    FastSkeletonCheckTimer.Start();
+                    SkeletonCheckTimer.Stop();
+                }   
             }
         }
 
@@ -150,7 +193,7 @@ namespace VideoWall.ViewModels.DemoMode
         }
 
         /// <summary>
-        /// Wether the skeleton changed.
+        /// Wether the skeleton was changed.
         /// </summary>
         /// <returns></returns>
         public bool WasSkeletonChanged()
@@ -159,7 +202,7 @@ namespace VideoWall.ViewModels.DemoMode
         }
 
         /// <summary>
-        /// Skeletons the changed.
+        /// The skeleton changed.
         /// </summary>
         public void SkeletonChanged()
         {
