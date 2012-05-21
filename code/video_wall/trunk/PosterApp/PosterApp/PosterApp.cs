@@ -17,15 +17,15 @@
 
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
-using VideoWall.Interfaces;
 using Microsoft.Practices.Unity;
+using VideoWall.Interfaces;
 using Views.Xaml;
 
 #endregion
 
 namespace PosterApp.Main
 {
-    [Export(typeof(IApp))]
+    [Export(typeof (IApp))]
     public class PosterApp : IApp
     {
         public PosterApp()
@@ -42,11 +42,15 @@ namespace PosterApp.Main
 
         #endregion
 
+        #region IApp Members
+
         public void Activate(IVideoWallServiceProvider serviceProvider)
         {
             var unityContainer = new UnityContainer();
             unityContainer.RegisterInstance(serviceProvider);
             MainView = unityContainer.Resolve<PosterView>();
         }
+
+        #endregion
     }
 }

@@ -25,7 +25,7 @@ using VideoWall.Interfaces;
 namespace PosterApp.Data
 {
     /// <summary>
-    /// The Poster Reader
+    ///   The Poster Reader
     /// </summary>
     public class PosterReader : Notifier
     {

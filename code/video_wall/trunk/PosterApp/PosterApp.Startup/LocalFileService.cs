@@ -28,6 +28,10 @@ namespace PosterApp.Startup
             ResourceDirectory = directory;
         }
 
+        #region IFileService Members
+
         public string ResourceDirectory { get; private set; }
+
+        #endregion
     }
 }

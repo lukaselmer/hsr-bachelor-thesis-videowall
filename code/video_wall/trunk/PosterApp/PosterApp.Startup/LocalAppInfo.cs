@@ -32,9 +32,13 @@ namespace PosterApp.Startup
             _container.RegisterInstance<IFileService>(new LocalFileService(filepath));
         }
 
+        #region IVideoWallServiceProvider Members
+
         public T GetExtension<T>() where T : IVideoWallService
         {
             return _container.Resolve<T>();
         }
+
+        #endregion
     }
 }
