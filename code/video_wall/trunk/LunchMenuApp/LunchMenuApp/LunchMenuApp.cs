@@ -31,15 +31,6 @@ namespace LunchMenuApp.Main
     [Export(typeof (IApp))]
     public class LunchMenuApp : IApp
     {
-        /// <summary>
-        ///   Constructs a new lunch menu app.
-        /// </summary>
-        public LunchMenuApp()
-        {
-            Name = "Mittagsmenü";
-            DemomodeText = "Hunger?";
-        }
-
         #region Properties
 
         /// <summary>
@@ -59,7 +50,20 @@ namespace LunchMenuApp.Main
 
         #endregion
 
-        #region IApp Members
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Constructs a new lunch menu app.
+        /// </summary>
+        public LunchMenuApp()
+        {
+            Name = "Mittagsmenü";
+            DemomodeText = "Hunger?";
+        }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Loads the app. At this place, the app can load or store application specific files for the application.

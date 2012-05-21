@@ -26,18 +26,6 @@ namespace LunchMenuApp.ServiceModels
     /// </summary>
     public class LunchMenu
     {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
-        /// </summary>
-        /// <param name="html"> The HTML. </param>
-        public LunchMenu(string html)
-        {
-            var parser = new LunchMenuParser(html);
-
-            Date = parser.ExtractDate();
-            Dishes = parser.ExtractDishes();
-        }
-
         #region Properties
 
         /// <summary>
@@ -49,6 +37,22 @@ namespace LunchMenuApp.ServiceModels
         ///   Gets the date.
         /// </summary>
         public string Date { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
+        /// </summary>
+        /// <param name="html"> The HTML. </param>
+        public LunchMenu(string html)
+        {
+            var parser = new LunchMenuParser(html);
+
+            Date = parser.ExtractDate();
+            Dishes = parser.ExtractDishes();
+        }
 
         #endregion
     }

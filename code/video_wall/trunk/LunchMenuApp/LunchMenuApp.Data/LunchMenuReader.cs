@@ -28,8 +28,23 @@ namespace LunchMenuApp.Data
     /// </summary>
     public class LunchMenuReader
     {
+        #region Declarations
+
         //TODO: implement solution for websites with wrong or missing contents
         private const string UrlToMensaMenu = "http://hochschule-rapperswil.sv-group.ch/de.html";
+        
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        ///   Gets the HTML of the current mensa menu.
+        /// </summary>
+        public string Html { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
@@ -39,10 +54,9 @@ namespace LunchMenuApp.Data
             DownloadHtml(UrlToMensaMenu);
         }
 
-        /// <summary>
-        ///   Gets the HTML of the current mensa menu.
-        /// </summary>
-        public string Html { get; private set; }
+        #endregion
+
+        #region Methods
 
         private void DownloadHtml(string url)
         {
@@ -60,5 +74,7 @@ namespace LunchMenuApp.Data
                 }
             }
         }
+
+        #endregion
     }
 }

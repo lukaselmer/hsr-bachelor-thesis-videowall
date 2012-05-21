@@ -22,44 +22,56 @@ using VideoWall.Common;
 
 namespace LunchMenuApp.ServiceModels
 {
-    /// <summary>
-    ///   The LunchMenuService.
-    /// </summary>
-    public class LunchMenuService : Notifier
+	/// <summary>
+	///   The LunchMenuService.
+	/// </summary>
+	public class LunchMenuService : Notifier
     {
-        private LunchMenu _lunchMenu;
+        #region Declarations
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
-        /// </summary>
-        /// <param name="lunchMenuReader"> The lunch menu reader. </param>
-        public LunchMenuService(LunchMenuReader lunchMenuReader)
-        {
-            LunchMenuReader = lunchMenuReader;
-            var k = LunchMenuReader.Html;
-            // TODO: wie suche ich korrekt nach einem im HTML enthaltenen div-tag? -> workaround for weekends
-            /* <div class="date-missing">
+	    private LunchMenu _lunchMenu;
+
+	    #endregion
+
+        #region Properties
+
+	    private LunchMenuReader LunchMenuReader { get; set; }
+
+	    /// <summary>
+		///   Gets or sets and notifies the lunch menu.
+		/// </summary>
+		/// <value> The lunch menu. </value>
+		public LunchMenu LunchMenu
+		{
+			get { return _lunchMenu; }
+			set
+			{
+				_lunchMenu = value;
+				Notify("LunchMenu");
+			}
+		}
+
+	    #endregion
+
+	    #region Constructors / Destructor
+
+	    /// <summary>
+	    ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
+	    /// </summary>
+	    /// <param name="lunchMenuReader"> The lunch menu reader. </param>
+	    public LunchMenuService(LunchMenuReader lunchMenuReader)
+	    {
+	        LunchMenuReader = lunchMenuReader;
+	        var k = LunchMenuReader.Html;
+	        // TODO: wie suche ich korrekt nach einem im HTML enthaltenen div-tag? -> workaround for weekends
+	        /* <div class="date-missing">
 				<div class="date-missing-content">
 					Für diesen Betrieb ist kein aktueller Menuplan verfügbar.
 				</div>
 			</div>*/
-            LunchMenu = (string.IsNullOrEmpty(LunchMenuReader.Html) || LunchMenuReader.Html.Contains("date-missing-content")) ? null : new LunchMenu(LunchMenuReader.Html);
-        }
+	        LunchMenu = (string.IsNullOrEmpty(LunchMenuReader.Html) || LunchMenuReader.Html.Contains("date-missing-content")) ? null : new LunchMenu(LunchMenuReader.Html);
+	    }
 
-        private LunchMenuReader LunchMenuReader { get; set; }
-
-        /// <summary>
-        ///   Gets or sets and notifies the lunch menu.
-        /// </summary>
-        /// <value> The lunch menu. </value>
-        public LunchMenu LunchMenu
-        {
-            get { return _lunchMenu; }
-            set
-            {
-                _lunchMenu = value;
-                Notify("LunchMenu");
-            }
-        }
+	    #endregion
     }
 }

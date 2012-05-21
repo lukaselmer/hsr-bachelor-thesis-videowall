@@ -25,8 +25,14 @@ namespace LunchMenuApp.ServiceModels
 {
     internal class LunchMenuParser
     {
+        #region Declarations
+
         private readonly HtmlDocument _document;
         private readonly HtmlNode _menuNode;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Parses the dishes and the menu date from the html
@@ -40,6 +46,10 @@ namespace LunchMenuApp.ServiceModels
             _document.LoadHtml(html);
             _menuNode = LoadMenuContent();
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Loads the content of the menu.
@@ -67,5 +77,7 @@ namespace LunchMenuApp.ServiceModels
         {
             return new DishParser(_menuNode.SelectNodes(@"div[@class='offer']")).ExtractDishes();
         }
+
+        #endregion
     }
 }

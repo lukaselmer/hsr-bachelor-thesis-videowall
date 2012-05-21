@@ -20,19 +20,6 @@ namespace LunchMenuApp.ServiceModels
     /// </summary>
     public class Dish
     {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="Dish" /> class.
-        /// </summary>
-        /// <param name="type"> The type. </param>
-        /// <param name="name"> The name. </param>
-        /// <param name="price"> The price. </param>
-        public Dish(string type, string name, string price)
-        {
-            Type = type;
-            Name = name;
-            Price = price;
-        }
-
         #region Properties
 
         /// <summary>
@@ -49,6 +36,23 @@ namespace LunchMenuApp.ServiceModels
         ///   Gets the price.
         /// </summary>
         public string Price { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="Dish" /> class.
+        /// </summary>
+        /// <param name="type"> The type. </param>
+        /// <param name="name"> The name. </param>
+        /// <param name="price"> The price. </param>
+        public Dish(string type, string name, string price)
+        {
+            Type = type;
+            Name = name;
+            Price = price;
+        }
 
         #endregion
     }

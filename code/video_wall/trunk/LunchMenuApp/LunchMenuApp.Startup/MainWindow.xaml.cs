@@ -26,22 +26,22 @@ namespace LunchMenuApp.Startup
     /// </summary>
     public partial class MainWindow
     {
+        #region Constructors / Destructor
+
         public MainWindow()
         {
             InitializeComponent();
             IApp app = new Main.LunchMenuApp();
             app.Activate(new LocalAppInfo());
             LunchMenuContainer.Children.Add(app.MainView);
-
-            //var posterLoader = new ResourceLoader.ResourceLoader();
-            //var unityContainer = new UnityContainer().LoadConfiguration();
-            //PosterContainer.Children.Add(unityContainer.Resolve<PosterView>());
         }
+
+        #endregion
     }
 
     public class LocalAppInfo : IVideoWallServiceProvider
     {
-        #region IVideoWallServiceProvider Members
+        #region IVideoWallServiceProvider Methods
 
         public T GetExtension<T>() where T : IVideoWallService
         {

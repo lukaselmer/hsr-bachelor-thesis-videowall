@@ -29,7 +29,13 @@ namespace LunchMenuApp.ServiceModels
     /// </summary>
     internal class DishParser
     {
+        #region Declarations
+
         private readonly HtmlNodeCollection _nodes;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Extracts and parses the dishes.
@@ -39,6 +45,10 @@ namespace LunchMenuApp.ServiceModels
             PreOrPostCondition.AssertNotNull(nodes, "nodes");
             _nodes = nodes;
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Extracts the dishes.
@@ -71,5 +81,7 @@ namespace LunchMenuApp.ServiceModels
             var price = node.SelectSingleNode("div[@class='price']").InnerText.Trim();
             return new Dish(type, name, price);
         }
+
+        #endregion
     }
 }
