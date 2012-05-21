@@ -20,6 +20,18 @@ namespace VideoWall.Data.Kinect
     /// </summary>
     public class KinectReplayFile
     {
+        #region Properties
+
+        /// <summary>
+        ///   Gets or sets the path of the replay file.
+        /// </summary>
+        /// <value> The path. </value>
+        public string Path { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="KinectReplayFile" /> class.
         /// </summary>
@@ -29,10 +41,6 @@ namespace VideoWall.Data.Kinect
             Path = path;
         }
 
-        /// <summary>
-        ///   Gets or sets the path of the replay file.
-        /// </summary>
-        /// <value> The path. </value>
-        public string Path { get; set; }
+        #endregion
     }
 }

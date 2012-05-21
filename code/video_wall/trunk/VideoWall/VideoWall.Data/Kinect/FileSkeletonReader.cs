@@ -28,7 +28,22 @@ namespace VideoWall.Data.Kinect
     /// </summary>
     internal class FileSkeletonReader : ISkeletonReader
     {
+        #region Declarations
+
         private readonly SkeletonReplay _skeletonReplay;
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        ///   Occurs when [skeletons ready].
+        /// </summary>
+        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="FileSkeletonReader" /> class.
@@ -43,7 +58,9 @@ namespace VideoWall.Data.Kinect
             }
         }
 
-        #region ISkeletonReader Members
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Starts the reading process
@@ -63,13 +80,6 @@ namespace VideoWall.Data.Kinect
         }
 
         /// <summary>
-        ///   Occurs when [skeletons ready].
-        /// </summary>
-        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
-
-        #endregion
-
-        /// <summary>
         ///   Called when [skeleton frame ready].
         /// </summary>
         /// <param name="sender"> The sender. </param>
@@ -80,5 +90,7 @@ namespace VideoWall.Data.Kinect
         {
             SkeletonsReady(this, new SkeletonsReadyEventArgs(e.SkeletonFrame.Skeletons));
         }
+
+        #endregion
     }
 }

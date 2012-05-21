@@ -24,12 +24,24 @@ using Microsoft.Kinect;
 namespace VideoWall.Data.Kinect
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   The KinectSkeletonReader. Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
     internal class KinectSkeletonReader : ISkeletonReader
     {
+        #region Declarations
+
         private readonly KinectSensor _kinectSensor;
         private Skeleton[] _skeletons;
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="KinectSkeletonReader" /> class. Checkes if a kinect sensor is conneted, throws excpetion otherwise.
@@ -45,9 +57,9 @@ namespace VideoWall.Data.Kinect
             _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
         }
 
-        #region ISkeletonReader Members
+        #endregion
 
-        public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
+        #region Methods
 
         /// <summary>
         ///   Starts the reading process
@@ -67,8 +79,6 @@ namespace VideoWall.Data.Kinect
             _kinectSensor.Stop();
         }
 
-        #endregion
-
         /// <summary>
         ///   Called when [kinect sensor on skeleton frame ready].
         /// </summary>
@@ -85,5 +95,7 @@ namespace VideoWall.Data.Kinect
                 SkeletonsReady(this, args);
             }
         }
+
+        #endregion
     }
 }

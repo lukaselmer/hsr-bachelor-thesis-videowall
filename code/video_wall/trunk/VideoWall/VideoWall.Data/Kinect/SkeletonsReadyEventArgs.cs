@@ -27,6 +27,17 @@ namespace VideoWall.Data.Kinect
     /// </summary>
     public class SkeletonsReadyEventArgs : EventArgs
     {
+        #region Properties
+
+        /// <summary>
+        ///   Gets the skeletons.
+        /// </summary>
+        public Skeleton[] Skeletons { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="SkeletonsReadyEventArgs" /> class.
         /// </summary>
@@ -36,9 +47,6 @@ namespace VideoWall.Data.Kinect
             Skeletons = skeletons;
         }
 
-        /// <summary>
-        ///   Gets the skeletons.
-        /// </summary>
-        public Skeleton[] Skeletons { get; private set; }
+        #endregion
     }
 }
