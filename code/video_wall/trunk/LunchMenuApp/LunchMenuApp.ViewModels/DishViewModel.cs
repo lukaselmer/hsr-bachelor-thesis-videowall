@@ -27,20 +27,13 @@ namespace LunchMenuApp.ViewModels
     /// </summary>
     public class DishViewModel : Notifier
     {
+        #region Declarations
+
         private string _name;
         private string _price;
         private string _type;
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="DishViewModel" /> class.
-        /// </summary>
-        /// <param name="dish"> The dish. </param>
-        public DishViewModel(Dish dish)
-        {
-            Type = dish.Type;
-            Name = dish.Name;
-            Price = dish.Price;
-        }
+        #endregion
 
         #region Properties
 
@@ -81,6 +74,21 @@ namespace LunchMenuApp.ViewModels
                 _name = value;
                 Notify("Name");
             }
+        }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="DishViewModel" /> class.
+        /// </summary>
+        /// <param name="dish"> The dish. </param>
+        public DishViewModel(Dish dish)
+        {
+            Type = dish.Type;
+            Name = dish.Name;
+            Price = dish.Price;
         }
 
         #endregion

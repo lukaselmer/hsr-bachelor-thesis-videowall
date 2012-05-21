@@ -37,17 +37,6 @@ namespace LunchMenuApp.ViewModels
 
         #endregion
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenuViewModel" /> class.
-        /// </summary>
-        /// <param name="lunchMenuService"> The lunch menu service. </param>
-        public LunchMenuViewModel(LunchMenuService lunchMenuService)
-        {
-            _lunchMenuService = lunchMenuService;
-            _lunchMenuService.PropertyChanged += LunchMenuServiceChanged;
-            UpdateLunchMenu();
-        }
-
         #region Properties
 
         /// <summary>
@@ -69,6 +58,23 @@ namespace LunchMenuApp.ViewModels
         public ObservableCollection<DishViewModel> Dishes { get { return _dishes; } }
 
         #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="LunchMenuViewModel" /> class.
+        /// </summary>
+        /// <param name="lunchMenuService"> The lunch menu service. </param>
+        public LunchMenuViewModel(LunchMenuService lunchMenuService)
+        {
+            _lunchMenuService = lunchMenuService;
+            _lunchMenuService.PropertyChanged += LunchMenuServiceChanged;
+            UpdateLunchMenu();
+        }
+
+        #endregion
+
+        #region Methods
 
         private void UpdateLunchMenu()
         {
@@ -98,5 +104,7 @@ namespace LunchMenuApp.ViewModels
         {
             UpdateLunchMenu();
         }
+
+        #endregion
     }
 }
