@@ -24,17 +24,23 @@ using System.Windows.Controls;
 namespace VideoWall.ResourceLoader
 {
     /// <summary>
-    ///   The ResourceProvider is responsible to provide resources
+    ///   The ResourceProvider is responsible for providing resources.
     /// </summary>
     public static class ResourceProvider
     {
+        #region Declarations
+
         /// <summary>
-        ///   The resource dictionary is loaded from the xaml file
+        ///   The resource dictionary is loaded from the xaml file.
         /// </summary>
         private static readonly ResourceDictionary ResourceDictionary = new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
-            };
+        {
+            Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
+        };
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         ///   Gets the hand left image.
@@ -46,11 +52,15 @@ namespace VideoWall.ResourceLoader
         /// </summary>
         public static Image HandRight { get { return Image("handRight"); } }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         ///   Gets the resources.
         /// </summary>
         /// <returns> </returns>
-        public static ResourceDictionary GetResources()
+        private static ResourceDictionary GetResources()
         {
             return ResourceDictionary;
         }
@@ -64,5 +74,7 @@ namespace VideoWall.ResourceLoader
         {
             return (Image) GetResources()[key];
         }
+
+        #endregion
     }
 }
