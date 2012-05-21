@@ -29,18 +29,11 @@ namespace PosterApp.ServiceModels
     /// </summary>
     public class PosterService : Notifier
     {
+        #region Declarations
+
         private List<Poster> _posters;
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="PosterService" /> class.
-        /// </summary>
-        /// <param name="posterReader"> The poster reader. </param>
-        public PosterService(PosterReader posterReader)
-        {
-            PosterReader = posterReader;
-            PosterReader.PropertyChanged += PosterReaderChanged;
-            ReadFromPosterReader();
-        }
+        #endregion
 
         #region Properties
 
@@ -61,6 +54,23 @@ namespace PosterApp.ServiceModels
         }
 
         #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="PosterService" /> class.
+        /// </summary>
+        /// <param name="posterReader"> The poster reader. </param>
+        public PosterService(PosterReader posterReader)
+        {
+            PosterReader = posterReader;
+            PosterReader.PropertyChanged += PosterReaderChanged;
+            ReadFromPosterReader();
+        }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Calls ReadFromPosterReader when PosterReader was changed.
@@ -83,5 +93,7 @@ namespace PosterApp.ServiceModels
                 Posters.Add(new Poster(file));
             }
         }
+
+        #endregion
     }
 }

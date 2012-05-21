@@ -24,13 +24,14 @@ namespace PosterApp.ResourceLoader
 {
     public class ResourceLoader
     {
+        #region Constructors / Destructor
+
         public ResourceLoader()
         {
             var a = Assembly.GetExecutingAssembly();
             Console.WriteLine(a);
-            //var x = Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, false, false);
-            //var z = Resources.ResourceManager.ResourceSetType;
-            //Console.WriteLine(x);
         }
+
+        #endregion
     }
 }

@@ -26,6 +26,8 @@ namespace PosterApp.Startup
     /// </summary>
     public partial class MainWindow
     {
+        #region Constructors / Destructor
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,5 +35,7 @@ namespace PosterApp.Startup
             app.Activate(new LocalAppInfo("./Poster"));
             PosterContainer.Children.Add(app.MainView);
         }
+
+        #endregion
     }
 }

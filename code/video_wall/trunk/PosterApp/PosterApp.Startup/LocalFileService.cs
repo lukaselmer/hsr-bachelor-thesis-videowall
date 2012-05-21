@@ -23,12 +23,16 @@ namespace PosterApp.Startup
 {
     public class LocalFileService : IFileService
     {
+        #region Constructors / Destructor
+
         public LocalFileService(string directory)
         {
             ResourceDirectory = directory;
         }
 
-        #region IFileService Members
+        #endregion
+
+        #region Methods
 
         public string ResourceDirectory { get; private set; }
 

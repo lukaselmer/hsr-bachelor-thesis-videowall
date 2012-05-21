@@ -28,16 +28,6 @@ namespace PosterApp.ServiceModels
     /// </summary>
     public class Poster
     {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="Poster" /> class.
-        /// </summary>
-        /// <param name="fileName"> Name of the file. </param>
-        public Poster(string fileName)
-        {
-            Name = Path.GetFileNameWithoutExtension(fileName);
-            Image = ImageHelper.InitWithFileName(fileName);
-        }
-
         #region Properties
 
         /// <summary>
@@ -49,6 +39,20 @@ namespace PosterApp.ServiceModels
         ///   Gets the image.
         /// </summary>
         public BitmapImage Image { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="Poster" /> class.
+        /// </summary>
+        /// <param name="fileName"> Name of the file. </param>
+        public Poster(string fileName)
+        {
+            Name = Path.GetFileNameWithoutExtension(fileName);
+            Image = ImageHelper.InitWithFileName(fileName);
+        }
 
         #endregion
     }

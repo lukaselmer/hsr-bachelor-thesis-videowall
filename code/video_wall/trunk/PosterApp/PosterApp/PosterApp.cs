@@ -28,12 +28,6 @@ namespace PosterApp.Main
     [Export(typeof (IApp))]
     public class PosterApp : IApp
     {
-        public PosterApp()
-        {
-            Name = "Posters";
-            DemomodeText = "Neugierig?";
-        }
-
         #region Properties
 
         public UserControl MainView { get; private set; }
@@ -42,7 +36,17 @@ namespace PosterApp.Main
 
         #endregion
 
-        #region IApp Members
+        #region Constructors / Destructor
+
+        public PosterApp()
+        {
+            Name = "Posters";
+            DemomodeText = "Neugierig?";
+        }
+
+        #endregion
+
+        #region Methods
 
         public void Activate(IVideoWallServiceProvider serviceProvider)
         {

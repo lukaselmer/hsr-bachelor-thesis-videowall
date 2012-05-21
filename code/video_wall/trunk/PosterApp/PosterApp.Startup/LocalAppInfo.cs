@@ -24,7 +24,13 @@ namespace PosterApp.Startup
 {
     public class LocalAppInfo : IVideoWallServiceProvider
     {
+        #region Declarations
+
         private readonly UnityContainer _container;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         public LocalAppInfo(string filepath)
         {
@@ -32,7 +38,9 @@ namespace PosterApp.Startup
             _container.RegisterInstance<IFileService>(new LocalFileService(filepath));
         }
 
-        #region IVideoWallServiceProvider Members
+        #endregion
+
+        #region Methods
 
         public T GetExtension<T>() where T : IVideoWallService
         {

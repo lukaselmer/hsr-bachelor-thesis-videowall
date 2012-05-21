@@ -26,6 +26,8 @@ namespace Views.Xaml
     /// </summary>
     public partial class PosterView
     {
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="PosterView" /> class.
         /// </summary>
@@ -34,5 +36,7 @@ namespace Views.Xaml
             DataContext = posterViewModel;
             InitializeComponent();
         }
+
+        #endregion
     }
 }

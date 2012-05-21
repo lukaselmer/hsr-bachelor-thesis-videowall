@@ -42,20 +42,6 @@ namespace PosterApp.ViewModels
 
         #endregion
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="PosterViewModel" /> class.
-        /// </summary>
-        /// <param name="posterService"> The poster service. </param>
-        public PosterViewModel(PosterService posterService)
-        {
-            _posterService = posterService;
-            _posterService.PropertyChanged += PosterServiceChanged;
-            ReadFromPosterService();
-            Name = "Poster";
-            NavigateToLeftCommand = new Command(OnNavigateToLeft);
-            NavigateToRightCommand = new Command(OnNavigateToRight);
-        }
-
         #region Properties
 
         /// <summary>
@@ -128,7 +114,25 @@ namespace PosterApp.ViewModels
 
         #endregion
 
-        #region IDisposable Members
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="PosterViewModel" /> class.
+        /// </summary>
+        /// <param name="posterService"> The poster service. </param>
+        public PosterViewModel(PosterService posterService)
+        {
+            _posterService = posterService;
+            _posterService.PropertyChanged += PosterServiceChanged;
+            ReadFromPosterService();
+            Name = "Poster";
+            NavigateToLeftCommand = new Command(OnNavigateToLeft);
+            NavigateToRightCommand = new Command(OnNavigateToRight);
+        }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Unregisters the notification when the poster service is changed.
@@ -137,8 +141,6 @@ namespace PosterApp.ViewModels
         {
             _posterService.PropertyChanged -= PosterServiceChanged;
         }
-
-        #endregion
 
         /// <summary>
         ///   Posters the service changed.
@@ -178,5 +180,7 @@ namespace PosterApp.ViewModels
             var index = _posters.IndexOf(CurrentPoster) - 1;
             CurrentPoster = index < 0 ? _posters.Last() : _posters[index];
         }
+
+        #endregion
     }
 }

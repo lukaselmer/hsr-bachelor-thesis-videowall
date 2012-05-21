@@ -29,17 +29,6 @@ namespace PosterApp.Data
     /// </summary>
     public class PosterReader : Notifier
     {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="PosterReader" /> class.
-        /// </summary>
-        public PosterReader(IVideoWallServiceProvider serviceProvider)
-        {
-            //Path = @"...\...\...\Resources\Poster";
-            //Path = @"..\..\..\ResourceLoader\Files\Poster";
-            var fileService = serviceProvider.GetExtension<IFileService>();
-            Path = fileService.ResourceDirectory;
-        }
-
         #region Properties
 
         /// <summary>
@@ -51,6 +40,19 @@ namespace PosterApp.Data
         ///   Gets the files.
         /// </summary>
         public IEnumerable<string> Files { get { return Directory.GetFiles(Path, "*.jpg"); } }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="PosterReader" /> class.
+        /// </summary>
+        public PosterReader(IVideoWallServiceProvider serviceProvider)
+        {
+            var fileService = serviceProvider.GetExtension<IFileService>();
+            Path = fileService.ResourceDirectory;
+        }
 
         #endregion
     }
