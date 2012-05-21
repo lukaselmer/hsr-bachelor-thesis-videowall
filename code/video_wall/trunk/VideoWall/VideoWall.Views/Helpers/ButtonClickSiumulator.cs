@@ -25,15 +25,19 @@ namespace VideoWall.Views.Helpers
 {
     internal static class ButtonClickSiumulator
     {
+        #region Methods
+
         /// <summary>
         ///   Simulates a click on a button.
         /// </summary>
         /// <param name="button"> The button. </param>
-        public static void SimulateClick(this Button button)
+        internal static void SimulateClick(this Button button)
         {
             var peer = new ButtonAutomationPeer(button);
             var invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
             if (invokeProv != null) invokeProv.Invoke();
         }
+
+        #endregion
     }
 }

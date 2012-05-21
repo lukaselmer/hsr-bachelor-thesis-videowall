@@ -26,7 +26,7 @@ namespace VideoWall.Views.Xaml
     /// </summary>
     public partial class PlayerWindow
     {
-        private PlayerViewModel _player;
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="PlayerWindow" /> class.
@@ -35,7 +35,9 @@ namespace VideoWall.Views.Xaml
         public PlayerWindow(PlayerViewModel player)
         {
             InitializeComponent();
-            DataContext = _player = player;
+            DataContext = player;
         }
+
+        #endregion
     }
 }

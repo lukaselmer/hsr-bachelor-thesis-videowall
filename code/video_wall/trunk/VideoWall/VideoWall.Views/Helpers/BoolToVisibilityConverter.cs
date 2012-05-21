@@ -27,7 +27,7 @@ namespace VideoWall.Views.Helpers
 {
     internal class BoolToVisibilityConverter : MarkupExtension, IValueConverter
     {
-        #region IValueConverter Members
+        #region Methods
 
         /// <summary>
         ///   Converts a boolean to a visibility. True = Visibility.Visible False = Visibility.Collapsed
@@ -59,11 +59,16 @@ namespace VideoWall.Views.Helpers
             return ((Visibility) value) == Visibility.Visible;
         }
 
-        #endregion
-
+        /// <summary>
+        ///   Returns an object that is set as the value of the target property for this markup extension.
+        /// </summary>
+        /// <param name="serviceProvider"> Object that can provide services for the markup extension. </param>
+        /// <returns> The object value to set on the property where the extension is applied. </returns>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return this;
         }
+
+        #endregion
     }
 }

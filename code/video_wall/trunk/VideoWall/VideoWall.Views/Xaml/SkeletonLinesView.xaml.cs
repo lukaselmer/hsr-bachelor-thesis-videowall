@@ -20,6 +20,8 @@ namespace VideoWall.Views.Xaml
     /// </summary>
     public partial class SkeletonLinesView
     {
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="SkeletonLinesView" /> class.
         /// </summary>
@@ -27,5 +29,7 @@ namespace VideoWall.Views.Xaml
         {
             InitializeComponent();
         }
+
+        #endregion
     }
 }

@@ -34,13 +34,20 @@ namespace VideoWall.Views.Xaml
     /// </summary>
     public partial class MainWindow
     {
+        #region Declarations
+
         /// <summary>
-        ///   The time which the cursor has to stay on a button until a click is executed
+        ///   The time which the cursor has to stay on a button until a click is executed.
         /// </summary>
         private const double Interval = 1500;
 
         private HitTestHelper _hitTestHelper;
+
         private Storyboard _storyboard;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="MainWindow" /> class.
@@ -53,20 +60,21 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
-            // TODO: cleanup this
-            //MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
         }
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         ///   Gets or sets the main window view model.
         /// </summary>
         /// <value> The main window view model. </value>
-        public MainWindowViewModel MainWindowViewModel { get; set; }
+        private MainWindowViewModel MainWindowViewModel { get; set; }
 
-        private void OnHandChanged(HandType handType)
-        {
-            //cursorImage.Source = MainWindowViewModel.CursorViewModel.HandCursorImageSource;
-        }
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Inits the storyboard.
@@ -92,7 +100,7 @@ namespace VideoWall.Views.Xaml
         ///   Performs click on Button.
         /// </summary>
         /// <param name="sender"> The sender. </param>
-        /// <param name="args"> The args. </param>
+        /// <param name="args"> The arguments. </param>
         private void ButtonClicked(object sender, HitStateArgs args)
         {
             StartAnimation(sender, args);
@@ -104,7 +112,7 @@ namespace VideoWall.Views.Xaml
         ///   Stops the animation.
         /// </summary>
         /// <param name="sender"> The sender. </param>
-        /// <param name="args"> The args. </param>
+        /// <param name="args"> The arguments. </param>
         private void StopAnimation(object sender, HitStateArgs args)
         {
             _storyboard.Stop(CursorAmimation);
@@ -115,7 +123,7 @@ namespace VideoWall.Views.Xaml
         ///   Starts the animation.
         /// </summary>
         /// <param name="sender"> The sender. </param>
-        /// <param name="args"> The args. </param>
+        /// <param name="args"> The arguments. </param>
         private void StartAnimation(object sender, HitStateArgs args)
         {
             _storyboard.Begin(CursorAmimation);
@@ -139,5 +147,7 @@ namespace VideoWall.Views.Xaml
         {
             Close();
         }
+
+        #endregion
     }
 }

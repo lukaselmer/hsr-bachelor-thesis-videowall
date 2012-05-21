@@ -28,10 +28,12 @@ using VideoWall.Views.Xaml;
 namespace VideoWall.Views
 {
     /// <summary>
-    ///   Interaction logic for App.xaml
+    ///   Interaction logic for App.xaml.
     /// </summary>
     public partial class App
     {
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Entry point. Start the application.
         /// </summary>
@@ -46,6 +48,10 @@ namespace VideoWall.Views
             var mainWindow = container.Resolve<MainWindow>();
             mainWindow.Show();
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Called when a unhandled exception occurs in the GUI thread.
@@ -98,5 +104,7 @@ namespace VideoWall.Views
                     "{0}\nMessage: {1}", ex.GetType(), ex.Message);
             MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        #endregion
     }
 }

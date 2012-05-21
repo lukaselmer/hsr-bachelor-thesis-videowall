@@ -15,6 +15,8 @@
 
 namespace VideoWall.Views.Xaml
 {
+    #region Constructors / Destructor
+
     /// <summary>
     ///   Interaction logic for DemoModeView.xaml
     /// </summary>
@@ -28,4 +30,6 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
         }
     }
+
+    #endregion
 }

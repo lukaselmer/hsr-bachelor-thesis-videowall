@@ -29,6 +29,8 @@ namespace VideoWall.Views.Xaml
     /// </summary>
     public partial class CursorAnimation
     {
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="CursorAnimation" /> class.
         /// </summary>
@@ -37,11 +39,15 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
-        ///   Initializes the storyboard.
+        ///   Inits the storyboard.
         /// </summary>
         /// <param name="interval"> The interval. </param>
-        /// <returns> </returns>
+        /// <returns> The storyboard. </returns>
         public Storyboard InitStoryboard(double interval)
         {
             var dAnim = new DoubleAnimation
@@ -51,7 +57,6 @@ namespace VideoWall.Views.Xaml
                     Duration = new Duration(TimeSpan.FromMilliseconds(interval))
                 };
 
-
             var storyboard = new Storyboard();
             storyboard.Children.Add(dAnim);
 
@@ -60,5 +65,7 @@ namespace VideoWall.Views.Xaml
 
             return storyboard;
         }
+
+        #endregion
     }
 }

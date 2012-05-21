@@ -13,18 +13,14 @@
 
 #endregion
 
-#region Usings
-
-using System.Windows.Controls;
-
-#endregion
-
 namespace VideoWall.Views.Xaml
 {
+    #region Constructors / Destructor
+
     /// <summary>
     ///   Interaction logic for DemoModeSkeletonLinesView.xaml
     /// </summary>
-    public partial class DemoModeSkeletonLinesView : UserControl
+    public partial class DemoModeSkeletonLinesView
     {
         /// <summary>
         ///   Initializes a new instance of the <see cref="DemoModeSkeletonLinesView" /> class.
@@ -34,4 +30,6 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
         }
     }
+
+    #endregion
 }

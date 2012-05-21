@@ -20,6 +20,8 @@ namespace VideoWall.Views.Xaml
     /// </summary>
     public partial class PlayerView
     {
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="PlayerView" /> class.
         /// </summary>
@@ -27,5 +29,7 @@ namespace VideoWall.Views.Xaml
         {
             InitializeComponent();
         }
+
+        #endregion
     }
 }
