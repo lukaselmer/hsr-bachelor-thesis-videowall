@@ -22,12 +22,35 @@ using System.Diagnostics;
 namespace VideoWall.ServiceModels.HandCursor
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   The relative padding. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-    public class RelativePadding
+    internal class RelativePadding
     {
-        private readonly double _rightHandedLeft;
-        private readonly double _rightHandedRight;
+        #region Properties
+
+        /// <summary>
+        ///   Gets the left padding.
+        /// </summary>
+        internal double Left { get; private set; }
+
+        /// <summary>
+        ///   Gets the top padding.
+        /// </summary>
+        internal double Top { get; private set; }
+
+        /// <summary>
+        ///   Gets the right padding.
+        /// </summary>
+        internal double Right { get; private set; }
+
+        /// <summary>
+        ///   Gets the bottom padding.
+        /// </summary>
+        internal double Bottom { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="RelativePadding" /> class.
@@ -36,11 +59,11 @@ namespace VideoWall.ServiceModels.HandCursor
         /// <param name="top"> The top padding. </param>
         /// <param name="right"> The right padding. </param>
         /// <param name="bottom"> The bottom padding. </param>
-        public RelativePadding(double left, double top, double right, double bottom)
+        internal RelativePadding(double left, double top, double right, double bottom)
         {
-            Left = _rightHandedLeft = left;
+            Left = left;
             Top = top;
-            Right = _rightHandedRight = right;
+            Right = right;
             Bottom = bottom;
 
             Debug.Assert(Left >= 0.0, "Left must be >= 0");
@@ -51,24 +74,6 @@ namespace VideoWall.ServiceModels.HandCursor
             Debug.Assert(Top + Bottom < 1.0, "top + bottom < 1.0");
         }
 
-        /// <summary>
-        ///   Gets the left padding.
-        /// </summary>
-        public double Left { get; private set; }
-
-        /// <summary>
-        ///   Gets the top padding.
-        /// </summary>
-        public double Top { get; private set; }
-
-        /// <summary>
-        ///   Gets the right padding.
-        /// </summary>
-        public double Right { get; private set; }
-
-        /// <summary>
-        ///   Gets the bottom padding.
-        /// </summary>
-        public double Bottom { get; private set; }
+        #endregion
     }
 }

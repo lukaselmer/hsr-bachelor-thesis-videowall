@@ -23,11 +23,17 @@ using VideoWall.Interfaces;
 namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
-    ///   The AppInfo for a application which runs on the video wall
+    ///   The AppInfo for a application which runs on the video wall.
     /// </summary>
     public class ProductionVideoWallServiceProvider : IVideoWallServiceProvider
     {
+        #region Declarations
+
         private readonly UnityContainer _appExtensionsContainer;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider" /> class.
@@ -41,10 +47,12 @@ namespace VideoWall.ServiceModels.Apps
             _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app));
         }
 
-        #region IVideoWallServiceProvider Members
+        #endregion
+
+        #region Methods
 
         /// <summary>
-        ///   Gets the extension. Similar: Extenstion Interface Pattern.
+        ///   Gets the extension. Similar: Extension Interface Pattern.
         /// </summary>
         /// <typeparam name="T"> </typeparam>
         /// <returns> </returns>

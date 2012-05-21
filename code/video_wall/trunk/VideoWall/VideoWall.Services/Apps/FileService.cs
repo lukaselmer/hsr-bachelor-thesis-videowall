@@ -22,10 +22,21 @@ using VideoWall.Interfaces;
 namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
-    ///   The file service provides a directory where an exension has read and write access
+    ///   The file service provides a directory where an exension has read and write access.
     /// </summary>
     public class FileService : IFileService
     {
+        #region Properties
+
+        /// <summary>
+        ///   Gets the resource directory.
+        /// </summary>
+        public string ResourceDirectory { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="FileService" /> class.
         /// </summary>
@@ -34,13 +45,6 @@ namespace VideoWall.ServiceModels.Apps
         {
             ResourceDirectory = ExtensionManager.InitApp(app);
         }
-
-        #region IFileService Members
-
-        /// <summary>
-        ///   Gets the resource directory.
-        /// </summary>
-        public string ResourceDirectory { get; private set; }
 
         #endregion
     }

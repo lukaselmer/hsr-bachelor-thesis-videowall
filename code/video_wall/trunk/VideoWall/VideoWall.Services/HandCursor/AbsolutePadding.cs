@@ -23,14 +23,29 @@ using System.Windows;
 namespace VideoWall.ServiceModels.HandCursor
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   The absolute padding. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
     internal class AbsolutePadding
     {
+        #region Declarations
+
         private readonly RelativePadding _relative;
         private readonly Size _window;
 
-        public AbsolutePadding(RelativePadding relative, Size window)
+        #endregion
+
+        #region Properties
+
+        internal double Left { get { return _window.Width * _relative.Left; } }
+        internal double Right { get { return _window.Width * _relative.Right; } }
+        internal double Top { get { return _window.Height * _relative.Top; } }
+        internal double Bottom { get { return _window.Height * _relative.Bottom; } }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        internal AbsolutePadding(RelativePadding relative, Size window)
         {
             _relative = relative;
             _window = window;
@@ -39,9 +54,6 @@ namespace VideoWall.ServiceModels.HandCursor
             Debug.Assert(window != null, "window != null");
         }
 
-        public double Left { get { return _window.Width*_relative.Left; } }
-        public double Right { get { return _window.Width*_relative.Right; } }
-        public double Top { get { return _window.Height*_relative.Top; } }
-        public double Bottom { get { return _window.Height*_relative.Bottom; } }
+        #endregion
     }
 }

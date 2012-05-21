@@ -50,12 +50,38 @@ namespace VideoWall.ServiceModels.HandCursor
     }
 
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
     public class HandCursorPositionCalculator
+// ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Declarations
+
         private readonly RelativePadding _relativePaddingForLeftHanded;
         private readonly RelativePadding _relativePaddingForRightHanded;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        ///   Gets the relative padding.
+        /// </summary>
+        private RelativePadding RelativePadding { get; set; }
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        ///   Occurs when the hand changed.
+        /// </summary>
+        public event HandChanged HandChanged;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
@@ -69,15 +95,9 @@ namespace VideoWall.ServiceModels.HandCursor
             RelativePadding = _relativePaddingForRightHanded;
         }
 
-        /// <summary>
-        ///   Gets the relative padding.
-        /// </summary>
-        protected RelativePadding RelativePadding { get; private set; }
+        #endregion
 
-        /// <summary>
-        ///   Occurs when the hand changed.
-        /// </summary>
-        public event HandChanged HandChanged;
+        #region Methods
 
         private void OnHandChanged(HandType handType)
         {
@@ -176,5 +196,7 @@ namespace VideoWall.ServiceModels.HandCursor
 
             return new Point(posX, posY);
         }
+        
+        #endregion
     }
 }

@@ -31,15 +31,21 @@ namespace VideoWall.ServiceModels.Apps
     /// </summary>
     public static class ExtensionManager
     {
+        #region Declarations
+
         /// <summary>
         ///   The folder name for the extensions
         /// </summary>
         private const string FolderNameOfExtensions = "../../../Extensions";
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
-        ///   Inits the specified app with extension.
+        ///   Inits the specified application with extension.
         /// </summary>
-        /// <param name="appWithExtension"> The app with extension. </param>
+        /// <param name="appWithExtension"> The application with extension. </param>
         public static void Init(object appWithExtension)
         {
             CreateExtensionsDirectory();
@@ -69,11 +75,18 @@ namespace VideoWall.ServiceModels.Apps
             }
         }*/
 
+        /// <summary>
+        /// Inits the app.
+        /// </summary>
+        /// <param name="app">The app.</param>
+        /// <returns></returns>
         public static string InitApp(IApp app)
         {
             var directoryName = String.Format("{0}/Files/{1}", FolderNameOfExtensions, app.Name);
             if (!Directory.Exists(directoryName)) Directory.CreateDirectory(directoryName);
             return directoryName;
         }
+
+        #endregion
     }
 }

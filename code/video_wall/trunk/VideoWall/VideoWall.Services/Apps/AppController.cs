@@ -26,12 +26,26 @@ using VideoWall.Interfaces;
 namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
-    ///   Controls the apps
+    ///   Controls the apps.
     /// </summary>
+    // ReSharper disable ClassNeverInstantiated.Global
     public class AppController
+        // ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Properties
+
         /// <summary>
-        ///   Initializes the AppController
+        ///   The video wall applications.
+        /// </summary>
+        [ImportMany(AllowRecomposition = false)]
+        public ObservableCollection<IApp> Apps { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes the AppController.
         /// </summary>
         public AppController()
         {
@@ -42,12 +56,13 @@ namespace VideoWall.ServiceModels.Apps
             LoadApps();
         }
 
-        /// <summary>
-        ///   The video wall applications
-        /// </summary>
-        [ImportMany(AllowRecomposition = false)]
-        public ObservableCollection<IApp> Apps { get; private set; }
+        #endregion
 
+        #region Methods
+
+        /// <summary>
+        ///   Loads the apps.
+        /// </summary>
         private void LoadApps()
         {
             foreach (var app in Apps)
@@ -55,5 +70,7 @@ namespace VideoWall.ServiceModels.Apps
                 app.Activate(new ProductionVideoWallServiceProvider(app));
             }
         }
+
+        #endregion
     }
 }
