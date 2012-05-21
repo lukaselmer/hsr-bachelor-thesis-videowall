@@ -16,11 +16,10 @@
 #region Usings
 
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using VideoWall.Common;
-using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps;
 using VideoWall.ViewModels.Helpers;
 
@@ -38,8 +37,8 @@ namespace VideoWall.ViewModels.Menu
         #region Declarations
 
         private readonly AppController _appController;
-        private readonly Random _random;
-        private IApp _currentApp;
+        private readonly Random _random = new Random();
+        private AppViewModel _currentApp;
 
         #endregion
 
@@ -48,7 +47,7 @@ namespace VideoWall.ViewModels.Menu
         /// <summary>
         ///   Gets the apps.
         /// </summary>
-        public ObservableCollection<IApp> Apps { get; private set; }
+        public List<AppViewModel> Apps { get; private set; }
 
         /// <summary>
         ///   This command changes the current application.
@@ -63,12 +62,15 @@ namespace VideoWall.ViewModels.Menu
         /// <summary>
         ///   Gets the current app.
         /// </summary>
-        public IApp CurrentApp
+        public AppViewModel CurrentApp
         {
             get { return _currentApp; }
             private set
             {
+                PreOrPostCondition.AssertNotNull(value, "CurrentApp value");
+                if (_currentApp != null) CurrentApp.Selected = false;
                 _currentApp = value;
+                _currentApp.Selected = true;
                 Notify("CurrentApp");
             }
         }
@@ -84,10 +86,10 @@ namespace VideoWall.ViewModels.Menu
         public MenuViewModel(AppController appController)
         {
             _appController = appController;
-            Apps = _appController.Apps;
+            Apps = new List<AppViewModel>(_appController.Apps.Select(app => new AppViewModel(app)));
             CurrentApp = Apps.First();
+
             ChangeAppCommand = new Command(OnChangeApp);
-            _random = new Random();
         }
 
         #endregion
@@ -96,7 +98,7 @@ namespace VideoWall.ViewModels.Menu
 
         private void OnChangeApp(object appObject)
         {
-            var app = appObject as IApp;
+            var app = appObject as AppViewModel;
             PreOrPostCondition.AssertNotNull(app, "appObject is null or not of type IApp");
             CurrentApp = app;
         }

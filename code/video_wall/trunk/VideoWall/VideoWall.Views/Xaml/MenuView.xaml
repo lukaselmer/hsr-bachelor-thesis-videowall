@@ -22,14 +22,13 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <!--<Button Padding="50 0 50 0" Margin="10" Content="{Binding Name}" CommandParameter="{Binding}"
-                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}" />-->
-
                     <Button CommandParameter="{Binding}"
                             Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}"
-                            Content="{Binding Name}" Style="{StaticResource MenuButtonStyle}">
+                            Content="{Binding App.Name}" Style="{StaticResource MenuButtonStyle}">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <!--<GradientStop Color="{Binding MenuStyle.Inactive.Light}"/>
+                                <GradientStop Color="{Binding MenuStyle.Inactive.Dark}" Offset="1"/>-->
                                 <GradientStop Color="#FF007DFF"/>
                                 <GradientStop Color="#FF0F3760" Offset="1"/>
                             </LinearGradientBrush>

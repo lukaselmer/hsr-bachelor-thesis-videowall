@@ -29,7 +29,7 @@
 
             <Xaml1:MenuView Grid.Row="0" DataContext="{Binding MenuViewModel}"/>
 
-            <ContentControl Grid.Row="1" Content="{Binding MenuViewModel.CurrentApp.MainView}"></ContentControl>
+            <ContentControl Grid.Row="1" Content="{Binding MenuViewModel.CurrentApp.App.MainView}"></ContentControl>
 
             <Xaml1:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
         </Grid>
