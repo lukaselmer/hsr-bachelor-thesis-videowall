@@ -27,14 +27,14 @@ namespace PosterApp.Data
     /// <summary>
     ///   The Poster Reader
     /// </summary>
-    public class PosterReader : Notifier
+    public class PosterReader
     {
         #region Properties
 
         /// <summary>
         ///   Gets the path of the files.
         /// </summary>
-        public string Path { get; private set; }
+        private string Path { get; set; }
 
         /// <summary>
         ///   Gets the files.

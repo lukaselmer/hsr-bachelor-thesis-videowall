@@ -27,11 +27,9 @@ namespace PosterApp.ServiceModels
     /// <summary>
     ///   The PosterService
     /// </summary>
-    public class PosterService : Notifier
+    public class PosterService
     {
         #region Declarations
-
-        private List<Poster> _posters;
 
         #endregion
 
@@ -43,15 +41,7 @@ namespace PosterApp.ServiceModels
         ///   Gets or sets and notifies the posters.
         /// </summary>
         /// <value> The posters. </value>
-        public List<Poster> Posters
-        {
-            get { return _posters; }
-            set
-            {
-                _posters = value;
-                Notify("Posters");
-            }
-        }
+        public List<Poster> Posters { get; set; }
 
         #endregion
 
@@ -64,23 +54,12 @@ namespace PosterApp.ServiceModels
         public PosterService(PosterReader posterReader)
         {
             PosterReader = posterReader;
-            PosterReader.PropertyChanged += PosterReaderChanged;
             ReadFromPosterReader();
         }
 
         #endregion
 
         #region Methods
-
-        /// <summary>
-        ///   Calls ReadFromPosterReader when PosterReader was changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void PosterReaderChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromPosterReader();
-        }
 
         /// <summary>
         ///   Reads from poster reader.

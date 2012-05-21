@@ -30,7 +30,7 @@ namespace PosterApp.ViewModels
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-    public class PosterViewModel : Notifier, IDisposable
+    public class PosterViewModel : Notifier
     {
         #region Declarations
 
@@ -63,7 +63,7 @@ namespace PosterApp.ViewModels
         public Poster CurrentPoster
         {
             get { return _currentPoster; }
-            set
+            private set
             {
                 _currentPoster = value;
                 Notify("CurrentPoster");
@@ -123,7 +123,6 @@ namespace PosterApp.ViewModels
         public PosterViewModel(PosterService posterService)
         {
             _posterService = posterService;
-            _posterService.PropertyChanged += PosterServiceChanged;
             ReadFromPosterService();
             Name = "Poster";
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
@@ -133,14 +132,6 @@ namespace PosterApp.ViewModels
         #endregion
 
         #region Methods
-
-        /// <summary>
-        ///   Unregisters the notification when the poster service is changed.
-        /// </summary>
-        public void Dispose()
-        {
-            _posterService.PropertyChanged -= PosterServiceChanged;
-        }
 
         /// <summary>
         ///   Posters the service changed.
