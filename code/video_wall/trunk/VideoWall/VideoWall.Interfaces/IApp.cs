@@ -26,6 +26,8 @@ namespace VideoWall.Interfaces
     /// </summary>
     public interface IApp
     {
+        #region Properties
+
         /// <summary>
         ///   Gets the main view.
         /// </summary>
@@ -41,10 +43,16 @@ namespace VideoWall.Interfaces
         /// </summary>
         string DemomodeText { get; }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         ///   Loads the app. At this place, the app can load application specific services.
         /// </summary>
         /// <param name="videoWallServiceProvider"> The app info. </param>
         void Activate(IVideoWallServiceProvider videoWallServiceProvider);
+
+        #endregion
     }
 }

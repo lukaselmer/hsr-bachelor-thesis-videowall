@@ -20,11 +20,15 @@ namespace VideoWall.Interfaces
     /// </summary>
     public interface IVideoWallServiceProvider
     {
+        #region Methods
+
         /// <summary>
         ///   Gets an implementation of the interface <typeparam name="T"> </typeparam> which is provided by the video wall
         /// </summary>
         /// <typeparam name="T"> </typeparam>
         /// <returns> </returns>
         T GetExtension<T>() where T : IVideoWallService;
+
+        #endregion
     }
 }

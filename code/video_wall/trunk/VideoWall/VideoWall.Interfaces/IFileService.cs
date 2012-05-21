@@ -20,9 +20,13 @@ namespace VideoWall.Interfaces
     /// </summary>
     public interface IFileService : IVideoWallService
     {
+        #region Properties
+
         /// <summary>
         ///   Gets the path to the resource directory
         /// </summary>
         string ResourceDirectory { get; }
+
+        #endregion
     }
 }
