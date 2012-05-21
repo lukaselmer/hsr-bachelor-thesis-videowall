@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -15,8 +15,8 @@
 
 #region Usings
 
-using VideoWall.Common;
 using LunchMenuApp.ServiceModels;
+using VideoWall.Common;
 
 #endregion
 

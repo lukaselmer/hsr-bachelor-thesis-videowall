@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -16,8 +16,8 @@
 #region Usings
 
 using System.Collections.Generic;
-using VideoWall.Common;
 using HtmlAgilityPack;
+using VideoWall.Common;
 
 #endregion
 
