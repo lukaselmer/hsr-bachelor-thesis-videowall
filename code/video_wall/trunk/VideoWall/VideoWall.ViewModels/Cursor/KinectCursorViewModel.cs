@@ -35,8 +35,10 @@ namespace VideoWall.ViewModels.Cursor
     /// </summary>
     public class KinectCursorViewModel : Notifier, ICursorViewModel
     {
+        #region Declarations
+
         /// <summary>
-        ///   The cursor smoothing level represents the size of the skeleton history queue. The bigger the smoothing level, the bigger the queue, the more cursor smooting.
+        ///   The cursor smoothing level represents the size of the skeleton history queue. The bigger the smoothing level, the bigger the queue, the more cursor smoothing.
         /// </summary>
         private const int CursorSmoothingLevel = 10;
 
@@ -44,7 +46,7 @@ namespace VideoWall.ViewModels.Cursor
         private readonly Player _player;
 
         /// <summary>
-        ///   The skeleton history is used for the mouse smoothing
+        ///   The skeleton history is used for the mouse smoothing.
         /// </summary>
         private readonly Queue<Skeleton> _skeletonHistory;
 
@@ -53,22 +55,9 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         private HandType _activeHand = HandType.Right;
 
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="PlayerViewModel" /> class.
-        /// </summary>
-        /// <param name="player"> The player. </param>
-        /// <param name="handCursorPositionCalculator"> The player. </param>
-        public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
-        {
-            _skeletonHistory = new Queue<Skeleton>(CursorSmoothingLevel);
+        #endregion
 
-            _player = player;
-            _handCursorPositionCalculator = handCursorPositionCalculator;
-            _player.PropertyChanged += PlayerModelChanged;
-            WindowWidth = 0;
-            WindowHeight = 0;
-            _handCursorPositionCalculator.HandChanged += OnHandChanged;
-        }
+        #region Properties
 
         /// <summary>
         ///   Gets or sets the active hand.
@@ -88,6 +77,29 @@ namespace VideoWall.ViewModels.Cursor
                 Notify("ActiveHand");
             }
         }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="KinectCursorViewModel" /> class.
+        /// </summary>
+        /// <param name="player"> The player. </param>
+        /// <param name="handCursorPositionCalculator"> The handCursorPositionCalculator. </param>
+        public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
+        {
+            _skeletonHistory = new Queue<Skeleton>(CursorSmoothingLevel);
+
+            _player = player;
+            _handCursorPositionCalculator = handCursorPositionCalculator;
+            _handCursorPositionCalculator.HandChanged += OnHandChanged;
+            _player.PropertyChanged += PlayerModelChanged;
+            WindowWidth = 0;
+            WindowHeight = 0;
+        }
+
+        #endregion
 
         #region ICursorViewModel Members
 
@@ -128,6 +140,8 @@ namespace VideoWall.ViewModels.Cursor
 
         #endregion
 
+        #region Methods
+
         private void OnHandChanged(HandType handType)
         {
             ActiveHand = handType;
@@ -159,5 +173,7 @@ namespace VideoWall.ViewModels.Cursor
             WindowWidth = e.NewSize.Width;
             WindowHeight = e.NewSize.Height;
         }
+
+        #endregion
     }
 }

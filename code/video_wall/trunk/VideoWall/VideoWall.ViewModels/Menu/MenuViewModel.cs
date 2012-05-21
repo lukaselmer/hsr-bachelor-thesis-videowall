@@ -29,13 +29,53 @@ using VideoWall.ViewModels.Helpers;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The MenuViewModel. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
+    // ReSharper disable ClassNeverInstantiated.Global
     public class MenuViewModel : Notifier
+        // ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Declarations
+
         private readonly AppController _appController;
         private readonly Random _random;
         private IApp _currentApp;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        ///   Gets the apps.
+        /// </summary>
+        public ObservableCollection<IApp> Apps { get; private set; }
+
+        /// <summary>
+        ///   This command changes the current application.
+        /// </summary>
+        // ReSharper disable UnusedAutoPropertyAccessor.Global
+        // ReSharper disable MemberCanBePrivate.Global
+        public ICommand ChangeAppCommand { get; private set; }
+
+        // ReSharper restore MemberCanBePrivate.Global
+        // ReSharper restore UnusedAutoPropertyAccessor.Global
+
+        /// <summary>
+        ///   Gets the current app.
+        /// </summary>
+        public IApp CurrentApp
+        {
+            get { return _currentApp; }
+            private set
+            {
+                _currentApp = value;
+                Notify("CurrentApp");
+            }
+        }
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
@@ -50,28 +90,9 @@ namespace VideoWall.ViewModels.Menu
             _random = new Random();
         }
 
-        /// <summary>
-        ///   Gets the apps.
-        /// </summary>
-        public ObservableCollection<IApp> Apps { get; private set; }
+        #endregion
 
-        /// <summary>
-        ///   This command changes the current application.
-        /// </summary>
-        public ICommand ChangeAppCommand { get; private set; }
-
-        /// <summary>
-        ///   Gets the current app.
-        /// </summary>
-        public IApp CurrentApp
-        {
-            get { return _currentApp; }
-            private set
-            {
-                _currentApp = value;
-                Notify("CurrentApp");
-            }
-        }
+        #region Methods
 
         private void OnChangeApp(object appObject)
         {
@@ -87,5 +108,7 @@ namespace VideoWall.ViewModels.Menu
         {
             CurrentApp = Apps[_random.Next(0, Apps.Count)];
         }
+
+        #endregion
     }
 }

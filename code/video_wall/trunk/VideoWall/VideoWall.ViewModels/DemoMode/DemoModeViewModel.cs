@@ -33,7 +33,9 @@ namespace VideoWall.ViewModels.DemoMode
     /// <summary>
     ///   The DemoModeViewModel
     /// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
     public class DemoModeViewModel : Notifier
+// ReSharper restore ClassNeverInstantiated.Global
     {
         private readonly Player _player;
         private readonly Random _random = new Random();

@@ -30,8 +30,9 @@ namespace VideoWall.ViewModels.Cursor
     /// </summary>
     public interface ICursorViewModel : IDisposable, INotifyPropertyChanged
     {
+ 
         /// <summary>
-        ///   Gets the status.
+        ///   Gets the position.
         /// </summary>
         Point Position { get; }
 
@@ -51,10 +52,11 @@ namespace VideoWall.ViewModels.Cursor
         ///   Gets the hand cursor image source.
         /// </summary>
         ImageSource HandCursorImageSource { get; }
-
+      
         /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
         event HandChanged HandChanged;
+
     }
 }

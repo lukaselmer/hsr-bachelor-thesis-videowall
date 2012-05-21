@@ -28,22 +28,57 @@ using VideoWall.ViewModels.Cursor;
 namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
-    ///   Delegate when the hit state is changed
+    ///   Delegate when the hit state is changed.
     /// </summary>
     /// <param name="sender"> The sender. </param>
-    /// <param name="args"> The args. </param>
+    /// <param name="args"> The arguments. </param>
     public delegate void HitStateChanged(object sender, HitStateArgs args);
 
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed
+    ///   The HitTestHelper. Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed.
     /// </summary>
     public class HitTestHelper
     {
+        #region Declarations
+
         private readonly Timer _currentTimer;
         private readonly ICursorViewModel _cursorViewModel;
         private readonly Window _window;
 
         private UIElement _currentElement;
+
+        #endregion 
+
+        #region Properties
+
+        /// <summary>
+        ///   Gets or sets the hit elements.
+        /// </summary>
+        /// <value> The hit elements. </value>
+        public IEnumerable<UIElement> HitElements { get; set; }
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        ///   Occurs when [started].
+        /// </summary>
+        public event HitStateChanged Started;
+
+        /// <summary>
+        ///   Occurs when [stopped].
+        /// </summary>
+        public event HitStateChanged Stopped;
+
+        /// <summary>
+        ///   Occurs when [clicked].
+        /// </summary>
+        public event HitStateChanged Clicked;
+
+        #endregion
+
+        #region Constructors / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="HitTestHelper" /> class.
@@ -64,26 +99,9 @@ namespace VideoWall.ViewModels.HitButton
             Clicked += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " clicked!");
         }
 
-        /// <summary>
-        ///   Gets or sets the hit elements.
-        /// </summary>
-        /// <value> The hit elements. </value>
-        public IEnumerable<UIElement> HitElements { get; set; }
+        #endregion
 
-        /// <summary>
-        ///   Occurs when [started].
-        /// </summary>
-        public event HitStateChanged Started;
-
-        /// <summary>
-        ///   Occurs when [stopped].
-        /// </summary>
-        public event HitStateChanged Stopped;
-
-        /// <summary>
-        ///   Occurs when [clicked].
-        /// </summary>
-        public event HitStateChanged Clicked;
+        #region Methods
 
         /// <summary>
         ///   Called when [started].
@@ -157,7 +175,7 @@ namespace VideoWall.ViewModels.HitButton
         }
 
         /// <summary>
-        ///   Starts the timer.
+        ///   Starts the timer and sets the current element to the given parameter.
         /// </summary>
         /// <param name="button"> The button. </param>
         private void StartTimerAndSetCurrentElementTo(UIElement button)
@@ -168,7 +186,7 @@ namespace VideoWall.ViewModels.HitButton
         }
 
         /// <summary>
-        ///   Stops the timer.
+        ///   Stops the timer ans resets the current element.
         /// </summary>
         private void StopTimerAndResetCurrentElement()
         {
@@ -178,12 +196,14 @@ namespace VideoWall.ViewModels.HitButton
         }
 
         /// <summary>
-        ///   Creates the hit state args.
+        ///   Creates the hit state arguments.
         /// </summary>
         /// <returns> </returns>
         private HitStateArgs CreateHitStateArgs()
         {
             return new HitStateArgs(_currentElement);
         }
+
+        #endregion
     }
 }

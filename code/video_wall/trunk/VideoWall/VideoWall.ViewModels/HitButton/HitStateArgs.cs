@@ -23,10 +23,24 @@ using System.Windows;
 namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   The HitStateArgs. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
     public class HitStateArgs : EventArgs
     {
+        #region Properties
+
+        /// <summary>
+        ///   Gets the UI element.
+        /// </summary>
+        // ReSharper disable InconsistentNaming
+        public UIElement UIElement { get; private set; }
+
+        // ReSharper restore InconsistentNaming
+
+        #endregion
+
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="HitStateArgs" /> class.
         /// </summary>
@@ -36,9 +50,6 @@ namespace VideoWall.ViewModels.HitButton
             UIElement = uiElement;
         }
 
-        /// <summary>
-        ///   Gets the UI element.
-        /// </summary>
-        public UIElement UIElement { get; private set; }
+        #endregion
     }
 }

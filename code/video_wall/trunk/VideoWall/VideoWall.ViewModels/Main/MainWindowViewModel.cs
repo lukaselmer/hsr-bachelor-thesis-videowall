@@ -26,24 +26,13 @@ using VideoWall.ViewModels.Skeletton;
 namespace VideoWall.ViewModels.Main
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The MainWindowViewModel. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
     public class MainWindowViewModel : Notifier
+// ReSharper restore ClassNeverInstantiated.Global
     {
-        /// <summary>
-        ///   Initializes a new instance of the <see cref="MainWindowViewModel" /> class.
-        /// </summary>
-        /// <param name="menuViewModel"> The menu view model. </param>
-        /// <param name="playerViewModel"> The player view model. </param>
-        /// <param name="cursorViewModel"> The cursor view model. </param>
-        /// <param name="demoModeViewModel"> The demo mode view model. </param>
-        public MainWindowViewModel(MenuViewModel menuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel, DemoModeViewModel demoModeViewModel)
-        {
-            MenuViewModel = menuViewModel;
-            PlayerViewModel = playerViewModel;
-            CursorViewModel = cursorViewModel;
-            DemoModeViewModel = demoModeViewModel;
-        }
+        #region Properties
 
         /// <summary>
         ///   Gets or sets the demo mode view model.
@@ -68,5 +57,26 @@ namespace VideoWall.ViewModels.Main
         /// </summary>
         /// <value> The cursor view model. </value>
         public ICursorViewModel CursorViewModel { get; set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="MainWindowViewModel" /> class.
+        /// </summary>
+        /// <param name="menuViewModel"> The menu view model. </param>
+        /// <param name="playerViewModel"> The player view model. </param>
+        /// <param name="cursorViewModel"> The cursor view model. </param>
+        /// <param name="demoModeViewModel"> The demo mode view model. </param>
+        public MainWindowViewModel(MenuViewModel menuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel, DemoModeViewModel demoModeViewModel)
+        {
+            MenuViewModel = menuViewModel;
+            PlayerViewModel = playerViewModel;
+            CursorViewModel = cursorViewModel;
+            DemoModeViewModel = demoModeViewModel;
+        }
+
+        #endregion
     }
 }

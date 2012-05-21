@@ -31,16 +31,22 @@ namespace VideoWall.ViewModels.Skeletton
     /// <summary>
     ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
     public class PlayerViewModel : Notifier, IDisposable
+// ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Declarations
+
         private readonly Player _player;
+
+        #endregion
 
         #region Properties
 
         /// <summary>
         ///   Gets the status.
         /// </summary>
-        public string Status { get { return _player.Playing ? "Playing" : "Idle"; } }
+        // public string Status { get { return _player.Playing ? "Playing" : "Idle"; } }
 
         /// <summary>
         ///   Gets the width/height of the canvas for the skeleton.
@@ -50,8 +56,7 @@ namespace VideoWall.ViewModels.Skeletton
         /// <summary>
         ///   Gets the skeleton.
         /// </summary>
-        public Skeleton Skeleton { get { return _player.Skeleton; } }
-
+        private Skeleton Skeleton { get { return _player.Skeleton; } }
 
         /// <summary>
         ///   Gets the lines.
@@ -66,6 +71,8 @@ namespace VideoWall.ViewModels.Skeletton
 
         #endregion
 
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="PlayerViewModel" /> class.
         /// </summary>
@@ -79,9 +86,10 @@ namespace VideoWall.ViewModels.Skeletton
             _player.StartPlaying();
 
             StopCommand = new ActionCommand(() => { if (_player.Playing) _player.StopPlaying(); });
-
             WidthAndHeight = 160;
         }
+
+        #endregion
 
         #region IDisposable Members
 
@@ -95,6 +103,8 @@ namespace VideoWall.ViewModels.Skeletton
         }
 
         #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Notifies when the PlayerModel was changed.
@@ -146,5 +156,7 @@ namespace VideoWall.ViewModels.Skeletton
         {
             Lines.Add(new SkeletonLine(Skeleton.Joints[joint1], Skeleton.Joints[joint2], WidthAndHeight));
         }
+
+        #endregion
     }
 }

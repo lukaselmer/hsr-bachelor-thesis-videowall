@@ -26,13 +26,19 @@ using VideoWall.ServiceModels.HandCursor;
 namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
-    ///   The Mouse Cursor View Model
+    ///   The MouseCursorViewModel.
     /// </summary>
+    // ReSharper disable ClassNeverInstantiated.Global
     public class MouseCursorViewModel : Notifier, ICursorViewModel
+    // ReSharper restore ClassNeverInstantiated.Global
     {
-        #region Properties
+        #region Declarations
 
         private Point _position;
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         ///   Gets the status.
@@ -48,14 +54,12 @@ namespace VideoWall.ViewModels.Cursor
         }
 
         /// <summary>
-        ///   Occurs when hand has changed.
-        /// </summary>
-        public event HandChanged HandChanged;
-
-        /// <summary>
         ///   Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource { get { return ResourceProvider.HandRight.Source; } }
+        public ImageSource HandCursorImageSource
+        {
+            get { return ResourceProvider.HandRight.Source; }
+        }
 
         /// <summary>
         ///   Sets the width of the window.
@@ -71,6 +75,17 @@ namespace VideoWall.ViewModels.Cursor
 
         #endregion
 
+        #region Events
+
+        /// <summary>
+        ///   Occurs when hand has changed.
+        /// </summary>
+        public event HandChanged HandChanged;
+
+        #endregion
+
+        #region Constructors / Destructor
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="MouseCursorViewModel" /> class.
         /// </summary>
@@ -81,6 +96,8 @@ namespace VideoWall.ViewModels.Cursor
             Notify("Position");
         }
 
+        #endregion
+
         #region ICursorViewModel Members
 
         /// <summary>
@@ -88,9 +105,13 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         public void Dispose()
         {
+            //TODO
         }
 
         #endregion
+
+        #region Methods
+
 
         /// <summary>
         ///   Notifies when the window size is changed.
@@ -102,5 +123,7 @@ namespace VideoWall.ViewModels.Cursor
             WindowWidth = e.NewSize.Width;
             WindowHeight = e.NewSize.Height;
         }
+
+        #endregion
     }
 }

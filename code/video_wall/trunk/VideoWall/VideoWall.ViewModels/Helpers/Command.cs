@@ -27,8 +27,12 @@ namespace VideoWall.ViewModels.Helpers
     /// </summary>
     public class Command : ICommand
     {
+        #region Declarations
+
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
+
+        #endregion
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="Command" /> class.
@@ -68,11 +72,7 @@ namespace VideoWall.ViewModels.Helpers
         /// <returns> true if this command can be executed; otherwise, false. </returns>
         public bool CanExecute(object parameter)
         {
-            if (_canExecute == null)
-            {
-                return true;
-            }
-            return _canExecute(parameter);
+            return _canExecute == null || _canExecute(parameter);
         }
 
         /// <summary>
