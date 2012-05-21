@@ -118,7 +118,6 @@ namespace VideoWall.ViewModels.DemoMode
         {
             _changeAppTimeSpan = TimeSpan.FromSeconds(20);
             ChangeAppTimer = new DispatcherTimer {Interval = _changeAppTimeSpan};
-            ChangeAppTimer.Tick += OnChangeAppTimerTick;
         }
 
         private void OnToInteractionModeTimerTick(object sender, EventArgs e)
@@ -128,8 +127,8 @@ namespace VideoWall.ViewModels.DemoMode
             ToDemoModeTimer.Start();
             ToInteractionModeTimer.Stop();
 
-            SkeletonCheckTimer.Stop();
-            FastSkeletonCheckTimer.Start();
+            SkeletonCheckTimer.Start();
+            FastSkeletonCheckTimer.Stop();
 
             ChangeAppTimer.Stop();
         }
@@ -141,8 +140,8 @@ namespace VideoWall.ViewModels.DemoMode
             ToInteractionModeTimer.Start();
             ToDemoModeTimer.Stop();
 
-            SkeletonCheckTimer.Start();
-            FastSkeletonCheckTimer.Stop();
+            SkeletonCheckTimer.Stop();
+            FastSkeletonCheckTimer.Start();
 
             ChangeAppTimer.Start();
         }
@@ -176,22 +175,21 @@ namespace VideoWall.ViewModels.DemoMode
             }
             else
             {
+                //When the skeleton changes during the demo mode, the app which will be displayed shouldn't change anymore.
                 if (WasSkeletonChanged())
                 {
-                    ChangeAppTimer.Reset();
+                    ChangeAppTimer.Stop();
                 }
                 else
                 {
                     ToInteractionModeTimer.Reset();
+
                     FastSkeletonCheckTimer.Start();
                     SkeletonCheckTimer.Stop();
+
+                    ChangeAppTimer.Start();
                 }
             }
-        }
-
-        private void OnChangeAppTimerTick(object sender, EventArgs e)
-        {
-            ChangeAppTimer.Reset();
         }
 
         /// <summary>
