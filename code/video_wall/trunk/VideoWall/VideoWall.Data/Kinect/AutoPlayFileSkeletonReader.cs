@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -31,7 +31,6 @@ namespace VideoWall.Data.Kinect
     /// </summary>
     internal class AutoPlayFileSkeletonReader : ISkeletonReader
     {
-
         #region Declarations
 
         private const double CheckTimerInterval = 1400;
@@ -79,30 +78,6 @@ namespace VideoWall.Data.Kinect
 
         #region Methods
 
-
-        /// <summary>
-        ///   Initializes the replay timer.
-        /// </summary>
-        private void InitReplayTimer()
-        {
-            _replayTimer = new Timer(CheckTimerInterval);
-            Dispatcher = Dispatcher.CurrentDispatcher;
-            _replayTimer.Elapsed += ReplayTimerOnElapsed;
-            _replayTimer.Start();
-        }
-
-        /// <summary>
-        /// Inits the skeleton replay.
-        /// </summary>
-        private void InitSkeletonReplay()
-        {
-            using (var stream = File.OpenRead(_kinectReplayFile.Path))
-            {
-                _skeletonReplay = new SkeletonReplay(stream);
-                _skeletonReplay.SkeletonFrameReady += OnSkeletonFrameReady;
-            }
-        }
-
         /// <summary>
         ///   Starts this instance.
         /// </summary>
@@ -123,6 +98,29 @@ namespace VideoWall.Data.Kinect
             _replayTimer.Stop();
             _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
             _skeletonReplay.Stop();
+        }
+
+        /// <summary>
+        ///   Initializes the replay timer.
+        /// </summary>
+        private void InitReplayTimer()
+        {
+            _replayTimer = new Timer(CheckTimerInterval);
+            Dispatcher = Dispatcher.CurrentDispatcher;
+            _replayTimer.Elapsed += ReplayTimerOnElapsed;
+            _replayTimer.Start();
+        }
+
+        /// <summary>
+        ///   Inits the skeleton replay.
+        /// </summary>
+        private void InitSkeletonReplay()
+        {
+            using (var stream = File.OpenRead(_kinectReplayFile.Path))
+            {
+                _skeletonReplay = new SkeletonReplay(stream);
+                _skeletonReplay.SkeletonFrameReady += OnSkeletonFrameReady;
+            }
         }
 
         /// <summary>
@@ -168,6 +166,5 @@ namespace VideoWall.Data.Kinect
         }
 
         #endregion
-
     }
 }

@@ -22,30 +22,29 @@ using System.Windows.Controls;
 namespace VideoWall.Interfaces
 {
     /// <summary>
-    /// This is the entry point for the framework. Every application must implement that interface.
+    ///   This is the entry point for the framework. Every application must implement that interface.
     /// </summary>
     public interface IApp
     {
         /// <summary>
-        /// Gets the main view.
+        ///   Gets the main view.
         /// </summary>
         UserControl MainView { get; }
 
         /// <summary>
-        /// Gets the name.
+        ///   Gets the name.
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// Gets the demomode text.
+        ///   Gets the demomode text.
         /// </summary>
         string DemomodeText { get; }
 
         /// <summary>
-        /// Loads the app. At this place, the app can load application specific services.
+        ///   Loads the app. At this place, the app can load application specific services.
         /// </summary>
-        /// <param name="videoWallServiceProvider">The app info.</param>
+        /// <param name="videoWallServiceProvider"> The app info. </param>
         void Activate(IVideoWallServiceProvider videoWallServiceProvider);
     }
 }
-

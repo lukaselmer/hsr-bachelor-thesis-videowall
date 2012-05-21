@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ namespace VideoWall.ViewModels.Cursor
         public event HandChanged HandChanged;
 
         /// <summary>
-        /// Gets the hand cursor image source (for left or right hand).
+        ///   Gets the hand cursor image source (for left or right hand).
         /// </summary>
         public ImageSource HandCursorImageSource { get { return ResourceProvider.HandRight.Source; } }
 

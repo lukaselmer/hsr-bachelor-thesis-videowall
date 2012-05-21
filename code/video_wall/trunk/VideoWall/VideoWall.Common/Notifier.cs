@@ -34,26 +34,26 @@ namespace VideoWall.Common
     {
         #region Declarations
 
+        private static readonly TimeSpan NotifyDelay = TimeSpan.FromMilliseconds(10);
+
+        /// <summary>
+        ///   The Lock for the notify delay
+        /// </summary>
+        private readonly object _lock = new object();
+
+        private DateTime _mostRecentNotify;
+
+        /// <summary>
+        ///   The timer for the notify delay
+        /// </summary>
+        private DispatcherTimer _timer;
+
         /// <summary>
         ///   Occurs when a property value changes.
         /// </summary>
         /// <remarks>
         /// </remarks>
         public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// The timer for the notify delay
-        /// </summary>
-        private DispatcherTimer _timer;
-
-        /// <summary>
-        /// The Lock for the notify delay
-        /// </summary>
-        private readonly object _lock = new object();
-
-        private DateTime _mostRecentNotify;
-
-        private static readonly TimeSpan NotifyDelay = TimeSpan.FromMilliseconds(10);
 
         #endregion
 
@@ -81,7 +81,7 @@ namespace VideoWall.Common
 
                 if (_timer != null) return;
 
-                _timer = new DispatcherTimer { Interval = NotifyDelay };
+                _timer = new DispatcherTimer {Interval = NotifyDelay};
                 _timer.Tick += Tick;
                 _timer.Start();
             }

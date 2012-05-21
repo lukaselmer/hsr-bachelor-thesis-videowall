@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -34,8 +34,8 @@ namespace VideoWall.ViewModels.Menu
     public class MenuViewModel : Notifier
     {
         private readonly AppController _appController;
-        private IApp _currentApp;
         private readonly Random _random;
+        private IApp _currentApp;
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
@@ -50,28 +50,13 @@ namespace VideoWall.ViewModels.Menu
             _random = new Random();
         }
 
-        private void OnChangeApp(object appObject)
-        {
-            var app = appObject as IApp;
-            PreOrPostCondition.AssertNotNull(app, "appObject is null or not of type IApp");
-            CurrentApp = app;
-        }
-
-        /// <summary>
-        /// Changes the app.
-        /// </summary>
-        public void ChangeApp()
-        {
-            CurrentApp = Apps[_random.Next(0, Apps.Count)];
-        }
-
         /// <summary>
         ///   Gets the apps.
         /// </summary>
         public ObservableCollection<IApp> Apps { get; private set; }
 
         /// <summary>
-        /// This command changes the current application.
+        ///   This command changes the current application.
         /// </summary>
         public ICommand ChangeAppCommand { get; private set; }
 
@@ -86,6 +71,21 @@ namespace VideoWall.ViewModels.Menu
                 _currentApp = value;
                 Notify("CurrentApp");
             }
+        }
+
+        private void OnChangeApp(object appObject)
+        {
+            var app = appObject as IApp;
+            PreOrPostCondition.AssertNotNull(app, "appObject is null or not of type IApp");
+            CurrentApp = app;
+        }
+
+        /// <summary>
+        ///   Changes the app.
+        /// </summary>
+        public void ChangeApp()
+        {
+            CurrentApp = Apps[_random.Next(0, Apps.Count)];
         }
     }
 }

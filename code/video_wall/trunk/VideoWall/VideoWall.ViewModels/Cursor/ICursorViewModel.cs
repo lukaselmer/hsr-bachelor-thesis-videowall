@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -48,13 +48,13 @@ namespace VideoWall.ViewModels.Cursor
         double WindowHeight { set; }
 
         /// <summary>
+        ///   Gets the hand cursor image source.
+        /// </summary>
+        ImageSource HandCursorImageSource { get; }
+
+        /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
         event HandChanged HandChanged;
-
-        /// <summary>
-        /// Gets the hand cursor image source.
-        /// </summary>
-        ImageSource HandCursorImageSource { get; }
     }
 }

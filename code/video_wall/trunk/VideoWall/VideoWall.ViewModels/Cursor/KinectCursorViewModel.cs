@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -89,6 +89,8 @@ namespace VideoWall.ViewModels.Cursor
             }
         }
 
+        #region ICursorViewModel Members
+
         /// <summary>
         ///   Gets the position.
         /// </summary>
@@ -109,13 +111,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource
-        {
-            get
-            {
-                return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source;
-            }
-        }
+        public ImageSource HandCursorImageSource { get { return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source; } }
 
         /// <summary>
         ///   Occurs when hand has changed.
@@ -129,6 +125,8 @@ namespace VideoWall.ViewModels.Cursor
         {
             _player.PropertyChanged -= PlayerModelChanged;
         }
+
+        #endregion
 
         private void OnHandChanged(HandType handType)
         {

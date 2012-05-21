@@ -95,8 +95,8 @@ namespace VideoWall.Common
         /// <summary>
         ///   Asserts that the given object is not null or empty. Otherwise an exception will be thrown.
         /// </summary>
-        /// <param name="arg">The arg.</param>
-        /// <param name="name">The name.</param>
+        /// <param name="arg"> The string to be checked. </param>
+        /// <param name="name"> The name. </param>
         public static void AssertNotNullOrEmpty(string arg, string name)
         {
             AssertTrue(!String.IsNullOrEmpty(arg), () => new ArgumentNullException(name));
@@ -149,6 +149,5 @@ namespace VideoWall.Common
         }
 
         #endregion
-
     }
 }

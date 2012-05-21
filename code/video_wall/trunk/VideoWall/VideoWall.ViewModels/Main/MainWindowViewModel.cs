@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ namespace VideoWall.ViewModels.Main
         /// <param name="menuViewModel"> The menu view model. </param>
         /// <param name="playerViewModel"> The player view model. </param>
         /// <param name="cursorViewModel"> The cursor view model. </param>
-        /// <param name="demoModeViewModel">The demo mode view model. </param>
+        /// <param name="demoModeViewModel"> The demo mode view model. </param>
         public MainWindowViewModel(MenuViewModel menuViewModel, PlayerViewModel playerViewModel, ICursorViewModel cursorViewModel, DemoModeViewModel demoModeViewModel)
         {
             MenuViewModel = menuViewModel;
@@ -46,11 +46,9 @@ namespace VideoWall.ViewModels.Main
         }
 
         /// <summary>
-        /// Gets or sets the demo mode view model.
+        ///   Gets or sets the demo mode view model.
         /// </summary>
-        /// <value>
-        /// The demo mode view model.
-        /// </value>
+        /// <value> The demo mode view model. </value>
         public DemoModeViewModel DemoModeViewModel { get; set; }
 
         /// <summary>

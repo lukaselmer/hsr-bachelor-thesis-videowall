@@ -1,4 +1,21 @@
-﻿using System.Windows;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -8,24 +25,27 @@ using VideoWall.ViewModels.HitButton;
 using VideoWall.ViewModels.Main;
 using VideoWall.Views.Helpers;
 
+#endregion
+
 namespace VideoWall.Views.Xaml
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///   Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
         /// <summary>
-        /// The time which the cursor has to stay on a button until a click is executed
+        ///   The time which the cursor has to stay on a button until a click is executed
         /// </summary>
         private const double Interval = 1500;
+
         private HitTestHelper _hitTestHelper;
         private Storyboard _storyboard;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        ///   Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
-        /// <param name="mainWindowViewModel">The main window view model.</param>
+        /// <param name="mainWindowViewModel"> The main window view model. </param>
         public MainWindow(MainWindowViewModel mainWindowViewModel)
         {
             DataContext = MainWindowViewModel = mainWindowViewModel;
@@ -33,9 +53,15 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
-// TODO: cleanup this
+            // TODO: cleanup this
             //MainWindowViewModel.CursorViewModel.HandChanged += OnHandChanged;
         }
+
+        /// <summary>
+        ///   Gets or sets the main window view model.
+        /// </summary>
+        /// <value> The main window view model. </value>
+        public MainWindowViewModel MainWindowViewModel { get; set; }
 
         private void OnHandChanged(HandType handType)
         {
@@ -43,15 +69,7 @@ namespace VideoWall.Views.Xaml
         }
 
         /// <summary>
-        /// Gets or sets the main window view model.
-        /// </summary>
-        /// <value>
-        /// The main window view model.
-        /// </value>
-        public MainWindowViewModel MainWindowViewModel { get; set; }
-
-        /// <summary>
-        /// Inits the storyboard.
+        ///   Inits the storyboard.
         /// </summary>
         private void InitStoryboard()
         {
@@ -59,22 +77,22 @@ namespace VideoWall.Views.Xaml
         }
 
         /// <summary>
-        /// Inits the hit test helper.
+        ///   Inits the hit test helper.
         /// </summary>
         private void InitHitTestHelper()
         {
             var elements = ExtendedVisualTreeHelper.FindInVisualTreeDown<Button>(MainContainer);
-            _hitTestHelper = new HitTestHelper(MainWindowViewModel.CursorViewModel, this, Interval) { HitElements = elements };
+            _hitTestHelper = new HitTestHelper(MainWindowViewModel.CursorViewModel, this, Interval) {HitElements = elements};
             _hitTestHelper.Started += StartAnimation;
             _hitTestHelper.Stopped += StopAnimation;
             _hitTestHelper.Clicked += ButtonClicked;
         }
 
         /// <summary>
-        /// Performs click on Button.
+        ///   Performs click on Button.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The args.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The args. </param>
         private void ButtonClicked(object sender, HitStateArgs args)
         {
             StartAnimation(sender, args);
@@ -83,10 +101,10 @@ namespace VideoWall.Views.Xaml
         }
 
         /// <summary>
-        /// Stops the animation.
+        ///   Stops the animation.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The args.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The args. </param>
         private void StopAnimation(object sender, HitStateArgs args)
         {
             _storyboard.Stop(CursorAmimation);
@@ -94,10 +112,10 @@ namespace VideoWall.Views.Xaml
         }
 
         /// <summary>
-        /// Starts the animation.
+        ///   Starts the animation.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The args.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The args. </param>
         private void StartAnimation(object sender, HitStateArgs args)
         {
             _storyboard.Begin(CursorAmimation);
@@ -105,7 +123,7 @@ namespace VideoWall.Views.Xaml
         }
 
         /// <summary>
-        /// Registers the mouse move methods for mouse cursor view model.
+        ///   Registers the mouse move methods for mouse cursor view model.
         /// </summary>
         private void RegisterMouseMoveMethodsForMouseCursorViewModel()
         {
@@ -117,6 +135,9 @@ namespace VideoWall.Views.Xaml
             Closing += (sender, args) => MouseMove -= updateMousePosition;
         }
 
-        private void OnExit(object sender, RoutedEventArgs e) { Close(); }
+        private void OnExit(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

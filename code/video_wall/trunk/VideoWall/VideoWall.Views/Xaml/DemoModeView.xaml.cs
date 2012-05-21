@@ -1,12 +1,27 @@
-﻿namespace VideoWall.Views.Xaml
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+namespace VideoWall.Views.Xaml
 {
     /// <summary>
-    /// Interaction logic for DemoModeView.xaml
+    ///   Interaction logic for DemoModeView.xaml
     /// </summary>
     public partial class DemoModeView
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemoModeView"/> class.
+        ///   Initializes a new instance of the <see cref="DemoModeView" /> class.
         /// </summary>
         public DemoModeView()
         {

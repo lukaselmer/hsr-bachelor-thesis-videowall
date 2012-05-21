@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -42,6 +42,12 @@ namespace VideoWall.ServiceModels.Apps
             LoadApps();
         }
 
+        /// <summary>
+        ///   The video wall applications
+        /// </summary>
+        [ImportMany(AllowRecomposition = false)]
+        public ObservableCollection<IApp> Apps { get; private set; }
+
         private void LoadApps()
         {
             foreach (var app in Apps)
@@ -49,11 +55,5 @@ namespace VideoWall.ServiceModels.Apps
                 app.Activate(new ProductionVideoWallServiceProvider(app));
             }
         }
-
-        /// <summary>
-        ///   The video wall applications
-        /// </summary>
-        [ImportMany(AllowRecomposition = false)]
-        public ObservableCollection<IApp> Apps { get; private set; }
     }
 }

@@ -7,7 +7,7 @@
 // All Rights Reserved
 // 
 // Authors:
-//  Lukas Elmer, Christina Heidt, Delia Treichler
+// Lukas Elmer, Christina Heidt, Delia Treichler
 // 
 // ---------------------------------------------------------------------
 
@@ -48,10 +48,10 @@ namespace VideoWall.Views
         }
 
         /// <summary>
-        /// Called when a unhandled exception occurs in the GUI thread.
+        ///   Called when a unhandled exception occurs in the GUI thread.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.Windows.Threading.DispatcherUnhandledExceptionEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="System.Windows.Threading.DispatcherUnhandledExceptionEventArgs" /> instance containing the event data. </param>
         private static void OnApplicationUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             OnUnhandledException(e.Exception);
@@ -69,9 +69,9 @@ namespace VideoWall.Views
         }
 
         /// <summary>
-        /// Called when a unhandled exception occured.
+        ///   Called when a unhandled exception occured.
         /// </summary>
-        /// <param name="exception">The exception.</param>
+        /// <param name="exception"> The exception. </param>
         private static void OnUnhandledException(Exception exception)
         {
             LogAndDisplayException(exception);
