@@ -25,7 +25,7 @@ namespace VideoWall.ViewModels.DemoMode
     /// <summary>
     ///   The mode timer
     /// </summary>
-    public class ModeTimer
+    internal class ModeTimer
     {
         private TimeSpan _changeAppTimeSpan;
         private TimeSpan _fastSkeletonTimeSpan;
@@ -38,7 +38,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   Initializes a new instance of the <see cref="ModeTimer" /> class.
         /// </summary>
-        public ModeTimer()
+        internal ModeTimer()
         {
             InitToDemoModeTimer();
             InitToInteractionModeTimer();
@@ -54,32 +54,32 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   Gets the demo mode timer.
         /// </summary>
-        public DispatcherTimer ToInteractionModeTimer { get; private set; }
+        internal DispatcherTimer ToInteractionModeTimer { get; private set; }
 
         /// <summary>
         ///   Gets the fast skeleton check timer.
         /// </summary>
-        public DispatcherTimer FastSkeletonCheckTimer { get; private set; }
+        internal DispatcherTimer FastSkeletonCheckTimer { get; private set; }
 
         /// <summary>
         ///   Gets the interaction mode timer.
         /// </summary>
-        public DispatcherTimer ToDemoModeTimer { get; private set; }
+        internal DispatcherTimer ToDemoModeTimer { get; private set; }
 
         /// <summary>
         ///   Gets the skeleton check timer.
         /// </summary>
-        public DispatcherTimer SkeletonCheckTimer { get; private set; }
+        internal DispatcherTimer SkeletonCheckTimer { get; private set; }
 
         /// <summary>
         ///   Gets the change app timer.
         /// </summary>
-        public DispatcherTimer ChangeAppTimer { get; private set; }
+        internal DispatcherTimer ChangeAppTimer { get; private set; }
 
         /// <summary>
         ///   Gets a value indicating whether this instance is in interaction mode.
         /// </summary>
-        public bool IsInInteractionMode { get; private set; }
+        internal bool IsInInteractionMode { get; private set; }
 
         #endregion
 
@@ -198,7 +198,7 @@ namespace VideoWall.ViewModels.DemoMode
         ///   Wether the skeleton was changed.
         /// </summary>
         /// <returns> </returns>
-        public bool WasSkeletonChanged()
+        internal bool WasSkeletonChanged()
         {
             return _lastSkeletonTime.Add(_skeletonCheckTimeSpan) > DateTime.Now;
         }
@@ -206,7 +206,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   The skeleton changed.
         /// </summary>
-        public void SkeletonChanged()
+        internal void SkeletonChanged()
         {
             _lastSkeletonTime = DateTime.Now;
         }
