@@ -4,6 +4,18 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.ImageHelper">
+            <summary>
+              The image helper provides helper methods for images.
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.ImageHelper.InitWithFileName(System.String)">
+            <summary>
+              Initializes an image with a file name.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+            <returns> </returns>
+        </member>
         <member name="T:VideoWall.Common.Notifier">
             <summary>
               Implementation of INotifyPropertyChanged
@@ -11,14 +23,14 @@
             <remarks>
             </remarks>
         </member>
-        <member name="F:VideoWall.Common.Notifier._timer">
-            <summary>
-            The timer for the notify delay
-            </summary>
-        </member>
         <member name="F:VideoWall.Common.Notifier._lock">
             <summary>
-            The Lock for the notify delay
+              The Lock for the notify delay
+            </summary>
+        </member>
+        <member name="F:VideoWall.Common.Notifier._timer">
+            <summary>
+              The timer for the notify delay
             </summary>
         </member>
         <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
@@ -42,33 +54,6 @@
             </summary>
             <remarks>
             </remarks>
-        </member>
-        <member name="T:VideoWall.Common.Logger">
-            <summary>
-              The Logger wrapper
-            </summary>
-        </member>
-        <member name="F:VideoWall.Common.Logger.TheLogger">
-            <summary>
-              The Logger
-            </summary>
-        </member>
-        <member name="P:VideoWall.Common.Logger.Get">
-            <summary>
-              Gets the currrent logger
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.ImageHelper">
-            <summary>
-              The image helper provides helper methods for images.
-            </summary>
-        </member>
-        <member name="M:VideoWall.Common.ImageHelper.InitWithFileName(System.String)">
-            <summary>
-              Initializes an image with a file name.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-            <returns> </returns>
         </member>
         <member name="T:VideoWall.Common.PreOrPostCondition">
             <summary>
@@ -95,8 +80,8 @@
             <summary>
               Asserts that the given object is not null or empty. Otherwise an exception will be thrown.
             </summary>
-            <param name="arg">The arg.</param>
-            <param name="name">The name.</param>
+            <param name="arg"> The string to be checked. </param>
+            <param name="name"> The name. </param>
         </member>
         <member name="M:VideoWall.Common.PreOrPostCondition.AssertTrue(System.Boolean,System.String)">
             <summary>
@@ -123,6 +108,21 @@
         <member name="P:VideoWall.Common.PreOrPostCondition.EnableDebugAssertions">
             <summary>
               Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Logger">
+            <summary>
+              The Logger wrapper
+            </summary>
+        </member>
+        <member name="F:VideoWall.Common.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logger.Get">
+            <summary>
+              Gets the currrent logger
             </summary>
         </member>
     </members>
