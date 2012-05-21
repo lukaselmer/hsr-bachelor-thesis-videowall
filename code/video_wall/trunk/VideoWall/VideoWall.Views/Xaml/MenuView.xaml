@@ -10,13 +10,31 @@
         <ItemsControl ItemsSource="{Binding Apps}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel.Background>
+                            <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="White" Offset="0.073"/>
+                                <GradientStop Color="Black" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </StackPanel.Background>
+                    </StackPanel>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Padding="50 0 50 0" Margin="10" Content="{Binding Name}" CommandParameter="{Binding}"
-                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}" />
+                    <!--<Button Padding="50 0 50 0" Margin="10" Content="{Binding Name}" CommandParameter="{Binding}"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}" />-->
+
+                    <Button CommandParameter="{Binding}"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}"
+                            Content="{Binding Name}" Style="{StaticResource MenuButtonStyle}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FF007DFF"/>
+                                <GradientStop Color="#FF0F3760" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

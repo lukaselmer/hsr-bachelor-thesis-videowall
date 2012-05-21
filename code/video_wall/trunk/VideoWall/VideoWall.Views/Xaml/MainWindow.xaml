@@ -22,7 +22,7 @@
         <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
         <Grid Canvas.Bottom="0" Canvas.Right="0" ClipToBounds="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="{Binding PlayerViewModel.WidthAndHeight}"/>
             </Grid.RowDefinitions>
