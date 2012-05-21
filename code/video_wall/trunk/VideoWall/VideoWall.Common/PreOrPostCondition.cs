@@ -27,14 +27,6 @@ namespace VideoWall.Common
     /// </summary>
     public static class PreOrPostCondition
     {
-        #region Constructors / Destructor
-
-        //--------------------------------------------------------------------
-        // Constructors / Destructor
-        //--------------------------------------------------------------------
-
-        #endregion
-
         #region Declarations
 
         //--------------------------------------------------------------------
@@ -55,6 +47,14 @@ namespace VideoWall.Common
         ///   Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
         /// </summary>
         public static bool EnableDebugAssertions { get { return _assertionsEnabled; } set { _assertionsEnabled = value; } }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        //--------------------------------------------------------------------
+        // Constructors / Destructor
+        //--------------------------------------------------------------------
 
         #endregion
 

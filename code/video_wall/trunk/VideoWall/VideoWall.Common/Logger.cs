@@ -27,14 +27,22 @@ namespace VideoWall.Common
     /// </summary>
     public static class Logger
     {
+        #region Declarations
+
         /// <summary>
         ///   The Logger
         /// </summary>
         private static readonly ILog TheLogger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
+        #endregion
+
+        #region Properties
+
         /// <summary>
         ///   Gets the currrent logger
         /// </summary>
         public static ILog Get { get { return TheLogger; } }
+
+        #endregion
     }
 }

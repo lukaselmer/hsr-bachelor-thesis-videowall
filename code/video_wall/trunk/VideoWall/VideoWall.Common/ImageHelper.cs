@@ -27,6 +27,8 @@ namespace VideoWall.Common
     /// </summary>
     public static class ImageHelper
     {
+        #region Methods
+
         /// <summary>
         ///   Initializes an image with a file name.
         /// </summary>
@@ -44,5 +46,7 @@ namespace VideoWall.Common
             }
             return image;
         }
+
+        #endregion
     }
 }

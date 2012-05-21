@@ -48,6 +48,12 @@ namespace VideoWall.Common
         /// </summary>
         private DispatcherTimer _timer;
 
+        private readonly IDictionary<string, Action> _actions = new ConcurrentDictionary<string, Action>();
+
+        #endregion
+
+        #region Events
+
         /// <summary>
         ///   Occurs when a property value changes.
         /// </summary>
@@ -57,9 +63,7 @@ namespace VideoWall.Common
 
         #endregion
 
-        #region Other
-
-        private readonly IDictionary<string, Action> _actions = new ConcurrentDictionary<string, Action>();
+        #region Methods
 
         /// <summary>
         ///   Notifies that the property with the specified name has changed.
