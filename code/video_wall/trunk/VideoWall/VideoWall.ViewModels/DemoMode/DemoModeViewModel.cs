@@ -167,7 +167,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         /// Gets or sets the ModeTimer.
         /// </summary>
-        public ModeTimer ModeTimer { get; set; }
+        private ModeTimer ModeTimer { get; set; }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
         {

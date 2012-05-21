@@ -116,7 +116,7 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void InitChangeAppTimer()
         {
-            _changeAppTimeSpan = TimeSpan.FromSeconds(5);
+            _changeAppTimeSpan = TimeSpan.FromSeconds(20);
             ChangeAppTimer = new DispatcherTimer { Interval = _changeAppTimeSpan };
             ChangeAppTimer.Tick += OnChangeAppTimerTick;
         }
