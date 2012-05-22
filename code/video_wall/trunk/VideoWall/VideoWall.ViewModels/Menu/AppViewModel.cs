@@ -69,15 +69,10 @@ namespace VideoWall.ViewModels.Menu
         }
 
         /// <summary>
-        /// Gets or sets the menu style.
+        ///   Gets or sets the menu style.
         /// </summary>
-        /// <value>
-        /// The menu style.
-        /// </value>
-        public MenuStyleViewModel MenuStyle
-        {
-            get { return Selected ? SelectedMenuStyle : UnselectedMenuStyle; }
-        }
+        /// <value> The menu style. </value>
+        public MenuStyleViewModel MenuStyle { get { return Selected ? SelectedMenuStyle : UnselectedMenuStyle; } }
 
         #endregion
 
@@ -93,48 +88,5 @@ namespace VideoWall.ViewModels.Menu
         }
 
         #endregion
-    }
-
-    /// <summary>
-    /// The menu style view model defines the style for the menu
-    /// </summary>
-    public class MenuStyleViewModel
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MenuStyleViewModel"/> class.
-        /// </summary>
-        /// <param name="fontColor">Color of the font.</param>
-        /// <param name="colorTop">Color of the light.</param>
-        /// <param name="colorBottom">Color of the dark.</param>
-        public MenuStyleViewModel(Color fontColor, Color colorTop, Color colorBottom)
-        {
-            FontColor = fontColor;
-            LightColor = colorTop;
-            DarkColor = colorBottom;
-        }
-
-        /// <summary>
-        /// Gets the color of the font.
-        /// </summary>
-        /// <value>
-        /// The color of the font.
-        /// </value>
-        public Color FontColor { get; private set; }
-
-        /// <summary>
-        /// Gets the light color for the menu button
-        /// </summary>
-        /// <value>
-        /// The color of the light.
-        /// </value>
-        public Color LightColor { get; private set; }
-
-        /// <summary>
-        /// Gets the dark color for the menu button
-        /// </summary>
-        /// <value>
-        /// The color of the dark.
-        /// </value>
-        public Color DarkColor { get; private set; }
     }
 }

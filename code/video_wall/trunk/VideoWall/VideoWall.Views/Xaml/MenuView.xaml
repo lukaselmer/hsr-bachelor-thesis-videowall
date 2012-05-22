@@ -24,7 +24,10 @@
                 <DataTemplate>
                     <Button CommandParameter="{Binding}"
                             Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ChangeAppCommand}"
-                            Content="{Binding App.Name}" Style="{StaticResource MenuButtonStyle}" Foreground="{Binding MenuStyle.FontColor}">
+                            Content="{Binding App.Name}" Style="{StaticResource MenuButtonStyle}">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{Binding MenuStyle.FontColor}"/>
+                        </Button.Foreground>
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="{Binding MenuStyle.LightColor}"/>

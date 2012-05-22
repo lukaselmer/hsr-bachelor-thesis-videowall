@@ -44,11 +44,6 @@ namespace VideoWall.ViewModels.Skeletton
         #region Properties
 
         /// <summary>
-        ///   Gets the status.
-        /// </summary>
-        // public string Status { get { return _player.Playing ? "Playing" : "Idle"; } }
-
-        /// <summary>
         ///   Gets the width/height of the canvas for the skeleton.
         /// </summary>
         public int WidthAndHeight { get; set; }
