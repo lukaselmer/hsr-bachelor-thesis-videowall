@@ -11,12 +11,13 @@
     </UserControl.Background>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsTextVisible, Converter={Helpers:BoolToVisibilityConverter}}">
-            <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  Text="{Binding MenuViewModel.CurrentApp.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White"></TextBlock>
-            <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher"></TextBlock>
+            <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  
+                       Text="{Binding MenuViewModel.CurrentApp.App.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White" />
+          <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsCountDownVisible, Converter={Helpers:BoolToVisibilityConverter}}">
-            <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}"></TextBlock>
-            <Xaml1:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}"></Xaml1:DemoModeSkeletonLinesView>
+            <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" />
+          <Xaml1:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}" />
         </StackPanel>
     </Grid>
 </UserControl>
