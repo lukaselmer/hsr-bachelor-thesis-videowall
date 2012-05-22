@@ -1,0 +1,108 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+	x:Class="DesignPosterNavigationButtons.MainWindow"
+	x:Name="Window"
+	Title="MainWindow"
+	Width="640" Height="480">
+
+	<Grid x:Name="LayoutRoot">
+		<ed:BlockArrow HorizontalAlignment="Left" Margin="251,114.333,0,110.667" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow Margin="203,94.667,0,92.333" Orientation="Right" Stroke="Black" HorizontalAlignment="Left" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow Margin="155,77,0,76" Orientation="Right" Stroke="Black" HorizontalAlignment="Left" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow HorizontalAlignment="Left" Margin="107,53.333,0,53.667" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow HorizontalAlignment="Left" Margin="59,32,0,29" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow HorizontalAlignment="Left" Margin="11,17,0,10" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow Margin="299,134,281,131" Orientation="Right" Stroke="Black">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow HorizontalAlignment="Right" Margin="0,153.667,233,151.333" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<ed:BlockArrow HorizontalAlignment="Right" Margin="0,174,185,173" Orientation="Right" Stroke="Black" Width="44">
+			<ed:BlockArrow.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</ed:BlockArrow.Fill>
+		</ed:BlockArrow>
+		<Path Data="M0.5,0.5 L43.5,88.5 0.5,176.5 15.500001,88.5 z" HorizontalAlignment="Right" Margin="0,134,41,131" Stretch="Fill" Stroke="Black" Width="44">
+			<Path.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</Path.Fill>
+		</Path>
+		<Path Data="M0.5,0.5 L43.5,88.5 0.5,176.5 15.500001,88.5 z" HorizontalAlignment="Right" Margin="0,114.333,89,112.667" Stretch="Fill" Stroke="Black" Width="44">
+			<Path.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</Path.Fill>
+		</Path>
+		<Path Data="M0.5,0.5 L43.5,88.5 0.5,176.5 15.500001,88.5 z" HorizontalAlignment="Right" Margin="0,94.667,137,96.333" Stretch="Fill" Stroke="Black" Width="44">
+			<Path.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF007DFF" Offset="0"/>
+					<GradientStop Color="#FF0F3760" Offset="1"/>
+				</LinearGradientBrush>
+			</Path.Fill>
+		</Path>
+	</Grid>
+</Window>
