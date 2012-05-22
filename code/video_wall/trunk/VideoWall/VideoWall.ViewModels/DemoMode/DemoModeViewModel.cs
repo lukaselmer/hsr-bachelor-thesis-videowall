@@ -155,8 +155,8 @@ namespace VideoWall.ViewModels.DemoMode
         private void InitModeTimer()
         {
             ModeTimer = new ModeTimer();
-            ModeTimer.ToDemoModeTimer.Tick += OnInteractionModeTimerTick;
-            ModeTimer.ToInteractionModeTimer.Tick += OnDemoModeTimerTick;
+            ModeTimer.ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
+            ModeTimer.ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
             ModeTimer.FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
             ModeTimer.ChangeAppTimer.Tick += OnChangeAppTimerTick;
@@ -191,17 +191,18 @@ namespace VideoWall.ViewModels.DemoMode
             if (_player.Skeleton != null) ModeTimer.SkeletonChanged();
         }
 
-        private void OnDemoModeTimerTick(object sender, EventArgs e)
+        private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {
             Visibility = Visibility.Collapsed;
-        }
+            }
 
-        private void OnInteractionModeTimerTick(object sender, EventArgs e)
+        private void OnToDemoModeTimerTick(object sender, EventArgs e)
         {
             ChangeColorAndApp();
             Visibility = Visibility.Visible;
             IsCountDownVisible = false;
             IsTextVisible = true;
+            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }
 
         private void ChangeColorAndApp()
