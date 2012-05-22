@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
+    <Style x:Key="ArrowRight" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Grid x:Name="Grid" Height="60" Margin="1 0">-->
+                    <ed:BlockArrow HorizontalAlignment="Left" Width="{TemplateBinding Width}" StrokeThickness="0">
+                        <ed:BlockArrow.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF007DFF" Offset="0"/>
+                                <GradientStop Color="#FF0F3760" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ed:BlockArrow.Fill>
+                    </ed:BlockArrow>
+                    <!--</Grid>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ArrowLeft" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--<Grid x:Name="Grid" Height="60" Margin="1 0">-->
+                    <ed:BlockArrow Orientation="Left" HorizontalAlignment="Left" Width="{TemplateBinding Width}" StrokeThickness="0">
+                        <ed:BlockArrow.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF0F3760" Offset="0"/>
+                                <GradientStop Color="#FF007DFF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ed:BlockArrow.Fill>
+                    </ed:BlockArrow>
+                    <!--</Grid>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

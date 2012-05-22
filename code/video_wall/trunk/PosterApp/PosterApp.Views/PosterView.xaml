@@ -6,14 +6,21 @@
              xmlns:Posters="clr-namespace:PosterApp.ViewModels;assembly=PosterApp.ViewModels" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance Posters:PosterViewModel, IsDesignTimeCreatable=False}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/PosterApp.Views;component/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="90"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Command="{Binding NavigateToLeftCommand}">Links</Button>
+        <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Width="70" Margin="10 80">Links</Button>
         <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}"></Image>
-        <Button Grid.Column="2" Command="{Binding NavigateToRightCommand}">Rechts</Button>
+        <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Width="70" Margin="10 80">Rechts</Button>
     </Grid>
 </UserControl>
