@@ -56,7 +56,7 @@
 				</LinearGradientBrush>
 			</ed:BlockArrow.Fill>
 		</ed:BlockArrow>
-		<ed:BlockArrow HorizontalAlignment="Left" Margin="114,37.333,0,69.667" Stroke="Black" Width="44" StrokeThickness="0">
+		<ed:BlockArrow HorizontalAlignment="Left" Margin="113,37.333,0,69.667" Stroke="Black" Width="44" StrokeThickness="0">
 			<ed:BlockArrow.Fill>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 					<LinearGradientBrush.RelativeTransform>
