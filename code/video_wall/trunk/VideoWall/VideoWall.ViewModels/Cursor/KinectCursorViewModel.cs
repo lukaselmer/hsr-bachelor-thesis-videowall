@@ -55,6 +55,8 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         private HandType _activeHand = HandType.Right;
 
+        private Skeleton _latestSkeleton;
+
         #endregion
 
         #region Properties
@@ -106,7 +108,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Gets the position.
         /// </summary>
-        public Point Position { get { return _handCursorPositionCalculator.CalculatePositionFromSkeletons(new Size(WindowWidth, WindowHeight), _skeletonHistory); } }
+        public Point Position { get { return _handCursorPositionCalculator.CalculatePositionFromSkeletons(new Size(WindowWidth, WindowHeight), _skeletonHistory, _latestSkeleton); } }
 
         /// <summary>
         ///   Sets the width of the window.
@@ -159,6 +161,7 @@ namespace VideoWall.ViewModels.Cursor
 
             if (_skeletonHistory.Count >= CursorSmoothingLevel) _skeletonHistory.Dequeue();
             _skeletonHistory.Enqueue(_player.Skeleton);
+            _latestSkeleton = _player.Skeleton;
 
             Notify("Position");
         }

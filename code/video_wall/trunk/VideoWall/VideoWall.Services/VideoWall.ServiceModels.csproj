@@ -69,6 +69,7 @@
     <Compile Include="Apps\ProductionVideoWallServiceProvider.cs" />
     <Compile Include="HandCursor\AbsolutePadding.cs" />
     <Compile Include="HandCursor\HandCursorPositionCalculator.cs" />
+    <Compile Include="HandCursor\HandType.cs" />
     <Compile Include="HandCursor\RelativePadding.cs" />
     <Compile Include="HandCursor\Zone.cs" />
     <Compile Include="Player\Player.cs" />

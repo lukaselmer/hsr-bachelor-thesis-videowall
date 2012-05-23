@@ -22,6 +22,7 @@ using System.Linq;
 using System.Windows;
 using Coding4Fun.Kinect.Wpf;
 using Microsoft.Kinect;
+using VideoWall.Common;
 
 #endregion
 
@@ -34,32 +35,19 @@ namespace VideoWall.ServiceModels.HandCursor
     public delegate void HandChanged(HandType handType);
 
     /// <summary>
-    ///   The hand type (left or right hand)
-    /// </summary>
-    public enum HandType
-    {
-        /// <summary>
-        ///   The left hand
-        /// </summary>
-        Left,
-
-        /// <summary>
-        ///   The right hand
-        /// </summary>
-        Right
-    }
-
-    /// <summary>
     ///   The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks,
+    // this class could be made abstract, which is wrong
     public class HandCursorPositionCalculator
-// ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
         private readonly RelativePadding _relativePaddingForLeftHanded;
         private readonly RelativePadding _relativePaddingForRightHanded;
+        private Skeleton _latestSkeleton;
 
         #endregion
 
@@ -112,17 +100,28 @@ namespace VideoWall.ServiceModels.HandCursor
         /// </summary>
         /// <param name="window"> The size of the window. </param>
         /// <param name="skeletons"> The skeletons. </param>
+        /// <param name="latestSkeleton"> </param>
         /// <returns> </returns>
-        public Point CalculatePositionFromSkeletons(Size window, Queue<Skeleton> skeletons)
+        public Point CalculatePositionFromSkeletons(Size window, Queue<Skeleton> skeletons, Skeleton latestSkeleton)
         {
+            PreOrPostCondition.AssertNotNull(window, "window");
+            PreOrPostCondition.AssertNotNull(skeletons, "skeletons");
+            //PreOrPostCondition.AssertTrue(skeletons.Count > 0, "skeletons.Count must be > 0");
+            //PreOrPostCondition.AssertNotNull(latestSkeleton, "latestSkeleton");
+            if (latestSkeleton != null) _latestSkeleton = latestSkeleton;
+            var activeHand = SelectHandForLatestSkeleton();
+            OnHandChanged(activeHand);
+
             var totalPosition = new Point(0, 0);
-            foreach (var singlePosition in skeletons.Select(skeleton => CalculatePositionFromSkeleton(window, skeleton)))
+            foreach (var singlePosition in skeletons.Select(skeleton => CalculatePositionFromSkeleton(window, skeleton, activeHand)))
             {
                 totalPosition.X += singlePosition.X;
                 totalPosition.Y += singlePosition.Y;
             }
             totalPosition.X /= skeletons.Count;
             totalPosition.Y /= skeletons.Count;
+
+
             return totalPosition;
 
             // Alternative implementation. Is this better readable?
@@ -133,18 +132,32 @@ namespace VideoWall.ServiceModels.HandCursor
             //return new Point(xSum / skeletons.Count, ySum / skeletons.Count);
         }
 
-        /// <summary>
-        ///   Calculates the position of the hand cursor from the position of the skeleton.
-        /// </summary>
-        /// <param name="window"> The size of the window. </param>
-        /// <param name="skeleton"> The skeleton. </param>
-        /// <returns> </returns>
-        private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton)
+        private HandType SelectHandForLatestSkeleton()
         {
-            if (skeleton == null || (int) window.Height <= 0 || (int) window.Width <= 0) return new Point(0, 0);
+            if (_latestSkeleton == null) return HandType.Right;
+            var rightHandYPosition = _latestSkeleton.Joints[JointType.HandRight].Position.Y;
+            var leftHandYPosition = _latestSkeleton.Joints[JointType.HandLeft].Position.Y;
+            return rightHandYPosition > leftHandYPosition ? HandType.Right : HandType.Left;
+        }
 
-            Joint joint;
-            if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
+        /// <summary>
+        /// Calculates the position of the hand cursor from the position of the skeleton.
+        /// </summary>
+        /// <param name="window">The size of the window.</param>
+        /// <param name="skeleton">The skeleton.</param>
+        /// <param name="handType">Type of the hand.</param>
+        /// <returns></returns>
+        private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton, HandType handType)
+        {
+            //PreOrPostCondition.AssertNotNull(handType, "handType");
+
+            if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
+
+            var joint = skeleton.Joints[handType == HandType.Right ? JointType.HandRight : JointType.HandLeft];
+            //OnHandChanged(HandType.Left);
+            RelativePadding = handType == HandType.Right ? _relativePaddingForRightHanded : _relativePaddingForLeftHanded;
+
+            /*if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
             {
                 joint = skeleton.Joints[JointType.HandLeft];
                 OnHandChanged(HandType.Left);
@@ -155,9 +168,9 @@ namespace VideoWall.ServiceModels.HandCursor
                 joint = skeleton.Joints[JointType.HandRight];
                 OnHandChanged(HandType.Right);
                 RelativePadding = _relativePaddingForRightHanded;
-            }
+            }*/
 
-            var absolutePosition = joint.ScaleTo((int) window.Width, (int) window.Height);
+            var absolutePosition = joint.ScaleTo((int)window.Width, (int)window.Height);
 
             return RelativePositionFor(window, new Point(absolutePosition.Position.X, absolutePosition.Position.Y));
         }
@@ -187,16 +200,16 @@ namespace VideoWall.ServiceModels.HandCursor
             // 0 <= posX <= zone.Width and 0 <= posY <= zone.Height
             posX -= padding.Left;
             posY -= padding.Top;
-            Debug.Assert(0 <= (int) posX && (int) posX <= (int) zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
-            Debug.Assert(0 <= (int) posY && (int) posY <= (int) zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
+            Debug.Assert(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
+            Debug.Assert(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
 
             // Scale the zone relative coordinate to the window size
-            posX = posX*window.Width/zone.Width;
-            posY = posY*window.Height/zone.Height;
+            posX = posX * window.Width / zone.Width;
+            posY = posY * window.Height / zone.Height;
 
             return new Point(posX, posY);
         }
-        
+
         #endregion
     }
 }
