@@ -74,11 +74,11 @@ namespace VideoWall.ServiceModels.HandCursor
         /// <summary>
         ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
         /// </summary>
-        public HandCursorPositionCalculator()
+        public HandCursorPositionCalculator(RelativePadding relativePaddingForRightHanded)
         {
             //TODO: Magic numbers. Where do these come from? Needs explanation
-            //0.45, 0.1, 0.3, 0.49
-            _relativePaddingForRightHanded = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+            //_relativePaddingForRightHanded = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+            _relativePaddingForRightHanded = relativePaddingForRightHanded;
             _relativePaddingForLeftHanded = new RelativePadding(_relativePaddingForRightHanded.Right, _relativePaddingForRightHanded.Top, _relativePaddingForRightHanded.Left, _relativePaddingForRightHanded.Bottom);
             RelativePadding = _relativePaddingForRightHanded;
         }
@@ -123,13 +123,6 @@ namespace VideoWall.ServiceModels.HandCursor
 
 
             return totalPosition;
-
-            // Alternative implementation. Is this better readable?
-            //var points = new List<Point>(skeletons.Count);
-            //points.AddRange(skeletons.Select(skeleton => CalculatePositionFromSkeleton(window, skeleton)));
-            //var xSum = points.Sum(point => point.X);
-            //var ySum = points.Sum(point => point.Y);
-            //return new Point(xSum / skeletons.Count, ySum / skeletons.Count);
         }
 
         private HandType SelectHandForLatestSkeleton()
@@ -200,8 +193,8 @@ namespace VideoWall.ServiceModels.HandCursor
             // 0 <= posX <= zone.Width and 0 <= posY <= zone.Height
             posX -= padding.Left;
             posY -= padding.Top;
-            Debug.Assert(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
-            Debug.Assert(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
+            PreOrPostCondition.AssertTrue(0 <= (int)posX && (int)posX <= (int)zone.Width, "posX must contain a value so 0 <= posX <= zone.Width");
+            PreOrPostCondition.AssertTrue(0 <= (int)posY && (int)posY <= (int)zone.Height, "posY must contain a value so 0 <= posY <= zone.Height");
 
             // Scale the zone relative coordinate to the window size
             posX = posX * window.Width / zone.Width;

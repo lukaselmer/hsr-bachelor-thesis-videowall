@@ -15,7 +15,9 @@
 
 #region Usings
 
+using System;
 using System.Diagnostics;
+using VideoWall.Common;
 
 #endregion
 
@@ -24,7 +26,7 @@ namespace VideoWall.ServiceModels.HandCursor
     /// <summary>
     ///   The relative padding. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-    internal class RelativePadding
+    public class RelativePadding
     {
         #region Properties
 
@@ -59,19 +61,19 @@ namespace VideoWall.ServiceModels.HandCursor
         /// <param name="top"> The top padding. </param>
         /// <param name="right"> The right padding. </param>
         /// <param name="bottom"> The bottom padding. </param>
-        internal RelativePadding(double left, double top, double right, double bottom)
+        public RelativePadding(double left, double top, double right, double bottom)
         {
             Left = left;
             Top = top;
             Right = right;
             Bottom = bottom;
 
-            Debug.Assert(Left >= 0.0, "Left must be >= 0");
-            Debug.Assert(Top >= 0.0, "Top must be >= 0");
-            Debug.Assert(Right >= 0.0, "Right must be >= 0");
-            Debug.Assert(Bottom >= 0.0, "Bottom must be >= 0");
-            Debug.Assert(Left + Right < 1.0, "left+right < 1.0");
-            Debug.Assert(Top + Bottom < 1.0, "top + bottom < 1.0");
+            PreOrPostCondition.AssertTrue(Left >= 0.0, "Left must be >= 0");
+            PreOrPostCondition.AssertTrue(Top >= 0.0, "Top must be >= 0");
+            PreOrPostCondition.AssertTrue(Right >= 0.0, "Right must be >= 0");
+            PreOrPostCondition.AssertTrue(Bottom >= 0.0, "Bottom must be >= 0");
+            PreOrPostCondition.AssertTrue(Left + Right < 1.0, "left+right < 1.0");
+            PreOrPostCondition.AssertTrue(Top + Bottom < 1.0, "top + bottom < 1.0");
         }
 
         #endregion

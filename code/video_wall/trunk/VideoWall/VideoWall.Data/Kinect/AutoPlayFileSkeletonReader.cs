@@ -21,6 +21,7 @@ using System.IO;
 using System.Timers;
 using System.Windows.Threading;
 using Kinect.Toolbox.Record;
+using VideoWall.Common;
 
 #endregion
 
@@ -84,7 +85,7 @@ namespace VideoWall.Data.Kinect
         public void Start()
         {
             if (!CanStart()) return;
-            Debug.Assert(_skeletonReplay != null, "_skeletonReplay != null");
+            PreOrPostCondition.AssertTrue(_skeletonReplay != null, "_skeletonReplay != null");
             _skeletonReplay.Start();
             _lastTimeReady = DateTime.Now;
         }

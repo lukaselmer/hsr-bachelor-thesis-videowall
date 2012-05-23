@@ -17,6 +17,7 @@
 
 using System.Diagnostics;
 using System.Windows;
+using VideoWall.Common;
 
 #endregion
 
@@ -50,8 +51,7 @@ namespace VideoWall.ServiceModels.HandCursor
             _relative = relative;
             _window = window;
 
-            Debug.Assert(relative != null, "relative != null");
-            Debug.Assert(window != null, "window != null");
+            PreOrPostCondition.AssertTrue(relative != null, "relative != null");
         }
 
         #endregion

@@ -43,6 +43,7 @@ namespace VideoWall.ViewModels.Cursor
         private const int CursorSmoothingLevel = 10;
 
         private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
+
         private readonly Player _player;
 
         /// <summary>
@@ -55,6 +56,9 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         private HandType _activeHand = HandType.Right;
 
+        /// <summary>
+        /// The latest skeleton
+        /// </summary>
         private Skeleton _latestSkeleton;
 
         #endregion
