@@ -1,0 +1,3 @@
+Zhengyou Zhang; , "Microsoft Kinect Sensor and Its Effect," Multimedia, IEEE , vol.19, no.2, pp.4-10, Feb. 2012
+doi: 10.1109/MMUL.2012.24
+URL: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6190806&isnumber=6190801

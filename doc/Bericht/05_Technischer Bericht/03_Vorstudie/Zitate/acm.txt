@@ -1,0 +1,33 @@
+ITS '09 Proceedings of the ACM International Conference on Interactive Tabletops and Surfaces
+Pages 117-124
+ACM New York, NY, USA ©2009
+table of contents ISBN: 978-1-60558-733-2 doi>10.1145/1731903.1731927
+
+
+Alexander Schick, Florian van de Camp, Joris
+Ijsselmuiden and Rainer Stiefelhagen, Extending
+Touch: Towards Interaction with Large-Scale Surfaces.
+ACM International Conference on Interactive Tabletops
+and Surfaces 2009, Banff, Alberta, Canada.
+
+
+Video Wall HW Setup:
+
+Holo Wall:
+http://dl.acm.org/citation.cfm?id=263407.263549
+Matsushita, N. and Rekimoto, J. HoloWall: designing a
+finger, hand, body, and object sensitive wall. In Proc.
+UIST 2003, ACM Press (2003), New York, 159–168.
+
+large_multitouch_display:
+http://dl.acm.org/citation.cfm?id=1357255
+Peltonen, P., Kurvinen, E., Salovaara, A., Jacucci, G.,
+Ilmonen, T., Evans, J., Oulasvirta, A., Saarikko, P.: It’s
+Mine, Don’t Touch!: Interactions at a Large Multi-Touch
+Display in a City Centre. SIGCHI conference on Human
+factors in computing systems (2008) 1285–1294
+
+other wall 1:
+Rekimoto, J., Matsushita, N.: Perceptual Surfaces:
+Towards a Human and Object Sensitive Interactive
+Display.Workshop on Perceptural User Interfaces (1997)
