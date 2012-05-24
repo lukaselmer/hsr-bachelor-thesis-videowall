@@ -5,7 +5,7 @@
         WindowState="Maximized"
         WindowStyle="None">
     <StackPanel>
-        <MediaElement Name="video" Source="Resources/Wildlife.wmv" LoadedBehavior="Manual" UnloadedBehavior="Manual" />
+        <MediaElement MaxWidth="2850" MaxHeight="1620" Name="video" Source="Resources/Wildlife.wmv" LoadedBehavior="Manual" UnloadedBehavior="Manual" />
         <Button Click="PlayButtonClick">Play</Button>
     </StackPanel>
 </Window>
