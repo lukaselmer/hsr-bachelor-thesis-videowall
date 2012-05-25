@@ -69,6 +69,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionManagerTest.cs" />
     <Compile Include="FileServiceTest.cs" />
     <Compile Include="Mocks\MockApp.cs" />
     <Compile Include="ModeTimerTest.cs" />
