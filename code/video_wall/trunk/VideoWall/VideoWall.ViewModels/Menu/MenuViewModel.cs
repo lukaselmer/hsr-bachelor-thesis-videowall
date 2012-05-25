@@ -28,7 +28,7 @@ using VideoWall.ViewModels.Helpers;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   The MenuViewModel. Reviewed by Delia Treichler, 17.04.2012
+    ///   The MenuViewModel defines the menu. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
     // Class is instantiated by the unity container, so ReSharper thinks that
@@ -72,6 +72,7 @@ namespace VideoWall.ViewModels.Menu
                 PreOrPostCondition.AssertNotNull(value, "CurrentApp value");
                 if (_currentApp != null) CurrentApp.Selected = false;
                 _currentApp = value;
+                //TODO: doesn't this overwrite the if-clause?
                 _currentApp.Selected = true;
                 Notify("CurrentApp");
             }

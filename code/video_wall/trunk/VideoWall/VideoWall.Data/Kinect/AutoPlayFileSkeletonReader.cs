@@ -30,7 +30,7 @@ namespace VideoWall.Data.Kinect
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    internal class AutoPlayFileSkeletonReader : ISkeletonReader
+    public class AutoPlayFileSkeletonReader : ISkeletonReader
     {
         #region Declarations
 

@@ -26,7 +26,7 @@ namespace VideoWall.Data.Kinect
     /// <summary>
     ///   The KinectSkeletonReader. Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    internal class KinectSkeletonReader : ISkeletonReader
+    public class KinectSkeletonReader : ISkeletonReader
     {
         #region Declarations
 

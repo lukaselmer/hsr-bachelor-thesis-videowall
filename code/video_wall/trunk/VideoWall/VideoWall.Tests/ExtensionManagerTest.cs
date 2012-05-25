@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using VideoWall.ServiceModels.Apps;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using VideoWall.Interfaces;
 using VideoWall.Tests.Mocks;
 

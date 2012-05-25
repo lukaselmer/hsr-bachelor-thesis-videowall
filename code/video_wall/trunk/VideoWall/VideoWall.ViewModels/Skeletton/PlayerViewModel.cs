@@ -88,19 +88,6 @@ namespace VideoWall.ViewModels.Skeletton
 
         #endregion
 
-        #region IDisposable Members
-
-        /// <summary>
-        ///   Unregisters the notification and the player stops playing.
-        /// </summary>
-        public void Dispose()
-        {
-            _player.PropertyChanged -= Notify;
-            _player.StopPlaying();
-        }
-
-        #endregion
-
         #region Methods
 
         /// <summary>
@@ -152,6 +139,15 @@ namespace VideoWall.ViewModels.Skeletton
         private void DrawLine(JointType joint1, JointType joint2)
         {
             Lines.Add(new SkeletonLine(Skeleton.Joints[joint1], Skeleton.Joints[joint2], WidthAndHeight));
+        }
+
+        /// <summary>
+        ///   Unregisters the notification and the player stops playing.
+        /// </summary>
+        public void Dispose()
+        {
+            _player.PropertyChanged -= Notify;
+            _player.StopPlaying();
         }
 
         #endregion

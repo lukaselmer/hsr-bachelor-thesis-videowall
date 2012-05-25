@@ -59,7 +59,7 @@ namespace VideoWall.ViewModels.Menu
         /// <value> <c>true</c> if active; otherwise, <c>false</c> . </value>
         public bool Selected
         {
-            get { return _selected; }
+            private get { return _selected; }
             set
             {
                 _selected = value;
