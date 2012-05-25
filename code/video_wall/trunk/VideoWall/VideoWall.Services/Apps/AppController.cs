@@ -29,6 +29,8 @@ namespace VideoWall.ServiceModels.Apps
     ///   Controls the apps.
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
     public class AppController
         // ReSharper restore ClassNeverInstantiated.Global
     {

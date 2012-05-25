@@ -48,7 +48,7 @@ namespace VideoWall.ServiceModels.Apps
         /// <param name="appWithExtension"> The application with extension. </param>
         public static void Init(object appWithExtension)
         {
-            CreateExtensionsDirectory();
+            CreateDirectoryWith(FolderNameOfExtensions);
 
             var catalog = new AggregateCatalog(new DirectoryCatalog(FolderNameOfExtensions), new AssemblyCatalog(Assembly.GetExecutingAssembly()));
             var container = new CompositionContainer(catalog);
@@ -62,9 +62,9 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         ///   Creates the extensions directory if it does not exist.
         /// </summary>
-        private static void CreateExtensionsDirectory()
+        private static void CreateDirectoryWith(string path)
         {
-            if (!Directory.Exists(FolderNameOfExtensions)) Directory.CreateDirectory(FolderNameOfExtensions);
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
         }
 
         /*private static void RefreshCatalogs(AggregateCatalog catalog)
@@ -83,7 +83,7 @@ namespace VideoWall.ServiceModels.Apps
         public static string InitApp(IApp app)
         {
             var directoryName = String.Format("{0}/Files/{1}", FolderNameOfExtensions, app.Name);
-            if (!Directory.Exists(directoryName)) Directory.CreateDirectory(directoryName);
+            CreateDirectoryWith(directoryName);
             return directoryName;
         }
 

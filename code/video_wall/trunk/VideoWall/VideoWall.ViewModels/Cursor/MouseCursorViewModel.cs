@@ -29,6 +29,8 @@ namespace VideoWall.ViewModels.Cursor
     ///   The MouseCursorViewModel.
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
     public class MouseCursorViewModel : Notifier, ICursorViewModel
     // ReSharper restore ClassNeverInstantiated.Global
     {

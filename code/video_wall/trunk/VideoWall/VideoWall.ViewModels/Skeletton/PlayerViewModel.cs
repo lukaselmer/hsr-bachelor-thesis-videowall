@@ -32,6 +32,8 @@ namespace VideoWall.ViewModels.Skeletton
     ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
 // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
     public class PlayerViewModel : Notifier, IDisposable
 // ReSharper restore ClassNeverInstantiated.Global
     {

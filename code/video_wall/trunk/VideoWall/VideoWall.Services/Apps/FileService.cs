@@ -29,7 +29,7 @@ namespace VideoWall.ServiceModels.Apps
         #region Properties
 
         /// <summary>
-        ///   Gets the resource directory.
+        ///   Gets the path to the resource directory.
         /// </summary>
         public string ResourceDirectory { get; private set; }
 

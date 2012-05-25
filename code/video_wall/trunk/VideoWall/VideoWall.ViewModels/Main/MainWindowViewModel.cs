@@ -29,6 +29,8 @@ namespace VideoWall.ViewModels.Main
     ///   The MainWindowViewModel. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
 // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
     public class MainWindowViewModel : Notifier
 // ReSharper restore ClassNeverInstantiated.Global
     {

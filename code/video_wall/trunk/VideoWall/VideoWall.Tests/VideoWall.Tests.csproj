@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +72,7 @@
   <ItemGroup>
     <Compile Include="ExtensionManagerTest.cs" />
     <Compile Include="FileServiceTest.cs" />
+    <Compile Include="KinectCursorViewModelTest.cs" />
     <Compile Include="Mocks\MockApp.cs" />
     <Compile Include="ModeTimerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

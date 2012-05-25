@@ -87,15 +87,12 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Files\hand_left.png" />
-    <Resource Include="Files\hand_right.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

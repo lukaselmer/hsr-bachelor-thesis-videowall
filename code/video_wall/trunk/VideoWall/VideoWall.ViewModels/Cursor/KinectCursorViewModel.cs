@@ -66,6 +66,33 @@ namespace VideoWall.ViewModels.Cursor
         #region Properties
 
         /// <summary>
+        ///   Gets the position.
+        /// </summary>
+        public Point Position { get { return _handCursorPositionCalculator.CalculatePositionFromSkeletons(new Size(WindowWidth, WindowHeight), _skeletonHistory, _latestSkeleton); } }
+
+        /// <summary>
+        ///   Sets the width of the window.
+        /// </summary>
+        /// <value> The width of the window. </value>
+        public double WindowWidth { private get; set; }
+
+        /// <summary>
+        ///   Sets the height of the window.
+        /// </summary>
+        /// <value> The height of the window. </value>
+        public double WindowHeight { private get; set; }
+
+        /// <summary>
+        ///   Gets the hand cursor image source (for left or right hand).
+        /// </summary>
+        public ImageSource HandCursorImageSource { get { return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source; } }
+
+        /// <summary>
+        ///   Occurs when hand has changed.
+        /// </summary>
+        public event HandChanged HandChanged;
+
+        /// <summary>
         ///   Gets or sets the active hand.
         /// </summary>
         /// <value> The active hand. </value>
@@ -107,45 +134,6 @@ namespace VideoWall.ViewModels.Cursor
 
         #endregion
 
-        #region ICursorViewModel Members
-
-        /// <summary>
-        ///   Gets the position.
-        /// </summary>
-        public Point Position { get { return _handCursorPositionCalculator.CalculatePositionFromSkeletons(new Size(WindowWidth, WindowHeight), _skeletonHistory, _latestSkeleton); } }
-
-        /// <summary>
-        ///   Sets the width of the window.
-        /// </summary>
-        /// <value> The width of the window. </value>
-        public double WindowWidth { private get; set; }
-
-        /// <summary>
-        ///   Sets the height of the window.
-        /// </summary>
-        /// <value> The height of the window. </value>
-        public double WindowHeight { private get; set; }
-
-        /// <summary>
-        ///   Gets the hand cursor image source (for left or right hand).
-        /// </summary>
-        public ImageSource HandCursorImageSource { get { return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source; } }
-
-        /// <summary>
-        ///   Occurs when hand has changed.
-        /// </summary>
-        public event HandChanged HandChanged;
-
-        /// <summary>
-        ///   Unregisters the notification and the player stops playing.
-        /// </summary>
-        public void Dispose()
-        {
-            _player.PropertyChanged -= PlayerModelChanged;
-        }
-
-        #endregion
-
         #region Methods
 
         private void OnHandChanged(HandType handType)
@@ -168,6 +156,14 @@ namespace VideoWall.ViewModels.Cursor
             _latestSkeleton = _player.Skeleton;
 
             Notify("Position");
+        }
+
+        /// <summary>
+        ///   Unregisters the notification and the player stops playing.
+        /// </summary>
+        public void Dispose()
+        {
+            _player.PropertyChanged -= PlayerModelChanged;
         }
 
         /// <summary>

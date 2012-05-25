@@ -27,9 +27,11 @@ namespace VideoWall.ServiceModels.Player
     /// <summary>
     ///   The Player. Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
     public class Player : Notifier
-// ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 

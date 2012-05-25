@@ -25,7 +25,9 @@ namespace VideoWall.Interfaces
         /// <summary>
         ///   Gets the path to the resource directory
         /// </summary>
+// ReSharper disable UnusedMemberInSuper.Global
         string ResourceDirectory { get; }
+// ReSharper restore UnusedMemberInSuper.Global
 
         #endregion
     }
