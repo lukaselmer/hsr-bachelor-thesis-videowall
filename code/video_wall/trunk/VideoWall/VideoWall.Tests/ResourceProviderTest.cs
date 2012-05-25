@@ -1,15 +1,15 @@
-﻿using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System;
+using System.Windows.Media;
 using VideoWall.ResourceLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace VideoWall.Tests
 {
-    
-    
+
+  
+
     /// <summary>
     ///This is a test class for ResourceProviderTest and is intended
     ///to contain all ResourceProviderTest Unit Tests
@@ -17,8 +17,7 @@ namespace VideoWall.Tests
     [TestClass()]
     public class ResourceProviderTest
     {
-
-        #region Additional test attributes
+       #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -48,6 +47,12 @@ namespace VideoWall.Tests
         //
         #endregion
 
+        [ClassInitialize()]
+        public static void MyClassInitialize(TestContext testContext)
+        {
+            if (!UriParser.IsKnownScheme("pack")) new Application();
+        }
+
         /// <summary>
         ///A test for GetResources
         ///</summary>
@@ -55,13 +60,9 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ResourceLoader.dll")]
         public void GetResourcesTest()
         {
-            ResourceDictionary expected = null; // TODO: Initialize to an appropriate value
-            ResourceDictionary actual;
-
-            
-            actual = ResourceProvider_Accessor.GetResources();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            var actual = ResourceProvider_Accessor.GetResources();
+            var dic = new ResourceDictionary();
+            Assert.AreEqual(dic.GetType(),actual.GetType());
         }
 
         /// <summary>
@@ -76,30 +77,8 @@ namespace VideoWall.Tests
             const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
             var expected = new Image {Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource};
             var actual = ResourceProvider_Accessor.Image(key);
-            //Assert.AreEqual(60, actual.Source.Width);
+            Assert.AreEqual(60, actual.Source.Width);
             Assert.AreEqual(60, actual.Source.Height);
-        }
-
-
-
-        /// <summary>
-        ///A test for HandLeft
-        ///</summary>
-        [TestMethod()]
-        public void HandLeftTest()
-        {
-            var actual = ResourceProvider.HandLeft;
-            Assert.IsNotNull(actual);
-        }
-
-        /// <summary>
-        ///A test for HandRight
-        ///</summary>
-        [TestMethod()]
-        public void HandRightTest()
-        {
-            var actual = ResourceProvider.HandRight;
-            Assert.IsNotNull(actual);
         }
     }
 }
