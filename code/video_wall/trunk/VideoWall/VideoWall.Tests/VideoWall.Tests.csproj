@@ -72,7 +72,7 @@
   <ItemGroup>
     <Compile Include="ExtensionManagerTest.cs" />
     <Compile Include="FileServiceTest.cs" />
-    <Compile Include="KinectCursorViewModelTest.cs" />
+    <Compile Include="MenuViewModelTest.cs" />
     <Compile Include="Mocks\MockApp.cs" />
     <Compile Include="ModeTimerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
