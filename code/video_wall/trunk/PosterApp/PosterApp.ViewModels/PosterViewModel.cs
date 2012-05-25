@@ -15,9 +15,7 @@
 
 #region Usings
 
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using PosterApp.ServiceModels;
@@ -30,13 +28,14 @@ namespace PosterApp.ViewModels
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
     public class PosterViewModel : Notifier
+// ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
         private readonly PosterService _posterService;
         private Poster _currentPoster;
-        private bool _isPosterViewVisible;
         private string _name;
         private List<Poster> _posters;
 
@@ -74,7 +73,7 @@ namespace PosterApp.ViewModels
         ///   Gets or sets the posters.
         /// </summary>
         /// <value> The posters. </value>
-        public List<Poster> Posters
+        private List<Poster> Posters
         {
             get { return _posters; }
             set
@@ -85,24 +84,10 @@ namespace PosterApp.ViewModels
         }
 
         /// <summary>
-        ///   Gets or sets a value indicating whether the poster view visible.
-        /// </summary>
-        /// <value> <c>true</c> if the view is visible; otherwise, <c>false</c> . </value>
-        public bool IsPosterViewVisible
-        {
-            get { return _isPosterViewVisible; }
-            set
-            {
-                _isPosterViewVisible = value;
-                Notify("IsPosterViewVisible");
-            }
-        }
-
-        /// <summary>
         ///   Gets or sets the name.
         /// </summary>
         /// <value> The name. </value>
-        public string Name
+        private string Name
         {
             get { return _name; }
             set
@@ -132,16 +117,6 @@ namespace PosterApp.ViewModels
         #endregion
 
         #region Methods
-
-        /// <summary>
-        ///   Posters the service changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void PosterServiceChanged(object sender, PropertyChangedEventArgs e)
-        {
-            ReadFromPosterService();
-        }
 
         /// <summary>
         ///   Reads from poster service.

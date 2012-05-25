@@ -16,9 +16,7 @@
 #region Usings
 
 using System.Collections.Generic;
-using System.ComponentModel;
 using PosterApp.Data;
-using VideoWall.Common;
 
 #endregion
 
@@ -29,10 +27,6 @@ namespace PosterApp.ServiceModels
     /// </summary>
     public class PosterService
     {
-        #region Declarations
-
-        #endregion
-
         #region Properties
 
         private PosterReader PosterReader { get; set; }
@@ -41,7 +35,7 @@ namespace PosterApp.ServiceModels
         ///   Gets or sets and notifies the posters.
         /// </summary>
         /// <value> The posters. </value>
-        public List<Poster> Posters { get; set; }
+        public List<Poster> Posters { get; private set; }
 
         #endregion
 

@@ -17,7 +17,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using VideoWall.Common;
 using VideoWall.Interfaces;
 
 #endregion
