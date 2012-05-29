@@ -73,6 +73,7 @@
     <Compile Include="HandCursor\RelativePadding.cs" />
     <Compile Include="HandCursor\Zone.cs" />
     <Compile Include="Player\Player.cs" />
+    <Compile Include="Player\SkeletonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

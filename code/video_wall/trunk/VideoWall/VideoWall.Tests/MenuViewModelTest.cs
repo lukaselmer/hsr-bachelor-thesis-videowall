@@ -53,7 +53,7 @@ namespace VideoWall.Tests
         [TestMethod()]
         public void MenuViewModelConstructorTest()
         {
-            var appController = new AppController();
+            var appController = new AppController(null);
             
             var target = new MenuViewModel(appController);
             Assert.IsNotNull(target.CurrentApp);
@@ -68,7 +68,7 @@ namespace VideoWall.Tests
         {
             var app = new MockApp();
             var appObject = new AppViewModel(app);
-            var appController = new AppController();
+            var appController = new AppController(null);
             var target = new MenuViewModel_Accessor(appController);
             target.OnChangeApp(appObject);
             Assert.AreSame(appObject,target.CurrentApp);

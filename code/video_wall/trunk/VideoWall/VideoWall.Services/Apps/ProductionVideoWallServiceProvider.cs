@@ -15,8 +15,10 @@
 
 #region Usings
 
+using System;
 using Microsoft.Practices.Unity;
 using VideoWall.Interfaces;
+using VideoWall.ServiceModels.Player;
 
 #endregion
 
@@ -39,12 +41,14 @@ namespace VideoWall.ServiceModels.Apps
         ///   Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider" /> class.
         /// </summary>
         /// <param name="app"> The app. </param>
-        public ProductionVideoWallServiceProvider(IApp app)
+        /// <param name="skeletonService"> </param>
+        public ProductionVideoWallServiceProvider(IApp app, SkeletonService skeletonService)
         {
             _appExtensionsContainer = new UnityContainer();
 
             // TODO: do this lazy
             _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app));
+            _appExtensionsContainer.RegisterInstance<ISkeletonService>(skeletonService);
         }
 
         #endregion

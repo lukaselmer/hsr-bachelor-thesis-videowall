@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoWall.ViewModels</name>
+    </assembly>
+    <members>
+        <member name="T:VideoWall.ViewModels.Helpers.Command">
+            <summary>
+              Implementation of the ICommand Interface
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Helpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Helpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+            <param name="canExecute"> The canexecute predicate. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Helpers.Command.#ctor(System.Action{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Helpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Helpers.Command.Execute(System.Object)">
+            <summary>
+              Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Helpers.Command.CanExecute(System.Object)">
+            <summary>
+              Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+            <returns> true if this command can be executed; otherwise, false. </returns>
+        </member>
+        <member name="M:VideoWall.ViewModels.Helpers.Command.RaiseCanExecuteChanged">
+            <summary>
+              Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="E:VideoWall.ViewModels.Helpers.Command.CanExecuteChanged">
+            <summary>
+              Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Cursor.KinectCursorViewModel">
+            <summary>
+              Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Cursor.ICursorViewModel">
+            <summary>
+              The Interface of the Cursor View Model
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.ICursorViewModel.Position">
+            <summary>
+              Gets the position.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.ICursorViewModel.WindowWidth">
+            <summary>
+              Sets the width of the window.
+            </summary>
+            <value> The width of the window. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.ICursorViewModel.WindowHeight">
+            <summary>
+              Sets the height of the window.
+            </summary>
+            <value> The height of the window. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.ICursorViewModel.HandCursorImageSource">
+            <summary>
+              Gets the hand cursor image source.
+            </summary>
+        </member>
+        <member name="E:VideoWall.ViewModels.Cursor.ICursorViewModel.HandChanged">
+            <summary>
+              Occurs when hand has changed.
+            </summary>
+        </member>
+        <member name="F:VideoWall.ViewModels.Cursor.KinectCursorViewModel.CursorSmoothingLevel">
+            <summary>
+              The cursor smoothing level represents the size of the skeleton history queue. The bigger the smoothing level, the bigger the queue, the more cursor smoothing.
+            </summary>
+        </member>
+        <member name="F:VideoWall.ViewModels.Cursor.KinectCursorViewModel._skeletonHistory">
+            <summary>
+              The skeleton history is used for the mouse smoothing.
+            </summary>
+        </member>
+        <member name="F:VideoWall.ViewModels.Cursor.KinectCursorViewModel._activeHand">
+            <summary>
+              The active hand.
+            </summary>
+        </member>
+        <member name="F:VideoWall.ViewModels.Cursor.KinectCursorViewModel._latestSkeleton">
+            <summary>
+            The latest skeleton
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.#ctor(VideoWall.ServiceModels.Player.Player,VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Cursor.KinectCursorViewModel"/> class.
+            </summary>
+            <param name="player"> The player. </param>
+            <param name="handCursorPositionCalculator"> The handCursorPositionCalculator. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.Dispose">
+            <summary>
+              Unregisters the notification and the player stops playing.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.PlayerModelChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Notifies when the PlayerModel was changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.WindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+              Notifies when the window size is changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.Windows.SizeChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.KinectCursorViewModel.ActiveHand">
+            <summary>
+              Gets or sets the active hand.
+            </summary>
+            <value> The active hand. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.KinectCursorViewModel.Position">
+            <summary>
+              Gets the position.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.KinectCursorViewModel.WindowWidth">
+            <summary>
+              Sets the width of the window.
+            </summary>
+            <value> The width of the window. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.KinectCursorViewModel.WindowHeight">
+            <summary>
+              Sets the height of the window.
+            </summary>
+            <value> The height of the window. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.KinectCursorViewModel.HandCursorImageSource">
+            <summary>
+              Gets the hand cursor image source (for left or right hand).
+            </summary>
+        </member>
+        <member name="E:VideoWall.ViewModels.Cursor.KinectCursorViewModel.HandChanged">
+            <summary>
+              Occurs when hand has changed.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Menu.MenuStyleViewModel">
+            <summary>
+              The menu style view model defines the style for the menu
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Menu.MenuStyleViewModel.#ctor(System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Menu.MenuStyleViewModel"/> class.
+            </summary>
+            <param name="fontColor"> Color of the font. </param>
+            <param name="colorTop"> Color of the light. </param>
+            <param name="colorBottom"> Color of the dark. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuStyleViewModel.FontColor">
+            <summary>
+              Gets the color of the font.
+            </summary>
+            <value> The color of the font. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuStyleViewModel.LightColor">
+            <summary>
+              Gets the light color for the menu button
+            </summary>
+            <value> The color of the light. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuStyleViewModel.DarkColor">
+            <summary>
+              Gets the dark color for the menu button
+            </summary>
+            <value> The color of the dark. </value>
+        </member>
+        <member name="T:VideoWall.ViewModels.HitButton.HitStateChanged">
+            <summary>
+              Delegate when the hit state is changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="args"> The arguments. </param>
+        </member>
+        <member name="T:VideoWall.ViewModels.HitButton.HitTestHelper">
+            <summary>
+              The HitTestHelper. Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.#ctor(VideoWall.ViewModels.Cursor.ICursorViewModel,System.Windows.Window,System.Double)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.HitButton.HitTestHelper"/> class.
+            </summary>
+            <param name="cursorViewModel"> The cursor view model. </param>
+            <param name="window"> The window. </param>
+            <param name="interval"> The interval. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.OnStarted(VideoWall.ViewModels.HitButton.HitStateArgs)">
+            <summary>
+              Called when [started].
+            </summary>
+            <param name="args"> The arguments. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.OnStopped(VideoWall.ViewModels.HitButton.HitStateArgs)">
+            <summary>
+              Called when [stopped].
+            </summary>
+            <param name="args"> The arguments. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.OnClicked(VideoWall.ViewModels.HitButton.HitStateArgs)">
+            <summary>
+              Called when [clicked].
+            </summary>
+            <param name="args"> The arguments. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.OnCurrentTimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+              Called when [current timer elapsed].
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="args"> The <see cref="T:System.Timers.ElapsedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.OnModelChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Called when [model changed].
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.StartTimerAndSetCurrentElementTo(System.Windows.UIElement)">
+            <summary>
+              Starts the timer and sets the current element to the given parameter.
+            </summary>
+            <param name="button"> The button. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.StopTimerAndResetCurrentElement">
+            <summary>
+              Stops the timer ans resets the current element.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitTestHelper.CreateHitStateArgs">
+            <summary>
+              Creates the hit state arguments.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="P:VideoWall.ViewModels.HitButton.HitTestHelper.HitElements">
+            <summary>
+              Gets or sets the hit elements.
+            </summary>
+            <value> The hit elements. </value>
+        </member>
+        <member name="E:VideoWall.ViewModels.HitButton.HitTestHelper.Started">
+            <summary>
+              Occurs when [started].
+            </summary>
+        </member>
+        <member name="E:VideoWall.ViewModels.HitButton.HitTestHelper.Stopped">
+            <summary>
+              Occurs when [stopped].
+            </summary>
+        </member>
+        <member name="E:VideoWall.ViewModels.HitButton.HitTestHelper.Clicked">
+            <summary>
+              Occurs when [clicked].
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.HitButton.HitStateArgs">
+            <summary>
+              The HitStateArgs. Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.HitButton.HitStateArgs.#ctor(System.Windows.UIElement)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.HitButton.HitStateArgs"/> class.
+            </summary>
+            <param name="uiElement"> The user interface element. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.HitButton.HitStateArgs.UIElement">
+            <summary>
+              Gets the UI element.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Skeletton.SkeletonLine">
+            <summary>
+              The SkeletonLine. Reviewed by Christina Heidt, 23.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Skeletton.SkeletonLine.#ctor(Microsoft.Kinect.Joint,Microsoft.Kinect.Joint,System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Skeletton.SkeletonLine"/> class.
+            </summary>
+            <param name="startPosition"> The start position. </param>
+            <param name="endPosition"> The end position. </param>
+            <param name="scale"> The scale to fit the skeleton into the canvas. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.SkeletonLine.EndPosition">
+            <summary>
+              Gets the end position of the line.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.SkeletonLine.StartPosition">
+            <summary>
+              Gets the start position of the line.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Main.MainWindowViewModel">
+            <summary>
+              The MainWindowViewModel. Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Main.MainWindowViewModel.#ctor(VideoWall.ViewModels.Menu.MenuViewModel,VideoWall.ViewModels.Skeletton.PlayerViewModel,VideoWall.ViewModels.Cursor.ICursorViewModel,VideoWall.ViewModels.DemoMode.DemoModeViewModel)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Main.MainWindowViewModel"/> class.
+            </summary>
+            <param name="menuViewModel"> The menu view model. </param>
+            <param name="playerViewModel"> The player view model. </param>
+            <param name="cursorViewModel"> The cursor view model. </param>
+            <param name="demoModeViewModel"> The demo mode view model. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Main.MainWindowViewModel.DemoModeViewModel">
+            <summary>
+              Gets or sets the demo mode view model.
+            </summary>
+            <value> The demo mode view model. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Main.MainWindowViewModel.MenuViewModel">
+            <summary>
+              Gets or sets the menu view model.
+            </summary>
+            <value> The menu view model. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Main.MainWindowViewModel.PlayerViewModel">
+            <summary>
+              Gets or sets the player view model.
+            </summary>
+            <value> The player view model. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Main.MainWindowViewModel.CursorViewModel">
+            <summary>
+              Gets or sets the cursor view model.
+            </summary>
+            <value> The cursor view model. </value>
+        </member>
+        <member name="T:VideoWall.ViewModels.Skeletton.PlayerViewModel">
+            <summary>
+              The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.#ctor(VideoWall.ServiceModels.Player.Player)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Skeletton.PlayerViewModel"/> class.
+            </summary>
+            <param name="player"> The player. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.Dispose">
+            <summary>
+              Unregisters the notification and the player stops playing.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.PlayerModelChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Notifies when the PlayerModel was changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.DrawLines">
+            <summary>
+              Draws the lines of the skeleton.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.PlayerViewModel.WidthAndHeight">
+            <summary>
+              Gets the width/height of the canvas for the skeleton.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.PlayerViewModel.Skeleton">
+            <summary>
+              Gets the skeleton.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.PlayerViewModel.Lines">
+            <summary>
+              Gets the lines.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Skeletton.PlayerViewModel.StopCommand">
+            <summary>
+              Gets or sets the start/stop command.
+            </summary>
+            <value> The start/stop command. </value>
+        </member>
+        <member name="T:VideoWall.ViewModels.DemoMode.DispatcherTimerExtension">
+            <summary>
+              The extensions for the dispatcher timer
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.DispatcherTimerExtension.Reset(System.Windows.Threading.DispatcherTimer)">
+            <summary>
+              Resets the specified timer.
+            </summary>
+            <param name="timer"> The timer. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.DispatcherTimerExtension.GetIntervalSeconds(System.Windows.Threading.DispatcherTimer)">
+            <summary>
+              Gets the interval seconds.
+            </summary>
+            <param name="timer"> The timer. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:VideoWall.ViewModels.Cursor.MouseCursorViewModel">
+            <summary>
+              The MouseCursorViewModel.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.MouseCursorViewModel.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Cursor.MouseCursorViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.MouseCursorViewModel.Dispose">
+            <summary>
+              Unregisters the notification and the player stops playing.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Cursor.MouseCursorViewModel.WindowSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+              Notifies when the window size is changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.Windows.SizeChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.MouseCursorViewModel.Position">
+            <summary>
+              Gets the status.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.MouseCursorViewModel.HandCursorImageSource">
+            <summary>
+              Gets the hand cursor image source (for left or right hand).
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.MouseCursorViewModel.WindowWidth">
+            <summary>
+              Sets the width of the window.
+            </summary>
+            <value> The width of the window. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Cursor.MouseCursorViewModel.WindowHeight">
+            <summary>
+              Sets the height of the window.
+            </summary>
+            <value> The height of the window. </value>
+        </member>
+        <member name="E:VideoWall.ViewModels.Cursor.MouseCursorViewModel.HandChanged">
+            <summary>
+              Occurs when hand has changed.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.Menu.AppViewModel">
+            <summary>
+              The app view model wrapps the app
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Menu.AppViewModel.#ctor(VideoWall.Interfaces.IApp)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Menu.AppViewModel"/> class.
+            </summary>
+            <param name="app"> The app. </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.AppViewModel.App">
+            <summary>
+              The app
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.AppViewModel.Selected">
+            <summary>
+              Gets or sets a value indicating whether this <see cref="T:VideoWall.ViewModels.Menu.AppViewModel"/> is active.
+            </summary>
+            <value> <c>true</c> if active; otherwise, <c>false</c> . </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.AppViewModel.MenuStyle">
+            <summary>
+              Gets or sets the menu style.
+            </summary>
+            <value> The menu style. </value>
+        </member>
+        <member name="T:VideoWall.ViewModels.Menu.MenuViewModel">
+            <summary>
+              The MenuViewModel. Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.Menu.MenuViewModel.#ctor(VideoWall.ServiceModels.Apps.AppController)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.Menu.MenuViewModel"/> class.
+            </summary>
+            <param name="appController"> The app controller </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.Menu.MenuViewModel.ChangeApp">
+            <summary>
+              Changes the app.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuViewModel.Apps">
+            <summary>
+              Gets the apps.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuViewModel.ChangeAppCommand">
+            <summary>
+              This command changes the current application.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.Menu.MenuViewModel.CurrentApp">
+            <summary>
+              Gets the current app.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.DemoMode.DemoModeViewModel">
+            <summary>
+              The DemoModeViewModel
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.DemoModeViewModel.#ctor(VideoWall.ServiceModels.Player.Player,VideoWall.ViewModels.Menu.MenuViewModel,VideoWall.ViewModels.Skeletton.PlayerViewModel)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.DemoMode.DemoModeViewModel"/> class.
+            </summary>
+            <param name="player"> The player. </param>
+            <param name="menuViewModel"> The menu view model. </param>
+            <param name="playerViewModel"> </param>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.PlayerViewModel">
+            <summary>
+              Gets or sets the player view model.
+            </summary>
+            <value> The player view model. </value>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.Visibility">
+            <summary>
+              Gets the visibility.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.IsCountDownVisible">
+            <summary>
+              Gets a value indicating whether the countdown is visible or not.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.IsTextVisible">
+            <summary>
+              Gets a value indicating whether the text is visible or not.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.MenuViewModel">
+            <summary>
+              Gets or sets the MenuViewModel.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.CurrentColor">
+            <summary>
+              Gets or sets the current color.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.Countdown">
+            <summary>
+              Gets the Countdown.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.DemoModeViewModel.ModeTimer">
+            <summary>
+              Gets or sets the ModeTimer.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ViewModels.DemoMode.ModeTimer">
+            <summary>
+              The mode timer
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.ModeTimer.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ViewModels.DemoMode.ModeTimer"/> class.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.ModeTimer.OnSkeletonCheckTimerTick(System.Object,System.EventArgs)">
+            <summary>
+              Called when skeleton check timer tickes.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.EventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.ModeTimer.WasSkeletonChanged">
+            <summary>
+              Wether the skeleton was changed.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:VideoWall.ViewModels.DemoMode.ModeTimer.SkeletonChanged">
+            <summary>
+              The skeleton changed.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.ToInteractionModeTimer">
+            <summary>
+              Gets the demo mode timer.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.FastSkeletonCheckTimer">
+            <summary>
+              Gets the fast skeleton check timer.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.ToDemoModeTimer">
+            <summary>
+              Gets the interaction mode timer.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.SkeletonCheckTimer">
+            <summary>
+              Gets the skeleton check timer.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.ChangeAppTimer">
+            <summary>
+              Gets the change app timer.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ViewModels.DemoMode.ModeTimer.IsInInteractionMode">
+            <summary>
+              Gets a value indicating whether this instance is in interaction mode.
+            </summary>
+        </member>
+    </members>
+</doc>

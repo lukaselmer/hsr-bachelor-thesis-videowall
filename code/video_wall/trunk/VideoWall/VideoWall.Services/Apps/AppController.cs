@@ -20,6 +20,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using VideoWall.Common;
 using VideoWall.Interfaces;
+using VideoWall.ServiceModels.Player;
 
 #endregion
 
@@ -34,6 +35,9 @@ namespace VideoWall.ServiceModels.Apps
     public class AppController
         // ReSharper restore ClassNeverInstantiated.Global
     {
+        private readonly Player.Player _player;
+        private SkeletonService _skeletonService;
+
         #region Properties
 
         /// <summary>
@@ -49,8 +53,9 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         ///   Initializes the AppController.
         /// </summary>
-        public AppController()
+        public AppController(Player.Player player)
         {
+            _skeletonService = new SkeletonService(player);
             ExtensionManager.Init(this);
             PreOrPostCondition.AssertNotNull(Apps, "Apps");
             // At least one app has to be loaded
@@ -69,7 +74,7 @@ namespace VideoWall.ServiceModels.Apps
         {
             foreach (var app in Apps)
             {
-                app.Activate(new ProductionVideoWallServiceProvider(app));
+                app.Activate(new ProductionVideoWallServiceProvider(app, _skeletonService));
             }
         }
 

@@ -4,6 +4,21 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.Logger">
+            <summary>
+              The Logger wrapper
+            </summary>
+        </member>
+        <member name="F:VideoWall.Common.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logger.Get">
+            <summary>
+              Gets the currrent logger
+            </summary>
+        </member>
         <member name="T:VideoWall.Common.ImageHelper">
             <summary>
               The image helper provides helper methods for images.
@@ -15,45 +30,6 @@
             </summary>
             <param name="fileName"> Name of the file. </param>
             <returns> </returns>
-        </member>
-        <member name="T:VideoWall.Common.Notifier">
-            <summary>
-              Implementation of INotifyPropertyChanged
-            </summary>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="F:VideoWall.Common.Notifier._lock">
-            <summary>
-              The Lock for the notify delay
-            </summary>
-        </member>
-        <member name="F:VideoWall.Common.Notifier._timer">
-            <summary>
-              The timer for the notify delay
-            </summary>
-        </member>
-        <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="propertyName"> Name of the property. </param>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
-        </member>
-        <member name="E:VideoWall.Common.Notifier.PropertyChanged">
-            <summary>
-              Occurs when a property value changes.
-            </summary>
-            <remarks>
-            </remarks>
         </member>
         <member name="T:VideoWall.Common.PreOrPostCondition">
             <summary>
@@ -110,20 +86,34 @@
               Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
             </summary>
         </member>
-        <member name="T:VideoWall.Common.Logger">
+        <member name="T:VideoWall.Common.Notifier">
             <summary>
-              The Logger wrapper
+              Implementation of INotifyPropertyChanged
             </summary>
+            <remarks>
+            </remarks>
         </member>
-        <member name="F:VideoWall.Common.Logger.TheLogger">
+        <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
             <summary>
-              The Logger
+              Notifies that the property with the specified name has changed.
             </summary>
+            <param name="propertyName"> Name of the property. </param>
+            <remarks>
+            </remarks>
         </member>
-        <member name="P:VideoWall.Common.Logger.Get">
+        <member name="M:VideoWall.Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
-              Gets the currrent logger
+              Notifies that the property with the specified name has changed.
             </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="E:VideoWall.Common.Notifier.PropertyChanged">
+            <summary>
+              Occurs when a property value changes.
+            </summary>
+            <remarks>
+            </remarks>
         </member>
     </members>
 </doc>

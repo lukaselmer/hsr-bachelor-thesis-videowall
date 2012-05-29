@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoWall.ServiceModels</name>
+    </assembly>
+    <members>
+        <member name="T:VideoWall.ServiceModels.Apps.FileService">
+            <summary>
+              The file service provides a directory where an exension has read and write access.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.FileService.#ctor(VideoWall.Interfaces.IApp)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.Apps.FileService"/> class.
+            </summary>
+            <param name="app"> The app. </param>
+        </member>
+        <member name="P:VideoWall.ServiceModels.Apps.FileService.ResourceDirectory">
+            <summary>
+              Gets the resource directory.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.Apps.ExtensionManager">
+            <summary>
+              The extension manager is responsible for loading the extensions
+            </summary>
+        </member>
+        <member name="F:VideoWall.ServiceModels.Apps.ExtensionManager.FolderNameOfExtensions">
+            <summary>
+              The folder name for the extensions
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.ExtensionManager.Init(System.Object)">
+            <summary>
+              Inits the specified application with extension.
+            </summary>
+            <param name="appWithExtension"> The application with extension. </param>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.ExtensionManager.CreateExtensionsDirectory">
+            <summary>
+              Creates the extensions directory if it does not exist.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.ExtensionManager.InitApp(VideoWall.Interfaces.IApp)">
+            <summary>
+            Inits the app.
+            </summary>
+            <param name="app">The app.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.AbsolutePadding">
+            <summary>
+              The absolute padding. Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.HandType">
+            <summary>
+              The hand type (left or right hand)
+            </summary>
+        </member>
+        <member name="F:VideoWall.ServiceModels.HandCursor.HandType.Left">
+            <summary>
+              The left hand
+            </summary>
+        </member>
+        <member name="F:VideoWall.ServiceModels.HandCursor.HandType.Right">
+            <summary>
+              The right hand
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.Player.Player">
+            <summary>
+              The Player. Reviewed by Christina Heidt, 23.03.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Player.Player.#ctor(VideoWall.Data.Kinect.ISkeletonReader)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.Player.Player"/> class.
+            </summary>
+            <param name="skeletonReader"> The skeleton reader. </param>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Player.Player.StartPlaying">
+            <summary>
+              Starts the skeleton reader.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Player.Player.OnKinectSensorOnSkeletonFrameReady(System.Object,VideoWall.Data.Kinect.SkeletonsReadyEventArgs)">
+            <summary>
+              Called when [kinect sensor on skeleton frame ready].
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:VideoWall.Data.Kinect.SkeletonsReadyEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Player.Player.StopPlaying">
+            <summary>
+              Stops the skeleton reader.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.Player.Player.Skeleton">
+            <summary>
+              Gets or sets the skeleton.
+            </summary>
+            <value> The skeleton. </value>
+        </member>
+        <member name="P:VideoWall.ServiceModels.Player.Player.Playing">
+            <summary>
+              Gets a value indicating whether this <see cref="T:VideoWall.ServiceModels.Player.Player"/> is playing.
+            </summary>
+            <value> <c>true</c> if playing; otherwise, <c>false</c> . </value>
+        </member>
+        <member name="T:VideoWall.ServiceModels.Apps.AppController">
+            <summary>
+              Controls the apps.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.AppController.#ctor(VideoWall.ServiceModels.Player.Player)">
+            <summary>
+              Initializes the AppController.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.AppController.LoadApps">
+            <summary>
+              Loads the apps.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.Apps.AppController.Apps">
+            <summary>
+              The video wall applications.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.RelativePadding">
+            <summary>
+              The relative padding. Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.RelativePadding.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.HandCursor.RelativePadding"/> class.
+            </summary>
+            <param name="left"> The left padding. </param>
+            <param name="top"> The top padding. </param>
+            <param name="right"> The right padding. </param>
+            <param name="bottom"> The bottom padding. </param>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.RelativePadding.Left">
+            <summary>
+              Gets the left padding.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.RelativePadding.Top">
+            <summary>
+              Gets the top padding.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.RelativePadding.Right">
+            <summary>
+              Gets the right padding.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.RelativePadding.Bottom">
+            <summary>
+              Gets the bottom padding.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.Zone">
+            <summary>
+              The zone. Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.Zone.#ctor(System.Windows.Size,VideoWall.ServiceModels.HandCursor.AbsolutePadding)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.HandCursor.Zone"/> class.
+            </summary>
+            <param name="window"> The window. </param>
+            <param name="padding"> The padding. </param>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.Zone.TopLeft">
+            <summary>
+              Gets the top left point.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.Zone.BottomRight">
+            <summary>
+              Gets the bottom right point.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.Zone.Width">
+            <summary>
+              Gets the width.
+            </summary>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.Zone.Height">
+            <summary>
+              Gets the height.
+            </summary>
+        </member>
+        <member name="T:VideoWall.ServiceModels.Apps.ProductionVideoWallServiceProvider">
+            <summary>
+              The AppInfo for a application which runs on the video wall.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.ProductionVideoWallServiceProvider.#ctor(VideoWall.Interfaces.IApp,VideoWall.ServiceModels.Player.SkeletonService)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.Apps.ProductionVideoWallServiceProvider"/> class.
+            </summary>
+            <param name="app"> The app. </param>
+            <param name="skeletonService"> </param>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Apps.ProductionVideoWallServiceProvider.GetExtension``1">
+            <summary>
+              Gets the extension. Similar: Extension Interface Pattern.
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <returns> </returns>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.HandChanged">
+            <summary>
+              The delegate for when the hand is changed (left or right hand)
+            </summary>
+            <param name="handType"> Type of the hand. </param>
+        </member>
+        <member name="T:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator">
+            <summary>
+              The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.#ctor(VideoWall.ServiceModels.HandCursor.RelativePadding)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator"/> class.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.CalculatePositionFromSkeletons(System.Windows.Size,System.Collections.Generic.Queue{Microsoft.Kinect.Skeleton},Microsoft.Kinect.Skeleton)">
+            <summary>
+              Calculates the position of the hand cursor from the position of multiple skeletons by taking their avertage.
+            </summary>
+            <param name="window"> The size of the window. </param>
+            <param name="skeletons"> The skeletons. </param>
+            <param name="latestSkeleton"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.CalculatePositionFromSkeleton(System.Windows.Size,Microsoft.Kinect.Skeleton,VideoWall.ServiceModels.HandCursor.HandType)">
+            <summary>
+            Calculates the position of the hand cursor from the position of the skeleton.
+            </summary>
+            <param name="window">The size of the window.</param>
+            <param name="skeleton">The skeleton.</param>
+            <param name="handType">Type of the hand.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.RelativePositionFor(System.Windows.Size,System.Windows.Point)">
+            <summary>
+              Calculates the relative position for a defined window size and a position.
+            </summary>
+            <param name="window"> The window. </param>
+            <param name="position"> The position. </param>
+            <returns> </returns>
+        </member>
+        <member name="P:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.RelativePadding">
+            <summary>
+              Gets the relative padding.
+            </summary>
+        </member>
+        <member name="E:VideoWall.ServiceModels.HandCursor.HandCursorPositionCalculator.HandChanged">
+            <summary>
+              Occurs when the hand changed.
+            </summary>
+        </member>
+    </members>
+</doc>
