@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Menu="clr-namespace:VideoWall.ViewModels.Menu;assembly=VideoWall.ViewModels" mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" 
+             d:DesignHeight="100" d:DesignWidth="300" 
              d:DataContext="{d:DesignInstance Menu:MenuViewModel}">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                <GradientStop Color="#cce0ed"/>
+                <GradientStop Color="#cce0ed" Offset="0.98"/>
+                <GradientStop Color="#333" Offset="0.98"/>
+                <GradientStop Color="#333" Offset="1"/>
+                <!--<GradientStop Color="#3384B5"/>
+                <GradientStop Color="#66A3C8" Offset="1"/>-->
+            </LinearGradientBrush>
+        </Grid.Background>
         <ItemsControl ItemsSource="{Binding Apps}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -31,9 +41,9 @@
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="{Binding MenuStyle.LightColor}"/>
-                                <GradientStop Color="{Binding MenuStyle.DarkColor}" Offset="1"/>
-                                <!--<GradientStop Color="#FF007DFF"/>
-                                <GradientStop Color="#FF0F3760" Offset="1"/>-->
+                                <GradientStop Color="{Binding MenuStyle.DarkColor}" Offset="0.98"/>
+                                <GradientStop Color="{Binding MenuStyle.BottomLineColor}" Offset="0.98"/>
+                                <GradientStop Color="{Binding MenuStyle.BottomLineColor}" Offset="1"/>
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>

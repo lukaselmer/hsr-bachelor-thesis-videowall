@@ -46,21 +46,31 @@ namespace VideoWall.ViewModels.Menu
         /// <value> The color of the dark. </value>
         public Color DarkColor { get; private set; }
 
+        /// <summary>
+        /// Gets the color of the bottom line of the tab.
+        /// </summary>
+        /// <value>
+        /// The color of the bottom line.
+        /// </value>
+        public Color BottomLineColor { get; private set; }
+
         #endregion
 
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="MenuStyleViewModel" /> class.
+        /// Initializes a new instance of the <see cref="MenuStyleViewModel"/> class.
         /// </summary>
-        /// <param name="fontColor"> Color of the font. </param>
-        /// <param name="colorTop"> Color of the light. </param>
-        /// <param name="colorBottom"> Color of the dark. </param>
-        public MenuStyleViewModel(Color fontColor, Color colorTop, Color colorBottom)
+        /// <param name="fontColor">Color of the font.</param>
+        /// <param name="colorTop">The color top gradient brush.</param>
+        /// <param name="colorBottom">The color bottom gradient brush.</param>
+        /// <param name="bottomLine">The bottom line color of the tab.</param>
+        public MenuStyleViewModel(Color fontColor, Color colorTop, Color colorBottom, Color bottomLine)
         {
             FontColor = fontColor;
             LightColor = colorTop;
             DarkColor = colorBottom;
+            BottomLineColor = bottomLine;
         }
 
         #endregion

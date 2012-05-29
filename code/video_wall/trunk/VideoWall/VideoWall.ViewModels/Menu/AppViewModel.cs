@@ -30,8 +30,12 @@ namespace VideoWall.ViewModels.Menu
     {
         #region Declarations
 
-        private static readonly MenuStyleViewModel SelectedMenuStyle = new MenuStyleViewModel(Colors.Black, Color.FromRgb(0xEE, 0xEE, 0xEE), Color.FromRgb(0xFF, 0xFF, 0xFF));
-        private static readonly MenuStyleViewModel UnselectedMenuStyle = new MenuStyleViewModel(Colors.White, Color.FromRgb(0x00, 0x7D, 0xFF), Color.FromRgb(0x0F, 0x37, 0x60));
+        //private static readonly MenuStyleViewModel SelectedMenuStyle = new MenuStyleViewModel(Colors.Black, Color.FromRgb(0xEE, 0xEE, 0xEE), Color.FromRgb(0xFF, 0xFF, 0xFF));
+        //private static readonly MenuStyleViewModel UnselectedMenuStyle = new MenuStyleViewModel(Colors.White, Color.FromRgb(0x00, 0x7D, 0xFF), Color.FromRgb(0x0F, 0x37, 0x60));
+        private static readonly MenuStyleViewModel SelectedMenuStyle = new MenuStyleViewModel(
+            Colors.Black, Color.FromRgb(0xee, 0xee, 0xee), Colors.White, Colors.White);
+        private static readonly MenuStyleViewModel UnselectedMenuStyle = new MenuStyleViewModel(
+            Colors.White, Color.FromRgb(0x33, 0x84, 0xb5), Color.FromRgb(0x66, 0xa3, 0xc8), Color.FromRgb(0x33, 0x33, 0x33));
 
         private IApp _app;
         private bool _selected;

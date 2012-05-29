@@ -64,7 +64,7 @@ namespace VideoWall.ViewModels.DemoMode
             MenuViewModel = menuViewModel;
 
             PlayerViewModel = playerViewModel;
-            PlayerViewModel.WidthAndHeight = 600; //TODO: use relative value
+            PlayerViewModel.WidthAndHeight = 500; //TODO: use relative value
 
             Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }

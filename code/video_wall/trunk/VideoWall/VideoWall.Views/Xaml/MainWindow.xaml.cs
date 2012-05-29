@@ -143,11 +143,6 @@ namespace VideoWall.Views.Xaml
             Closing += (sender, args) => MouseMove -= updateMousePosition;
         }
 
-        private void OnExit(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         #endregion
     }
 }

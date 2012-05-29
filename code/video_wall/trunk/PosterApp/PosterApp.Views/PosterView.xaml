@@ -19,8 +19,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="90"/>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Width="70" Margin="10 80">Links</Button>
+        <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Width="75" Margin="0 70">Links</Button>
         <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}"></Image>
-        <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Width="70" Margin="10 80">Rechts</Button>
+        <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Width="75" Margin="0 70">Rechts</Button>
     </Grid>
 </UserControl>

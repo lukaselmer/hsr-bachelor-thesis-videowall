@@ -19,7 +19,6 @@
             <Xaml1:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 
-        <Canvas><Button Canvas.Right="0" Click="OnExit">Exit</Button></Canvas>
         <Grid Canvas.Bottom="0" Canvas.Right="0" ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

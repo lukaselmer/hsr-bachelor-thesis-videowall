@@ -5,24 +5,25 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <!--<Grid x:Name="Grid" Height="60" Margin="1 0">-->
-                    <ed:BlockArrow HorizontalAlignment="Left" Width="{TemplateBinding Width}" StrokeThickness="0">
-                        <ed:BlockArrow.Fill>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF007DFF" Offset="0"/>
-                                <GradientStop Color="#FF0F3760" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ed:BlockArrow.Fill>
-                    </ed:BlockArrow>
-                    <!--</Grid>-->
+                    <!-- The following grid is for the iceberg button => makes the white part of the button clickable -->
+                    <Grid Background="White">
+                        <ed:BlockArrow HorizontalAlignment="Left" Width="{TemplateBinding Width}"  StrokeThickness="5" Stroke="White">
+                            <ed:BlockArrow.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#3384b5" Offset="1"/>
+                                    <GradientStop Color="#66a3c8" Offset="0"/>
+                                </LinearGradientBrush>
+                            </ed:BlockArrow.Fill>
+                        </ed:BlockArrow>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -31,24 +32,25 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <!--<Grid x:Name="Grid" Height="60" Margin="1 0">-->
-                    <ed:BlockArrow Orientation="Left" HorizontalAlignment="Left" Width="{TemplateBinding Width}" StrokeThickness="0">
-                        <ed:BlockArrow.Fill>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF0F3760" Offset="0"/>
-                                <GradientStop Color="#FF007DFF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ed:BlockArrow.Fill>
-                    </ed:BlockArrow>
-                    <!--</Grid>-->
+                    <!-- The following grid is for the iceberg button => makes the white part of the button clickable -->
+                    <Grid Background="White">
+                        <ed:BlockArrow Orientation="Left" HorizontalAlignment="Left" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White">
+                            <ed:BlockArrow.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#66a3c8" Offset="1"/>
+                                    <GradientStop Color="#3384b5" Offset="0"/>
+                                </LinearGradientBrush>
+                            </ed:BlockArrow.Fill>
+                        </ed:BlockArrow>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -46,38 +46,40 @@
             <param name="sender"> The sender. </param>
             <param name="e"> The <see cref="T:Microsoft.Kinect.SkeletonFrameReadyEventArgs"/> instance containing the event data. </param>
         </member>
-        <member name="T:VideoWall.Data.Kinect.SkeletonsReadyEventArgs">
+        <member name="T:VideoWall.Data.Kinect.FileSkeletonReader">
             <summary>
               Reviewed by Christina Heidt, 23.03.2012
             </summary>
         </member>
-        <member name="M:VideoWall.Data.Kinect.SkeletonsReadyEventArgs.#ctor(Microsoft.Kinect.Skeleton[])">
+        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.#ctor(VideoWall.Data.Kinect.KinectReplayFile)">
             <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.SkeletonsReadyEventArgs"/> class.
+              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.FileSkeletonReader"/> class.
             </summary>
-            <param name="skeletons"> The skeletons. </param>
+            <param name="kinectReplayFile"> The kinect replay file. </param>
         </member>
-        <member name="P:VideoWall.Data.Kinect.SkeletonsReadyEventArgs.Skeletons">
+        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.Start">
             <summary>
-              Gets the skeletons.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Data.Kinect.KinectReplayFile">
-            <summary>
-              Reviewed by Christina Heidt, 23.03.2012
+              Starts the reading process
             </summary>
         </member>
-        <member name="M:VideoWall.Data.Kinect.KinectReplayFile.#ctor(System.String)">
+        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.Dispose">
             <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.KinectReplayFile"/> class.
+              Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
-            <param name="path"> The path of the replay file. </param>
         </member>
-        <member name="P:VideoWall.Data.Kinect.KinectReplayFile.Path">
+        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.OnSkeletonFrameReady(System.Object,Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs)">
             <summary>
-              Gets or sets the path of the replay file.
+              Called when [skeleton frame ready].
             </summary>
-            <value> The path. </value>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see>
+                                   <cref>Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs</cref>
+                                 </see> instance containing the event data. </param>
+        </member>
+        <member name="E:VideoWall.Data.Kinect.FileSkeletonReader.SkeletonsReady">
+            <summary>
+              Occurs when [skeletons ready].
+            </summary>
         </member>
         <member name="T:VideoWall.Data.Kinect.AutoPlayFileSkeletonReader">
             <summary>
@@ -143,40 +145,38 @@
               Occurs when the next skeletons frame is ready.
             </summary>
         </member>
-        <member name="T:VideoWall.Data.Kinect.FileSkeletonReader">
+        <member name="T:VideoWall.Data.Kinect.SkeletonsReadyEventArgs">
             <summary>
               Reviewed by Christina Heidt, 23.03.2012
             </summary>
         </member>
-        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.#ctor(VideoWall.Data.Kinect.KinectReplayFile)">
+        <member name="M:VideoWall.Data.Kinect.SkeletonsReadyEventArgs.#ctor(Microsoft.Kinect.Skeleton[])">
             <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.FileSkeletonReader"/> class.
+              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.SkeletonsReadyEventArgs"/> class.
             </summary>
-            <param name="kinectReplayFile"> The kinect replay file. </param>
+            <param name="skeletons"> The skeletons. </param>
         </member>
-        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.Start">
+        <member name="P:VideoWall.Data.Kinect.SkeletonsReadyEventArgs.Skeletons">
             <summary>
-              Starts the reading process
-            </summary>
-        </member>
-        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.Dispose">
-            <summary>
-              Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+              Gets the skeletons.
             </summary>
         </member>
-        <member name="M:VideoWall.Data.Kinect.FileSkeletonReader.OnSkeletonFrameReady(System.Object,Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs)">
+        <member name="T:VideoWall.Data.Kinect.KinectReplayFile">
             <summary>
-              Called when [skeleton frame ready].
+              Reviewed by Christina Heidt, 23.03.2012
             </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see>
-                                   <cref>Kinect.Toolbox.Record.ReplaySkeletonFrameReadyEventArgs</cref>
-                                 </see> instance containing the event data. </param>
         </member>
-        <member name="E:VideoWall.Data.Kinect.FileSkeletonReader.SkeletonsReady">
+        <member name="M:VideoWall.Data.Kinect.KinectReplayFile.#ctor(System.String)">
             <summary>
-              Occurs when [skeletons ready].
+              Initializes a new instance of the <see cref="T:VideoWall.Data.Kinect.KinectReplayFile"/> class.
             </summary>
+            <param name="path"> The path of the replay file. </param>
+        </member>
+        <member name="P:VideoWall.Data.Kinect.KinectReplayFile.Path">
+            <summary>
+              Gets or sets the path of the replay file.
+            </summary>
+            <value> The path. </value>
         </member>
     </members>
 </doc>

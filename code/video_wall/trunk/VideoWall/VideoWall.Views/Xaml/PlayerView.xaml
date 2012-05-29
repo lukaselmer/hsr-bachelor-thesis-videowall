@@ -8,7 +8,7 @@
              xmlns:Skeletton="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels"
              xmlns:Views1="clr-namespace:VideoWall.Views.Xaml" mc:Ignorable="d" d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel}">
     <Grid>
-        <Border BorderBrush="AliceBlue" BorderThickness="3">
+        <Border>
             <Canvas VerticalAlignment="Stretch" Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}" HorizontalAlignment="Stretch">
                 <Views1:SkeletonLinesView DataContext="{Binding .}" />
             </Canvas>
