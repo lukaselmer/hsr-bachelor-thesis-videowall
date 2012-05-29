@@ -1073,5 +1073,61 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
+		<Button Content="Poster" HorizontalAlignment="Left" Margin="7.083,0,0,121.373" Style="{DynamicResource MenuButtonStyle}" VerticalAlignment="Bottom" Width="75" BorderThickness="0.5,0" Foreground="White">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF66A3C8"/>
+					<GradientStop Color="#FF3384B5" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+			<Button.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0.073"/>
+					<GradientStop Color="Black" Offset="0.5"/>
+				</LinearGradientBrush>
+			</Button.BorderBrush>
+		</Button>
+		<Button Content="Poster" HorizontalAlignment="Left" Margin="82.083,0,0,121.373" Style="{DynamicResource MenuButtonStyle}" VerticalAlignment="Bottom" Width="75" BorderThickness="0.5,0" Foreground="White">
+			<Button.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0.073"/>
+					<GradientStop Color="Black" Offset="0.5"/>
+				</LinearGradientBrush>
+			</Button.BorderBrush>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF66A3C8"/>
+					<GradientStop Color="#FF3384B5" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button Content="Poster" Margin="157.083,0,0,121.373" Style="{DynamicResource MenuButtonStyle}" VerticalAlignment="Bottom" BorderThickness="0.5,0" HorizontalAlignment="Left" Width="75">
+			<Button.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0.073"/>
+					<GradientStop Color="Black" Offset="0.5"/>
+				</LinearGradientBrush>
+			</Button.BorderBrush>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFEEEEEE"/>
+					<GradientStop Color="White" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button Content="Poster" Margin="232.083,0,0,121.373" Style="{DynamicResource MenuButtonStyle}" VerticalAlignment="Bottom" BorderThickness="0.5,0" Foreground="White" HorizontalAlignment="Left" Width="75">
+			<Button.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0.073"/>
+					<GradientStop Color="Black" Offset="0.5"/>
+				</LinearGradientBrush>
+			</Button.BorderBrush>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF66A3C8"/>
+					<GradientStop Color="#FF3384B5" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
 	</Grid>
 </Window>
