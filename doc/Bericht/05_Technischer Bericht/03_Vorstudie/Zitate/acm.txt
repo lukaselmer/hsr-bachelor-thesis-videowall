@@ -3,12 +3,11 @@ Pages 117-124
 ACM New York, NY, USA ©2009
 table of contents ISBN: 978-1-60558-733-2 doi>10.1145/1731903.1731927
 
+http://dl.acm.org/citation.cfm?id=1731903.1731927
+Alexander Schick, Florian van de Camp, Joris Ijsselmuiden and Rainer Stiefelhagen, Extending Touch: Towards Interaction with Large-Scale Surfaces. ACM International Conference on Interactive Tabletops and Surfaces 2009, Banff, Alberta, Canada.
 
-Alexander Schick, Florian van de Camp, Joris
-Ijsselmuiden and Rainer Stiefelhagen, Extending
-Touch: Towards Interaction with Large-Scale Surfaces.
-ACM International Conference on Interactive Tabletops
-and Surfaces 2009, Banff, Alberta, Canada.
+
+Peltonen, P., Kurvinen, E., Salovaara, A., Jacucci, G., Ilmonen, T., Evans, J., Oulasvirta, A., and Saarikko, P. It’s Mine, Don’t Touch!: interactions at a large multitouch display in a city centre. In Proc. of CHI '08. ACM, NY, USA, 2008, pp. 1285-1294.
 
 
 Video Wall HW Setup:
