@@ -30,3 +30,12 @@ other wall 1:
 Rekimoto, J., Matsushita, N.: Perceptual Surfaces:
 Towards a Human and Object Sensitive Interactive
 Display.Workshop on Perceptural User Interfaces (1997)
+
+
+
+
+[eilbrecht07]
+Karl Eilbrecht, Gernot Starkte, "Patterns kompakt, Entwurfsmuster für effective Software-Entwicklung", 2. Auflage, Spektrum Verlag, ISBN-13: 978-3-8274-1591-2, 2007
+
+
+Schmidt, Douglas C.; Michael Stal, Hans Rohnert, Frank Buschmann (2000). Pattern-Oriented Software Architecture, Volume 2: Patterns for Concurrent and Networked Objects. John Wiley & Sons. ISBN 0-471-60695-2.
