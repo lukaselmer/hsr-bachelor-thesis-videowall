@@ -21,6 +21,7 @@ using System.Windows;
 using System.Windows.Media;
 using Microsoft.Kinect;
 using VideoWall.Common;
+using VideoWall.Interfaces;
 using VideoWall.ResourceLoader;
 using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ServiceModels.Player;
@@ -147,9 +148,9 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void PlayerModelChanged(object sender, PropertyChangedEventArgs e)
+        private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
-            if (e.PropertyName != "Skeleton") return;
+            //if (e.PropertyName != "Skeleton") return;
 
             if (_skeletonHistory.Count >= CursorSmoothingLevel) _skeletonHistory.Dequeue();
             _skeletonHistory.Enqueue(_player.Skeleton);

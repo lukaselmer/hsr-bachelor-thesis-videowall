@@ -22,6 +22,7 @@ using System.Windows.Input;
 using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
 using VideoWall.Common;
+using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
 
 #endregion
@@ -95,7 +96,7 @@ namespace VideoWall.ViewModels.Skeletton
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        private void PlayerModelChanged(object sender, PropertyChangedEventArgs e)
+        private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
             Lines.Clear();
             if (Skeleton != null) DrawLines();
@@ -146,7 +147,7 @@ namespace VideoWall.ViewModels.Skeletton
         /// </summary>
         public void Dispose()
         {
-            _player.PropertyChanged -= Notify;
+            _player.PropertyChanged -= PlayerModelChanged;
             _player.StopPlaying();
         }
 

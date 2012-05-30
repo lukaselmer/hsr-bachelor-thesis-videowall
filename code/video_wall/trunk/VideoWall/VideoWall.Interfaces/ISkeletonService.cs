@@ -5,6 +5,9 @@ namespace VideoWall.Interfaces
     /// </summary>
     public interface ISkeletonService : IVideoWallService
     {
+        /// <summary>
+        /// Occurs when skeleton changes.
+        /// </summary>
         event SkeletonChangedEvent SkeletonChanged;
     }
 }

@@ -22,6 +22,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common;
+using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
 using VideoWall.ViewModels.Skeletton;
@@ -188,7 +189,7 @@ namespace VideoWall.ViewModels.DemoMode
             }
         }
 
-        private void OnPlayerChanged(object sender, PropertyChangedEventArgs e)
+        private void OnPlayerChanged(object sender, SkeletonChangedEventArgs args)
         {
             if (_player.Skeleton != null) ModeTimer.SkeletonChanged();
         }
