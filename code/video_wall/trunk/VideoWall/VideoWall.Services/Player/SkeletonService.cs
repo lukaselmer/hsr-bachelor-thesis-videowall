@@ -12,12 +12,22 @@ namespace VideoWall.ServiceModels.Player
     /// </summary>
     public class SkeletonService : ISkeletonService
     {
+        #region Declarations
+
         private readonly Player _player;
+
+        #endregion
+
+        #region Events
 
         /// <summary>
         /// Occurs when skeleton changes.
         /// </summary>
         public event SkeletonChangedEvent SkeletonChanged = delegate { };
+
+        #endregion
+
+        #region Constructor / Destructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SkeletonService"/> class.
@@ -29,11 +39,18 @@ namespace VideoWall.ServiceModels.Player
             _player.PropertyChanged += PlayerChanged;
         }
 
+        #endregion
+
+        #region Methods
+
         private void PlayerChanged(object sender, SkeletonChangedEventArgs args)
         {
             //if(!_player.Playing) return;
             if(args.Skeleton == null) return;
             SkeletonChanged(this, new SkeletonChangedEventArgs(args.Skeleton));
         }
+
+        #endregion
+
     }
 }
