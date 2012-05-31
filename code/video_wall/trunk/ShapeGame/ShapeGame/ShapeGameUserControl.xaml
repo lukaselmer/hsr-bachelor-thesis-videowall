@@ -4,16 +4,15 @@
              Loaded="WindowLoaded" >
     <!-- Closed="WindowClosed" Closing="WindowClosing"-->
     <Grid>
-        <StackPanel Orientation="Vertical" Background="#FF46BC44">
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fff" Offset="0.05" />
+                    <GradientStop Color="#cce0ed" Offset="0.238" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
             <Grid>
                 <Canvas Margin="0" Name="playfield" Height="688" Width="619" SizeChanged="PlayfieldSizeChanged">
-                    <Canvas.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#D9040833" Offset="0.238" />
-                            <GradientStop Color="#FF46BC44" Offset="1" />
-                            <GradientStop Color="#E61747B2" Offset="0.811" />
-                        </LinearGradientBrush>
-                    </Canvas.Background>
                 </Canvas>
                 <!--<kt:KinectColorViewer x:Name="kinectViewer" Margin="0,18,19,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top"
                                       Kinect="{Binding ElementName=SensorChooser,Path=Kinect}"/>-->
