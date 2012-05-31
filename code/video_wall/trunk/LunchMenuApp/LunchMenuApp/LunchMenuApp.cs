@@ -26,7 +26,7 @@ using VideoWall.Interfaces;
 namespace LunchMenuApp.Main
 {
     /// <summary>
-    ///   Initializes a new launch menu app
+    ///   Initializes a new lunch menu app.
     /// </summary>
     [Export(typeof (IApp))]
     public class LunchMenuApp : IApp

@@ -23,9 +23,13 @@ using VideoWall.Common;
 namespace LunchMenuApp.ServiceModels
 {
 	/// <summary>
-	///   The LunchMenuService.
+	///   The lunch menu service.
 	/// </summary>
+// ReSharper disable ClassNeverInstantiated.Global
+    // Class is instantiated by the unity container, so ReSharper thinks that
+    // this class could be made abstract, which is wrong
 	public class LunchMenuService : Notifier
+// ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 

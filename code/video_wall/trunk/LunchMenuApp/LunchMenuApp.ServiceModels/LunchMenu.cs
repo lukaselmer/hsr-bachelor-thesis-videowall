@@ -22,7 +22,7 @@ using System.Collections.Generic;
 namespace LunchMenuApp.ServiceModels
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The lunch menu. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     public class LunchMenu
     {

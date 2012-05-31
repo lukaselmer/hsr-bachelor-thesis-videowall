@@ -52,6 +52,7 @@
     <Compile Include="LunchMenu.cs" />
     <Compile Include="LunchMenuParser.cs" />
     <Compile Include="LunchMenuService.cs" />
+    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

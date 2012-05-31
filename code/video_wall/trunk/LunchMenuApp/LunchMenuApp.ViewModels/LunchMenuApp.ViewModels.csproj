@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DishViewModel.cs" />
     <Compile Include="LunchMenuViewModel.cs" />
+    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

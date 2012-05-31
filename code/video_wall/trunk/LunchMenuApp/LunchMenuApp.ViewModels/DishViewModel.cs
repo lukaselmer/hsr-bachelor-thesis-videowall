@@ -23,7 +23,7 @@ using VideoWall.Common;
 namespace LunchMenuApp.ViewModels
 {
     /// <summary>
-    ///   The dish view model represents a dish
+    ///   The dish view model represents a dish.
     /// </summary>
     public class DishViewModel : Notifier
     {

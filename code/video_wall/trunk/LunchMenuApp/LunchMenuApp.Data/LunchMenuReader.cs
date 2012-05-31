@@ -24,7 +24,7 @@ using VideoWall.Common;
 namespace LunchMenuApp.Data
 {
     /// <summary>
-    ///   The LuchMenu reader.
+    ///   The luch menu reader.
     /// </summary>
     public class LunchMenuReader
     {

@@ -53,6 +53,7 @@
     <Compile Include="LunchMenuView.xaml.cs">
       <DependentUpon>LunchMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
