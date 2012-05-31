@@ -68,7 +68,7 @@
             <param name="player"> The player. </param>
             <param name="handCursorPositionCalculator"> The handCursorPositionCalculator. </param>
         </member>
-        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.PlayerModelChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+        <member name="M:VideoWall.ViewModels.Cursor.KinectCursorViewModel.PlayerModelChanged(System.Object,VideoWall.Interfaces.SkeletonChangedEventArgs)">
             <summary>
               Notifies when the PlayerModel was changed.
             </summary>
@@ -131,7 +131,7 @@
             </summary>
             <param name="player"> The player. </param>
         </member>
-        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.PlayerModelChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+        <member name="M:VideoWall.ViewModels.Skeletton.PlayerViewModel.PlayerModelChanged(System.Object,VideoWall.Interfaces.SkeletonChangedEventArgs)">
             <summary>
               Notifies when the PlayerModel was changed.
             </summary>

@@ -12,9 +12,8 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <Grid>
-                <Canvas Margin="0" Name="playfield" Height="688" Width="619" SizeChanged="PlayfieldSizeChanged">
-                </Canvas>
-                <!--<kt:KinectColorViewer x:Name="kinectViewer" Margin="0,18,19,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top"
+                <Canvas Margin="0" Name="playfield" Height="688" Width="619" SizeChanged="PlayfieldSizeChanged" />
+              <!--<kt:KinectColorViewer x:Name="kinectViewer" Margin="0,18,19,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top"
                                       Kinect="{Binding ElementName=SensorChooser,Path=Kinect}"/>-->
                 <!--<kt:KinectSensorChooser Margin="0,18,19,0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="SensorChooser" />-->
             </Grid>

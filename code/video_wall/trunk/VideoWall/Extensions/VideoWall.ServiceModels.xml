@@ -25,6 +25,22 @@
               The absolute padding. Reviewed by Christina Heidt, 17.04.2012
             </summary>
         </member>
+        <member name="T:VideoWall.ServiceModels.Player.SkeletonService">
+            <summary>
+            The skeleton service provides events when the skeleton changes.
+            </summary>
+        </member>
+        <member name="M:VideoWall.ServiceModels.Player.SkeletonService.#ctor(VideoWall.ServiceModels.Player.Player)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.ServiceModels.Player.SkeletonService"/> class.
+            </summary>
+            <param name="player">The player.</param>
+        </member>
+        <member name="E:VideoWall.ServiceModels.Player.SkeletonService.SkeletonChanged">
+            <summary>
+            Occurs when skeleton changes.
+            </summary>
+        </member>
         <member name="T:VideoWall.ServiceModels.Player.Player">
             <summary>
               The Player. Reviewed by Christina Heidt, 23.03.2012
@@ -64,6 +80,13 @@
               Gets a value indicating whether this <see cref="T:VideoWall.ServiceModels.Player.Player"/> is playing.
             </summary>
             <value> <c>true</c> if playing; otherwise, <c>false</c> . </value>
+        </member>
+        <member name="E:VideoWall.ServiceModels.Player.Player.PropertyChanged">
+            <summary>
+              Occurs when a property value changes.
+            </summary>
+            <remarks>
+            </remarks>
         </member>
         <member name="T:VideoWall.ServiceModels.HandCursor.HandType">
             <summary>
