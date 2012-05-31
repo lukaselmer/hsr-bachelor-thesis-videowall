@@ -34,7 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Kinect.Toolbox">
-      <HintPath>..\..\..\..\miniapps\trunk\KinectRecorder\packages\KinectToolbox.1.1.1.2\lib\Kinect.Toolbox.dll</HintPath>
+      <HintPath>..\packages\KinectToolbox.1.1.1.2\lib\Kinect.Toolbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Kinect.Toolbox.Voice">
+      <HintPath>..\packages\KinectToolbox.1.1.1.2\lib\Kinect.Toolbox.Voice.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
