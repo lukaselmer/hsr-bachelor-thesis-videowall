@@ -59,7 +59,6 @@ namespace VideoWall.ServiceModels.Player
 
         #endregion
 
-
         #region Events
 
         /// <summary>
