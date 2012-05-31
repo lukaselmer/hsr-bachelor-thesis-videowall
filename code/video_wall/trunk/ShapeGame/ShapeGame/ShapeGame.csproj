@@ -90,22 +90,10 @@
     <Compile Include="ShapeGameUserControl.xaml.cs">
       <DependentUpon>ShapeGameUserControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FallingShapes.cs" />
     <Compile Include="FlyingText.cs" />
     <Compile Include="FallingThings.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="ShapeGameUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,21 +165,9 @@
       <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
       <Name>VideoWall.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\VideoWall\VideoWall.Data\VideoWall.Data.csproj">
-      <Project>{A59F6BBD-F6FC-49D3-B613-B92E38E031D9}</Project>
-      <Name>VideoWall.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\VideoWall\VideoWall.Interfaces\VideoWall.Interfaces.csproj">
       <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
       <Name>VideoWall.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VideoWall\VideoWall.Services\VideoWall.ServiceModels.csproj">
-      <Project>{C8F81AF4-F9CB-4DE1-9848-B50C4D12C42F}</Project>
-      <Name>VideoWall.ServiceModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VideoWall\VideoWall.ViewModels\VideoWall.ViewModels.csproj">
-      <Project>{F8C66FF4-152F-42A7-B550-D134F5D26B0B}</Project>
-      <Name>VideoWall.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\KinectWpfViewers\Microsoft.Samples.Kinect.WpfViewers.csproj">
       <Project>{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}</Project>

@@ -12,7 +12,6 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using Microsoft.Kinect;
 using ShapeGame.Utils;
-using VideoWall.Data.Kinect;
 using VideoWall.Interfaces;
 
 
@@ -59,8 +58,7 @@ namespace ShapeGame
         private int frameCount;
         private bool runningGameThread;
         private FallingThings myFallingThings;
-        private int playersAlive;
-        //private VideoWall.ServiceModels.Player.Player _kinectService;
+        private int _playersAlive;
         private ISkeletonService _skeletonService;
 
         #endregion Private State
@@ -71,8 +69,7 @@ namespace ShapeGame
         {
             InitializeComponent();
             _skeletonService = skeletonService;
-            InitializeKinectServices();
-            //this.RestoreWindowState();
+            _skeletonService.SkeletonChanged += SkeletonsReady;
         }
 
         // Since the timer resolution defaults to about 10ms precisely, we need to
@@ -129,7 +126,7 @@ namespace ShapeGame
             FlyingText.NewFlyingText(this.screenRect.Width / 30, new Point(this.screenRect.Width / 2, this.screenRect.Height / 2), "Shapes!");
         }
 
-        private void WindowClosing(object sender, CancelEventArgs e)
+        private void WindowClosing(object sender, EventArgs e)
         {
             this.runningGameThread = false;
             //Properties.Settings.Default.PrevWinPosition = this.RestoreBounds;
@@ -141,6 +138,7 @@ namespace ShapeGame
         {
             //SensorChooser.Kinect = null;
             //_kinectService.StopPlaying();
+            _skeletonService.SkeletonChanged -= SkeletonsReady;
             _skeletonService = null;
         }
 
@@ -150,35 +148,6 @@ namespace ShapeGame
 
 
         // Kinect enabled apps should customize which Kinect services it initializes here.
-        private void InitializeKinectServices()
-        {
-            // Application should enable all streams first.
-            //sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
-
-            //sensor.SkeletonFrameReady += this.SkeletonsReady;
-            //_kinectService.PropertyChanged += SkeletonsReady;
-            _skeletonService.SkeletonChanged += SkeletonsReady;
-            /*sensor.SkeletonStream.Enable(new TransformSmoothParameters()
-                                             {
-                                                 Smoothing = 0.5f,
-                                                 Correction = 0.5f,
-                                                 Prediction = 0.5f,
-                                                 JitterRadius = 0.05f,
-                                                 MaxDeviationRadius = 0.04f
-                                             });*/
-
-            /*try
-            {
-                //sensor.Start();
-            }
-            catch (IOException)
-            {
-                //SensorChooser.AppConflictOccurred();
-                return null;
-            }*/
-
-            //return sensor;
-        }
 
         // Kinect enabled apps should uninitialize all Kinect services that were initialized in InitializeKinectServices() here.
         private void UninitializeKinectServices(KinectSensor sensor)
@@ -290,7 +259,7 @@ namespace ShapeGame
             // Count alive players
             int alive = this.players.Count(player => player.Value.IsAlive);
 
-            if (alive != this.playersAlive)
+            if (alive != this._playersAlive)
             {
                 if (alive == 2)
                 {
@@ -305,7 +274,7 @@ namespace ShapeGame
                     this.myFallingThings.SetGameMode(GameMode.Off);
                 }
 
-                if ((this.playersAlive == 0))
+                if ((this._playersAlive == 0))
                 {
                     BannerText.NewBanner(
                         Properties.Resources.Vocabulary,
@@ -314,7 +283,7 @@ namespace ShapeGame
                         System.Windows.Media.Color.FromArgb(200, 255, 255, 255));
                 }
 
-                this.playersAlive = alive;
+                this._playersAlive = alive;
             }
         }
 

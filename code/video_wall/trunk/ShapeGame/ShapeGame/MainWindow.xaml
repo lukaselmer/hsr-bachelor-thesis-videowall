@@ -1,9 +1,0 @@
-﻿<Window x:Class="ShapeGame.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:kt="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ShapeGame="clr-namespace:ShapeGame"
-        Title="Kinect Shape Game" FontStyle="Italic" SizeToContent="WidthAndHeight"
-        >
-    <ShapeGame:ShapeGameUserControl></ShapeGame:ShapeGameUserControl>
-    
-</Window>

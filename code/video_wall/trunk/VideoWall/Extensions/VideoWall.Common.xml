@@ -45,6 +45,11 @@
             <remarks>
             </remarks>
         </member>
+        <member name="T:VideoWall.Common.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
+            </summary>
+        </member>
         <member name="T:VideoWall.Common.PreOrPostCondition">
             <summary>
               Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.

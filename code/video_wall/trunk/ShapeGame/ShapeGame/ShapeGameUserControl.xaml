@@ -1,8 +1,7 @@
 <UserControl x:Class="ShapeGame.ShapeGameUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Loaded="WindowLoaded" >
-    <!-- Closed="WindowClosed" Closing="WindowClosing"-->
+    Loaded="WindowLoaded" Unloaded="WindowClosing">
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel.Background>
