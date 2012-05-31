@@ -42,13 +42,13 @@ namespace VideoWall.ServiceModels.Apps
         /// </summary>
         /// <param name="app"> The app. </param>
         /// <param name="skeletonService"> </param>
-        public ProductionVideoWallServiceProvider(IApp app, SkeletonService skeletonService)
+        public ProductionVideoWallServiceProvider(IApp app, ISkeletonService skeletonService)
         {
             _appExtensionsContainer = new UnityContainer();
 
             // TODO: do this lazy
             _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app));
-            _appExtensionsContainer.RegisterInstance<ISkeletonService>(skeletonService);
+            _appExtensionsContainer.RegisterInstance(skeletonService);
         }
 
         #endregion

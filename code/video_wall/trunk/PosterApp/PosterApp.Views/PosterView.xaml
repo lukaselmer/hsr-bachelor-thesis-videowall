@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Posters="clr-namespace:PosterApp.ViewModels;assembly=PosterApp.ViewModels" mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="700" d:DesignWidth="1000"
              d:DataContext="{d:DesignInstance Posters:PosterViewModel, IsDesignTimeCreatable=False}">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -15,12 +15,12 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Width="75" Margin="0 70">Links</Button>
+        <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Margin="0 70 10 70">Links</Button>
         <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}"></Image>
-        <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Width="75" Margin="0 70">Rechts</Button>
+        <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Margin="10 70 0 70">Rechts</Button>
     </Grid>
 </UserControl>

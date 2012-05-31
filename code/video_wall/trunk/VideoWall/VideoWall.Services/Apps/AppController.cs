@@ -36,7 +36,7 @@ namespace VideoWall.ServiceModels.Apps
         // ReSharper restore ClassNeverInstantiated.Global
     {
         private readonly Player.Player _player;
-        private SkeletonService _skeletonService;
+        private readonly SkeletonService _skeletonService;
 
         #region Properties
 
