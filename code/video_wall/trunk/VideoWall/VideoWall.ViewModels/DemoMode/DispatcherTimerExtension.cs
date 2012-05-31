@@ -42,7 +42,7 @@ namespace VideoWall.ViewModels.DemoMode
         ///   Gets the interval seconds.
         /// </summary>
         /// <param name="timer"> The timer. </param>
-        /// <returns> </returns>
+        /// <returns> The interval in seconds.  </returns>
         public static int GetIntervalSeconds(this DispatcherTimer timer)
         {
             return timer.Interval.Seconds;

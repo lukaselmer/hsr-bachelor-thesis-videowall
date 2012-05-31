@@ -71,9 +71,11 @@ namespace VideoWall.ServiceModels.HandCursor
 
         #region Constructors / Destructor
 
+
         /// <summary>
-        ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
+        /// Initializes a new instance of the <see cref="HandCursorPositionCalculator"/> class.
         /// </summary>
+        /// <param name="relativePaddingForRightHanded">The relative padding for right hander.</param>
         public HandCursorPositionCalculator(RelativePadding relativePaddingForRightHanded)
         {
             //TODO: Magic numbers. Where do these come from? Needs explanation

@@ -53,7 +53,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// </summary>
         /// <param name="player"> The player. </param>
         /// <param name="menuViewModel"> The menu view model. </param>
-        /// <param name="playerViewModel"> </param>
+        /// <param name="playerViewModel"> The player view model. </param>
         public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel)
         {
             InitColors();

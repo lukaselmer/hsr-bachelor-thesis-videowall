@@ -68,16 +68,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cursor\NamespaceDoc.cs" />
     <Compile Include="DemoMode\DemoModeViewModel.cs" />
     <Compile Include="DemoMode\DispatcherTimerExtension.cs" />
     <Compile Include="DemoMode\ModeTimer.cs" />
+    <Compile Include="DemoMode\NamespaceDoc.cs" />
     <Compile Include="Helpers\Command.cs" />
+    <Compile Include="Helpers\NamespaceDoc.cs" />
     <Compile Include="HitButton\HitStateArgs.cs" />
     <Compile Include="HitButton\HitTestHelper.cs" />
     <Compile Include="Cursor\ICursorViewModel.cs" />
     <Compile Include="Cursor\KinectCursorViewModel.cs" />
+    <Compile Include="HitButton\NamespaceDoc.cs" />
+    <Compile Include="Main\NamespaceDoc.cs" />
     <Compile Include="Menu\AppViewModel.cs" />
     <Compile Include="Menu\MenuStyleViewModel.cs" />
+    <Compile Include="Menu\NamespaceDoc.cs" />
+    <Compile Include="Skeletton\NamespaceDoc.cs" />
     <Compile Include="Skeletton\SkeletonLine.cs" />
     <Compile Include="Main\MainWindowViewModel.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
