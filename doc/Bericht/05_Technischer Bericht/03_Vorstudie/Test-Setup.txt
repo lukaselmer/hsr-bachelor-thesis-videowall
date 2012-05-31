@@ -2,7 +2,7 @@ Test-Setup
 
 Beamer
 
-Mini Video Wall (2x2)
+Mini Videowall (2x2)
 
 grosser Bildschirm
 
@@ -23,4 +23,4 @@ Höhe = 205.4685 cm
 Höhe in px = 3240 + 2 x 16 = 3272 px
 Breite in px = 5760 + 2 x 16 = 5792 px
 
-Video Wall Monitore haben geringen Rahmen. Bei grosser Fläche stört dies kaum (Unterbrechen von Buchstaben).
+Videowall Monitore haben geringen Rahmen. Bei grosser Fläche stört dies kaum (Unterbrechen von Buchstaben).
