@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Posters="clr-namespace:PosterApp.ViewModels;assembly=PosterApp.ViewModels" mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1000"
+             d:DesignHeight="540" d:DesignWidth="960"
              d:DataContext="{d:DesignInstance Posters:PosterViewModel, IsDesignTimeCreatable=False}">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -16,11 +16,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Button Style="{StaticResource ArrowLeft}" Grid.Column="0" Command="{Binding NavigateToLeftCommand}" Margin="0 70">Links</Button>
-        <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}" HorizontalAlignment="Stretch"></Image>
+        <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}" />
         <Button Style="{StaticResource ArrowRight}" Grid.Column="2" Command="{Binding NavigateToRightCommand}" Margin="0 70">Rechts</Button>
     </Grid>
 </UserControl>
