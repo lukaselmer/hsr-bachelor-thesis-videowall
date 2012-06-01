@@ -33,7 +33,7 @@ namespace VideoWall.Common
         ///   Initializes an image with a file name.
         /// </summary>
         /// <param name="fileName"> Name of the file. </param>
-        /// <returns> </returns>
+        /// <returns> The image. </returns>
         public static BitmapImage InitWithFileName(string fileName)
         {
             var image = new BitmapImage();
