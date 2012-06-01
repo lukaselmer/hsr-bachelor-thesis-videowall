@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		VideoWall.vsmdi = VideoWall.vsmdi
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Main", "VideoWall.Main\VideoWall.Main.csproj", "{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = VideoWall.vsmdi
@@ -117,6 +119,16 @@ Global
 		{8CAB0A92-32FA-440D-B734-D26BC5D283EF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8CAB0A92-32FA-440D-B734-D26BC5D283EF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8CAB0A92-32FA-440D-B734-D26BC5D283EF}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Debug|x86.ActiveCfg = Debug|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Debug|x86.Build.0 = Debug|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Release|Any CPU.ActiveCfg = Release|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Release|Mixed Platforms.Build.0 = Release|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Release|x86.ActiveCfg = Release|x86
+		{7A7B18E0-803B-42AE-999B-D8E0CB2C35A5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

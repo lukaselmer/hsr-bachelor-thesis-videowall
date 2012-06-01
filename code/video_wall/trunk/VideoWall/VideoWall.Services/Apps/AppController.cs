@@ -33,7 +33,7 @@ namespace VideoWall.ServiceModels.Apps
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class AppController
-        // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 

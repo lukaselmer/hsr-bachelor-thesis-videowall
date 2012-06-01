@@ -25,7 +25,7 @@ using VideoWall.Views.Xaml;
 
 #endregion
 
-namespace VideoWall.Views
+namespace VideoWall.Main
 {
     /// <summary>
     ///   Interaction logic for App.xaml.
