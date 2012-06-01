@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A85A8E5F-6336-48F9-AFCB-F8D56D8052A8}</ProjectGuid>
+    <ProjectGuid>{4675A082-2DC0-4EDF-BD5E-0DD8E08DFB0D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PosterApp.ViewModels</RootNamespace>
-    <AssemblyName>PosterApp.ViewModels</AssemblyName>
+    <RootNamespace>PosterApp.Tests</RootNamespace>
+    <AssemblyName>PosterApp.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\PosterApp.ViewModels.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,20 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="NamespaceDoc.cs" />
-    <Compile Include="PosterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\VideoWall\VideoWall.Common\VideoWall.Common.csproj">
-      <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
-      <Name>VideoWall.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PosterApp.ServiceModels\PosterApp.ServiceModels.csproj">
-      <Project>{09C8D809-E782-4936-8503-9AD9E53A4987}</Project>
-      <Name>PosterApp.ServiceModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
