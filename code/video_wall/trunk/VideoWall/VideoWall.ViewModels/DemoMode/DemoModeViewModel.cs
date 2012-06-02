@@ -17,7 +17,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -25,6 +27,7 @@ using VideoWall.Common;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
+using VideoWall.ViewModels.Properties;
 using VideoWall.ViewModels.Skeletton;
 
 #endregion
@@ -221,7 +224,12 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void InitColors()
         {
-            Colors = new List<Color> {Color.FromRgb(0, 98, 158), Color.FromRgb(200, 0, 89), Color.FromRgb(132, 181, 16), Color.FromRgb(242, 144, 0)};
+            var setting = new Settings();
+            //var settingsPropertyValueCollection = setting.PropertyValues;
+            Color fromRgb = Color.FromRgb(0, 101, 163);
+            Colors = new List<Color> {Settings.Default.hsrBlau, setting.hsrMalve, setting.hsrPlatane, setting.hsrRiet, setting.hsrSeegras, setting.hsrZuerichsee};
+
+            //Colors = new List<Color> {Color.FromRgb(0, 98, 158), Color.FromRgb(200, 0, 89), Color.FromRgb(132, 181, 16), Color.FromRgb(242, 144, 0)};
             CurrentColor = Colors.First();
         }
 
