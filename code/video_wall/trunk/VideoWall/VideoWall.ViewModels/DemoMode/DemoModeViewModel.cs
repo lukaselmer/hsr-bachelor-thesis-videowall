@@ -30,6 +30,8 @@ using VideoWall.ViewModels.Skeletton;
 
 #endregion
 
+// TODO: insert regions
+
 namespace VideoWall.ViewModels.DemoMode
 {
     /// <summary>
@@ -49,6 +51,51 @@ namespace VideoWall.ViewModels.DemoMode
         private Color _currentColor;
 
         private DemoModeState _state = DemoModeState.Inactive;
+
+        private readonly MenuViewModel _menuViewModel;
+        private readonly PlayerViewModel _playerViewModel;
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
+        /// </summary>
+        /// <param name="player">The player.</param>
+        /// <param name="menuViewModel">The menu view model.</param>
+        /// <param name="playerViewModel">The player view model.</param>
+        /// <param name="demoModeConfig">The demo mode config.</param>
+        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
+        {
+            //TODO: test preconditions
+
+            _demoModeConfig = demoModeConfig;
+
+            _player = player;
+            _player.PropertyChanged += OnPlayerChanged;
+
+            _menuViewModel = menuViewModel;
+            _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
+
+            _playerViewModel = playerViewModel;
+            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
+
+            ChangeColorAndApp();
+            InitModeTimer();
+
+            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
+        }
+
+        /// <summary>
+        ///   Gets or sets the player view model.
+        /// </summary>
+        /// <value> The player view model. </value>
+        public PlayerViewModel PlayerViewModel { get { return _playerViewModel; } }
+
+        /// <summary>
+        /// Gets or sets the state of the demo mode.
+        /// </summary>
+        /// <value>
+        /// The demo mode state.
+        /// </value>
         private DemoModeState State
         {
             get { return _state; }
@@ -65,39 +112,6 @@ namespace VideoWall.ViewModels.DemoMode
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
-        /// </summary>
-        /// <param name="player">The player.</param>
-        /// <param name="menuViewModel">The menu view model.</param>
-        /// <param name="playerViewModel">The player view model.</param>
-        /// <param name="demoModeConfig">The demo mode config.</param>
-        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
-        {
-            _demoModeConfig = demoModeConfig;
-
-            ChangeColor();
-            InitModeTimer();
-
-            _player = player;
-            _player.PropertyChanged += OnPlayerChanged;
-
-            MenuViewModel = menuViewModel;
-
-            PlayerViewModel = playerViewModel;
-            PlayerViewModel.WidthAndHeight = 500; //TODO: use relative value
-
-            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
-        }
-
-
-        /// <summary>
-        ///   Gets or sets the player view model.
-        /// </summary>
-        /// <value> The player view model. </value>
-        public PlayerViewModel PlayerViewModel { get; set; }
-
-
-        /// <summary>
         ///   Gets the visibility.
         /// </summary>
         public Visibility DemoModeVisibility
@@ -110,7 +124,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// </summary>
         public Visibility CountDownVisibility
         {
-            get { return State == DemoModeState.Countdown ? Visibility.Visible: Visibility.Collapsed; }
+            get { return State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; }
         }
 
         /// <summary>
@@ -122,9 +136,12 @@ namespace VideoWall.ViewModels.DemoMode
         }
 
         /// <summary>
-        ///   Gets or sets the MenuViewModel.
+        /// Gets the teaser text.
         /// </summary>
-        public MenuViewModel MenuViewModel { get; set; }
+        public string TeaserText
+        {
+            get { return _menuViewModel.CurrentApp.App.DemomodeText; }
+        }
 
         /// <summary>
         ///   Gets or sets the current color.
@@ -208,18 +225,13 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void ChangeColorAndApp()
         {
-            ChangeColor();
-            MenuViewModel.ChangeApp();
+            CurrentColor = _demoModeConfig.BackgroundColors.RandomElement();
+            _menuViewModel.ChangeToRandomApp();
         }
 
         private void OnChangeAppTimerTick(object sender, EventArgs e)
         {
             ChangeColorAndApp();
-        }
-
-        private void ChangeColor()
-        {
-            CurrentColor = _demoModeConfig.BackgroundColors.RandomElement();
         }
     }
 }

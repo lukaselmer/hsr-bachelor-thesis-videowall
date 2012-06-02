@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:DemoMode="clr-namespace:VideoWall.ViewModels.DemoMode;assembly=VideoWall.ViewModels"
-             xmlns:Helpers="clr-namespace:VideoWall.Views.Helpers" xmlns:Xaml1="clr-namespace:VideoWall.Views.Xaml"
+             xmlns:Xaml="clr-namespace:VideoWall.Views.Xaml"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
     <UserControl.Background>
         <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
@@ -12,12 +12,12 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding TeaserVisibility}">
             <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  
-                       Text="{Binding MenuViewModel.CurrentApp.App.DemomodeText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White" />
+                       Text="{Binding TeaserText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White" />
           <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding CountDownVisibility}">
             <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" />
-          <Xaml1:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}" />
+          <Xaml:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}" />
         </StackPanel>
     </Grid>
 </UserControl>

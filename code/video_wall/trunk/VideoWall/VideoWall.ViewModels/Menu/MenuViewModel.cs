@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using VideoWall.Common;
+using VideoWall.Common.Extensions;
 using VideoWall.ServiceModels.Apps;
 using VideoWall.ViewModels.Helpers;
 
@@ -34,7 +35,7 @@ namespace VideoWall.ViewModels.Menu
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class MenuViewModel : Notifier
-        // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
@@ -72,7 +73,6 @@ namespace VideoWall.ViewModels.Menu
                 PreOrPostCondition.AssertNotNull(value, "CurrentApp value");
                 if (_currentApp != null) CurrentApp.Selected = false;
                 _currentApp = value;
-                //TODO: doesn't this overwrite the if-clause?
                 _currentApp.Selected = true;
                 Notify("CurrentApp");
             }
@@ -109,9 +109,9 @@ namespace VideoWall.ViewModels.Menu
         /// <summary>
         ///   Changes the app.
         /// </summary>
-        public void ChangeApp()
+        public void ChangeToRandomApp()
         {
-            CurrentApp = Apps[_random.Next(0, Apps.Count)];
+            CurrentApp = Apps.RandomElement();
         }
 
         #endregion
