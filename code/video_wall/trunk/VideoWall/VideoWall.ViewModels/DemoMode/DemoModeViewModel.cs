@@ -50,6 +50,7 @@ namespace VideoWall.ViewModels.DemoMode
         private bool _isCountDownVisible;
         private bool _isTextVisible;
         private Visibility _visibility = Visibility.Collapsed;
+        private Settings _setting ;
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="DemoModeViewModel" /> class.
@@ -224,12 +225,12 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void InitColors()
         {
-            var setting = new Settings();
-            //var settingsPropertyValueCollection = setting.PropertyValues;
-            Color fromRgb = Color.FromRgb(0, 101, 163);
-            Colors = new List<Color> {Settings.Default.hsrBlau, setting.hsrMalve, setting.hsrPlatane, setting.hsrRiet, setting.hsrSeegras, setting.hsrZuerichsee};
-
-            //Colors = new List<Color> {Color.FromRgb(0, 98, 158), Color.FromRgb(200, 0, 89), Color.FromRgb(132, 181, 16), Color.FromRgb(242, 144, 0)};
+            _setting = new Settings();
+            Colors = new List<Color>();
+            foreach (SettingsProperty sp in Settings.Default.Properties)
+            {
+                Colors.Add((Color)_setting[sp.Name]);
+            }
             CurrentColor = Colors.First();
         }
 
