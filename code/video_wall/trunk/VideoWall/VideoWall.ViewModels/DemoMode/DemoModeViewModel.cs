@@ -43,6 +43,7 @@ namespace VideoWall.ViewModels.DemoMode
     public class DemoModeViewModel : Notifier
     // ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Declarations
 
         private readonly Player _player;
         private readonly DemoModeConfig _demoModeConfig;
@@ -55,34 +56,9 @@ namespace VideoWall.ViewModels.DemoMode
         private readonly MenuViewModel _menuViewModel;
         private readonly PlayerViewModel _playerViewModel;
 
+        #endregion
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
-        /// </summary>
-        /// <param name="player">The player.</param>
-        /// <param name="menuViewModel">The menu view model.</param>
-        /// <param name="playerViewModel">The player view model.</param>
-        /// <param name="demoModeConfig">The demo mode config.</param>
-        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
-        {
-            //TODO: test preconditions
-
-            _demoModeConfig = demoModeConfig;
-
-            _player = player;
-            _player.PropertyChanged += OnPlayerChanged;
-
-            _menuViewModel = menuViewModel;
-            _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
-
-            _playerViewModel = playerViewModel;
-            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
-
-            ChangeColorAndApp();
-            InitModeTimer();
-
-            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
-        }
+        #region Properties
 
         /// <summary>
         ///   Gets or sets the player view model.
@@ -174,6 +150,50 @@ namespace VideoWall.ViewModels.DemoMode
         /// </summary>
         private ModeTimer ModeTimer { get; set; }
 
+        #endregion
+
+        #region Constructor / Destructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
+        /// </summary>
+        /// <param name="player">The player.</param>
+        /// <param name="menuViewModel">The menu view model.</param>
+        /// <param name="playerViewModel">The player view model.</param>
+        /// <param name="demoModeConfig">The demo mode config.</param>
+        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
+        {
+            PreOrPostCondition.AssertNotNull(player, "player");
+            PreOrPostCondition.AssertNotNull(menuViewModel, "menuViewModel");
+            PreOrPostCondition.AssertNotNull(playerViewModel, "playerViewModel");
+            PreOrPostCondition.AssertNotNull(demoModeConfig, "demoModeConfig");
+
+            _demoModeConfig = demoModeConfig;
+
+            _player = player;
+            _player.PropertyChanged += OnPlayerChanged;
+
+            _menuViewModel = menuViewModel;
+            _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
+
+            _playerViewModel = playerViewModel;
+            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
+
+            ChangeColorAndApp();
+            InitModeTimer();
+
+            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void OnPlayerChanged(object sender, SkeletonChangedEventArgs args)
+        {
+            if (_player.Skeleton != null) ModeTimer.SkeletonChanged();
+        }
+
         private void InitModeTimer()
         {
             ModeTimer = new ModeTimer(_demoModeConfig);
@@ -206,11 +226,6 @@ namespace VideoWall.ViewModels.DemoMode
             }
         }
 
-        private void OnPlayerChanged(object sender, SkeletonChangedEventArgs args)
-        {
-            if (_player.Skeleton != null) ModeTimer.SkeletonChanged();
-        }
-
         private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {
             State = DemoModeState.Inactive;
@@ -233,5 +248,7 @@ namespace VideoWall.ViewModels.DemoMode
         {
             ChangeColorAndApp();
         }
+
+        #endregion
     }
 }
