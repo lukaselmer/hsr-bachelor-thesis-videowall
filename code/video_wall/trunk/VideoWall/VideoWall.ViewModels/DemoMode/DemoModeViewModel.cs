@@ -41,13 +41,28 @@ namespace VideoWall.ViewModels.DemoMode
     public class DemoModeViewModel : Notifier
     // ReSharper restore ClassNeverInstantiated.Global
     {
+
         private readonly Player _player;
         private readonly DemoModeConfig _demoModeConfig;
         private int _countdown;
+
         private Color _currentColor;
-        private bool _isCountDownVisible;
-        private bool _isTextVisible;
-        private Visibility _visibility = Visibility.Collapsed;
+
+        private DemoModeState _state = DemoModeState.Inactive;
+        private DemoModeState State
+        {
+            get { return _state; }
+            set
+            {
+                if (_state == value) return;
+
+                _state = value;
+
+                Notify("DemoModeVisibility");
+                Notify("CountDownVisibility");
+                Notify("TeaserVisibility");
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
@@ -85,40 +100,25 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   Gets the visibility.
         /// </summary>
-        public Visibility Visibility
+        public Visibility DemoModeVisibility
         {
-            get { return _visibility; }
-            private set
-            {
-                _visibility = value;
-                Notify("Visibility");
-            }
+            get { return State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; }
         }
 
         /// <summary>
         ///   Gets a value indicating whether the countdown is visible or not.
         /// </summary>
-        public bool IsCountDownVisible
+        public Visibility CountDownVisibility
         {
-            get { return _isCountDownVisible; }
-            private set
-            {
-                _isCountDownVisible = value;
-                Notify("IsCountDownVisible");
-            }
+            get { return State == DemoModeState.Countdown ? Visibility.Visible: Visibility.Collapsed; }
         }
 
         /// <summary>
         ///   Gets a value indicating whether the text is visible or not.
         /// </summary>
-        public bool IsTextVisible
+        public Visibility TeaserVisibility
         {
-            get { return _isTextVisible; }
-            private set
-            {
-                _isTextVisible = value;
-                Notify("IsTextVisible");
-            }
+            get { return State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; }
         }
 
         /// <summary>
@@ -170,8 +170,7 @@ namespace VideoWall.ViewModels.DemoMode
         private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
         {
             if (!ModeTimer.WasSkeletonChanged()) return;
-            IsCountDownVisible = true;
-            IsTextVisible = false;
+            State = DemoModeState.Countdown;
         }
 
         private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
@@ -185,8 +184,7 @@ namespace VideoWall.ViewModels.DemoMode
                 else
                 {
                     Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
-                    IsCountDownVisible = false;
-                    IsTextVisible = true;
+                    State = DemoModeState.Teaser;
                 }
             }
         }
@@ -198,15 +196,13 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {
-            Visibility = Visibility.Collapsed;
+            State = DemoModeState.Inactive;
         }
 
         private void OnToDemoModeTimerTick(object sender, EventArgs e)
         {
             ChangeColorAndApp();
-            Visibility = Visibility.Visible;
-            IsCountDownVisible = false;
-            IsTextVisible = true;
+            State = DemoModeState.Teaser;
             Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }
 

@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Cursor\NamespaceDoc.cs" />
     <Compile Include="DemoMode\DemoModeConfig.cs" />
+    <Compile Include="DemoMode\DemoModeState.cs" />
     <Compile Include="DemoMode\DemoModeViewModel.cs" />
     <Compile Include="DemoMode\DispatcherTimerExtension.cs" />
     <Compile Include="DemoMode\ModeTimer.cs" />
