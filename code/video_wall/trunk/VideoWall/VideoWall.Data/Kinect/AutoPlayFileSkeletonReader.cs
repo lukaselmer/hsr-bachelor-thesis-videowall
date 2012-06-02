@@ -35,7 +35,7 @@ namespace VideoWall.Data.Kinect
         #region Declarations
 
         private const double CheckTimerInterval = 1400;
-        private const double RestartReplayAfterSoManyMilliseconds = 4000;
+        private const double RestartReplayAfterSoManyMilliseconds = 20000;
 
         private readonly KinectReplayFile _kinectReplayFile;
         private DateTime _lastTimeReady;

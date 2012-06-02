@@ -7,9 +7,6 @@ using System.Windows.Controls;
 
 namespace VideoWall.Tests
 {
-
-  
-
     /// <summary>
     ///This is a test class for ResourceProviderTest and is intended
     ///to contain all ResourceProviderTest Unit Tests
@@ -17,7 +14,7 @@ namespace VideoWall.Tests
     [TestClass()]
     public class ResourceProviderTest
     {
-       #region Additional test attributes
+        #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -72,12 +69,12 @@ namespace VideoWall.Tests
         public void ImageTest()
         {
             //TODO: wie kann ich die Bilder vergleichen?
-//            const string key = "handRight";
-//            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
-//            var expected = new Image {Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource};
-//            var actual = ResourceProvider_Accessor.Image(key);
-//            Assert.AreEqual(60, actual.Source.Width);
-//            Assert.AreEqual(60, actual.Source.Height);
+            //            const string key = "handRight";
+            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
+            //            var expected = new Image {Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource};
+            //            var actual = ResourceProvider_Accessor.Image(key);
+            //            Assert.AreEqual(60, actual.Source.Width);
+            //            Assert.AreEqual(60, actual.Source.Height);
         }
 
         /// <summary>
@@ -87,10 +84,10 @@ namespace VideoWall.Tests
         public void HandLeftTest()
         {
             //TODO: wie kann ich die Bilder vergleichen?
-//            Image actual = ResourceProvider.HandLeft;
-//            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
-//            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-//            Assert.AreEqual(expected,actual);
+            //            Image actual = ResourceProvider.HandLeft;
+            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
+            //            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            //            Assert.AreEqual(expected,actual);
         }
 
         /// <summary>
@@ -100,10 +97,10 @@ namespace VideoWall.Tests
         public void HandRightTest()
         {
             //TODO: wie kann ich die Bilder vergleichen?
-//            Image actual = ResourceProvider.HandRight;
-//            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
-//            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-//            Assert.AreEqual(expected, actual);
+            //            Image actual = ResourceProvider.HandRight;
+            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
+            //            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            //            Assert.AreEqual(expected, actual);
         }
     }
 }

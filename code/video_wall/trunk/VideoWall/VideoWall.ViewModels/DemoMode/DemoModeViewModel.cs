@@ -17,17 +17,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Configuration;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common;
+using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
-using VideoWall.ViewModels.Properties;
 using VideoWall.ViewModels.Skeletton;
 
 #endregion
@@ -37,30 +35,32 @@ namespace VideoWall.ViewModels.DemoMode
     /// <summary>
     ///   The DemoModeViewModel
     /// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class DemoModeViewModel : Notifier
-// ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         private readonly Player _player;
-        private readonly Random _random = new Random();
+        private readonly DemoModeConfig _demoModeConfig;
         private int _countdown;
         private Color _currentColor;
         private bool _isCountDownVisible;
         private bool _isTextVisible;
         private Visibility _visibility = Visibility.Collapsed;
-        private Settings _setting ;
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="DemoModeViewModel" /> class.
+        /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
         /// </summary>
-        /// <param name="player"> The player. </param>
-        /// <param name="menuViewModel"> The menu view model. </param>
-        /// <param name="playerViewModel"> The player view model. </param>
-        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel)
+        /// <param name="player">The player.</param>
+        /// <param name="menuViewModel">The menu view model.</param>
+        /// <param name="playerViewModel">The player view model.</param>
+        /// <param name="demoModeConfig">The demo mode config.</param>
+        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
         {
-            InitColors();
+            _demoModeConfig = demoModeConfig;
+
+            ChangeColor();
             InitModeTimer();
 
             _player = player;
@@ -126,8 +126,6 @@ namespace VideoWall.ViewModels.DemoMode
         /// </summary>
         public MenuViewModel MenuViewModel { get; set; }
 
-        private List<Color> Colors { get; set; }
-
         /// <summary>
         ///   Gets or sets the current color.
         /// </summary>
@@ -161,7 +159,7 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void InitModeTimer()
         {
-            ModeTimer = new ModeTimer();
+            ModeTimer = new ModeTimer(_demoModeConfig);
             ModeTimer.ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
             ModeTimer.ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
             ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
@@ -201,7 +199,7 @@ namespace VideoWall.ViewModels.DemoMode
         private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {
             Visibility = Visibility.Collapsed;
-            }
+        }
 
         private void OnToDemoModeTimerTick(object sender, EventArgs e)
         {
@@ -223,20 +221,9 @@ namespace VideoWall.ViewModels.DemoMode
             ChangeColorAndApp();
         }
 
-        private void InitColors()
-        {
-            _setting = new Settings();
-            Colors = new List<Color>();
-            foreach (SettingsProperty sp in Settings.Default.Properties)
-            {
-                Colors.Add((Color)_setting[sp.Name]);
-            }
-            CurrentColor = Colors.First();
-        }
-
         private void ChangeColor()
         {
-            CurrentColor = Colors[_random.Next(0, Colors.Count)];
+            CurrentColor = _demoModeConfig.BackgroundColors.RandomElement();
         }
     }
 }

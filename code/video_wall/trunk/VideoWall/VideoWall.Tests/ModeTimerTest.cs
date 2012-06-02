@@ -1,11 +1,12 @@
-﻿using VideoWall.ViewModels.DemoMode;
+﻿using System.Windows.Media;
+using VideoWall.ViewModels.DemoMode;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace VideoWall.Tests
 {
-    
-    
+
+
     /// <summary>
     ///This is a test class for ModeTimerTest and is intended
     ///to contain all ModeTimerTest Unit Tests
@@ -50,7 +51,7 @@ namespace VideoWall.Tests
         [TestMethod]
         public void ModeTimerConstructorTest()
         {
-            var target = new ModeTimer();
+            var target = new ModeTimer(new DemoModeConfigMock());
             Assert.IsTrue(target.IsInInteractionMode);
 
             Assert.IsTrue(target.ToDemoModeTimer.IsEnabled);
@@ -69,7 +70,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnFastSkeletonCheckTimerTickTestWithUnchangedSkeleton()
         {
-            var target = new ModeTimer_Accessor();
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             Assert.IsFalse(target.WasSkeletonChanged());
             target.OnFastSkeletonCheckTimerTick(null, null);
             Assert.IsTrue(target.ToInteractionModeTimer.IsEnabled);
@@ -82,7 +83,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnFastSkeletonCheckTimerTickTestWithChangedSkeleton()
         {
-            var target = new ModeTimer_Accessor();
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
             target.OnFastSkeletonCheckTimerTick(null, null);
@@ -97,7 +98,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnSkeletonCheckTimerTickTestInDemoModeWithUnchangedSkeleton()
         {
-            var target = new ModeTimer_Accessor { IsInInteractionMode = false };
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
             Assert.IsFalse(target.WasSkeletonChanged());
             target.OnSkeletonCheckTimerTick(null, null);
             Assert.IsTrue(target.ChangeAppTimer.IsEnabled);
@@ -112,7 +113,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnSkeletonCheckTimerTickTestInDemoModeWithChangedSkeleton()
         {
-            var target = new ModeTimer_Accessor { IsInInteractionMode = false };
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
             target.OnSkeletonCheckTimerTick(null, null);
@@ -126,7 +127,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnToDemoModeTimerTickTest()
         {
-            var target = new ModeTimer_Accessor();
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             target.OnToDemoModeTimerTick(null, null);
 
             Assert.IsFalse(target.IsInInteractionMode);
@@ -147,7 +148,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnToInteractionModeTimerTickTest()
         {
-            var target = new ModeTimer_Accessor();
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             target.OnToInteractionModeTimerTick(null, null);
 
             Assert.IsTrue(target.IsInInteractionMode);
@@ -167,10 +168,26 @@ namespace VideoWall.Tests
         [TestMethod]
         public void SkeletonChangedTest()
         {
-            var target = new ModeTimer();
+            var target = new ModeTimer(new DemoModeConfigMock());
             Assert.IsFalse(target.WasSkeletonChanged());
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
+        }
+    }
+
+    /// <summary>
+    /// The demo mode config mock for the tests
+    /// </summary>
+    class DemoModeConfigMock : DemoModeConfig
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoModeConfigMock"/> class.
+        /// </summary>
+        public DemoModeConfigMock()
+            : base(new Color[] { Colors.Red, Colors.Blue },
+            TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100),
+            TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100))
+        {
         }
     }
 }
