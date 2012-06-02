@@ -5,13 +5,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
 using System.Windows.Controls;
 
+// ReSharper disable CSharpWarnings::CS1591
+// Test methods do not need to be documented by a comment
+
 namespace VideoWall.Tests
 {
     /// <summary>
     ///This is a test class for ResourceProviderTest and is intended
     ///to contain all ResourceProviderTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ResourceProviderTest
     {
         #region Additional test attributes
@@ -44,7 +47,7 @@ namespace VideoWall.Tests
         //
         #endregion
 
-        [ClassInitialize()]
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
             if (!UriParser.IsKnownScheme("pack")) new Application();
@@ -104,3 +107,5 @@ namespace VideoWall.Tests
         }
     }
 }
+
+// ReSharper restore CSharpWarnings::CS1591

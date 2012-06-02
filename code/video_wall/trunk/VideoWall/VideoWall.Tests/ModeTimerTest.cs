@@ -184,7 +184,7 @@ namespace VideoWall.Tests
         /// Initializes a new instance of the <see cref="DemoModeConfigMock"/> class.
         /// </summary>
         public DemoModeConfigMock()
-            : base(new Color[] { Colors.Red, Colors.Blue },
+            : base(new[] { Colors.Red, Colors.Blue },
             TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100),
             TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100))
         {

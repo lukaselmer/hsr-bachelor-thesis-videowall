@@ -92,10 +92,10 @@ namespace VideoWall.ViewModels.Skeletton
         #region Methods
 
         /// <summary>
-        ///   Notifies when the PlayerModel was changed.
+        /// Notifies when the PlayerModel was changed.
         /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="args">The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs"/> instance containing the event data.</param>
         private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
             Lines.Clear();
