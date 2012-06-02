@@ -16,9 +16,6 @@
 #region Usings
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common;
@@ -41,20 +38,22 @@ namespace VideoWall.ViewModels.DemoMode
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class DemoModeViewModel : Notifier
-    // ReSharper restore ClassNeverInstantiated.Global
+        // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
-        private readonly Player _player;
         private readonly DemoModeConfig _demoModeConfig;
+        
+        private readonly MenuViewModel _menuViewModel;
+        
+        private readonly Player _player;
+        private readonly PlayerViewModel _playerViewModel;
+
         private int _countdown;
 
         private Color _currentColor;
 
         private DemoModeState _state = DemoModeState.Inactive;
-
-        private readonly MenuViewModel _menuViewModel;
-        private readonly PlayerViewModel _playerViewModel;
 
         #endregion
 
@@ -67,11 +66,9 @@ namespace VideoWall.ViewModels.DemoMode
         public PlayerViewModel PlayerViewModel { get { return _playerViewModel; } }
 
         /// <summary>
-        /// Gets or sets the state of the demo mode.
+        ///   Gets or sets the state of the demo mode.
         /// </summary>
-        /// <value>
-        /// The demo mode state.
-        /// </value>
+        /// <value> The demo mode state. </value>
         private DemoModeState State
         {
             get { return _state; }
@@ -90,34 +87,22 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   Gets the visibility.
         /// </summary>
-        public Visibility DemoModeVisibility
-        {
-            get { return State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; }
-        }
+        public Visibility DemoModeVisibility { get { return State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; } }
 
         /// <summary>
         ///   Gets a value indicating whether the countdown is visible or not.
         /// </summary>
-        public Visibility CountDownVisibility
-        {
-            get { return State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; }
-        }
+        public Visibility CountDownVisibility { get { return State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
         ///   Gets a value indicating whether the text is visible or not.
         /// </summary>
-        public Visibility TeaserVisibility
-        {
-            get { return State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; }
-        }
+        public Visibility TeaserVisibility { get { return State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
-        /// Gets the teaser text.
+        ///   Gets the teaser text.
         /// </summary>
-        public string TeaserText
-        {
-            get { return _menuViewModel.CurrentApp.App.DemomodeText; }
-        }
+        public string TeaserText { get { return _menuViewModel.CurrentApp.App.DemomodeText; } }
 
         /// <summary>
         ///   Gets or sets the current color.
@@ -158,10 +143,10 @@ namespace VideoWall.ViewModels.DemoMode
         /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
-        /// <param name="menuViewModel">The menu view model.</param>
         /// <param name="playerViewModel">The player view model.</param>
+        /// <param name="menuViewModel">The menu view model.</param>
         /// <param name="demoModeConfig">The demo mode config.</param>
-        public DemoModeViewModel(Player player, MenuViewModel menuViewModel, PlayerViewModel playerViewModel, DemoModeConfig demoModeConfig)
+        public DemoModeViewModel(Player player, PlayerViewModel playerViewModel, MenuViewModel menuViewModel, DemoModeConfig demoModeConfig)
         {
             PreOrPostCondition.AssertNotNull(player, "player");
             PreOrPostCondition.AssertNotNull(menuViewModel, "menuViewModel");
