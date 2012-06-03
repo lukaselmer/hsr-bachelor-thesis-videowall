@@ -47,18 +47,6 @@ namespace VideoWall.Tests
         #endregion
         
         /// <summary>
-        ///A test for InitApp
-        ///</summary>
-        [TestMethod()]
-        public void InitAppTest()
-        {
-            IApp app = new MockApp();
-            const string expected = "../../../Extensions/Files/MockApp";
-            var actual = ExtensionManager.InitApp(app);
-            Assert.AreEqual(expected, actual);
-        }
-
-        /// <summary>
         ///A test for CreateDirectoryWith
         ///</summary>
         [TestMethod()]

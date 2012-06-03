@@ -38,16 +38,17 @@ namespace VideoWall.ServiceModels.Apps
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider" /> class.
+        /// Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider"/> class.
         /// </summary>
-        /// <param name="app"> The app. </param>
-        /// <param name="skeletonService"> </param>
-        public ProductionVideoWallServiceProvider(IApp app, ISkeletonService skeletonService)
+        /// <param name="app">The app.</param>
+        /// <param name="skeletonService">The skeleton service.</param>
+        /// <param name="extensionsConfig">The extensions config.</param>
+        public ProductionVideoWallServiceProvider(IApp app, ISkeletonService skeletonService, ExtensionsConfig extensionsConfig)
         {
             _appExtensionsContainer = new UnityContainer();
 
             // TODO: do this lazy
-            _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app));
+            _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app, extensionsConfig));
             _appExtensionsContainer.RegisterInstance(skeletonService);
         }
 

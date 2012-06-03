@@ -15,6 +15,8 @@
 
 #region Usings
 
+using System;
+using System.IO;
 using VideoWall.Interfaces;
 
 #endregion
@@ -38,12 +40,15 @@ namespace VideoWall.ServiceModels.Apps
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="FileService" /> class.
+        /// Initializes a new instance of the <see cref="FileService"/> class.
         /// </summary>
-        /// <param name="app"> The app. </param>
-        public FileService(IApp app)
+        /// <param name="app">The app.</param>
+        /// <param name="extensionsConfig">The extensions config.</param>
+        public FileService(IApp app, ExtensionsConfig extensionsConfig)
         {
-            ResourceDirectory = ExtensionManager.InitApp(app);
+            var resourceDirectoryInfo = new DirectoryInfo(String.Format("{0}/Files/{1}", extensionsConfig.ExtensionsDirectoryPath.FullName, app.Name));
+            if(!resourceDirectoryInfo.Exists) resourceDirectoryInfo.Create();
+            ResourceDirectory = resourceDirectoryInfo.FullName;
         }
 
         #endregion

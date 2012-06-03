@@ -1,4 +1,5 @@
-﻿using VideoWall.ServiceModels.Apps;
+﻿using System.IO;
+using VideoWall.ServiceModels.Apps;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoWall.Interfaces;
 using VideoWall.Tests.Mocks;
@@ -52,8 +53,8 @@ namespace VideoWall.Tests
         public void FileServiceConstructorTest()
         {
             IApp app = new MockApp();
-            var target = new FileService(app);
-            Assert.AreEqual(target.ResourceDirectory, "../../../Extensions/Files/MockApp");
+            var target = new FileService(app, new ExtensionsConfig("../../../Extensions"));
+            Assert.AreEqual(new DirectoryInfo("../../../Extensions/Files/MockApp").FullName, target.ResourceDirectory);
         }
     }
 }

@@ -37,8 +37,8 @@ namespace VideoWall.ServiceModels.Apps
     {
         #region Declarations
 
-        private readonly Player.Player _player;
         private readonly SkeletonService _skeletonService;
+        private readonly ExtensionsConfig _extensionsConfig;
 
         #endregion
 
@@ -59,7 +59,12 @@ namespace VideoWall.ServiceModels.Apps
         /// </summary>
         public AppController(Player.Player player, ExtensionsConfig extensionsConfig)
         {
+            PreOrPostCondition.AssertNotNull(player, "player");
+            PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
+
+            _extensionsConfig = extensionsConfig;
             _skeletonService = new SkeletonService(player);
+
             ExtensionManager.Init(this, extensionsConfig);
             PreOrPostCondition.AssertNotNull(Apps, "Apps");
             // At least one app has to be loaded
@@ -78,7 +83,7 @@ namespace VideoWall.ServiceModels.Apps
         {
             foreach (var app in Apps)
             {
-                app.Activate(new ProductionVideoWallServiceProvider(app, _skeletonService));
+                app.Activate(new ProductionVideoWallServiceProvider(app, _skeletonService, _extensionsConfig));
             }
         }
 

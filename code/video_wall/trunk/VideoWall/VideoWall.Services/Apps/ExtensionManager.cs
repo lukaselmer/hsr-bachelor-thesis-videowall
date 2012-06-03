@@ -20,6 +20,7 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Reflection;
+using VideoWall.Common;
 using VideoWall.Interfaces;
 
 #endregion
@@ -31,8 +32,6 @@ namespace VideoWall.ServiceModels.Apps
     /// </summary>
     public static class ExtensionManager
     {
-        private static ExtensionsConfig _extensionsConfig;
-
         #region Declarations
 
         #endregion
@@ -46,10 +45,10 @@ namespace VideoWall.ServiceModels.Apps
         /// <param name="extensionsConfig"> </param>
         public static void Init(object appWithExtension, ExtensionsConfig extensionsConfig)
         {
-            _extensionsConfig = extensionsConfig;
+            PreOrPostCondition.AssertNotNull(appWithExtension, "appWithExtension");
+            PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
 
-            var folderNameOfExtensions = _extensionsConfig.ExtensionsDirectoryPath.FullName;
-            CreateDirectoryWith(folderNameOfExtensions);
+            var folderNameOfExtensions = extensionsConfig.ExtensionsDirectoryPath.FullName;
 
             var catalog = new AggregateCatalog(new DirectoryCatalog(folderNameOfExtensions), new AssemblyCatalog(Assembly.GetExecutingAssembly()));
             var container = new CompositionContainer(catalog);
@@ -60,14 +59,6 @@ namespace VideoWall.ServiceModels.Apps
             //watcher.Changed += (o, args) => disp.Invoke(new Action(() => RefreshCatalogs(catalog)));
         }
 
-        /// <summary>
-        ///   Creates the extensions directory if it does not exist.
-        /// </summary>
-        private static void CreateDirectoryWith(string path)
-        {
-            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-        }
-
         /*private static void RefreshCatalogs(AggregateCatalog catalog)
         {
             foreach (var directoryCatalog in catalog.Catalogs.OfType<DirectoryCatalog>())
@@ -75,18 +66,6 @@ namespace VideoWall.ServiceModels.Apps
                 directoryCatalog.Refresh();
             }
         }*/
-
-        /// <summary>
-        /// Inits the app.
-        /// </summary>
-        /// <param name="app">The app.</param>
-        /// <returns></returns>
-        public static string InitApp(IApp app)
-        {
-            var directoryName = String.Format("{0}/Files/{1}", _extensionsConfig.ExtensionsDirectoryPath.FullName, app.Name);
-            CreateDirectoryWith(directoryName);
-            return directoryName;
-        }
 
         #endregion
     }
