@@ -57,10 +57,10 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         ///   Initializes the AppController.
         /// </summary>
-        public AppController(Player.Player player)
+        public AppController(Player.Player player, ExtensionsConfig extensionsConfig)
         {
             _skeletonService = new SkeletonService(player);
-            ExtensionManager.Init(this);
+            ExtensionManager.Init(this, extensionsConfig);
             PreOrPostCondition.AssertNotNull(Apps, "Apps");
             // At least one app has to be loaded
             PreOrPostCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");

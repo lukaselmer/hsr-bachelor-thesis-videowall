@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Apps\AppController.cs" />
     <Compile Include="Apps\ExtensionManager.cs" />
+    <Compile Include="Apps\ExtensionsConfig.cs" />
     <Compile Include="Apps\FileService.cs" />
     <Compile Include="Apps\NamespaceDoc.cs" />
     <Compile Include="Apps\ProductionVideoWallServiceProvider.cs" />

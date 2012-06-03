@@ -31,12 +31,9 @@ namespace VideoWall.ServiceModels.Apps
     /// </summary>
     public static class ExtensionManager
     {
-        #region Declarations
+        private static ExtensionsConfig _extensionsConfig;
 
-        /// <summary>
-        ///   The folder name for the extensions
-        /// </summary>
-        private const string FolderNameOfExtensions = "../../../Extensions";
+        #region Declarations
 
         #endregion
 
@@ -46,15 +43,19 @@ namespace VideoWall.ServiceModels.Apps
         ///   Inits the specified application with extension.
         /// </summary>
         /// <param name="appWithExtension"> The application with extension. </param>
-        public static void Init(object appWithExtension)
+        /// <param name="extensionsConfig"> </param>
+        public static void Init(object appWithExtension, ExtensionsConfig extensionsConfig)
         {
-            CreateDirectoryWith(FolderNameOfExtensions);
+            _extensionsConfig = extensionsConfig;
 
-            var catalog = new AggregateCatalog(new DirectoryCatalog(FolderNameOfExtensions), new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+            var folderNameOfExtensions = _extensionsConfig.ExtensionsDirectoryPath.FullName;
+            CreateDirectoryWith(folderNameOfExtensions);
+
+            var catalog = new AggregateCatalog(new DirectoryCatalog(folderNameOfExtensions), new AssemblyCatalog(Assembly.GetExecutingAssembly()));
             var container = new CompositionContainer(catalog);
             container.ComposeParts(appWithExtension);
 
-            // var watcher = new FileSystemWatcher(FolderNameOfExtensions) { EnableRaisingEvents = true };
+            // var watcher = new FileSystemWatcher(folderNameOfExtensions) { EnableRaisingEvents = true };
             //var disp = Dispatcher.CurrentDispatcher;
             //watcher.Changed += (o, args) => disp.Invoke(new Action(() => RefreshCatalogs(catalog)));
         }
@@ -82,7 +83,7 @@ namespace VideoWall.ServiceModels.Apps
         /// <returns></returns>
         public static string InitApp(IApp app)
         {
-            var directoryName = String.Format("{0}/Files/{1}", FolderNameOfExtensions, app.Name);
+            var directoryName = String.Format("{0}/Files/{1}", _extensionsConfig.ExtensionsDirectoryPath.FullName, app.Name);
             CreateDirectoryWith(directoryName);
             return directoryName;
         }
