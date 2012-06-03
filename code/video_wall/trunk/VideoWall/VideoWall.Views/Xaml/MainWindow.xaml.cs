@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -36,10 +37,7 @@ namespace VideoWall.Views.Xaml
     {
         #region Declarations
 
-        /// <summary>
-        ///   The time which the cursor has to stay on a button until a click is executed.
-        /// </summary>
-        private const double Interval = 1500;
+        private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(1500);
 
         private HitTestHelper _hitTestHelper;
 

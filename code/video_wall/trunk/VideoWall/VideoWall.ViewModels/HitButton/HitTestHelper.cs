@@ -18,8 +18,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Timers;
 using System.Windows;
+using System.Windows.Threading;
 using VideoWall.Common;
 using VideoWall.ViewModels.Cursor;
 
@@ -41,7 +41,7 @@ namespace VideoWall.ViewModels.HitButton
     {
         #region Declarations
 
-        private readonly Timer _currentTimer;
+        private readonly DispatcherTimer _currentTimer;
         private readonly ICursorViewModel _cursorViewModel;
         private readonly Window _window;
 
@@ -86,17 +86,13 @@ namespace VideoWall.ViewModels.HitButton
         /// <param name="cursorViewModel"> The cursor view model. </param>
         /// <param name="window"> The window. </param>
         /// <param name="interval"> The interval. </param>
-        public HitTestHelper(ICursorViewModel cursorViewModel, Window window, double interval)
+        public HitTestHelper(ICursorViewModel cursorViewModel, Window window, TimeSpan interval)
         {
             _cursorViewModel = cursorViewModel;
             _window = window;
             _cursorViewModel.PropertyChanged += OnModelChanged;
-            _currentTimer = new Timer(interval) {AutoReset = true, Enabled = false};
-            _currentTimer.Elapsed += OnCurrentTimerElapsed;
-
-            Started += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " started!");
-            Stopped += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " stopped!");
-            Clicked += (sender, args) => Logger.Get.Debug("UIElement " + args.UIElement + " clicked!");
+            _currentTimer = new DispatcherTimer { Interval = interval};
+            _currentTimer.Tick += OnCurrentTimerElapsed;
         }
 
         #endregion
@@ -135,7 +131,7 @@ namespace VideoWall.ViewModels.HitButton
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="args">The <see cref="System.Timers.ElapsedEventArgs"/> instance containing the event data.</param>
-        private void OnCurrentTimerElapsed(object sender, ElapsedEventArgs args)
+        private void OnCurrentTimerElapsed(object sender, EventArgs args)
         {
             if (_currentElement == null) return;
             if (_currentElement.Dispatcher.CheckAccess()) OnClicked(CreateHitStateArgs());

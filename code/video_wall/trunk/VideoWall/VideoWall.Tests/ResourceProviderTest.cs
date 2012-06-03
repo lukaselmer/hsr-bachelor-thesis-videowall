@@ -5,7 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
 using System.Windows.Controls;
 
-// ReSharper disable CSharpWarnings::CS1591
 // Test methods do not need to be documented by a comment
 
 namespace VideoWall.Tests
@@ -47,6 +46,10 @@ namespace VideoWall.Tests
         //
         #endregion
 
+        /// <summary>
+        /// TODO: document why this is used.
+        /// </summary>
+        /// <param name="testContext">The test context.</param>
         [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
@@ -96,7 +99,7 @@ namespace VideoWall.Tests
         /// <summary>
         ///A test for HandRight
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void HandRightTest()
         {
             //TODO: wie kann ich die Bilder vergleichen?
@@ -108,4 +111,3 @@ namespace VideoWall.Tests
     }
 }
 
-// ReSharper restore CSharpWarnings::CS1591

@@ -48,13 +48,13 @@ namespace VideoWall.Views.Xaml
         /// </summary>
         /// <param name="interval"> The interval. </param>
         /// <returns> The storyboard. </returns>
-        public Storyboard InitStoryboard(double interval)
+        public Storyboard InitStoryboard(TimeSpan interval)
         {
             var dAnim = new DoubleAnimation
                 {
                     From = 0,
                     To = 360,
-                    Duration = new Duration(TimeSpan.FromMilliseconds(interval))
+                    Duration = new Duration(interval)
                 };
 
             var storyboard = new Storyboard();
