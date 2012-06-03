@@ -37,6 +37,9 @@ namespace VideoWall.Data.Kinect
 
         #region Events
 
+        /// <summary>
+        /// Occurs when the skeletons are ready.
+        /// </summary>
         public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
 
         #endregion

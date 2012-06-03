@@ -16,9 +16,7 @@
 #region Usings
 
 using System;
-using System.Diagnostics;
 using System.IO;
-using System.Timers;
 using System.Windows.Threading;
 using Kinect.Toolbox.Record;
 using VideoWall.Common;
@@ -34,12 +32,12 @@ namespace VideoWall.Data.Kinect
     {
         #region Declarations
 
-        private const double CheckTimerInterval = 1400;
-        private const double RestartReplayAfterSoManyMilliseconds = 20000;
+        private static readonly TimeSpan CheckTimerInterval = TimeSpan.FromMilliseconds(1400);
+        private static readonly TimeSpan RestartReplayAfterSoMuchTime = TimeSpan.FromMilliseconds(20000);
 
         private readonly KinectReplayFile _kinectReplayFile;
         private DateTime _lastTimeReady;
-        private Timer _replayTimer;
+        private DispatcherTimer _replayTimer;
         private SkeletonReplay _skeletonReplay;
 
         #endregion
@@ -85,7 +83,7 @@ namespace VideoWall.Data.Kinect
         public void Start()
         {
             if (!CanStart()) return;
-            PreOrPostCondition.AssertTrue(_skeletonReplay != null, "_skeletonReplay != null");
+            PreOrPostCondition.AssertNotNull(_skeletonReplay, "_skeletonReplay");
             _skeletonReplay.Start();
             _lastTimeReady = DateTime.Now;
         }
@@ -95,7 +93,7 @@ namespace VideoWall.Data.Kinect
         /// </summary>
         public void Dispose()
         {
-            _replayTimer.Elapsed -= ReplayTimerOnElapsed;
+            _replayTimer.Tick -= ReplayTimerOnElapsed;
             _replayTimer.Stop();
             _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
             _skeletonReplay.Stop();
@@ -106,9 +104,9 @@ namespace VideoWall.Data.Kinect
         /// </summary>
         private void InitReplayTimer()
         {
-            _replayTimer = new Timer(CheckTimerInterval);
+            _replayTimer = new DispatcherTimer { Interval = CheckTimerInterval };
             Dispatcher = Dispatcher.CurrentDispatcher;
-            _replayTimer.Elapsed += ReplayTimerOnElapsed;
+            _replayTimer.Tick += ReplayTimerOnElapsed;
             _replayTimer.Start();
         }
 
@@ -125,11 +123,11 @@ namespace VideoWall.Data.Kinect
         }
 
         /// <summary>
-        ///   Replays the timer on elapsed.
+        /// Replays the timer on elapsed.
         /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="elapsedEventArgs"> The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data. </param>
-        private void ReplayTimerOnElapsed(object sender, ElapsedEventArgs elapsedEventArgs)
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void ReplayTimerOnElapsed(object sender, EventArgs eventArgs)
         {
             if (!CanStart()) return;
             Dispatcher.Invoke(new Action(Start));
@@ -141,16 +139,16 @@ namespace VideoWall.Data.Kinect
         /// <returns> <c>true</c> if this instance can start; otherwise, <c>false</c> . </returns>
         private bool CanStart()
         {
-            return MillisecondsPassedSinceLastSkeletonMovement() >= RestartReplayAfterSoManyMilliseconds;
+            return MillisecondsPassedSinceLastSkeletonMovement() >= RestartReplayAfterSoMuchTime;
         }
 
         /// <summary>
         ///   Millisecondses the passed since last skeleton movement.
         /// </summary>
         /// <returns> </returns>
-        private double MillisecondsPassedSinceLastSkeletonMovement()
+        private TimeSpan MillisecondsPassedSinceLastSkeletonMovement()
         {
-            return DateTime.Now.Subtract(_lastTimeReady).TotalMilliseconds;
+            return DateTime.Now.Subtract(_lastTimeReady);
         }
 
         /// <summary>

@@ -104,37 +104,37 @@ namespace VideoWall.ViewModels.HitButton
         #region Methods
 
         /// <summary>
-        ///   Called when [started].
+        /// Called when started.
         /// </summary>
-        /// <param name="args"> The arguments. </param>
+        /// <param name="args">The args.</param>
         private void OnStarted(HitStateArgs args)
         {
             if (Started != null) Started(this, args);
         }
 
         /// <summary>
-        ///   Called when [stopped].
+        /// Called when stopped.
         /// </summary>
-        /// <param name="args"> The arguments. </param>
+        /// <param name="args">The args.</param>
         private void OnStopped(HitStateArgs args)
         {
             if (Stopped != null) Stopped(this, args);
         }
 
         /// <summary>
-        ///   Called when [clicked].
+        /// Called when clicked.
         /// </summary>
-        /// <param name="args"> The arguments. </param>
+        /// <param name="args">The args.</param>
         private void OnClicked(HitStateArgs args)
         {
             if (Clicked != null) Clicked(this, args);
         }
 
         /// <summary>
-        ///   Called when [current timer elapsed].
+        /// Called when current timer has elapsed.
         /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="args"> The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data. </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="args">The <see cref="System.Timers.ElapsedEventArgs"/> instance containing the event data.</param>
         private void OnCurrentTimerElapsed(object sender, ElapsedEventArgs args)
         {
             if (_currentElement == null) return;
@@ -143,10 +143,10 @@ namespace VideoWall.ViewModels.HitButton
         }
 
         /// <summary>
-        ///   Called when [model changed].
+        /// Called when model changed.
         /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         private void OnModelChanged(object sender, PropertyChangedEventArgs e)
         {
             foreach (var element in HitElements)
