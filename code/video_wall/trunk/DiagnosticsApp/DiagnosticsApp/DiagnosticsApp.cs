@@ -30,7 +30,7 @@ namespace DiagnosticsApp
         public DiagnosticsApp()
         {
             Name = "Diagnostics";
-            DemomodeText = "Interessierst du dich für die Diagnostics App?";
+            DemomodeText = "Techie?";
         }
 
         #region IApp Members

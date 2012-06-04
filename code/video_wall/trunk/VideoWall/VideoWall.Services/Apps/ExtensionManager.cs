@@ -28,44 +28,50 @@ using VideoWall.Interfaces;
 namespace VideoWall.ServiceModels.Apps
 {
     /// <summary>
-    ///   The extension manager is responsible for loading the extensions
+    ///   The extension manager is responsible to load a extension from a specific folder
     /// </summary>
-    public static class ExtensionManager
+    internal static class ExtensionManager
     {
-        #region Declarations
-
-        #endregion
-
         #region Methods
 
         /// <summary>
-        ///   Inits the specified application with extension.
+        /// Inits the specified application with extension.
         /// </summary>
-        /// <param name="appWithExtension"> The application with extension. </param>
-        /// <param name="extensionsConfig"> </param>
-        public static void Init(object appWithExtension, ExtensionsConfig extensionsConfig)
+        /// <param name="extensionFolder">The application with extension.</param>
+        public static void Init(ExtensionFolder extensionFolder)
         {
-            PreOrPostCondition.AssertNotNull(appWithExtension, "appWithExtension");
-            PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
-
-            var folderNameOfExtensions = extensionsConfig.ExtensionsDirectoryPath.FullName;
-
-            var catalog = new AggregateCatalog(new DirectoryCatalog(folderNameOfExtensions), new AssemblyCatalog(Assembly.GetExecutingAssembly()));
-            var container = new CompositionContainer(catalog);
-            container.ComposeParts(appWithExtension);
-
-            // var watcher = new FileSystemWatcher(folderNameOfExtensions) { EnableRaisingEvents = true };
-            //var disp = Dispatcher.CurrentDispatcher;
-            //watcher.Changed += (o, args) => disp.Invoke(new Action(() => RefreshCatalogs(catalog)));
+            PreOrPostCondition.AssertNotNull(extensionFolder, "extensionFolder");
+            var container = new CompositionContainer(new DirectoryCatalog(extensionFolder.Directory.FullName));
+            container.ComposeParts(extensionFolder);
         }
 
-        /*private static void RefreshCatalogs(AggregateCatalog catalog)
-        {
-            foreach (var directoryCatalog in catalog.Catalogs.OfType<DirectoryCatalog>())
-            {
-                directoryCatalog.Refresh();
-            }
-        }*/
+        //
+        // Additional info for possible extension:
+        //
+        // If dynamic loading (of extensions while the application is running) is needed, try something like this:
+        //
+        // var watcher = new FileSystemWatcher(folderNameOfExtensions) { EnableRaisingEvents = true };
+        // var disp = Dispatcher.CurrentDispatcher;
+        // watcher.Changed += (o, args) => disp.Invoke(new Action(() => RefreshCatalogs(catalog)));
+        //
+        // and create this method:
+        //
+        // private static void RefreshCatalogs(AggregateCatalog catalog)
+        // {
+        //    foreach (var directoryCatalog in catalog.Catalogs.OfType<DirectoryCatalog>())
+        //    {
+        //        directoryCatalog.Refresh();
+        //    }
+        // }
+        //
+        // This might also be useful:
+        //
+        // var catalog = new AggregateCatalog(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+        // foreach (var directory in extensionsConfig.ExtensionsDirectoryPath.GetDirectories())
+        // {
+        //    catalog.Catalogs.Add(new DirectoryCatalog(directory.FullName));
+        // }
+        //
 
         #endregion
     }

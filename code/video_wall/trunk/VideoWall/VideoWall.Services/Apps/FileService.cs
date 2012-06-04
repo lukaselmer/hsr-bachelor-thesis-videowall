@@ -17,6 +17,8 @@
 
 using System;
 using System.IO;
+using System.Reflection;
+using VideoWall.Common;
 using VideoWall.Interfaces;
 
 #endregion
@@ -26,8 +28,10 @@ namespace VideoWall.ServiceModels.Apps
     /// <summary>
     ///   The file service provides a directory where an exension has read and write access.
     /// </summary>
-    public class FileService : IFileService
+    internal class FileService : IFileService
     {
+        private const string SubdirectoryNameForFileService = "Files";
+
         #region Properties
 
         /// <summary>
@@ -42,13 +46,18 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         /// Initializes a new instance of the <see cref="FileService"/> class.
         /// </summary>
-        /// <param name="app">The app.</param>
-        /// <param name="extensionsConfig">The extensions config.</param>
-        public FileService(IApp app, ExtensionsConfig extensionsConfig)
+        /// <param name="extensionFolder">The extension folder.</param>
+        public FileService(ExtensionFolder extensionFolder)
         {
-            var resourceDirectoryInfo = new DirectoryInfo(String.Format("{0}/Files/{1}", extensionsConfig.ExtensionsDirectoryPath.FullName, app.Name));
-            if(!resourceDirectoryInfo.Exists) resourceDirectoryInfo.Create();
-            ResourceDirectory = resourceDirectoryInfo.FullName;
+            var directoryForFiles = new DirectoryInfo(Path.Combine(extensionFolder.Directory.FullName, SubdirectoryNameForFileService));
+            if (!directoryForFiles.Exists)
+            {
+                var message = String.Format("The extension in the extension folder {0} has requested a file service, but the directory for this file service is missing. " +
+                    "To confirm that the extension may use a file service, please create the following folder: {1}", extensionFolder.Directory, directoryForFiles.FullName);
+                Logger.Get.Error(message);
+                throw new Exception(message);
+            }
+            ResourceDirectory = directoryForFiles.FullName;
         }
 
         #endregion

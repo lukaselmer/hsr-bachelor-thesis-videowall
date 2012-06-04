@@ -44,9 +44,16 @@ namespace VideoWall.Main
             DispatcherUnhandledException += OnApplicationUnhandledException;
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainUnhandledException;
 
-            var container = new UnityContainer().LoadConfiguration();
-            var mainWindow = container.Resolve<MainWindow>();
-            mainWindow.Show();
+            try
+            {
+                var container = new UnityContainer().LoadConfiguration();
+                var mainWindow = container.Resolve<MainWindow>();
+                mainWindow.Show();
+            }
+            catch (Exception exception)
+            {
+                OnUnhandledException(exception);
+            }
         }
 
         #endregion

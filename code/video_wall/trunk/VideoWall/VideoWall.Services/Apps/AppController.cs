@@ -16,8 +16,10 @@
 #region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using System.Linq;
 using VideoWall.Common;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
@@ -37,8 +39,8 @@ namespace VideoWall.ServiceModels.Apps
     {
         #region Declarations
 
-        private readonly SkeletonService _skeletonService;
-        private readonly ExtensionsConfig _extensionsConfig;
+        private readonly Player.Player _player;
+        private readonly List<ExtensionFolder> _extensionFolders;
 
         #endregion
 
@@ -47,8 +49,7 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         ///   The video wall applications.
         /// </summary>
-        [ImportMany(AllowRecomposition = false)]
-        public ObservableCollection<IApp> Apps { get; private set; }
+        public IEnumerable<IApp> Apps { get { return _extensionFolders.Where(ef => ef.Loaded()).Select(ef => ef.App); } }
 
         #endregion
 
@@ -62,14 +63,16 @@ namespace VideoWall.ServiceModels.Apps
             PreOrPostCondition.AssertNotNull(player, "player");
             PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
 
-            _extensionsConfig = extensionsConfig;
-            _skeletonService = new SkeletonService(player);
+            _player = player;
 
-            ExtensionManager.Init(this, extensionsConfig);
-            PreOrPostCondition.AssertNotNull(Apps, "Apps");
-            // At least one app has to be loaded
-            PreOrPostCondition.AssertInRange(1, Int32.MaxValue, Apps.Count, "Apps.Count");
+            _extensionFolders = extensionsConfig.ExtensionDirectories.
+                Where(directory => !directory.FullName.EndsWith("_Files")).
+                Select(directory => new ExtensionFolder(directory)).ToList();
+
             LoadApps();
+
+            // At least one app has to be loaded.
+            PreOrPostCondition.AssertInRange(1, Int32.MaxValue, Apps.Count(), "Apps.Count");
         }
 
         #endregion
@@ -81,9 +84,20 @@ namespace VideoWall.ServiceModels.Apps
         /// </summary>
         private void LoadApps()
         {
-            foreach (var app in Apps)
+            foreach (var extensionFolder in _extensionFolders)
             {
-                app.Activate(new ProductionVideoWallServiceProvider(app, _skeletonService, _extensionsConfig));
+                try
+                {
+                    ExtensionManager.Init(extensionFolder);
+                }
+                catch (Exception exception)
+                {
+                    var message = String.Format("Extension in folder {0} could not be loaded: {1}", extensionFolder.Directory.FullName, exception);
+                    Logger.Get.Error(message);
+                    throw new Exception(message, exception);
+                }
+
+                extensionFolder.App.Activate(new ProductionVideoWallServiceProvider(extensionFolder, _player));
             }
         }
 

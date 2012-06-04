@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PosterApp.Main</name>
+    </assembly>
+    <members>
+        <member name="T:PosterApp.Main.NamespaceDoc">
+            <summary>
+              The <see cref="!:PosterApp.Main"/> namespace contains the main.
+            </summary>
+        </member>
+    </members>
+</doc>

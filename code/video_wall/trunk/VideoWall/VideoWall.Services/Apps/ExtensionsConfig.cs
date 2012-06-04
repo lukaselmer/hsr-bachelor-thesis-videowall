@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using VideoWall.Common;
 
@@ -10,6 +11,8 @@ namespace VideoWall.ServiceModels.Apps
     public class ExtensionsConfig
     // ReSharper restore ClassNeverInstantiated.Global
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets the extensions directory path.
         /// </summary>
@@ -17,6 +20,15 @@ namespace VideoWall.ServiceModels.Apps
         /// The extensions directory path.
         /// </value>
         public DirectoryInfo ExtensionsDirectoryPath { get; private set; }
+
+        /// <summary>
+        /// Gets the extension directories.
+        /// </summary>
+        public IEnumerable<DirectoryInfo> ExtensionDirectories { get { return ExtensionsDirectoryPath.GetDirectories(); } }
+
+        #endregion
+
+        #region Constructor / Destructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtensionsConfig"/> class.
@@ -27,5 +39,7 @@ namespace VideoWall.ServiceModels.Apps
             ExtensionsDirectoryPath = new DirectoryInfo(extensionsDirectoryPath);
             PreOrPostCondition.AssertTrue(ExtensionsDirectoryPath.Exists, "ExtensionsDirectoryPath does not exist.");
         }
+
+        #endregion
     }
 }

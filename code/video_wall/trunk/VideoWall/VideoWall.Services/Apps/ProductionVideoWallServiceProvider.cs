@@ -27,7 +27,7 @@ namespace VideoWall.ServiceModels.Apps
     /// <summary>
     ///   The AppInfo for a application which runs on the video wall.
     /// </summary>
-    public class ProductionVideoWallServiceProvider : IVideoWallServiceProvider
+    internal class ProductionVideoWallServiceProvider : IVideoWallServiceProvider
     {
         #region Declarations
 
@@ -40,16 +40,18 @@ namespace VideoWall.ServiceModels.Apps
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider"/> class.
         /// </summary>
-        /// <param name="app">The app.</param>
-        /// <param name="skeletonService">The skeleton service.</param>
+        /// <param name="extensionFolder">The extension folder.</param>
         /// <param name="extensionsConfig">The extensions config.</param>
-        public ProductionVideoWallServiceProvider(IApp app, ISkeletonService skeletonService, ExtensionsConfig extensionsConfig)
+        /// <param name="player">The player.</param>
+        public ProductionVideoWallServiceProvider(ExtensionFolder extensionFolder, Player.Player player)
         {
             _appExtensionsContainer = new UnityContainer();
 
-            // TODO: do this lazy
-            _appExtensionsContainer.RegisterInstance<IFileService>(new FileService(app, extensionsConfig));
-            _appExtensionsContainer.RegisterInstance(skeletonService);
+            _appExtensionsContainer.RegisterInstance(extensionFolder);
+            _appExtensionsContainer.RegisterInstance(player);
+
+            _appExtensionsContainer.RegisterType<IFileService, FileService>();
+            _appExtensionsContainer.RegisterType<ISkeletonService, SkeletonService>();
         }
 
         #endregion

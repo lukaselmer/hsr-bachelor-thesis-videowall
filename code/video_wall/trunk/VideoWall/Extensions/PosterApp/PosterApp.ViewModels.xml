@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PosterApp.ViewModels</name>
+    </assembly>
+    <members>
+        <member name="T:PosterApp.ViewModels.PosterViewModel">
+            <summary>
+              Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:PosterApp.ViewModels.PosterViewModel.#ctor(PosterApp.ServiceModels.PosterService)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ViewModels.PosterViewModel"/> class.
+            </summary>
+            <param name="posterService"> The poster service. </param>
+        </member>
+        <member name="M:PosterApp.ViewModels.PosterViewModel.ReadFromPosterService">
+            <summary>
+              Reads from poster service.
+            </summary>
+        </member>
+        <member name="M:PosterApp.ViewModels.PosterViewModel.OnNavigateToRight(System.Object)">
+            <summary>
+              Called when [navigate to right].
+            </summary>
+            <param name="obj"> The obj. </param>
+        </member>
+        <member name="M:PosterApp.ViewModels.PosterViewModel.OnNavigateToLeft(System.Object)">
+            <summary>
+              Called when [navigate to left].
+            </summary>
+            <param name="obj"> The obj. </param>
+        </member>
+        <member name="P:PosterApp.ViewModels.PosterViewModel.NavigateToLeftCommand">
+            <summary>
+              Gets or sets the navigate to left command.
+            </summary>
+            <value> The navigate to left command. </value>
+        </member>
+        <member name="P:PosterApp.ViewModels.PosterViewModel.NavigateToRightCommand">
+            <summary>
+              Gets or sets the navigate to right command.
+            </summary>
+            <value> The navigate to right command. </value>
+        </member>
+        <member name="P:PosterApp.ViewModels.PosterViewModel.CurrentPoster">
+            <summary>
+              Gets or sets the current poster.
+            </summary>
+            <value> The current poster. </value>
+        </member>
+        <member name="P:PosterApp.ViewModels.PosterViewModel.Posters">
+            <summary>
+              Gets or sets the posters.
+            </summary>
+            <value> The posters. </value>
+        </member>
+        <member name="P:PosterApp.ViewModels.PosterViewModel.Name">
+            <summary>
+              Gets or sets the name.
+            </summary>
+            <value> The name. </value>
+        </member>
+        <member name="T:PosterApp.ViewModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.ViewModels"/> namespace contains contains view models and referenced classes.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ViewModels.Command">
+            <summary>
+              Implementation of the ICommand Interface
+            </summary>
+        </member>
+        <member name="M:PosterApp.ViewModels.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ViewModels.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+            <param name="canExecute"> The canexecute predicate. </param>
+        </member>
+        <member name="M:PosterApp.ViewModels.Command.#ctor(System.Action{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ViewModels.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+        </member>
+        <member name="M:PosterApp.ViewModels.Command.Execute(System.Object)">
+            <summary>
+              Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+        </member>
+        <member name="M:PosterApp.ViewModels.Command.CanExecute(System.Object)">
+            <summary>
+              Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+            <returns> true if this command can be executed; otherwise, false. </returns>
+        </member>
+        <member name="M:PosterApp.ViewModels.Command.RaiseCanExecuteChanged">
+            <summary>
+              Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="E:PosterApp.ViewModels.Command.CanExecuteChanged">
+            <summary>
+              Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+    </members>
+</doc>
