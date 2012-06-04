@@ -17,18 +17,20 @@
 
 using System;
 using System.IO;
-using System.Reflection;
 using VideoWall.Common;
 using VideoWall.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps.Implementation
 {
     /// <summary>
     ///   The file service provides a directory where an exension has read and write access.
     /// </summary>
+    // ReSharper disable ClassNeverInstantiated.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class FileService : IFileService
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         private const string SubdirectoryNameForFileService = "Files";
 

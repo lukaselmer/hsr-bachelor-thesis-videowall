@@ -15,14 +15,13 @@
 
 #region Usings
 
-using System;
 using Microsoft.Practices.Unity;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps.Implementation
 {
     /// <summary>
     ///   The AppInfo for a application which runs on the video wall.
@@ -41,7 +40,6 @@ namespace VideoWall.ServiceModels.Apps
         /// Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider"/> class.
         /// </summary>
         /// <param name="extensionFolder">The extension folder.</param>
-        /// <param name="extensionsConfig">The extensions config.</param>
         /// <param name="player">The player.</param>
         public ProductionVideoWallServiceProvider(ExtensionFolder extensionFolder, Player.Player player)
         {

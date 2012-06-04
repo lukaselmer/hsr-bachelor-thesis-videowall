@@ -29,12 +29,6 @@ using VideoWall.Common;
 namespace VideoWall.ServiceModels.HandCursor
 {
     /// <summary>
-    ///   The delegate for when the hand is changed (left or right hand)
-    /// </summary>
-    /// <param name="handType"> Type of the hand. </param>
-    public delegate void HandChanged(HandType handType);
-
-    /// <summary>
     ///   The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global

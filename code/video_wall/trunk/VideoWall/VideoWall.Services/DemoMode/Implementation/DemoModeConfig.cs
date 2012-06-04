@@ -18,10 +18,11 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Media;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.Implementation
 {
     /// <summary>
     ///   The demo mode configuration

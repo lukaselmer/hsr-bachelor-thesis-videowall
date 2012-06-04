@@ -22,6 +22,7 @@ using System.Windows.Input;
 using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.ServiceModels.Apps;
+using VideoWall.ServiceModels.Apps.Interfaces;
 using VideoWall.ViewModels.Helpers;
 
 #endregion
@@ -39,7 +40,7 @@ namespace VideoWall.ViewModels.Menu
     {
         #region Declarations
 
-        private readonly AppController _appController;
+        private readonly IAppController _appController;
         private AppViewModel _currentApp;
 
         #endregion
@@ -85,7 +86,7 @@ namespace VideoWall.ViewModels.Menu
         ///   Initializes a new instance of the <see cref="MenuViewModel" /> class.
         /// </summary>
         /// <param name="appController"> The app controller </param>
-        public MenuViewModel(AppController appController)
+        public MenuViewModel(IAppController appController)
         {
             _appController = appController;
             Apps = new List<AppViewModel>(_appController.Apps.Select(app => new AppViewModel(app)));

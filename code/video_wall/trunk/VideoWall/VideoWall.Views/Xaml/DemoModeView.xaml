@@ -7,7 +7,7 @@
              xmlns:Xaml="clr-namespace:VideoWall.Views.Xaml"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance DemoMode:DemoModeViewModel}">
     <UserControl.Background>
-        <SolidColorBrush Color="{Binding CurrentColor}"></SolidColorBrush>
+        <SolidColorBrush Color="{Binding CurrentBackgroundColor}"></SolidColorBrush>
     </UserControl.Background>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding TeaserVisibility}">

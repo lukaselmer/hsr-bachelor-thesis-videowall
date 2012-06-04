@@ -16,10 +16,11 @@
 #region Usings
 
 using System;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.Implementation
 {
     /// <summary>
     ///   The mode timer

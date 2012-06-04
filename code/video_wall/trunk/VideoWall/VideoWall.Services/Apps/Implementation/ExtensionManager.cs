@@ -15,17 +15,13 @@
 
 #region Usings
 
-using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.IO;
-using System.Reflection;
 using VideoWall.Common;
-using VideoWall.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps.Implementation
 {
     /// <summary>
     ///   The extension manager is responsible to load a extension from a specific folder

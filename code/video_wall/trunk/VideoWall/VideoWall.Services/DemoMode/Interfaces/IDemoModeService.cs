@@ -1,7 +1,8 @@
+using System;
 using System.Windows.Media;
-using VideoWall.ServiceModels.DemoMode.EventObjects;
+using VideoWall.ServiceModels.DemoMode.Implementation;
 
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.Interfaces
 {
     /// <summary>
     /// The demo mode service provides the service for the demo mode.
@@ -22,7 +23,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <value>
         /// The color of the current.
         /// </value>
-        Color CurrentColor { get; }
+        Color CurrentBackgroundColor { get; }
 
         /// <summary>
         /// Gets the countdown.
@@ -32,21 +33,21 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <summary>
         /// Occurs when demo mode state changed.
         /// </summary>
-        event DemoModeStateChangedEvent DemoModeStateChanged;
+        event EventHandler DemoModeStateChanged;
 
         /// <summary>
         /// Occurs when demo mode app should be changed.
         /// </summary>
-        event DemoModeAppChangedEvent DemoModeAppChanged;
+        event EventHandler DemoModeAppChanged;
 
         /// <summary>
         /// Occurs when demo mode app should be changed.
         /// </summary>
-        event DemoModeColorChangedEvent DemoModeColorChanged;
+        event EventHandler DemoModeColorChanged;
 
         /// <summary>
         /// Occurs when demo mode countdown changed.
         /// </summary>
-        event DemoModeCountdownChangedEvent DemoModeCountdownChanged;
+        event EventHandler DemoModeCountdownChanged;
     }
 }

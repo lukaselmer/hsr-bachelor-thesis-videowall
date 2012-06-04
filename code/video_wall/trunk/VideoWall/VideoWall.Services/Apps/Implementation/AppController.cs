@@ -17,25 +17,22 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using VideoWall.Common;
 using VideoWall.Interfaces;
-using VideoWall.ServiceModels.Player;
+using VideoWall.ServiceModels.Apps.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Apps
+namespace VideoWall.ServiceModels.Apps.Implementation
 {
     /// <summary>
     ///   Controls the apps.
     /// </summary>
-    // ReSharper disable ClassNeverInstantiated.Global
-    // Class is instantiated by the unity container, so ReSharper thinks that
-    // this class could be made abstract, which is wrong
-    public class AppController
-    // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    internal class AppController : IAppController
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 

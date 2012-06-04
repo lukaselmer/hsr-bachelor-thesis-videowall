@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Media;
 using VideoWall.ServiceModels.DemoMode;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 
 namespace VideoWall.Tests
 {

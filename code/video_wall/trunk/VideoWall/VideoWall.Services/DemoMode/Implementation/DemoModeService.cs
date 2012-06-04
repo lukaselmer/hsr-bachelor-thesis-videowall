@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Media;
 using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
-using VideoWall.ServiceModels.DemoMode.EventObjects;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.Implementation
 {
     /// <summary>
     /// The demo mode service
@@ -60,7 +57,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <value>
         /// The color of the current.
         /// </value>
-        public Color CurrentColor { get; private set; }
+        public Color CurrentBackgroundColor { get; private set; }
 
         /// <summary>
         /// Gets the countdown.
@@ -76,22 +73,22 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <summary>
         /// Occurs when demo mode state changed.
         /// </summary>
-        public event DemoModeStateChangedEvent DemoModeStateChanged = delegate { };
+        public event EventHandler DemoModeStateChanged = delegate { };
 
         /// <summary>
         /// Occurs when demo mode app should be changed.
         /// </summary>
-        public event DemoModeAppChangedEvent DemoModeAppChanged = delegate { };
+        public event EventHandler DemoModeAppChanged = delegate { };
 
         /// <summary>
         /// Occurs when demo mode app should be changed.
         /// </summary>
-        public event DemoModeColorChangedEvent DemoModeColorChanged = delegate { };
+        public event EventHandler DemoModeColorChanged = delegate { };
 
         /// <summary>
         /// Occurs when demo mode countdown changed.
         /// </summary>
-        public event DemoModeCountdownChangedEvent DemoModeCountdownChanged = delegate { };
+        public event EventHandler DemoModeCountdownChanged = delegate { };
 
         #endregion
 
@@ -118,7 +115,7 @@ namespace VideoWall.ServiceModels.DemoMode
 
         private void OnCountdownChange(object sender, EventArgs e)
         {
-            DemoModeCountdownChanged(this, new DemoModeCountdownChangedEventArgs());
+            DemoModeCountdownChanged(this, null);
         }
 
         #endregion
@@ -132,14 +129,14 @@ namespace VideoWall.ServiceModels.DemoMode
 
         private void OnDemoModeStateChange(object sender, EventArgs e)
         {
-            DemoModeStateChanged(this, new DemoModeStateChangedEventArgs(State));
+            DemoModeStateChanged(this, null);
         }
 
         private void ChangeColorAndApp()
         {
-            CurrentColor = _demoModeConfig.BackgroundColors.RandomElement();
-            DemoModeColorChanged(this, new DemoModeColorChangedEventArgs());
-            DemoModeAppChanged(this, new DemoModeAppChangedEventArgs());
+            CurrentBackgroundColor = _demoModeConfig.BackgroundColors.RandomElement();
+            DemoModeColorChanged(this, null);
+            DemoModeAppChanged(this, null);
         }
 
         private void OnChangeAppTimerTick(object sender, EventArgs e)

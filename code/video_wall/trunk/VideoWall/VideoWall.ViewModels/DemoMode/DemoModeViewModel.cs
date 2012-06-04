@@ -22,7 +22,8 @@ using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.DemoMode;
-using VideoWall.ServiceModels.DemoMode.EventObjects;
+using VideoWall.ServiceModels.DemoMode.Implementation;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
 using VideoWall.ViewModels.Skeletton;
@@ -84,9 +85,9 @@ namespace VideoWall.ViewModels.DemoMode
         /// <value>
         /// The color of the current.
         /// </value>
-        public Color CurrentColor
+        public Color CurrentBackgroundColor
         {
-            get { return _demoModeService.CurrentColor; }
+            get { return _demoModeService.CurrentBackgroundColor; }
         }
 
         /// <summary>
@@ -130,22 +131,22 @@ namespace VideoWall.ViewModels.DemoMode
 
         #region Methods
 
-        private void DemoModeCountdownChanged(object sender, DemoModeCountdownChangedEventArgs demoModeCountdownChangedEventArgs)
+        private void DemoModeCountdownChanged(object sender, EventArgs eventArgs)
         {
             Notify("Countdown");
         }
 
-        private void DemoModeColorChanged(object sender, DemoModeColorChangedEventArgs args)
+        private void DemoModeColorChanged(object sender, EventArgs eventArgs)
         {
-            Notify("CurrentColor");
+            Notify("CurrentBackgroundColor");
         }
 
-        private void DemoModeAppChanged(object sender, DemoModeAppChangedEventArgs demoModeAppChangedEventArgs)
+        private void DemoModeAppChanged(object sender, EventArgs eventArgs)
         {
             _menuViewModel.ChangeToRandomApp();
         }
 
-        private void DemoModeStateChanged(object sender, DemoModeStateChangedEventArgs args)
+        private void DemoModeStateChanged(object sender, EventArgs args)
         {
             Notify("DemoModeVisibility");
             Notify("CountDownVisibility");
