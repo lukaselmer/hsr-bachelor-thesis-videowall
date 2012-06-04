@@ -18,15 +18,16 @@
 using System;
 using System.Linq;
 using Microsoft.Kinect;
+using VideoWall.Data.Kinect.Interfaces;
 
 #endregion
 
-namespace VideoWall.Data.Kinect
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
     ///   The KinectSkeletonReader. Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    public class KinectSkeletonReader : ISkeletonReader
+    internal class KinectSkeletonReader : ISkeletonReader
     {
         #region Declarations
 

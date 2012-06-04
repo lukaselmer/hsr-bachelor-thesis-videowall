@@ -1,0 +1,5 @@
+
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+	
+	
+    // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.

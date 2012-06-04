@@ -16,24 +16,37 @@
 #region Usings
 
 using System;
+using Microsoft.Kinect;
 
 #endregion
 
-namespace VideoWall.Data.Kinect
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
-    public interface ISkeletonReader : IDisposable
+    public class SkeletonsReadyEventArgs : EventArgs
     {
-        /// <summary>
-        ///   Occurs when [skeletons ready].
-        /// </summary>
-        event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
+        #region Properties
 
         /// <summary>
-        ///   Starts the reading process
+        ///   Gets the skeletons.
         /// </summary>
-        void Start();
+        public Skeleton[] Skeletons { get; private set; }
+
+        #endregion
+
+        #region Constructors / Destructor
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="SkeletonsReadyEventArgs" /> class.
+        /// </summary>
+        /// <param name="skeletons"> The skeletons. </param>
+        public SkeletonsReadyEventArgs(Skeleton[] skeletons)
+        {
+            Skeletons = skeletons;
+        }
+
+        #endregion
     }
 }

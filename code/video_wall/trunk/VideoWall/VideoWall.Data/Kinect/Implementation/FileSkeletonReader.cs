@@ -18,15 +18,20 @@
 using System;
 using System.IO;
 using Kinect.Toolbox.Record;
+using VideoWall.Data.Kinect.Interfaces;
 
 #endregion
 
-namespace VideoWall.Data.Kinect
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   This class is for development only.
     /// </summary>
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class FileSkeletonReader : ISkeletonReader
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 

@@ -20,18 +20,24 @@ using System.IO;
 using System.Windows.Threading;
 using Kinect.Toolbox.Record;
 using VideoWall.Common;
+using VideoWall.Data.Kinect.Interfaces;
 
 #endregion
 
-namespace VideoWall.Data.Kinect
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   This class is for development only.
     /// </summary>
-    public class AutoPlayFileSkeletonReader : ISkeletonReader
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    internal class AutoPlayFileSkeletonReader : ISkeletonReader
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 
+        // TODO: extract numbers to app.config
         private static readonly TimeSpan CheckTimerInterval = TimeSpan.FromMilliseconds(1400);
         private static readonly TimeSpan RestartReplayAfterSoMuchTime = TimeSpan.FromMilliseconds(20000);
 

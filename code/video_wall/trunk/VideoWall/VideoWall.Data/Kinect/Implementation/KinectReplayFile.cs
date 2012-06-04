@@ -13,12 +13,16 @@
 
 #endregion
 
-namespace VideoWall.Data.Kinect
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
     ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   This class is for development only.
     /// </summary>
-    public class KinectReplayFile
+    // ReSharper disable ClassNeverInstantiated.Global
+    // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
+    internal class KinectReplayFile
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Properties
 

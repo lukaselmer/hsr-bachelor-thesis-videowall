@@ -19,6 +19,8 @@ using System;
 using System.Linq;
 using Microsoft.Kinect;
 using VideoWall.Data.Kinect;
+using VideoWall.Data.Kinect.Implementation;
+using VideoWall.Data.Kinect.Interfaces;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player.Interfaces;
 
