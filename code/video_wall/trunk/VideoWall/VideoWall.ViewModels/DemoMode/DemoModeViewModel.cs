@@ -61,17 +61,17 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         ///   Gets the visibility.
         /// </summary>
-        public Visibility DemoModeVisibility { get { return _demoModeService.State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; } }
+        public Visibility DemoModeVisibility { get { return _demoModeService.State == VideoWallState.Active ? Visibility.Collapsed : Visibility.Visible; } }
 
         /// <summary>
         ///   Gets a value indicating whether the countdown is visible or not.
         /// </summary>
-        public Visibility CountDownVisibility { get { return _demoModeService.State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility CountDownVisibility { get { return _demoModeService.State == VideoWallState.Countdown ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
         ///   Gets a value indicating whether the text is visible or not.
         /// </summary>
-        public Visibility TeaserVisibility { get { return _demoModeService.State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility TeaserVisibility { get { return _demoModeService.State == VideoWallState.Teaser ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
         ///   Gets the teaser text.

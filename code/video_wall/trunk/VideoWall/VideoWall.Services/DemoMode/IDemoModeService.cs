@@ -14,7 +14,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <value>
         /// The state.
         /// </value>
-        DemoModeState State { get; }
+        VideoWallState State { get; }
 
         /// <summary>
         /// Gets or sets the color of the current.

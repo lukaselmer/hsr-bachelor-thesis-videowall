@@ -37,7 +37,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <summary>
         /// The current state of the demo mode
         /// </summary>
-        private DemoModeState _state = DemoModeState.Inactive;
+        private VideoWallState _state = VideoWallState.Active;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <value>
         /// The state.
         /// </value>
-        public DemoModeState State
+        public VideoWallState State
         {
             get { return _demoModeStateTimers.State; }
         }

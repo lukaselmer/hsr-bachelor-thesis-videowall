@@ -77,7 +77,7 @@
     <Compile Include="DemoMode\EventObjects\DemoModeCountdownChangedEvent.cs" />
     <Compile Include="DemoMode\EventObjects\DemoModeCountdownChangedEventArgs.cs" />
     <Compile Include="DemoMode\DemoModeService.cs" />
-    <Compile Include="DemoMode\DemoModeState.cs" />
+    <Compile Include="DemoMode\VideoWallState.cs" />
     <Compile Include="DemoMode\EventObjects\DemoModeStateChangedEvent.cs" />
     <Compile Include="DemoMode\EventObjects\DemoModeStateChangedEventArgs.cs" />
     <Compile Include="DemoMode\IDemoModeConfig.cs" />

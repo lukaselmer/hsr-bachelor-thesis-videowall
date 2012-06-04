@@ -41,7 +41,7 @@ namespace VideoWall.ServiceModels.DemoMode
         private EnhancedDispatcherTimer _demoModeStateCheckTicker;
         private readonly EnhancedDispatcherTimer _autoAppChangeTimer;
 
-        private DemoModeState _state;
+        private VideoWallState _state;
         private DateTime _countdownStartedAt;
 
         #endregion
@@ -59,15 +59,15 @@ namespace VideoWall.ServiceModels.DemoMode
             }
         }
 
-        public DemoModeState State
+        public VideoWallState State
         {
             get { return _state; }
             private set
             {
                 if (_state == value) return;
                 _state = value;
-                if (_state == DemoModeState.Teaser) _autoAppChangeTimer.Start();
-                if (_state == DemoModeState.Countdown) _autoAppChangeTimer.Stop();
+                if (_state == VideoWallState.Teaser) _autoAppChangeTimer.Start();
+                if (_state == VideoWallState.Countdown) _autoAppChangeTimer.Stop();
                 OnDemoModeStateChange(this, new EventArgs());
             }
         }
@@ -90,7 +90,7 @@ namespace VideoWall.ServiceModels.DemoMode
         internal DemoModeStateTimers(IDemoModeConfig demoModeConfig)
         {
             _demoModeConfig = demoModeConfig;
-            State = DemoModeState.Inactive;
+            State = VideoWallState.Active;
 
             // TODO: stop the timers
             _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckState, _demoModeConfig.SkeletonCheckTimeSpan, true);
@@ -106,30 +106,30 @@ namespace VideoWall.ServiceModels.DemoMode
         {
             switch (State)
             {
-                case DemoModeState.Inactive:
+                case VideoWallState.Active:
                     if (!SkeletonTrackedWithin(_demoModeConfig.FromActiveToDemoModeTimeSpan))
                     {
-                        State = DemoModeState.Teaser;
+                        State = VideoWallState.Teaser;
                     }
                     break;
-                case DemoModeState.Teaser:
+                case VideoWallState.Teaser:
                     if (SkeletonTrackedWithin(_demoModeConfig.SkeletonTrackingTimeoutTimeSpan))
                     {
                         _countdownStartedAt = DateTime.Now;
-                        State = DemoModeState.Countdown;
+                        State = VideoWallState.Countdown;
                     }
                     break;
-                case DemoModeState.Countdown:
+                case VideoWallState.Countdown:
                     OnCountdownChange(this, new EventArgs());
                     if (!SkeletonTrackedWithin(_demoModeConfig.SkeletonTrackingTimeoutTimeSpan))
                     {
-                        State = DemoModeState.Teaser;
+                        State = VideoWallState.Teaser;
                     }
                     else
                     {
                         if (DateTime.Now.Subtract(_countdownStartedAt) > _demoModeConfig.CountdownTimeSpan)
                         {
-                            State = DemoModeState.Inactive;
+                            State = VideoWallState.Active;
                         }
                     }
                     break;

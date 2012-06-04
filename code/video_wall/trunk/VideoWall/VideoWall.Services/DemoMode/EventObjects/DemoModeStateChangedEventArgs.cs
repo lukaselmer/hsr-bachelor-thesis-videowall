@@ -13,15 +13,15 @@ namespace VideoWall.ServiceModels.DemoMode.EventObjects
         /// <value>
         /// The state of the demo mode.
         /// </value>
-        public DemoModeState DemoModeState { get; private set; }
+        public VideoWallState VideoWallState { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoModeStateChangedEventArgs"/> class.
         /// </summary>
-        /// <param name="demoModeState">State of the demo mode.</param>
-        public DemoModeStateChangedEventArgs(DemoModeState demoModeState)
+        /// <param name="videoWallState">State of the demo mode.</param>
+        public DemoModeStateChangedEventArgs(VideoWallState videoWallState)
         {
-            DemoModeState = demoModeState;
+            VideoWallState = videoWallState;
         }
     }
 }
