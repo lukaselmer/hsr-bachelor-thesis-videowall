@@ -40,7 +40,6 @@ namespace VideoWall.ViewModels.Menu
         #region Declarations
 
         private readonly AppController _appController;
-        private readonly Random _random = new Random();
         private AppViewModel _currentApp;
 
         #endregion

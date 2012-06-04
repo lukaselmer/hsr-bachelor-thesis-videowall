@@ -41,16 +41,11 @@ namespace VideoWall.ViewModels.DemoMode
     {
         #region Declarations
 
-
         private readonly MenuViewModel _menuViewModel;
 
-        private readonly Player _player;
         private readonly PlayerViewModel _playerViewModel;
 
-        private int _countdown;
-
-        private Color _currentColor;
-        private DemoModeService _demoModeService;
+        private readonly DemoModeService _demoModeService;
 
         #endregion
 
@@ -63,28 +58,19 @@ namespace VideoWall.ViewModels.DemoMode
         public PlayerViewModel PlayerViewModel { get { return _playerViewModel; } }
 
         /// <summary>
-        ///   Gets or sets the state of the demo mode.
-        /// </summary>
-        /// <value> The demo mode state. </value>
-        private DemoModeState State
-        {
-            get { return _demoModeService.State; }
-        }
-
-        /// <summary>
         ///   Gets the visibility.
         /// </summary>
-        public Visibility DemoModeVisibility { get { return State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; } }
+        public Visibility DemoModeVisibility { get { return _demoModeService.State == DemoModeState.Inactive ? Visibility.Collapsed : Visibility.Visible; } }
 
         /// <summary>
         ///   Gets a value indicating whether the countdown is visible or not.
         /// </summary>
-        public Visibility CountDownVisibility { get { return State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility CountDownVisibility { get { return _demoModeService.State == DemoModeState.Countdown ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
         ///   Gets a value indicating whether the text is visible or not.
         /// </summary>
-        public Visibility TeaserVisibility { get { return State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; } }
+        public Visibility TeaserVisibility { get { return _demoModeService.State == DemoModeState.Teaser ? Visibility.Visible : Visibility.Collapsed; } }
 
         /// <summary>
         ///   Gets the teaser text.
@@ -132,16 +118,16 @@ namespace VideoWall.ViewModels.DemoMode
             _demoModeService.DemoModeColorChanged += DemoModeColorChanged;
             _demoModeService.DemoModeCountdownChanged += DemoModeCountdownChanged;
 
-            //_demoModeConfig = demoModeService.DemoModeConfig;
-
             _menuViewModel = menuViewModel;
             _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
 
             _playerViewModel = playerViewModel;
             _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
-
-            //Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }
+
+        #endregion
+
+        #region Methods
 
         private void DemoModeCountdownChanged(object sender, DemoModeCountdownChangedEventArgs demoModeCountdownChangedEventArgs)
         {
@@ -160,16 +146,11 @@ namespace VideoWall.ViewModels.DemoMode
 
         private void DemoModeStateChanged(object sender, DemoModeStateChangedEventArgs args)
         {
-
-            //if (_state == value) return;
-            //_state = value;
-
             Notify("DemoModeVisibility");
             Notify("CountDownVisibility");
             Notify("TeaserVisibility");
         }
 
         #endregion
-
     }
 }
