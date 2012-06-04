@@ -21,13 +21,12 @@ using System.Windows.Media;
 using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
+using VideoWall.ServiceModels.DemoMode;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
 using VideoWall.ViewModels.Skeletton;
 
 #endregion
-
-// TODO: insert regions
 
 namespace VideoWall.ViewModels.DemoMode
 {
@@ -38,22 +37,20 @@ namespace VideoWall.ViewModels.DemoMode
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class DemoModeViewModel : Notifier
-        // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
-        private readonly DemoModeConfig _demoModeConfig;
-        
+
         private readonly MenuViewModel _menuViewModel;
-        
+
         private readonly Player _player;
         private readonly PlayerViewModel _playerViewModel;
 
         private int _countdown;
 
         private Color _currentColor;
-
-        private DemoModeState _state = DemoModeState.Inactive;
+        private DemoModeService _demoModeService;
 
         #endregion
 
@@ -71,17 +68,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// <value> The demo mode state. </value>
         private DemoModeState State
         {
-            get { return _state; }
-            set
-            {
-                if (_state == value) return;
-
-                _state = value;
-
-                Notify("DemoModeVisibility");
-                Notify("CountDownVisibility");
-                Notify("TeaserVisibility");
-            }
+            get { return _demoModeService.State; }
         }
 
         /// <summary>
@@ -105,35 +92,23 @@ namespace VideoWall.ViewModels.DemoMode
         public string TeaserText { get { return _menuViewModel.CurrentApp.App.DemomodeText; } }
 
         /// <summary>
-        ///   Gets or sets the current color.
+        /// Gets or sets the current color.
         /// </summary>
+        /// <value>
+        /// The color of the current.
+        /// </value>
         public Color CurrentColor
         {
-            get { return _currentColor; }
-            set
-            {
-                _currentColor = value;
-                Notify("CurrentColor");
-            }
+            get { return _demoModeService.CurrentColor; }
         }
 
         /// <summary>
-        ///   Gets the Countdown.
+        ///   Gets the countdown which counts down when a skeleton is tracked (before switch from demo mode to app mode).
         /// </summary>
         public int Countdown
         {
-            get { return _countdown; }
-            private set
-            {
-                _countdown = value;
-                Notify("Countdown");
-            }
+            get { return _demoModeService.Countdown; }
         }
-
-        /// <summary>
-        ///   Gets or sets the ModeTimer.
-        /// </summary>
-        private ModeTimer ModeTimer { get; set; }
 
         #endregion
 
@@ -142,21 +117,22 @@ namespace VideoWall.ViewModels.DemoMode
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoModeViewModel"/> class.
         /// </summary>
-        /// <param name="player">The player.</param>
         /// <param name="playerViewModel">The player view model.</param>
         /// <param name="menuViewModel">The menu view model.</param>
-        /// <param name="demoModeConfig">The demo mode config.</param>
-        public DemoModeViewModel(Player player, PlayerViewModel playerViewModel, MenuViewModel menuViewModel, DemoModeConfig demoModeConfig)
+        /// <param name="demoModeService">The demo mode service.</param>
+        public DemoModeViewModel(PlayerViewModel playerViewModel, MenuViewModel menuViewModel, DemoModeService demoModeService)
         {
-            PreOrPostCondition.AssertNotNull(player, "player");
             PreOrPostCondition.AssertNotNull(menuViewModel, "menuViewModel");
             PreOrPostCondition.AssertNotNull(playerViewModel, "playerViewModel");
-            PreOrPostCondition.AssertNotNull(demoModeConfig, "demoModeConfig");
+            PreOrPostCondition.AssertNotNull(demoModeService, "demoModeService");
 
-            _demoModeConfig = demoModeConfig;
+            _demoModeService = demoModeService;
+            _demoModeService.DemoModeStateChanged += DemoModeStateChanged;
+            _demoModeService.DemoModeAppChanged += DemoModeAppChanged;
+            _demoModeService.DemoModeColorChanged += DemoModeColorChanged;
+            _demoModeService.DemoModeCountdownChanged += DemoModeCountdownChanged;
 
-            _player = player;
-            _player.PropertyChanged += OnPlayerChanged;
+            //_demoModeConfig = demoModeService.DemoModeConfig;
 
             _menuViewModel = menuViewModel;
             _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
@@ -164,76 +140,36 @@ namespace VideoWall.ViewModels.DemoMode
             _playerViewModel = playerViewModel;
             _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
 
-            ChangeColorAndApp();
-            InitModeTimer();
-
-            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
+            //Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
         }
 
-        #endregion
-
-        #region Methods
-
-        private void OnPlayerChanged(object sender, SkeletonChangedEventArgs args)
+        private void DemoModeCountdownChanged(object sender, DemoModeCountdownChangedEventArgs demoModeCountdownChangedEventArgs)
         {
-            if (_player.Skeleton != null) ModeTimer.SkeletonChanged();
+            Notify("Countdown");
         }
 
-        private void InitModeTimer()
+        private void DemoModeColorChanged(object sender, DemoModeColorChangedEventArgs args)
         {
-            ModeTimer = new ModeTimer(_demoModeConfig);
-            ModeTimer.ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
-            ModeTimer.ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
-            ModeTimer.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
-            ModeTimer.FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
-            ModeTimer.ChangeAppTimer.Tick += OnChangeAppTimerTick;
+            Notify("CurrentColor");
         }
 
-        private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
+        private void DemoModeAppChanged(object sender, DemoModeAppChangedEventArgs demoModeAppChangedEventArgs)
         {
-            if (!ModeTimer.WasSkeletonChanged()) return;
-            State = DemoModeState.Countdown;
-        }
-
-        private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
-        {
-            if (!ModeTimer.IsInInteractionMode)
-            {
-                if (ModeTimer.WasSkeletonChanged())
-                {
-                    Countdown -= ModeTimer.SkeletonCheckTimer.GetIntervalSeconds();
-                }
-                else
-                {
-                    Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
-                    State = DemoModeState.Teaser;
-                }
-            }
-        }
-
-        private void OnToInteractionModeTimerTick(object sender, EventArgs e)
-        {
-            State = DemoModeState.Inactive;
-        }
-
-        private void OnToDemoModeTimerTick(object sender, EventArgs e)
-        {
-            ChangeColorAndApp();
-            State = DemoModeState.Teaser;
-            Countdown = ModeTimer.ToInteractionModeTimer.GetIntervalSeconds();
-        }
-
-        private void ChangeColorAndApp()
-        {
-            CurrentColor = _demoModeConfig.BackgroundColors.RandomElement();
             _menuViewModel.ChangeToRandomApp();
         }
 
-        private void OnChangeAppTimerTick(object sender, EventArgs e)
+        private void DemoModeStateChanged(object sender, DemoModeStateChangedEventArgs args)
         {
-            ChangeColorAndApp();
+
+            //if (_state == value) return;
+            //_state = value;
+
+            Notify("DemoModeVisibility");
+            Notify("CountDownVisibility");
+            Notify("TeaserVisibility");
         }
 
         #endregion
+
     }
 }

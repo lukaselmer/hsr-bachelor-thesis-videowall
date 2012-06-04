@@ -1,9 +1,9 @@
-namespace VideoWall.ViewModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode
 {
     /// <summary>
     /// The demo mode state represents the state of the demo mode
     /// </summary>
-    internal enum DemoModeState
+    public enum DemoModeState
     {
         /// <summary>
         /// When the application is active, the demo mode is hidden

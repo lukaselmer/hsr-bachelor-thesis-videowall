@@ -19,7 +19,7 @@ using System.Windows.Threading;
 
 #endregion
 
-namespace VideoWall.ViewModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode
 {
     // TODO: Instead of extension methods, wrap the dispatcher timer (adapter)
 

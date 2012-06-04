@@ -20,16 +20,26 @@ using System.Windows.Threading;
 
 #endregion
 
-namespace VideoWall.ViewModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode
 {
     /// <summary>
     ///   The mode timer
     /// </summary>
     internal class ModeTimer
     {
+        #region Declarations
+
+        /// <summary>
+        /// The demo mode configuration
+        /// </summary>
         private readonly DemoModeConfig _demoModeConfig;
 
+        /// <summary>
+        /// The date time when the last skeleton appeared
+        /// </summary>
         private DateTime _lastSkeletonTime;
+
+        #endregion
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="ModeTimer" /> class.

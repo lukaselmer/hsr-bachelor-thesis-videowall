@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using VideoWall.ServiceModels.DemoMode;
 using VideoWall.ViewModels.DemoMode;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -51,7 +52,7 @@ namespace VideoWall.Tests
         [TestMethod]
         public void ModeTimerConstructorTest()
         {
-            var target = new ModeTimer(new DemoModeConfigMock());
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             Assert.IsTrue(target.IsInInteractionMode);
 
             Assert.IsTrue(target.ToDemoModeTimer.IsEnabled);
@@ -168,7 +169,7 @@ namespace VideoWall.Tests
         [TestMethod]
         public void SkeletonChangedTest()
         {
-            var target = new ModeTimer(new DemoModeConfigMock());
+            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
             Assert.IsFalse(target.WasSkeletonChanged());
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
