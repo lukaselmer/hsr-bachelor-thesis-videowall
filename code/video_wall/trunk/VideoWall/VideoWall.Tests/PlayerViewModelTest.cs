@@ -2,7 +2,6 @@
 using VideoWall.ViewModels.Skeletton;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoWall.ServiceModels.Player;
-using Microsoft.Kinect;
 
 namespace VideoWall.Tests
 {

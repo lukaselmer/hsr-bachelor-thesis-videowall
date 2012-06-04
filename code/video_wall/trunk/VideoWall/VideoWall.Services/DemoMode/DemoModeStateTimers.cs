@@ -38,6 +38,48 @@ namespace VideoWall.ServiceModels.DemoMode
         /// </summary>
         private DateTime _lastSkeletonTime;
 
+        private EnhancedDispatcherTimer _demoModeStateCheckTicker;
+        private readonly EnhancedDispatcherTimer _autoAppChangeTimer;
+
+        private DemoModeState _state;
+        private DateTime _countdownStartedAt;
+
+        #endregion
+
+        #region Properties
+
+        public int Countdown
+        {
+            get
+            {
+                var cts = _demoModeConfig.CountdownTimeSpan;
+                var seconds = (int)cts.Subtract(DateTime.Now.Subtract(_countdownStartedAt)).TotalSeconds;
+                if (seconds < 0 || seconds > cts.Seconds) seconds = cts.Seconds;
+                return seconds + 1;
+            }
+        }
+
+        public DemoModeState State
+        {
+            get { return _state; }
+            private set
+            {
+                if (_state == value) return;
+                _state = value;
+                if (_state == DemoModeState.Teaser) _autoAppChangeTimer.Start();
+                if (_state == DemoModeState.Countdown) _autoAppChangeTimer.Stop();
+                OnDemoModeStateChange(this, new EventArgs());
+            }
+        }
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler<EventArgs> OnDemoModeStateChange = delegate { };
+        public event EventHandler<EventArgs> OnAppChange = delegate { };
+        public event EventHandler<EventArgs> OnCountdownChange = delegate { };
+
         #endregion
 
         #region Constructor / Destructor
@@ -48,131 +90,55 @@ namespace VideoWall.ServiceModels.DemoMode
         internal DemoModeStateTimers(IDemoModeConfig demoModeConfig)
         {
             _demoModeConfig = demoModeConfig;
+            State = DemoModeState.Inactive;
 
-            ToDemoModeTimer = new EnhancedDispatcherTimer(OnToDemoModeTimerTick, _demoModeConfig.ToDemoModeTimeSpan, true);
-            ToInteractionModeTimer = new EnhancedDispatcherTimer(OnToInteractionModeTimerTick, _demoModeConfig.ToInteractionModeTimeSpan);
-            SkeletonCheckTimer = new EnhancedDispatcherTimer(OnSkeletonCheckTimerTick, _demoModeConfig.SkeletonCheckTimeSpan, true);
-            ChangeAppTimer = new EnhancedDispatcherTimer(delegate { }, _demoModeConfig.ChangeAppTimeSpan);
-            FastSkeletonCheckTimer = new EnhancedDispatcherTimer(OnFastSkeletonCheckTimerTick, _demoModeConfig.FastSkeletonTimeSpan);
-
-            IsInInteractionMode = true;
+            // TODO: stop the timers
+            _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckState, _demoModeConfig.SkeletonCheckTimeSpan, true);
+            _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChanged, _demoModeConfig.ChangeAppTimeSpan);
         }
 
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        ///   Gets the demo mode timer.
-        /// </summary>
-        internal EnhancedDispatcherTimer ToInteractionModeTimer { get; private set; }
-
-        /// <summary>
-        ///   Gets the fast skeleton check timer.
-        /// </summary>
-        internal EnhancedDispatcherTimer FastSkeletonCheckTimer { get; private set; }
-
-        /// <summary>
-        ///   Gets the interaction mode timer.
-        /// </summary>
-        internal EnhancedDispatcherTimer ToDemoModeTimer { get; private set; }
-
-        /// <summary>
-        ///   Gets the skeleton check timer.
-        /// </summary>
-        internal EnhancedDispatcherTimer SkeletonCheckTimer { get; private set; }
-
-        /// <summary>
-        ///   Gets the change app timer.
-        /// </summary>
-        internal EnhancedDispatcherTimer ChangeAppTimer { get; private set; }
-
-        /// <summary>
-        ///   Gets a value indicating whether this instance is in interaction mode.
-        /// </summary>
-        internal bool IsInInteractionMode { get; private set; }
-
-        #endregion
-
-        private void OnToInteractionModeTimerTick(object sender, EventArgs e)
+        private void AppChanged(object sender, EventArgs e)
         {
-            IsInInteractionMode = true;
-
-            ToDemoModeTimer.Start();
-            ToInteractionModeTimer.Stop();
-
-            SkeletonCheckTimer.Start();
-            FastSkeletonCheckTimer.Stop();
-
-            ChangeAppTimer.Stop();
+            OnAppChange(sender, e);
         }
 
-        private void OnToDemoModeTimerTick(object sender, EventArgs e)
+        private void CheckState(object sender, EventArgs e)
         {
-            IsInInteractionMode = false;
-
-            ToInteractionModeTimer.Start();
-            ToDemoModeTimer.Stop();
-
-            SkeletonCheckTimer.Stop();
-            FastSkeletonCheckTimer.Start();
-
-            ChangeAppTimer.Start();
-        }
-
-        private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
-        {
-            if (WasSkeletonChanged())
+            switch (State)
             {
-                SkeletonCheckTimer.Start();
-                FastSkeletonCheckTimer.Stop();
-            }
-            else
-            {
-                ToInteractionModeTimer.Reset();
+                case DemoModeState.Inactive:
+                    if (!SkeletonTrackedWithin(_demoModeConfig.FromActiveToDemoModeTimeSpan))
+                    {
+                        State = DemoModeState.Teaser;
+                    }
+                    break;
+                case DemoModeState.Teaser:
+                    if (SkeletonTrackedWithin(_demoModeConfig.SkeletonTrackingTimeoutTimeSpan))
+                    {
+                        _countdownStartedAt = DateTime.Now;
+                        State = DemoModeState.Countdown;
+                    }
+                    break;
+                case DemoModeState.Countdown:
+                    OnCountdownChange(this, new EventArgs());
+                    if (!SkeletonTrackedWithin(_demoModeConfig.SkeletonTrackingTimeoutTimeSpan))
+                    {
+                        State = DemoModeState.Teaser;
+                    }
+                    else
+                    {
+                        if (DateTime.Now.Subtract(_countdownStartedAt) > _demoModeConfig.CountdownTimeSpan)
+                        {
+                            State = DemoModeState.Inactive;
+                        }
+                    }
+                    break;
             }
         }
 
-        /// <summary>
-        ///   Called when skeleton check timer tickes.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.EventArgs" /> instance containing the event data. </param>
-        private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
+        private bool SkeletonTrackedWithin(TimeSpan ago)
         {
-            if (IsInInteractionMode)
-            {
-                if (WasSkeletonChanged())
-                {
-                    ToDemoModeTimer.Reset();
-                }
-            }
-            else
-            {
-                //When the skeleton changes during the demo mode, the app which will be displayed shouldn't change anymore.
-                if (WasSkeletonChanged())
-                {
-                    ChangeAppTimer.Stop();
-                }
-                else
-                {
-                    ToInteractionModeTimer.Reset();
-
-                    FastSkeletonCheckTimer.Start();
-                    SkeletonCheckTimer.Stop();
-
-                    ChangeAppTimer.Start();
-                }
-            }
-        }
-
-        /// <summary>
-        ///   Wether the skeleton was changed.
-        /// </summary>
-        /// <returns> </returns>
-        internal bool WasSkeletonChanged()
-        {
-            return _lastSkeletonTime.Add(_demoModeConfig.SkeletonCheckTimeSpan) > DateTime.Now;
+            return DateTime.Now.Subtract(_lastSkeletonTime) < ago;
         }
 
         /// <summary>
@@ -182,5 +148,8 @@ namespace VideoWall.ServiceModels.DemoMode
         {
             _lastSkeletonTime = DateTime.Now;
         }
+
+        #endregion
+
     }
 }

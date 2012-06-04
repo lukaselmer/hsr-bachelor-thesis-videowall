@@ -32,17 +32,12 @@ namespace VideoWall.ServiceModels.DemoMode
         /// <summary>
         /// The mode timer realizes a state machine for the demo mode
         /// </summary>
-        private DemoModeStateTimers _demoModeStateTimers;
+        private readonly DemoModeStateTimers _demoModeStateTimers;
 
         /// <summary>
         /// The current state of the demo mode
         /// </summary>
         private DemoModeState _state = DemoModeState.Inactive;
-
-        /// <summary>
-        /// The countdown
-        /// </summary>
-        private int _countdown;
 
         #endregion
 
@@ -56,13 +51,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// </value>
         public DemoModeState State
         {
-            get { return _state; }
-            private set
-            {
-                if (_state == value) return;
-                _state = value;
-                DemoModeStateChanged(this, new DemoModeStateChangedEventArgs(_state));
-            }
+            get { return _demoModeStateTimers.State; }
         }
 
         /// <summary>
@@ -78,13 +67,7 @@ namespace VideoWall.ServiceModels.DemoMode
         /// </summary>
         public int Countdown
         {
-            get { return _countdown; }
-            private set
-            {
-                if (_countdown == value) return;
-                _countdown = value;
-                DemoModeCountdownChanged(this, new DemoModeCountdownChangedEventArgs());
-            }
+            get { return _demoModeStateTimers.Countdown; }
         }
 
         #endregion
@@ -125,9 +108,17 @@ namespace VideoWall.ServiceModels.DemoMode
             _demoModeConfig = demoModeConfig;
 
             ChangeColorAndApp();
-            InitModeTimer();
+            _demoModeStateTimers = new DemoModeStateTimers(_demoModeConfig);
+            _demoModeStateTimers.OnDemoModeStateChange += OnDemoModeStateChange;
+            _demoModeStateTimers.OnAppChange += OnChangeAppTimerTick;
+            _demoModeStateTimers.OnCountdownChange += OnCountdownChange;
 
             player.PropertyChanged += OnPlayerChanged;
+        }
+
+        private void OnCountdownChange(object sender, EventArgs e)
+        {
+            DemoModeCountdownChanged(this, new DemoModeCountdownChangedEventArgs());
         }
 
         #endregion
@@ -139,48 +130,9 @@ namespace VideoWall.ServiceModels.DemoMode
             if (_player.Skeleton != null) _demoModeStateTimers.SkeletonChanged();
         }
 
-        private void InitModeTimer()
+        private void OnDemoModeStateChange(object sender, EventArgs e)
         {
-            _demoModeStateTimers = new DemoModeStateTimers(_demoModeConfig);
-            _demoModeStateTimers.ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
-            _demoModeStateTimers.ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
-            _demoModeStateTimers.SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
-            _demoModeStateTimers.FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
-            _demoModeStateTimers.ChangeAppTimer.Tick += OnChangeAppTimerTick;
-        }
-
-        private void OnFastSkeletonCheckTimerTick(object sender, EventArgs e)
-        {
-            if (!_demoModeStateTimers.WasSkeletonChanged()) return;
-            State = DemoModeState.Countdown;
-        }
-
-        private void OnSkeletonCheckTimerTick(object sender, EventArgs e)
-        {
-            if (!_demoModeStateTimers.IsInInteractionMode)
-            {
-                if (_demoModeStateTimers.WasSkeletonChanged())
-                {
-                    Countdown -= _demoModeStateTimers.SkeletonCheckTimer.IntervalSeconds;
-                }
-                else
-                {
-                    Countdown = _demoModeStateTimers.ToInteractionModeTimer.IntervalSeconds;
-                    State = DemoModeState.Teaser;
-                }
-            }
-        }
-
-        private void OnToInteractionModeTimerTick(object sender, EventArgs e)
-        {
-            State = DemoModeState.Inactive;
-        }
-
-        private void OnToDemoModeTimerTick(object sender, EventArgs e)
-        {
-            ChangeColorAndApp();
-            State = DemoModeState.Teaser;
-            Countdown = _demoModeStateTimers.ToInteractionModeTimer.IntervalSeconds;
+            DemoModeStateChanged(this, new DemoModeStateChangedEventArgs(State));
         }
 
         private void ChangeColorAndApp()
