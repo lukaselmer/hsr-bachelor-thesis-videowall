@@ -4,11 +4,6 @@
         <name>LunchMenuApp.Views</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Views.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.Views.Dish">
             <summary>
               Interaction logic for Dish.xaml
@@ -25,6 +20,11 @@
         <member name="M:LunchMenuApp.Views.Dish.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.Views.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
             </summary>
         </member>
         <member name="T:LunchMenuApp.Views.LunchMenuView">

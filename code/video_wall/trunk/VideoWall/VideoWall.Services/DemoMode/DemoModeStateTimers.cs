@@ -16,7 +16,6 @@
 #region Usings
 
 using System;
-using System.Windows.Threading;
 
 #endregion
 
@@ -25,14 +24,14 @@ namespace VideoWall.ServiceModels.DemoMode
     /// <summary>
     ///   The mode timer
     /// </summary>
-    internal class ModeTimer
+    internal class DemoModeStateTimers
     {
         #region Declarations
 
         /// <summary>
         /// The demo mode configuration
         /// </summary>
-        private readonly DemoModeConfig _demoModeConfig;
+        private readonly IDemoModeConfig _demoModeConfig;
 
         /// <summary>
         /// The date time when the last skeleton appeared
@@ -41,48 +40,52 @@ namespace VideoWall.ServiceModels.DemoMode
 
         #endregion
 
+        #region Constructor / Destructor
+
         /// <summary>
-        ///   Initializes a new instance of the <see cref="ModeTimer" /> class.
+        ///   Initializes a new instance of the <see cref="DemoModeStateTimers" /> class.
         /// </summary>
-        internal ModeTimer(DemoModeConfig demoModeConfig)
+        internal DemoModeStateTimers(IDemoModeConfig demoModeConfig)
         {
             _demoModeConfig = demoModeConfig;
 
-            InitToDemoModeTimer();
-            InitToInteractionModeTimer();
-            InitSkeletonCheckTimer();
-            InitChangeAppTimer();
-            InitFastSkeletonCheckTimer();
+            ToDemoModeTimer = new EnhancedDispatcherTimer(OnToDemoModeTimerTick, _demoModeConfig.ToDemoModeTimeSpan, true);
+            ToInteractionModeTimer = new EnhancedDispatcherTimer(OnToInteractionModeTimerTick, _demoModeConfig.ToInteractionModeTimeSpan);
+            SkeletonCheckTimer = new EnhancedDispatcherTimer(OnSkeletonCheckTimerTick, _demoModeConfig.SkeletonCheckTimeSpan, true);
+            ChangeAppTimer = new EnhancedDispatcherTimer(delegate { }, _demoModeConfig.ChangeAppTimeSpan);
+            FastSkeletonCheckTimer = new EnhancedDispatcherTimer(OnFastSkeletonCheckTimerTick, _demoModeConfig.FastSkeletonTimeSpan);
 
             IsInInteractionMode = true;
         }
+
+        #endregion
 
         #region Properties
 
         /// <summary>
         ///   Gets the demo mode timer.
         /// </summary>
-        internal DispatcherTimer ToInteractionModeTimer { get; private set; }
+        internal EnhancedDispatcherTimer ToInteractionModeTimer { get; private set; }
 
         /// <summary>
         ///   Gets the fast skeleton check timer.
         /// </summary>
-        internal DispatcherTimer FastSkeletonCheckTimer { get; private set; }
+        internal EnhancedDispatcherTimer FastSkeletonCheckTimer { get; private set; }
 
         /// <summary>
         ///   Gets the interaction mode timer.
         /// </summary>
-        internal DispatcherTimer ToDemoModeTimer { get; private set; }
+        internal EnhancedDispatcherTimer ToDemoModeTimer { get; private set; }
 
         /// <summary>
         ///   Gets the skeleton check timer.
         /// </summary>
-        internal DispatcherTimer SkeletonCheckTimer { get; private set; }
+        internal EnhancedDispatcherTimer SkeletonCheckTimer { get; private set; }
 
         /// <summary>
         ///   Gets the change app timer.
         /// </summary>
-        internal DispatcherTimer ChangeAppTimer { get; private set; }
+        internal EnhancedDispatcherTimer ChangeAppTimer { get; private set; }
 
         /// <summary>
         ///   Gets a value indicating whether this instance is in interaction mode.
@@ -90,37 +93,6 @@ namespace VideoWall.ServiceModels.DemoMode
         internal bool IsInInteractionMode { get; private set; }
 
         #endregion
-
-        private void InitToDemoModeTimer()
-        {
-            ToDemoModeTimer = new DispatcherTimer { Interval = _demoModeConfig.ToDemoModeTimeSpan};
-            ToDemoModeTimer.Tick += OnToDemoModeTimerTick;
-            ToDemoModeTimer.Start();
-        }
-
-        private void InitToInteractionModeTimer()
-        {
-            ToInteractionModeTimer = new DispatcherTimer { Interval = _demoModeConfig.ToInteractionModeTimeSpan };
-            ToInteractionModeTimer.Tick += OnToInteractionModeTimerTick;
-        }
-
-        private void InitFastSkeletonCheckTimer()
-        {
-            FastSkeletonCheckTimer = new DispatcherTimer { Interval = _demoModeConfig.FastSkeletonTimeSpan };
-            FastSkeletonCheckTimer.Tick += OnFastSkeletonCheckTimerTick;
-        }
-
-        private void InitSkeletonCheckTimer()
-        {
-            SkeletonCheckTimer = new DispatcherTimer { Interval = _demoModeConfig.SkeletonCheckTimeSpan };
-            SkeletonCheckTimer.Tick += OnSkeletonCheckTimerTick;
-            SkeletonCheckTimer.Start();
-        }
-
-        private void InitChangeAppTimer()
-        {
-            ChangeAppTimer = new DispatcherTimer { Interval = _demoModeConfig.ChangeAppTimeSpan };
-        }
 
         private void OnToInteractionModeTimerTick(object sender, EventArgs e)
         {

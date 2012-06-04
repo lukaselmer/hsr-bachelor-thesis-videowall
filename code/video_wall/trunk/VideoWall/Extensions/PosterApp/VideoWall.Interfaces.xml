@@ -4,26 +4,14 @@
         <name>VideoWall.Interfaces</name>
     </assembly>
     <members>
-        <member name="T:VideoWall.Interfaces.IVideoWallService">
-            <summary>
-              Marker interface: represents a video wall extension
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
-            <summary>
-              Provides services for the video wall, like hand tracking, skeleton tracking or a file service
-            </summary>
-        </member>
-        <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
-            <summary>
-              Gets an implementation of the interface <typeparam name="T"> </typeparam> which is provided by the video wall
-            </summary>
-            <typeparam name="T"> </typeparam>
-            <returns> </returns>
-        </member>
         <member name="T:VideoWall.Interfaces.ISkeletonService">
             <summary>
             The skeleton service provides the skeletal tracking
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IVideoWallService">
+            <summary>
+              Marker interface: represents a video wall extension
             </summary>
         </member>
         <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
@@ -45,6 +33,18 @@
             <summary>
               The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
             </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
+            <summary>
+              Provides services for the video wall, like hand tracking, skeleton tracking or a file service
+            </summary>
+        </member>
+        <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
+            <summary>
+              Gets an implementation of the interface <typeparam name="T"> </typeparam> which is provided by the video wall
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <returns> </returns>
         </member>
         <member name="T:VideoWall.Interfaces.IApp">
             <summary>

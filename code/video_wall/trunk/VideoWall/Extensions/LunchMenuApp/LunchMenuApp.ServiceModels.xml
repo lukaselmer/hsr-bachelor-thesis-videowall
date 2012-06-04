@@ -4,6 +4,77 @@
         <name>LunchMenuApp.ServiceModels</name>
     </assembly>
     <members>
+        <member name="T:LunchMenuApp.ServiceModels.LunchMenu">
+            <summary>
+              The lunch menu. Reviewed by Delia Treichler, 17.04.2012
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenu.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenu"/> class.
+            </summary>
+            <param name="html"> The HTML. </param>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Dishes">
+            <summary>
+              Gets the dishes.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Date">
+            <summary>
+              Gets the date.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Dish">
+            <summary>
+              The dish.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Dish.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Dish"/> class.
+            </summary>
+            <param name="type"> The type. </param>
+            <param name="name"> The name. </param>
+            <param name="price"> The price. </param>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Dish.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Dish.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Dish.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.ServiceModels"/> namespace contains service classes.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.LunchMenuService">
+            <summary>
+              The lunch menu service.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.LunchMenuService.#ctor(LunchMenuApp.Data.LunchMenuReader)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenuService"/> class.
+            </summary>
+            <param name="lunchMenuReader"> The lunch menu reader. </param>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.LunchMenuService.LunchMenu">
+            <summary>
+              Gets or sets and notifies the lunch menu.
+            </summary>
+            <value> The lunch menu. </value>
+        </member>
         <member name="T:LunchMenuApp.ServiceModels.DishParser">
             <summary>
               Parses the dishes from html nodes
@@ -34,11 +105,6 @@
             <param name="node"> The node. </param>
             <returns> </returns>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.ServiceModels"/> namespace contains service classes.
-            </summary>
-        </member>
         <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.#ctor(System.String)">
             <summary>
               Parses the dishes and the menu date from the html
@@ -63,72 +129,6 @@
               Extracts the dishes.
             </summary>
             <returns> </returns>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.LunchMenu">
-            <summary>
-              The lunch menu. Reviewed by Delia Treichler, 17.04.2012
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenu.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenu"/> class.
-            </summary>
-            <param name="html"> The HTML. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Dishes">
-            <summary>
-              Gets the dishes.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Date">
-            <summary>
-              Gets the date.
-            </summary>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.LunchMenuService">
-            <summary>
-              The lunch menu service.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuService.#ctor(LunchMenuApp.Data.LunchMenuReader)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenuService"/> class.
-            </summary>
-            <param name="lunchMenuReader"> The lunch menu reader. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenuService.LunchMenu">
-            <summary>
-              Gets or sets and notifies the lunch menu.
-            </summary>
-            <value> The lunch menu. </value>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.Dish">
-            <summary>
-              The dish.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.Dish.#ctor(System.String,System.String,System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Dish"/> class.
-            </summary>
-            <param name="type"> The type. </param>
-            <param name="name"> The name. </param>
-            <param name="price"> The price. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Price">
-            <summary>
-              Gets the price.
-            </summary>
         </member>
     </members>
 </doc>

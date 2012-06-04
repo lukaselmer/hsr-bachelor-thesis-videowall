@@ -6,8 +6,6 @@ using System;
 
 namespace VideoWall.Tests
 {
-
-
     /// <summary>
     ///This is a test class for ModeTimerTest and is intended
     ///to contain all ModeTimerTest Unit Tests
@@ -52,7 +50,7 @@ namespace VideoWall.Tests
         [TestMethod]
         public void ModeTimerConstructorTest()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             Assert.IsTrue(target.IsInInteractionMode);
 
             Assert.IsTrue(target.ToDemoModeTimer.IsEnabled);
@@ -71,7 +69,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnFastSkeletonCheckTimerTickTestWithUnchangedSkeleton()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             Assert.IsFalse(target.WasSkeletonChanged());
             target.OnFastSkeletonCheckTimerTick(null, null);
             Assert.IsTrue(target.ToInteractionModeTimer.IsEnabled);
@@ -84,7 +82,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnFastSkeletonCheckTimerTickTestWithChangedSkeleton()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
             target.OnFastSkeletonCheckTimerTick(null, null);
@@ -99,7 +97,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnSkeletonCheckTimerTickTestInDemoModeWithUnchangedSkeleton()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
             Assert.IsFalse(target.WasSkeletonChanged());
             target.OnSkeletonCheckTimerTick(null, null);
             Assert.IsTrue(target.ChangeAppTimer.IsEnabled);
@@ -114,7 +112,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnSkeletonCheckTimerTickTestInDemoModeWithChangedSkeleton()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock()) { IsInInteractionMode = false };
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
             target.OnSkeletonCheckTimerTick(null, null);
@@ -128,7 +126,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnToDemoModeTimerTickTest()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             target.OnToDemoModeTimerTick(null, null);
 
             Assert.IsFalse(target.IsInInteractionMode);
@@ -149,7 +147,7 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ViewModels.dll")]
         public void OnToInteractionModeTimerTickTest()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             target.OnToInteractionModeTimerTick(null, null);
 
             Assert.IsTrue(target.IsInInteractionMode);
@@ -169,7 +167,7 @@ namespace VideoWall.Tests
         [TestMethod]
         public void SkeletonChangedTest()
         {
-            var target = new ModeTimer_Accessor(new DemoModeConfigMock());
+            var target = new DemoModeStateTimers_Accessor(new DemoModeConfigMock());
             Assert.IsFalse(target.WasSkeletonChanged());
             target.SkeletonChanged();
             Assert.IsTrue(target.WasSkeletonChanged());
@@ -179,16 +177,44 @@ namespace VideoWall.Tests
     /// <summary>
     /// The demo mode config mock for the tests
     /// </summary>
-    class DemoModeConfigMock : DemoModeConfig
+    class DemoModeConfigMock : IDemoModeConfig
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemoModeConfigMock"/> class.
+        /// Gets or sets the background colors of the demo mode.
         /// </summary>
-        public DemoModeConfigMock()
-            : base(new[] { Colors.Red, Colors.Blue },
-            TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100),
-            TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100))
-        {
-        }
+        /// <value>
+        /// The background colors of the demo mode.
+        /// </value>
+        public Color[] BackgroundColors { get { return new[] { Colors.Red, Colors.Blue }; } }
+
+        /// <summary>
+        /// Gets to demo mode time span.
+        /// TODO: describe this property exactly
+        /// </summary>
+        public TimeSpan ToDemoModeTimeSpan { get { return TimeSpan.FromMilliseconds(100); } }
+
+        /// <summary>
+        /// Gets to interaction mode time span.
+        /// TODO: describe this property exactly
+        /// </summary>
+        public TimeSpan ToInteractionModeTimeSpan { get { return TimeSpan.FromMilliseconds(100); } }
+
+        /// <summary>
+        /// Gets the fast skeleton time span.
+        /// TODO: describe this property exactly
+        /// </summary>
+        public TimeSpan FastSkeletonTimeSpan { get { return TimeSpan.FromMilliseconds(100); } }
+
+        /// <summary>
+        /// Gets the skeleton check time span.
+        /// TODO: describe this property exactly
+        /// </summary>
+        public TimeSpan SkeletonCheckTimeSpan { get { return TimeSpan.FromMilliseconds(100); } }
+
+        /// <summary>
+        /// Gets the change app time span.
+        /// TODO: describe this property exactly
+        /// </summary>
+        public TimeSpan ChangeAppTimeSpan { get { return TimeSpan.FromMilliseconds(100); } }
     }
 }

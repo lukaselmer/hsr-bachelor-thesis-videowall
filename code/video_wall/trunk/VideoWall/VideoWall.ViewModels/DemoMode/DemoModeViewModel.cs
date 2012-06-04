@@ -22,6 +22,7 @@ using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.DemoMode;
+using VideoWall.ServiceModels.DemoMode.EventObjects;
 using VideoWall.ServiceModels.Player;
 using VideoWall.ViewModels.Menu;
 using VideoWall.ViewModels.Skeletton;
@@ -45,7 +46,7 @@ namespace VideoWall.ViewModels.DemoMode
 
         private readonly PlayerViewModel _playerViewModel;
 
-        private readonly DemoModeService _demoModeService;
+        private readonly IDemoModeService _demoModeService;
 
         #endregion
 
@@ -106,7 +107,7 @@ namespace VideoWall.ViewModels.DemoMode
         /// <param name="playerViewModel">The player view model.</param>
         /// <param name="menuViewModel">The menu view model.</param>
         /// <param name="demoModeService">The demo mode service.</param>
-        public DemoModeViewModel(PlayerViewModel playerViewModel, MenuViewModel menuViewModel, DemoModeService demoModeService)
+        public DemoModeViewModel(PlayerViewModel playerViewModel, MenuViewModel menuViewModel, IDemoModeService demoModeService)
         {
             PreOrPostCondition.AssertNotNull(menuViewModel, "menuViewModel");
             PreOrPostCondition.AssertNotNull(playerViewModel, "playerViewModel");

@@ -6,7 +6,10 @@ namespace VideoWall.ServiceModels.DemoMode
     /// <summary>
     /// The demo mode configuration
     /// </summary>
-    public class DemoModeConfig
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    internal class DemoModeConfig : IDemoModeConfig
+    // ReSharper restore UnusedMember.Global
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoModeConfig"/> class.

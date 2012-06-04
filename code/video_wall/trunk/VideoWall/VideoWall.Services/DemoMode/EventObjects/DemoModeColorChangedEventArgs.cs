@@ -1,4 +1,4 @@
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.EventObjects
 {
     /// <summary>
     /// The demo mode color changed event args.

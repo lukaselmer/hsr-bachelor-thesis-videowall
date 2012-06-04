@@ -1,6 +1,6 @@
 using System;
 
-namespace VideoWall.ServiceModels.DemoMode
+namespace VideoWall.ServiceModels.DemoMode.EventObjects
 {
     /// <summary>
     /// The demo mode app changed event args.
