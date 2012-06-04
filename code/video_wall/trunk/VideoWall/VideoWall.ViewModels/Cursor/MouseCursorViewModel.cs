@@ -15,11 +15,13 @@
 
 #region Usings
 
+using System;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common;
 using VideoWall.ResourceLoader;
 using VideoWall.ServiceModels.HandCursor;
+using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
 
@@ -82,7 +84,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
-        public event HandChanged HandChanged;
+        public event EventHandler<HandChangedEventArgs> HandChanged;
 
         #endregion
 

@@ -3,6 +3,8 @@ using System.Windows.Media;
 using VideoWall.Common.Extensions;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.DemoMode.Interfaces;
+using VideoWall.ServiceModels.Player;
+using VideoWall.ServiceModels.Player.Interfaces;
 
 namespace VideoWall.ServiceModels.DemoMode.Implementation
 {
@@ -19,7 +21,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         /// <summary>
         /// The player
         /// </summary>
-        private readonly Player.Player _player;
+        private readonly IPlayer _player;
 
         /// <summary>
         /// The demo mode config
@@ -99,7 +101,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="demoModeConfig">The demo mode config.</param>
-        public DemoModeService(Player.Player player, IDemoModeConfig demoModeConfig)
+        public DemoModeService(IPlayer player, IDemoModeConfig demoModeConfig)
         {
             _player = player;
             _demoModeConfig = demoModeConfig;
@@ -110,7 +112,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             _demoModeStateTimers.OnAppChange += OnChangeAppTimerTick;
             _demoModeStateTimers.OnCountdownChange += OnCountdownChange;
 
-            player.PropertyChanged += OnPlayerChanged;
+            player.SkeletonChanged += OnPlayerChanged;
         }
 
         private void OnCountdownChange(object sender, EventArgs e)

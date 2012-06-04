@@ -1,4 +1,4 @@
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
     ///   The hand type (left or right hand)

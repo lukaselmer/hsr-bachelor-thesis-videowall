@@ -15,6 +15,7 @@
 
 #region Usings
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
@@ -24,7 +25,10 @@ using VideoWall.Common;
 using VideoWall.Interfaces;
 using VideoWall.ResourceLoader;
 using VideoWall.ServiceModels.HandCursor;
+using VideoWall.ServiceModels.HandCursor.Implementation;
+using VideoWall.ServiceModels.HandCursor.Interfaces;
 using VideoWall.ServiceModels.Player;
+using VideoWall.ServiceModels.Player.Interfaces;
 using VideoWall.ViewModels.Skeletton;
 
 #endregion
@@ -43,9 +47,9 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         private const int CursorSmoothingLevel = 10;
 
-        private readonly HandCursorPositionCalculator _handCursorPositionCalculator;
+        private readonly IHandCursorPositionCalculator _handCursorPositionCalculator;
 
-        private readonly Player _player;
+        private readonly IPlayer _player;
 
         /// <summary>
         ///   The skeleton history is used for the mouse smoothing.
@@ -91,7 +95,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
-        public event HandChanged HandChanged;
+        public event EventHandler<HandChangedEventArgs> HandChanged = delegate { };
 
         /// <summary>
         ///   Gets or sets the active hand.
@@ -121,14 +125,14 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         /// <param name="player"> The player. </param>
         /// <param name="handCursorPositionCalculator"> The handCursorPositionCalculator. </param>
-        public KinectCursorViewModel(Player player, HandCursorPositionCalculator handCursorPositionCalculator)
+        public KinectCursorViewModel(IPlayer player, IHandCursorPositionCalculator handCursorPositionCalculator)
         {
             _skeletonHistory = new Queue<Skeleton>(CursorSmoothingLevel);
 
             _player = player;
             _handCursorPositionCalculator = handCursorPositionCalculator;
             _handCursorPositionCalculator.HandChanged += OnHandChanged;
-            _player.PropertyChanged += PlayerModelChanged;
+            _player.SkeletonChanged += PlayerModelChanged;
             WindowWidth = 0;
             WindowHeight = 0;
         }
@@ -137,10 +141,10 @@ namespace VideoWall.ViewModels.Cursor
 
         #region Methods
 
-        private void OnHandChanged(HandType handType)
+        private void OnHandChanged(object sender, HandChangedEventArgs eventArgs)
         {
-            ActiveHand = handType;
-            if (HandChanged != null) HandChanged(handType);
+            ActiveHand = eventArgs.HandType;
+            HandChanged(this, eventArgs);
         }
 
         /// <summary>
@@ -164,7 +168,7 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         public void Dispose()
         {
-            _player.PropertyChanged -= PlayerModelChanged;
+            _player.SkeletonChanged -= PlayerModelChanged;
         }
 
         /// <summary>

@@ -1,3 +1,5 @@
+using System;
+
 namespace VideoWall.Interfaces
 {
     /// <summary>
@@ -8,6 +10,6 @@ namespace VideoWall.Interfaces
         /// <summary>
         /// Occurs when skeleton changes.
         /// </summary>
-        event SkeletonChangedEvent SkeletonChanged;
+        event EventHandler<SkeletonChangedEventArgs> SkeletonChanged;
     }
 }

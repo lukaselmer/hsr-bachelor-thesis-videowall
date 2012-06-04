@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using VideoWall.Interfaces;
+using VideoWall.ServiceModels.Player.Interfaces;
 
-namespace VideoWall.ServiceModels.Player
+namespace VideoWall.ServiceModels.Player.Implementation
 {
     /// <summary>
     /// The skeleton service provides events when the skeleton changes.
     /// </summary>
-    public class SkeletonService : ISkeletonService
+    // ReSharper disable ClassNeverInstantiated.Global
+    // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
+    internal class SkeletonService : ISkeletonService
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
-        private readonly Player _player;
+        private readonly IPlayer _player;
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace VideoWall.ServiceModels.Player
         /// <summary>
         /// Occurs when skeleton changes.
         /// </summary>
-        public event SkeletonChangedEvent SkeletonChanged = delegate { };
+        public event EventHandler<SkeletonChangedEventArgs> SkeletonChanged = delegate { };
 
         #endregion
 
@@ -33,10 +33,10 @@ namespace VideoWall.ServiceModels.Player
         /// Initializes a new instance of the <see cref="SkeletonService"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
-        public SkeletonService(Player player)
+        public SkeletonService(IPlayer player)
         {
             _player = player;
-            _player.PropertyChanged += PlayerChanged;
+            _player.SkeletonChanged += PlayerChanged;
         }
 
         #endregion
@@ -46,7 +46,7 @@ namespace VideoWall.ServiceModels.Player
         private void PlayerChanged(object sender, SkeletonChangedEventArgs args)
         {
             //if(!_player.Playing) return;
-            if(args.Skeleton == null) return;
+            if (args.Skeleton == null) return;
             SkeletonChanged(this, new SkeletonChangedEventArgs(args.Skeleton));
         }
 

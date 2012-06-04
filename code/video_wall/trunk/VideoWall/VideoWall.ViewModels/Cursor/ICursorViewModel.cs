@@ -20,6 +20,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.ServiceModels.HandCursor;
+using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
 
@@ -56,7 +57,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
-        event HandChanged HandChanged;
+        event EventHandler<HandChangedEventArgs> HandChanged;
 
     }
 }

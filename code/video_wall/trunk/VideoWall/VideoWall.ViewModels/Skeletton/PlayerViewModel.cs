@@ -24,6 +24,7 @@ using Microsoft.Kinect;
 using VideoWall.Common;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player;
+using VideoWall.ServiceModels.Player.Interfaces;
 
 #endregion
 
@@ -40,7 +41,7 @@ namespace VideoWall.ViewModels.Skeletton
     {
         #region Declarations
 
-        private readonly Player _player;
+        private readonly IPlayer _player;
 
         #endregion
 
@@ -75,12 +76,12 @@ namespace VideoWall.ViewModels.Skeletton
         ///   Initializes a new instance of the <see cref="PlayerViewModel" /> class.
         /// </summary>
         /// <param name="player"> The player. </param>
-        public PlayerViewModel(Player player)
+        public PlayerViewModel(IPlayer player)
         {
             Lines = new ObservableCollection<SkeletonLine>();
 
             _player = player;
-            _player.PropertyChanged += PlayerModelChanged;
+            _player.SkeletonChanged += PlayerModelChanged;
             _player.StartPlaying();
 
             StopCommand = new ActionCommand(() => { if (_player.Playing) _player.StopPlaying(); });
@@ -147,7 +148,7 @@ namespace VideoWall.ViewModels.Skeletton
         /// </summary>
         public void Dispose()
         {
-            _player.PropertyChanged -= PlayerModelChanged;
+            _player.SkeletonChanged -= PlayerModelChanged;
             _player.StopPlaying();
         }
 

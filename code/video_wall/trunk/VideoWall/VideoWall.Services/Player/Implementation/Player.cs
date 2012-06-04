@@ -15,31 +15,28 @@
 
 #region Usings
 
-using System.ComponentModel;
+using System;
 using System.Linq;
 using Microsoft.Kinect;
-using VideoWall.Common;
 using VideoWall.Data.Kinect;
 using VideoWall.Interfaces;
+using VideoWall.ServiceModels.Player.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Player
+namespace VideoWall.ServiceModels.Player.Implementation
 {
     /// <summary>
     ///   The Player. Reviewed by Christina Heidt, 23.03.2012
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
-    // Class is instantiated by the unity container, so ReSharper thinks that
-    // this class could be made abstract, which is wrong
-    public class Player
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    internal class Player : IPlayer
     // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
         private readonly ISkeletonReader _skeletonReader;
-        //private FileStream _recordStream;
-        //private KinectSensor _kinectSensor;
 
         #endregion
 
@@ -66,7 +63,7 @@ namespace VideoWall.ServiceModels.Player
         /// </summary>
         /// <remarks>
         /// </remarks>
-        public event SkeletonChangedEvent PropertyChanged = delegate {};
+        public event EventHandler<SkeletonChangedEventArgs> SkeletonChanged = delegate { };
 
         #endregion
 
@@ -94,19 +91,6 @@ namespace VideoWall.ServiceModels.Player
             Playing = true;
             _skeletonReader.SkeletonsReady += OnKinectSensorOnSkeletonFrameReady;
             _skeletonReader.Start();
-
-            /*_skeletonRecorder = new SkeletonRecorder();
-            var saveFileDialog = new SaveFileDialog { Title = "Select filename", Filter = "Replay files|*.replay" };
-            if (saveFileDialog.ShowDialog() != true) { return; }
-            var fileName = saveFileDialog.FileName;
-
-            _recordStream = File.Create(fileName);
-            _skeletonRecorder.Start(_recordStream);
-
-            _kinectSensor = KinectSensor.KinectSensors[0];
-            _kinectSensor.SkeletonStream.Enable();
-            _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
-            _kinectSensor.Start();*/
         }
 
         /// <summary>
@@ -121,7 +105,7 @@ namespace VideoWall.ServiceModels.Player
             Skeleton = (from skeleton in e.Skeletons
                         where skeleton.TrackingState == SkeletonTrackingState.Tracked
                         select skeleton).FirstOrDefault();
-            PropertyChanged(this, new SkeletonChangedEventArgs(Skeleton));
+            SkeletonChanged(this, new SkeletonChangedEventArgs(Skeleton));
         }
 
         /// <summary>

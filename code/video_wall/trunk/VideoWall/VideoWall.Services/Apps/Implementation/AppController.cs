@@ -21,6 +21,8 @@ using System.Linq;
 using VideoWall.Common;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps.Interfaces;
+using VideoWall.ServiceModels.Player;
+using VideoWall.ServiceModels.Player.Interfaces;
 
 #endregion
 
@@ -36,7 +38,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     {
         #region Declarations
 
-        private readonly Player.Player _player;
+        private readonly IPlayer _player;
         private readonly List<ExtensionFolder> _extensionFolders;
 
         #endregion
@@ -55,7 +57,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         /// <summary>
         ///   Initializes the AppController.
         /// </summary>
-        public AppController(Player.Player player, ExtensionsConfig extensionsConfig)
+        public AppController(IPlayer player, ExtensionsConfig extensionsConfig)
         {
             PreOrPostCondition.AssertNotNull(player, "player");
             PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");

@@ -19,6 +19,22 @@
             Occurs when skeleton changes.
             </summary>
         </member>
+        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
+            <summary>
+            The skeleton changed event args
+            </summary>
+        </member>
+        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
+            </summary>
+            <param name="skeleton">The skeleton.</param>
+        </member>
+        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
+            <summary>
+            Gets the skeleton.
+            </summary>
+        </member>
         <member name="T:VideoWall.Interfaces.IFileService">
             <summary>
               The file service provides a directory where an exension has read and write access

@@ -19,7 +19,7 @@ using System.Windows;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
     ///   The zone. Reviewed by Christina Heidt, 17.04.2012

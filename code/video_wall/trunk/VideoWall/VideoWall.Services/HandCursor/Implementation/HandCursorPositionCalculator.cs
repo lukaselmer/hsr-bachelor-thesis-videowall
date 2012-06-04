@@ -17,25 +17,24 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using Coding4Fun.Kinect.Wpf;
 using Microsoft.Kinect;
 using VideoWall.Common;
+using VideoWall.ServiceModels.HandCursor.Interfaces;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
     ///   The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-    // ReSharper disable ClassNeverInstantiated.Global
-    // Class is instantiated by the unity container, so ReSharper thinks that
-    // this class could be made abstract, which is wrong
-    public class HandCursorPositionCalculator
-    // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    internal class HandCursorPositionCalculator : IHandCursorPositionCalculator
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 
@@ -59,7 +58,7 @@ namespace VideoWall.ServiceModels.HandCursor
         /// <summary>
         ///   Occurs when the hand changed.
         /// </summary>
-        public event HandChanged HandChanged;
+        public event EventHandler<HandChangedEventArgs> HandChanged;
 
         #endregion
 
@@ -87,7 +86,7 @@ namespace VideoWall.ServiceModels.HandCursor
         {
             if (HandChanged != null)
             {
-                HandChanged(handType);
+                HandChanged(this, new HandChangedEventArgs(handType));
             }
         }
 

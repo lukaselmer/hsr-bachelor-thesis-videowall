@@ -15,13 +15,12 @@
 
 #region Usings
 
-using System.Diagnostics;
 using System.Windows;
 using VideoWall.Common;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
     ///   The absolute padding. Reviewed by Christina Heidt, 17.04.2012

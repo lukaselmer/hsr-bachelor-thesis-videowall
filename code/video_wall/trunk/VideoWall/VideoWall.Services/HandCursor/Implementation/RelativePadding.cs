@@ -15,18 +15,16 @@
 
 #region Usings
 
-using System;
-using System.Diagnostics;
 using VideoWall.Common;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
     ///   The relative padding. Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
-    public class RelativePadding
+    internal class RelativePadding
     {
         #region Properties
 

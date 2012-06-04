@@ -166,7 +166,7 @@ namespace VideoWall.Tests
         }
 
         /// <summary>
-        ///A test for SkeletonChangedEvent
+        ///A test for SkeletonChangedEventHandler
         ///</summary>
         [TestMethod]
         public void SkeletonChangedTest()
