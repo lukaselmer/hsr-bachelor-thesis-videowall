@@ -21,9 +21,8 @@ using System.Linq;
 using System.Windows.Input;
 using VideoWall.Common;
 using VideoWall.Common.Extensions;
-using VideoWall.ServiceModels.Apps;
+using VideoWall.Common.Helpers;
 using VideoWall.ServiceModels.Apps.Interfaces;
-using VideoWall.ViewModels.Helpers;
 
 #endregion
 
@@ -33,14 +32,20 @@ namespace VideoWall.ViewModels.Menu
     ///   The MenuViewModel defines the menu. Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
-    // Class is instantiated by the unity container, so ReSharper thinks that
-    // this class could be made abstract, which is wrong
+    // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
     public class MenuViewModel : Notifier
     // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
+        /// <summary>
+        /// The app controller
+        /// </summary>
         private readonly IAppController _appController;
+
+        /// <summary>
+        /// The current app
+        /// </summary>
         private AppViewModel _currentApp;
 
         #endregion
@@ -57,8 +62,8 @@ namespace VideoWall.ViewModels.Menu
         /// </summary>
         // ReSharper disable UnusedAutoPropertyAccessor.Global
         // ReSharper disable MemberCanBePrivate.Global
+        // WPF is too dynamic for resharper
         public ICommand ChangeAppCommand { get; private set; }
-
         // ReSharper restore MemberCanBePrivate.Global
         // ReSharper restore UnusedAutoPropertyAccessor.Global
 
@@ -99,6 +104,10 @@ namespace VideoWall.ViewModels.Menu
 
         #region Methods
 
+        /// <summary>
+        /// Called when app changed.
+        /// </summary>
+        /// <param name="appObject">The app object.</param>
         private void OnChangeApp(object appObject)
         {
             var app = appObject as AppViewModel;

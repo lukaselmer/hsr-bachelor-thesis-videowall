@@ -4,24 +4,6 @@
         <name>LunchMenuApp.Views</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Views.Dish">
-            <summary>
-              Interaction logic for Dish.xaml
-            </summary>
-            <summary>
-            Dish
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.Views.Dish.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.Views.Dish"/> class.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.Views.Dish.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.Views.NamespaceDoc">
             <summary>
               The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
@@ -41,6 +23,24 @@
             </summary>
         </member>
         <member name="M:LunchMenuApp.Views.LunchMenuView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.Views.Dish">
+            <summary>
+              Interaction logic for Dish.xaml
+            </summary>
+            <summary>
+            Dish
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Views.Dish.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.Views.Dish"/> class.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Views.Dish.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

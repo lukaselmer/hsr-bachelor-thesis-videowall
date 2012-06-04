@@ -22,7 +22,7 @@ using System.Runtime.CompilerServices;
 namespace VideoWall.ViewModels.Skeletton
 {
     /// <summary>
-    ///   The <see cref="VideoWall.ViewModels.Skeleton" /> namespace contains classes for the Kinect skeleton.
+    ///   The <see cref="VideoWall.ViewModels.Skeletton" /> namespace contains classes for the Kinect skeleton.
     /// </summary>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global

@@ -4,36 +4,6 @@
         <name>VideoWall.Interfaces</name>
     </assembly>
     <members>
-        <member name="T:VideoWall.Interfaces.ISkeletonService">
-            <summary>
-            The skeleton service provides the skeletal tracking
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.IVideoWallService">
-            <summary>
-              Marker interface: represents a video wall extension
-            </summary>
-        </member>
-        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
-            <summary>
-            Occurs when skeleton changes.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.IFileService">
-            <summary>
-              The file service provides a directory where an exension has read and write access
-            </summary>
-        </member>
-        <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
-            <summary>
-              Gets the path to the resource directory
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
-            </summary>
-        </member>
         <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
             <summary>
               Provides services for the video wall, like hand tracking, skeleton tracking or a file service
@@ -41,10 +11,10 @@
         </member>
         <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
             <summary>
-              Gets an implementation of the interface <typeparam name="T"> </typeparam> which is provided by the video wall
+            Gets an implementation of the interface which is provided by the video wall
             </summary>
-            <typeparam name="T"> </typeparam>
-            <returns> </returns>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:VideoWall.Interfaces.IApp">
             <summary>
@@ -70,6 +40,52 @@
         <member name="P:VideoWall.Interfaces.IApp.DemomodeText">
             <summary>
               Gets the demomode text.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IFileService">
+            <summary>
+              The file service provides a directory where an exension has read and write access
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IVideoWallService">
+            <summary>
+              Marker interface: represents a video wall extension
+            </summary>
+        </member>
+        <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
+            <summary>
+              Gets the path to the resource directory
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.ISkeletonService">
+            <summary>
+            The skeleton service provides the skeletal tracking
+            </summary>
+        </member>
+        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
+            <summary>
+            Occurs when skeleton changes.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
+            <summary>
+            The skeleton changed event args
+            </summary>
+        </member>
+        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
+            </summary>
+            <param name="skeleton">The skeleton.</param>
+        </member>
+        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
+            <summary>
+            Gets the skeleton.
             </summary>
         </member>
     </members>

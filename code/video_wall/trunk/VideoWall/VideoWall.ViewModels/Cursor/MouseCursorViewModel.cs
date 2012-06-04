@@ -29,10 +29,10 @@ namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
     ///   The MouseCursorViewModel.
+    ///   This class is used for the development only.
     /// </summary>
     // ReSharper disable ClassNeverInstantiated.Global
-    // Class is instantiated by the unity container, so ReSharper thinks that
-    // this class could be made abstract, which is wrong
+    // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
     public class MouseCursorViewModel : Notifier, ICursorViewModel
     // ReSharper restore ClassNeverInstantiated.Global
     {
@@ -82,7 +82,7 @@ namespace VideoWall.ViewModels.Cursor
         #region Events
 
         /// <summary>
-        ///   Occurs when hand has changed.
+        /// Occurs when hand has changed.
         /// </summary>
         public event EventHandler<HandChangedEventArgs> HandChanged;
 

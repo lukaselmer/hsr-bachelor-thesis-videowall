@@ -71,8 +71,6 @@
     <Compile Include="Cursor\NamespaceDoc.cs" />
     <Compile Include="DemoMode\DemoModeViewModel.cs" />
     <Compile Include="DemoMode\NamespaceDoc.cs" />
-    <Compile Include="Helpers\Command.cs" />
-    <Compile Include="Helpers\NamespaceDoc.cs" />
     <Compile Include="HitButton\HitStateArgs.cs" />
     <Compile Include="HitButton\HitTestHelper.cs" />
     <Compile Include="Cursor\ICursorViewModel.cs" />

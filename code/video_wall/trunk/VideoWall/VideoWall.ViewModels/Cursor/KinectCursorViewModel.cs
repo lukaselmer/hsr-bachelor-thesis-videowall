@@ -38,7 +38,10 @@ namespace VideoWall.ViewModels.Cursor
     /// <summary>
     ///   Reviewed by Christina Heidt, 17.04.2012
     /// </summary>
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     public class KinectCursorViewModel : Notifier, ICursorViewModel
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 

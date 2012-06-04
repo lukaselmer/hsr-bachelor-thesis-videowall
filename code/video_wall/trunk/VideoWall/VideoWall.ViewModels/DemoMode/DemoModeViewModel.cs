@@ -43,10 +43,19 @@ namespace VideoWall.ViewModels.DemoMode
     {
         #region Declarations
 
+        /// <summary>
+        /// The menu view model
+        /// </summary>
         private readonly MenuViewModel _menuViewModel;
 
+        /// <summary>
+        /// The player view model
+        /// </summary>
         private readonly PlayerViewModel _playerViewModel;
 
+        /// <summary>
+        /// The demo mode service
+        /// </summary>
         private readonly IDemoModeService _demoModeService;
 
         #endregion
@@ -124,28 +133,48 @@ namespace VideoWall.ViewModels.DemoMode
             _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
 
             _playerViewModel = playerViewModel;
-            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value
+            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value or extract to options
         }
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Occurs when the demo mode countdown changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void DemoModeCountdownChanged(object sender, EventArgs eventArgs)
         {
             Notify("Countdown");
         }
 
+        /// <summary>
+        /// Occurs when the demo mode color changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void DemoModeColorChanged(object sender, EventArgs eventArgs)
         {
             Notify("CurrentBackgroundColor");
         }
 
+        /// <summary>
+        /// Occurs when the demo mode app changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void DemoModeAppChanged(object sender, EventArgs eventArgs)
         {
             _menuViewModel.ChangeToRandomApp();
         }
 
+        /// <summary>
+        /// Occurs when the demo mode state changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="args">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void DemoModeStateChanged(object sender, EventArgs args)
         {
             Notify("DemoModeVisibility");

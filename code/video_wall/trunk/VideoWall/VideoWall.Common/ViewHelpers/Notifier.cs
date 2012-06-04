@@ -54,7 +54,7 @@ namespace VideoWall.Common
         /// </remarks>
         protected void Notify(string propertyName)
         {
-            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            Notify(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

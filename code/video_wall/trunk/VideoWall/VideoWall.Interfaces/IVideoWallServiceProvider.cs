@@ -23,11 +23,14 @@ namespace VideoWall.Interfaces
         #region Methods
 
         /// <summary>
-        ///   Gets an implementation of the interface <typeparam name="T"> </typeparam> which is provided by the video wall
+        /// Gets an implementation of the interface which is provided by the video wall
         /// </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <returns> </returns>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        // ReSharper disable UnusedMember.Global
+        // This method is used by the extensions. Since they are not in this project, ReSharper cannot know that this method is used.
         T GetExtension<T>() where T : IVideoWallService;
+        // ReSharper restore UnusedMember.Global
 
         #endregion
     }

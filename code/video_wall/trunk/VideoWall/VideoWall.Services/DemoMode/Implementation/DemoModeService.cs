@@ -33,11 +33,6 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         /// </summary>
         private readonly DemoModeStateTimers _demoModeStateTimers;
 
-        /// <summary>
-        /// The current state of the demo mode
-        /// </summary>
-        private VideoWallState _state = VideoWallState.Active;
-
         #endregion
 
         #region Properties

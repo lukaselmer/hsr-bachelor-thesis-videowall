@@ -28,13 +28,6 @@ using VideoWall.ViewModels.Cursor;
 namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
-    ///   Delegate when the hit state is changed.
-    /// </summary>
-    /// <param name="sender"> The sender. </param>
-    /// <param name="args"> The arguments. </param>
-    public delegate void HitStateChanged(object sender, HitStateArgs args);
-
-    /// <summary>
     ///   The HitTestHelper. Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed.
     /// </summary>
     public class HitTestHelper
@@ -64,17 +57,17 @@ namespace VideoWall.ViewModels.HitButton
         /// <summary>
         ///   Occurs when [started].
         /// </summary>
-        public event HitStateChanged Started;
+        public event EventHandler<HitStateArgs> Started;
 
         /// <summary>
         ///   Occurs when [stopped].
         /// </summary>
-        public event HitStateChanged Stopped;
+        public event EventHandler<HitStateArgs> Stopped;
 
         /// <summary>
         ///   Occurs when [clicked].
         /// </summary>
-        public event HitStateChanged Clicked;
+        public event EventHandler<HitStateArgs> Clicked;
 
         #endregion
 

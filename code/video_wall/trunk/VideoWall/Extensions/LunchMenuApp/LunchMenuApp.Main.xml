@@ -4,11 +4,6 @@
         <name>LunchMenuApp.Main</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Main.NamespaceDoc">
-            <summary>
-              The <see cref="!:LunchMenuApp.Main"/> namespace contains the main.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.Main.LunchMenuApp">
             <summary>
               Initializes a new lunch menu app.
@@ -38,6 +33,11 @@
         <member name="P:LunchMenuApp.Main.LunchMenuApp.MainView">
             <summary>
               Gets the main view.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.Main.NamespaceDoc">
+            <summary>
+              The <see cref="!:LunchMenuApp.Main"/> namespace contains the main.
             </summary>
         </member>
     </members>
