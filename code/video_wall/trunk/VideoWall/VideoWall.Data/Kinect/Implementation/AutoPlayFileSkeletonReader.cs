@@ -42,18 +42,46 @@ namespace VideoWall.Data.Kinect.Implementation
         #region Declarations
 
         // TODO: extract numbers to app.config
+        /// <summary>
+        /// The interval in which the replay timer check if the replay should be restarted.
+        /// </summary>
         private static readonly TimeSpan CheckTimerInterval = TimeSpan.FromMilliseconds(1400);
+
+        /// <summary>
+        /// The interval the replay is restarted after which no skeleton was tracked.
+        /// </summary>
         private static readonly TimeSpan RestartReplayAfterSoMuchTime = TimeSpan.FromMilliseconds(20000);
 
+        /// <summary>
+        /// The kinect replay file
+        /// </summary>
         private readonly KinectReplayFile _kinectReplayFile;
+
+        /// <summary>
+        /// The last time the replay was started / restarted.
+        /// </summary>
         private DateTime _lastTimeReady;
+
+        /// <summary>
+        /// The replay timer.
+        /// </summary>
         private DispatcherTimer _replayTimer;
+
+        /// <summary>
+        /// The skeleton replay.
+        /// </summary>
         private SkeletonReplay _skeletonReplay;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the dispatcher.
+        /// </summary>
+        /// <value>
+        /// The dispatcher.
+        /// </value>
         private Dispatcher Dispatcher { get; set; }
 
         #endregion
@@ -98,16 +126,17 @@ namespace VideoWall.Data.Kinect.Implementation
             _lastTimeReady = DateTime.Now;
         }
 
-        /// <summary>
-        ///   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            _replayTimer.Tick -= ReplayTimerOnElapsed;
-            _replayTimer.Stop();
-            _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
-            _skeletonReplay.Stop();
-        }
+        //TODO: implement this?
+        // <summary>
+        //   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        // </summary>
+        //public void Dispose()
+        //{
+        //    _replayTimer.Tick -= ReplayTimerOnElapsed;
+        //    _replayTimer.Stop();
+        //    _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
+        //    _skeletonReplay.Stop();
+        //}
 
         /// <summary>
         ///   Initializes the replay timer.
