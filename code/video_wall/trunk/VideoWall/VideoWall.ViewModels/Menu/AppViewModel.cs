@@ -16,7 +16,7 @@
 #region Usings
 
 using System.Windows.Media;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 
 #endregion

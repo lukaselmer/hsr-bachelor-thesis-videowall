@@ -22,6 +22,7 @@ using System.Windows.Input;
 using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.Common.Helpers;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.ServiceModels.Apps.Interfaces;
 
 #endregion

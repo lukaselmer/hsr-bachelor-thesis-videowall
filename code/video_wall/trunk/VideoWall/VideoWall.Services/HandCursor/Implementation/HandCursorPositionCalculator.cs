@@ -21,7 +21,7 @@ using System.Linq;
 using System.Windows;
 using Coding4Fun.Kinect.Wpf;
 using Microsoft.Kinect;
-using VideoWall.Common;
+using VideoWall.Common.Helpers;
 using VideoWall.ServiceModels.HandCursor.Interfaces;
 
 #endregion
@@ -29,8 +29,12 @@ using VideoWall.ServiceModels.HandCursor.Interfaces;
 namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
-    ///   The HandCursorPositionCalculator. Reviewed by Christina Heidt, 17.04.2012
+    ///   The HandCursorPositionCalculator. 
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class HandCursorPositionCalculator : IHandCursorPositionCalculator
@@ -38,8 +42,19 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
     {
         #region Declarations
 
+        /// <summary>
+        /// The padding for the left hand
+        /// </summary>
         private readonly RelativePadding _relativePaddingForLeftHanded;
+
+        /// <summary>
+        /// The padding for the right hand
+        /// </summary>
         private readonly RelativePadding _relativePaddingForRightHanded;
+
+        /// <summary>
+        /// The last skeleton that was tracked
+        /// </summary>
         private Skeleton _latestSkeleton;
 
         #endregion
@@ -64,15 +79,13 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
 
         #region Constructors / Destructor
 
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="HandCursorPositionCalculator"/> class.
+        ///   Initializes a new instance of the <see cref="HandCursorPositionCalculator" /> class.
         /// </summary>
-        /// <param name="relativePaddingForRightHanded">The relative padding for right hander.</param>
+        /// <param name="relativePaddingForRightHanded"> The relative padding for right hander. </param>
         public HandCursorPositionCalculator(RelativePadding relativePaddingForRightHanded)
         {
-            //TODO: Magic numbers. Where do these come from? Needs explanation
-            //_relativePaddingForRightHanded = new RelativePadding(0.45, 0.1, 0.3, 0.49);
+            // TODO: document this better?
             _relativePaddingForRightHanded = relativePaddingForRightHanded;
             _relativePaddingForLeftHanded = new RelativePadding(_relativePaddingForRightHanded.Right, _relativePaddingForRightHanded.Top, _relativePaddingForRightHanded.Left, _relativePaddingForRightHanded.Bottom);
             RelativePadding = _relativePaddingForRightHanded;
@@ -81,14 +94,6 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
         #endregion
 
         #region Methods
-
-        private void OnHandChanged(HandType handType)
-        {
-            if (HandChanged != null)
-            {
-                HandChanged(this, new HandChangedEventArgs(handType));
-            }
-        }
 
         /// <summary>
         ///   Calculates the position of the hand cursor from the position of multiple skeletons by taking their avertage.
@@ -101,8 +106,7 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
         {
             PreOrPostCondition.AssertNotNull(window, "window");
             PreOrPostCondition.AssertNotNull(skeletons, "skeletons");
-            //PreOrPostCondition.AssertTrue(skeletons.Count > 0, "skeletons.Count must be > 0");
-            //PreOrPostCondition.AssertNotNull(latestSkeleton, "latestSkeleton");
+
             if (latestSkeleton != null) _latestSkeleton = latestSkeleton;
             var activeHand = SelectHandForLatestSkeleton();
             OnHandChanged(activeHand);
@@ -120,6 +124,19 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
             return totalPosition;
         }
 
+        /// <summary>
+        /// Called when the hand changed.
+        /// </summary>
+        /// <param name="handType">Type of the hand.</param>
+        private void OnHandChanged(HandType handType)
+        {
+            if (HandChanged != null) HandChanged(this, new HandChangedEventArgs(handType));
+        }
+
+        /// <summary>
+        /// Selects the hand for latest skeleton (left or right hand, the one which is higer is selected.
+        /// </summary>
+        /// <returns></returns>
         private HandType SelectHandForLatestSkeleton()
         {
             if (_latestSkeleton == null) return HandType.Right;
@@ -129,34 +146,19 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
         }
 
         /// <summary>
-        /// Calculates the position of the hand cursor from the position of the skeleton.
+        ///   Calculates the position of the hand cursor from the position of the skeleton.
         /// </summary>
-        /// <param name="window">The size of the window.</param>
-        /// <param name="skeleton">The skeleton.</param>
-        /// <param name="handType">Type of the hand.</param>
-        /// <returns></returns>
+        /// <param name="window"> The size of the window. </param>
+        /// <param name="skeleton"> The skeleton. </param>
+        /// <param name="handType"> Type of the hand. </param>
+        /// <returns> </returns>
         private Point CalculatePositionFromSkeleton(Size window, Skeleton skeleton, HandType handType)
         {
-            //PreOrPostCondition.AssertNotNull(handType, "handType");
-
             if (skeleton == null || (int)window.Height <= 0 || (int)window.Width <= 0) return new Point(0, 0);
 
             var joint = skeleton.Joints[handType == HandType.Right ? JointType.HandRight : JointType.HandLeft];
-            //OnHandChanged(HandType.Left);
             RelativePadding = handType == HandType.Right ? _relativePaddingForRightHanded : _relativePaddingForLeftHanded;
 
-            /*if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HandRight].Position.Y)
-            {
-                joint = skeleton.Joints[JointType.HandLeft];
-                OnHandChanged(HandType.Left);
-                RelativePadding = _relativePaddingForLeftHanded;
-            }
-            else
-            {
-                joint = skeleton.Joints[JointType.HandRight];
-                OnHandChanged(HandType.Right);
-                RelativePadding = _relativePaddingForRightHanded;
-            }*/
 
             var absolutePosition = joint.ScaleTo((int)window.Width, (int)window.Height);
 

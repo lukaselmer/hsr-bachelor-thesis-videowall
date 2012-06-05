@@ -17,10 +17,11 @@
 
 using System;
 using System.Diagnostics;
+using VideoWall.Common.Logging;
 
 #endregion
 
-namespace VideoWall.Common
+namespace VideoWall.Common.Helpers
 {
     /// <summary>
     ///   Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.

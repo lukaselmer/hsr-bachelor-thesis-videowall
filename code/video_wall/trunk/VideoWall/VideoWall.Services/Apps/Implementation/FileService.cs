@@ -17,7 +17,7 @@
 
 using System;
 using System.IO;
-using VideoWall.Common;
+using VideoWall.Common.Logging;
 using VideoWall.Interfaces;
 
 #endregion
@@ -27,11 +27,15 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     /// <summary>
     ///   The file service provides a directory where an exension has read and write access.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class FileService : IFileService
     // ReSharper restore ClassNeverInstantiated.Global
     {
+        //TODO: extract folder name?
         private const string SubdirectoryNameForFileService = "Files";
 
         #region Properties
@@ -46,9 +50,9 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         #region Constructors / Destructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileService"/> class.
+        ///   Initializes a new instance of the <see cref="FileService" /> class.
         /// </summary>
-        /// <param name="extensionFolder">The extension folder.</param>
+        /// <param name="extensionFolder"> The extension folder. </param>
         public FileService(ExtensionFolder extensionFolder)
         {
             var directoryForFiles = new DirectoryInfo(Path.Combine(extensionFolder.Directory.FullName, SubdirectoryNameForFileService));

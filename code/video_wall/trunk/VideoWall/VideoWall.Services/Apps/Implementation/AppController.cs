@@ -18,10 +18,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VideoWall.Common;
+using VideoWall.Common.Helpers;
+using VideoWall.Common.Logging;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps.Interfaces;
-using VideoWall.ServiceModels.Player;
 using VideoWall.ServiceModels.Player.Interfaces;
 
 #endregion
@@ -31,6 +31,9 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     /// <summary>
     ///   Controls the apps.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class AppController : IAppController
@@ -38,8 +41,8 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     {
         #region Declarations
 
-        private readonly IPlayer _player;
         private readonly List<ExtensionFolder> _extensionFolders;
+        private readonly IPlayer _player;
 
         #endregion
 
@@ -48,7 +51,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         /// <summary>
         ///   The video wall applications.
         /// </summary>
-        public IEnumerable<IApp> Apps { get { return _extensionFolders.Where(ef => ef.Loaded()).Select(ef => ef.App); } }
+        public IEnumerable<IApp> Apps { get { return _extensionFolders.Where(ef => ef.IsLoaded()).Select(ef => ef.App); } }
 
         #endregion
 

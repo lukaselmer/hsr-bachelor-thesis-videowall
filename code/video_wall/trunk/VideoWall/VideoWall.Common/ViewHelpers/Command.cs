@@ -20,7 +20,7 @@ using System.Windows.Input;
 
 #endregion
 
-namespace VideoWall.Common.Helpers
+namespace VideoWall.Common.ViewHelpers
 {
     /// <summary>
     ///   Implementation of the ICommand Interface

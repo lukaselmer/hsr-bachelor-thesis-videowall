@@ -33,14 +33,22 @@ namespace VideoWall.Data.Kinect.Interfaces
     /// </remarks>
     public interface ISkeletonReader
     {
+        #region Events
+
         /// <summary>
         ///   Occurs when the skeletons are ready.
         /// </summary>
         event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         ///   Starts the reading process.
         /// </summary>
         void Start();
+
+        #endregion
     }
 }

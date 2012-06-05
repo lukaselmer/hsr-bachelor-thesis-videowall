@@ -18,7 +18,6 @@
 using System;
 using System.Linq;
 using Microsoft.Kinect;
-using VideoWall.Data.Kinect;
 using VideoWall.Data.Kinect.Implementation;
 using VideoWall.Data.Kinect.Interfaces;
 using VideoWall.Interfaces;
@@ -29,8 +28,12 @@ using VideoWall.ServiceModels.Player.Interfaces;
 namespace VideoWall.ServiceModels.Player.Implementation
 {
     /// <summary>
-    ///   The Player. Reviewed by Christina Heidt, 23.03.2012
+    ///   The Player.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class Player : IPlayer
@@ -38,6 +41,9 @@ namespace VideoWall.ServiceModels.Player.Implementation
     {
         #region Declarations
 
+        /// <summary>
+        /// The skeleton reader
+        /// </summary>
         private readonly ISkeletonReader _skeletonReader;
 
         #endregion
@@ -96,6 +102,16 @@ namespace VideoWall.ServiceModels.Player.Implementation
         }
 
         /// <summary>
+        ///   Stops the skeleton reader.
+        /// </summary>
+        public void StopPlaying()
+        {
+            Playing = false;
+            _skeletonReader.SkeletonsReady -= OnKinectSensorOnSkeletonFrameReady;
+            // _skeletonReader.Dispose(); TODO: have a look at this
+        }
+
+        /// <summary>
         ///   Called when [kinect sensor on skeleton frame ready].
         /// </summary>
         /// <param name="sender"> The sender. </param>
@@ -108,16 +124,6 @@ namespace VideoWall.ServiceModels.Player.Implementation
                         where skeleton.TrackingState == SkeletonTrackingState.Tracked
                         select skeleton).FirstOrDefault();
             SkeletonChanged(this, new SkeletonChangedEventArgs(Skeleton));
-        }
-
-        /// <summary>
-        ///   Stops the skeleton reader.
-        /// </summary>
-        public void StopPlaying()
-        {
-            Playing = false;
-            _skeletonReader.SkeletonsReady -= OnKinectSensorOnSkeletonFrameReady;
-            // _skeletonReader.Dispose(); TODO: have a look at this
         }
 
         #endregion

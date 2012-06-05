@@ -15,7 +15,7 @@
 
 #region Usings
 
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.ViewModels.Cursor;
 using VideoWall.ViewModels.DemoMode;
 using VideoWall.ViewModels.Menu;

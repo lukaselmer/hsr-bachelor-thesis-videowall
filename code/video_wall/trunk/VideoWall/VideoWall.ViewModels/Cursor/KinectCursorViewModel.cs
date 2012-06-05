@@ -22,6 +22,7 @@ using System.Windows;
 using System.Windows.Media;
 using Microsoft.Kinect;
 using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 using VideoWall.ResourceLoader;
 using VideoWall.ServiceModels.HandCursor;

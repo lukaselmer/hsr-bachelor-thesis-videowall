@@ -27,6 +27,9 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
     /// <summary>
     ///   The demo mode configuration
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class DemoModeConfig : IDemoModeConfig
@@ -56,6 +59,8 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             SkeletonTrackingTimeoutTimeSpan = skeletonTrackingTimeoutTimeSpan;
         }
 
+        #region IDemoModeConfig Members
+
         /// <summary>
         ///   Gets or sets the background colors of the demo mode.
         /// </summary>
@@ -63,41 +68,30 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         public IEnumerable<Color> BackgroundColors { get; private set; }
 
         /// <summary>
-        /// Gets the skeleton check time span.
-        /// The skeleton check time span is the frequency of which the state is checked.
-        /// 10-50 milliseconds is a good value.
+        ///   Gets the skeleton check time span. The skeleton check time span is the frequency of which the state is checked. 10-50 milliseconds is a good value.
         /// </summary>
         public TimeSpan SkeletonCheckTimeSpan { get; private set; }
 
         /// <summary>
-        /// Gets the change app time span.
-        /// This time span defines after how much time in the demo mode the current app is changed automatically.
-        /// 20-40 seconds is a good value.
+        ///   Gets the change app time span. This time span defines after how much time in the demo mode the current app is changed automatically. 20-40 seconds is a good value.
         /// </summary>
         public TimeSpan ChangeAppTimeSpan { get; private set; }
 
         /// <summary>
-        /// Gets from active to demo mode time span.
-        /// If noboady interacts with the video wall, this defines how long it will take until the app
-        /// switches from the active state to the teaser (demo mode) state.
-        /// 10 seconds is a good value.
+        ///   Gets from active to demo mode time span. If noboady interacts with the video wall, this defines how long it will take until the app switches from the active state to the teaser (demo mode) state. 10 seconds is a good value.
         /// </summary>
         public TimeSpan FromActiveToDemoModeTimeSpan { get; private set; }
 
         /// <summary>
-        /// Gets the countdown time span.
-        /// The countdown time span defines how long the countdown time to "enter" the app is.
-        /// Use a value just a little smaller than an even number: 4.999 seconds is a good value.
+        ///   Gets the countdown time span. The countdown time span defines how long the countdown time to "enter" the app is. Use a value just a little smaller than an even number: 4.999 seconds is a good value.
         /// </summary>
         public TimeSpan CountdownTimeSpan { get; private set; }
 
         /// <summary>
-        /// Gets the skeleton tracking timeout time span.
-        /// This time span defines the timeout between how long ago the last skeleton has changed and the skeleton
-        /// is not tracked anymore.
-        /// 500 milliseconds is a good value.
+        ///   Gets the skeleton tracking timeout time span. This time span defines the timeout between how long ago the last skeleton has changed and the skeleton is not tracked anymore. 500 milliseconds is a good value.
         /// </summary>
         public TimeSpan SkeletonTrackingTimeoutTimeSpan { get; private set; }
 
+        #endregion
     }
 }

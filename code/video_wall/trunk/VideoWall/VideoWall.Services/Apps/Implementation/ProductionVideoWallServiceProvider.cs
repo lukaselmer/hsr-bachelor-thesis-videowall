@@ -17,7 +17,6 @@
 
 using Microsoft.Practices.Unity;
 using VideoWall.Interfaces;
-using VideoWall.ServiceModels.Player;
 using VideoWall.ServiceModels.Player.Implementation;
 using VideoWall.ServiceModels.Player.Interfaces;
 
@@ -28,10 +27,16 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     /// <summary>
     ///   The AppInfo for a application which runs on the video wall.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     internal class ProductionVideoWallServiceProvider : IVideoWallServiceProvider
     {
         #region Declarations
 
+        /// <summary>
+        ///   The container which can create multiple <see cref="IVideoWallService" />
+        /// </summary>
         private readonly UnityContainer _appExtensionsContainer;
 
         #endregion
@@ -39,10 +44,10 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         #region Constructors / Destructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider"/> class.
+        ///   Initializes a new instance of the <see cref="ProductionVideoWallServiceProvider" /> class.
         /// </summary>
-        /// <param name="extensionFolder">The extension folder.</param>
-        /// <param name="player">The player.</param>
+        /// <param name="extensionFolder"> The extension folder. </param>
+        /// <param name="player"> The player. </param>
         public ProductionVideoWallServiceProvider(ExtensionFolder extensionFolder, IPlayer player)
         {
             _appExtensionsContainer = new UnityContainer();
@@ -61,6 +66,9 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         /// <summary>
         ///   Gets the extension. Similar: Extension Interface Pattern.
         /// </summary>
+        /// <remarks>
+        ///   Loading the services is done lazy, so only if an extension calls this method, a service is created.
+        /// </remarks>
         /// <typeparam name="T"> </typeparam>
         /// <returns> </returns>
         public T GetExtension<T>() where T : IVideoWallService

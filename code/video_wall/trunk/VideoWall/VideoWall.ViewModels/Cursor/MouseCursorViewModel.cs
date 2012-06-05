@@ -18,9 +18,8 @@
 using System;
 using System.Windows;
 using System.Windows.Media;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.ResourceLoader;
-using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
@@ -84,6 +83,10 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         /// Occurs when hand has changed.
         /// </summary>
+        /// <remarks>
+        /// In this model (cursor) this event is never used, but it is in the interface (ICursorViewModel).
+        /// TODO: refactor this
+        /// </remarks>
         public event EventHandler<HandChangedEventArgs> HandChanged;
 
         #endregion

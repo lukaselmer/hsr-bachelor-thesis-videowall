@@ -17,13 +17,11 @@
 
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
-using VideoWall.ServiceModels.Player;
 using VideoWall.ServiceModels.Player.Interfaces;
 
 #endregion

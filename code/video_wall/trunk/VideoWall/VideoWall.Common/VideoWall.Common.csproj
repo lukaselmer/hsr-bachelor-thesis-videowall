@@ -51,12 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\RandomExtension.cs" />
-    <Compile Include="Helpers\Command.cs" />
+    <Compile Include="ViewHelpers\Command.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="ViewHelpers\Notifier.cs" />
-    <Compile Include="PreOrPostCondition.cs" />
+    <Compile Include="Helpers\PreOrPostCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace VideoWall.Common
+namespace VideoWall.Common.ViewHelpers
 {
     /// <summary>
     ///   Implementation of INotifyPropertyChanged

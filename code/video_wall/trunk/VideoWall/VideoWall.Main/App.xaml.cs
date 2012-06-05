@@ -21,6 +21,7 @@ using System.Windows.Threading;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using VideoWall.Common;
+using VideoWall.Common.Logging;
 using VideoWall.Views.Xaml;
 
 #endregion

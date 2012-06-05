@@ -24,6 +24,9 @@ namespace VideoWall.ServiceModels.Apps
     /// <summary>
     ///   The <see cref="VideoWall.ServiceModels.Apps" /> namespace contains classes for the handling the extensions.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace

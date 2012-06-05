@@ -17,7 +17,7 @@
 
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using VideoWall.Common;
+using VideoWall.Common.Helpers;
 
 #endregion
 
@@ -26,14 +26,17 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     /// <summary>
     ///   The extension manager is responsible to load a extension from a specific folder
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     internal static class ExtensionManager
     {
         #region Methods
 
         /// <summary>
-        /// Inits the specified application with extension.
+        ///   Inits the specified application with extension.
         /// </summary>
-        /// <param name="extensionFolder">The application with extension.</param>
+        /// <param name="extensionFolder"> The application with extension. </param>
         public static void Init(ExtensionFolder extensionFolder)
         {
             PreOrPostCondition.AssertNotNull(extensionFolder, "extensionFolder");

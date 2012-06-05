@@ -20,6 +20,8 @@ using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common;
 using VideoWall.Common.Extensions;
+using VideoWall.Common.Helpers;
+using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.DemoMode;
 using VideoWall.ServiceModels.DemoMode.Implementation;

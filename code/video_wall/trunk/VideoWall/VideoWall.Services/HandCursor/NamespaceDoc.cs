@@ -24,6 +24,9 @@ namespace VideoWall.ServiceModels.HandCursor
     /// <summary>
     ///   The <see cref="VideoWall.ServiceModels.HandCursor" /> namespace contains classes for the hand cursor.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace

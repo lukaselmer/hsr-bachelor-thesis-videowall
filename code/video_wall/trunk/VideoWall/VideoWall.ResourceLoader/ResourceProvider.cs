@@ -26,6 +26,9 @@ namespace VideoWall.ResourceLoader
     /// <summary>
     ///   The ResourceProvider is responsible for providing resources.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public static class ResourceProvider
     {
         #region Declarations
@@ -34,9 +37,9 @@ namespace VideoWall.ResourceLoader
         ///   The resource dictionary is loaded from the xaml file.
         /// </summary>
         private static readonly ResourceDictionary ResourceDictionary = new ResourceDictionary
-        {
-            Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
-        };
+            {
+                Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
+            };
 
         #endregion
 
@@ -72,7 +75,7 @@ namespace VideoWall.ResourceLoader
         /// <returns> </returns>
         private static Image Image(string key)
         {
-            return (Image) GetResources()[key];
+            return GetResources()[key] as Image;
         }
 
         #endregion

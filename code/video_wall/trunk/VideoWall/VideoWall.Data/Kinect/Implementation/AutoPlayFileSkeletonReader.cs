@@ -20,6 +20,7 @@ using System.IO;
 using System.Windows.Threading;
 using Kinect.Toolbox.Record;
 using VideoWall.Common;
+using VideoWall.Common.Helpers;
 using VideoWall.Data.Kinect.Interfaces;
 
 #endregion

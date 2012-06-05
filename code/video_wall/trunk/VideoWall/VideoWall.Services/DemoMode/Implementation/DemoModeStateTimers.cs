@@ -25,30 +25,50 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
     /// <summary>
     ///   The mode timer
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     internal class DemoModeStateTimers
     {
         #region Declarations
 
         /// <summary>
-        /// The demo mode configuration
+        ///   The auto app change timer changes the app periodically in the demo mode.
+        /// </summary>
+        private readonly EnhancedDispatcherTimer _autoAppChangeTimer; //TODO: stop this timer?
+
+        /// <summary>
+        ///   The demo mode configuration
         /// </summary>
         private readonly IDemoModeConfig _demoModeConfig;
 
         /// <summary>
-        /// The date time when the last skeleton appeared
+        ///   The time when the countdown was started the last time.
+        /// </summary>
+        private DateTime _countdownStartedAt;
+
+        /// <summary>
+        ///   The demo mode state check timer checks periodically if the state should change based on the time the last skeleton was tracked.
+        /// </summary>
+        private EnhancedDispatcherTimer _demoModeStateCheckTicker; //TODO: stop this timer?
+
+        /// <summary>
+        ///   The date time when the last skeleton appeared
         /// </summary>
         private DateTime _lastSkeletonTime;
 
-        private EnhancedDispatcherTimer _demoModeStateCheckTicker;
-        private readonly EnhancedDispatcherTimer _autoAppChangeTimer;
-
+        /// <summary>
+        ///   The current state of the video wall
+        /// </summary>
         private VideoWallState _state;
-        private DateTime _countdownStartedAt;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        ///   Gets the countdown.
+        /// </summary>
         public int Countdown
         {
             get
@@ -60,6 +80,9 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             }
         }
 
+        /// <summary>
+        ///   Gets the state.
+        /// </summary>
         public VideoWallState State
         {
             get { return _state; }
@@ -69,7 +92,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
                 _state = value;
                 if (_state == VideoWallState.Teaser) _autoAppChangeTimer.Start();
                 if (_state == VideoWallState.Countdown) _autoAppChangeTimer.Stop();
-                OnDemoModeStateChange(this, new EventArgs());
+                DemoModeStateChanged(this, null);
             }
         }
 
@@ -77,9 +100,9 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
 
         #region Events
 
-        public event EventHandler<EventArgs> OnDemoModeStateChange = delegate { };
-        public event EventHandler<EventArgs> OnAppChange = delegate { };
-        public event EventHandler<EventArgs> OnCountdownChange = delegate { };
+        public event EventHandler DemoModeStateChanged = delegate { };
+        public event EventHandler AppChanged = delegate { };
+        public event EventHandler CountdownChanged = delegate { };
 
         #endregion
 
@@ -94,16 +117,16 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             State = VideoWallState.Active;
 
             // TODO: stop the timers
-            _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckState, _demoModeConfig.SkeletonCheckTimeSpan, true);
+            _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckAndChangeState, _demoModeConfig.SkeletonCheckTimeSpan, true);
             _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChanged, _demoModeConfig.ChangeAppTimeSpan);
         }
 
-        private void AppChanged(object sender, EventArgs e)
-        {
-            OnAppChange(sender, e);
-        }
-
-        private void CheckState(object sender, EventArgs e)
+        /// <summary>
+        /// Checks and changes the state based on the time of the last skeleton.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void CheckAndChangeState(object sender, EventArgs e)
         {
             switch (State)
             {
@@ -121,7 +144,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
                     }
                     break;
                 case VideoWallState.Countdown:
-                    OnCountdownChange(this, new EventArgs());
+                    CountdownChanged(this, null);
                     if (!SkeletonTrackedWithin(_demoModeConfig.SkeletonTrackingTimeoutTimeSpan))
                     {
                         State = VideoWallState.Teaser;
@@ -137,6 +160,11 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             }
         }
 
+        /// <summary>
+        /// Wether the skeleton was tracked within a certain time span.
+        /// </summary>
+        /// <param name="ago">The ago.</param>
+        /// <returns></returns>
         private bool SkeletonTrackedWithin(TimeSpan ago)
         {
             return DateTime.Now.Subtract(_lastSkeletonTime) < ago;
@@ -151,6 +179,5 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         }
 
         #endregion
-
     }
 }
