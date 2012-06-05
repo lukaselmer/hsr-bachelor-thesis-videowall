@@ -32,7 +32,7 @@ namespace LunchMenuApp.Data.Implementation
     /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
-    internal class LunchMenuReader : ILunchMenuReader
+    public class LunchMenuReader : ILunchMenuReader
     // ReSharper restore UnusedMember.Global
     {
         #region Declarations

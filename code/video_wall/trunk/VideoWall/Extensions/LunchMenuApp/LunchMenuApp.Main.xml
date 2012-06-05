@@ -8,11 +8,17 @@
             <summary>
               The <see cref="!:LunchMenuApp.Main"/> namespace contains the main.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:LunchMenuApp.Main.LunchMenuApp">
             <summary>
               Initializes a new lunch menu app.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="M:LunchMenuApp.Main.LunchMenuApp.#ctor">
             <summary>
@@ -24,6 +30,12 @@
               Loads the app. At this place, the app can load or store application specific files for the application.
             </summary>
             <param name="videoWallServiceProvider"> The app info. </param>
+        </member>
+        <member name="M:LunchMenuApp.Main.LunchMenuApp.ConfigureUnityContainer">
+            <summary>
+            Loads the and configures the unity container.
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:LunchMenuApp.Main.LunchMenuApp.Name">
             <summary>

@@ -8,18 +8,40 @@
             <summary>
               The <see cref="N:LunchMenuApp.Data"/> namespace contains classes of the data layer.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="T:LunchMenuApp.Data.LunchMenuReader">
+        <member name="T:LunchMenuApp.Data.Implementation.LunchMenuReader">
             <summary>
               The luch menu reader.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:LunchMenuApp.Data.LunchMenuReader.#ctor">
+        <member name="T:LunchMenuApp.Data.Interfaces.ILunchMenuReader">
             <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.Data.LunchMenuReader"/> class.
+            The luch menu reader interfaces.
             </summary>
         </member>
-        <member name="P:LunchMenuApp.Data.LunchMenuReader.Html">
+        <member name="P:LunchMenuApp.Data.Interfaces.ILunchMenuReader.Html">
+            <summary>
+              Gets the HTML of the current mensa menu.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.Data.Implementation.LunchMenuReader"/> class.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.DownloadHtml(System.String)">
+            <summary>
+              Downloads the HTML.
+            </summary>
+            <param name="url"> The URL. </param>
+        </member>
+        <member name="P:LunchMenuApp.Data.Implementation.LunchMenuReader.Html">
             <summary>
               Gets the HTML of the current mensa menu.
             </summary>

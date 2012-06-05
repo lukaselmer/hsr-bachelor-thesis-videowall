@@ -30,7 +30,7 @@ namespace LunchMenuApp.ServiceModels.Implementation
     ///   Reviewed by Delia Treichler, 17.04.2012
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
-    internal class LunchMenu : ILunchMenu
+    public class LunchMenu : ILunchMenu
     {
         #region Properties
 

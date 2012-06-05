@@ -8,8 +8,26 @@
             <summary>
               The dish view model represents a dish.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Dish)">
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._name">
+            <summary>
+            The name of the dish.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._price">
+            <summary>
+            The price of the dish.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._type">
+            <summary>
+            The type of the dish (e.g. Tagesteller, Dauerbrenner, ...)
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Interfaces.IDish)">
             <summary>
               Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
             </summary>
@@ -34,24 +52,45 @@
             <summary>
               The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:LunchMenuApp.ViewModels.LunchMenuViewModel">
             <summary>
               The lunch menu view model represents the lunch menu.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:LunchMenuApp.ViewModels.LunchMenuViewModel.#ctor(LunchMenuApp.ServiceModels.LunchMenuService)">
+        <member name="F:LunchMenuApp.ViewModels.LunchMenuViewModel._dishes">
+            <summary>
+            The dishes.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.LunchMenuViewModel._lunchMenuService">
+            <summary>
+            The lunch menu service provides the lunch menu with the dishes.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.LunchMenuViewModel._title">
+            <summary>
+            The title of the lunch menu (e.g. current date).
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ViewModels.LunchMenuViewModel.#ctor(LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService)">
             <summary>
               Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.LunchMenuViewModel"/> class.
             </summary>
             <param name="lunchMenuService"> The lunch menu service. </param>
         </member>
-        <member name="M:LunchMenuApp.ViewModels.LunchMenuViewModel.LunchMenuServiceChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+        <member name="M:LunchMenuApp.ViewModels.LunchMenuViewModel.LunchMenuServiceChanged(System.Object,System.EventArgs)">
             <summary>
-              Calls LoadMenu when LunchMenuService was changed.
+            Calls LoadMenu when LunchMenuService was changed.
             </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+            <param name="sender">The sender.</param>
+            <param name="eventArgs">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="P:LunchMenuApp.ViewModels.LunchMenuViewModel.Title">
             <summary>

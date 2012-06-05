@@ -8,6 +8,9 @@
             <summary>
               Interaction logic for Dish.xaml
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
             <summary>
             Dish
             </summary>
@@ -26,11 +29,17 @@
             <summary>
               The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:LunchMenuApp.Views.LunchMenuView">
             <summary>
               Interaction logic for LunchMenuView.xaml
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
             <summary>
             LunchMenuView
             </summary>

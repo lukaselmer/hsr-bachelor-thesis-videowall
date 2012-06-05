@@ -18,7 +18,10 @@
 using System.ComponentModel.Composition;
 using System.Reflection;
 using System.Windows.Controls;
+using LunchMenuApp.Data.Implementation;
 using LunchMenuApp.Data.Interfaces;
+using LunchMenuApp.ServiceModels.Implementation;
+using LunchMenuApp.ServiceModels.Interfaces;
 using LunchMenuApp.Views;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
@@ -77,7 +80,7 @@ namespace LunchMenuApp.Main
         /// <param name="videoWallServiceProvider"> The app info. </param>
         public void Activate(IVideoWallServiceProvider videoWallServiceProvider)
         {
-            var container = LoadAndConfigureUnityContainer();
+            var container = ConfigureUnityContainer();
             MainView = container.Resolve<LunchMenuView>();
         }
 
@@ -85,24 +88,12 @@ namespace LunchMenuApp.Main
         /// Loads the and configures the unity container.
         /// </summary>
         /// <returns></returns>
-        private static UnityContainer LoadAndConfigureUnityContainer()
+        private static UnityContainer ConfigureUnityContainer()
         {
-            var containerElement = new ContainerElement();
-            containerElement.Registrations.Add(new RegisterElement { TypeName = "ILunchMenuReader", MapToName = "LunchMenuReader" });
-            containerElement.Registrations.Add(new RegisterElement { TypeName = "ILunchMenuService", MapToName = "LunchMenuService" });
-            containerElement.Registrations.Add(new RegisterElement { TypeName = "ILunchMenu", MapToName = "LunchMenu" });
-
-            var section = new UnityConfigurationSection();
-            section.Containers.Add(containerElement);
-            section.Assemblies.Add(new AssemblyElement { Name = "LunchMenuApp.Data" });
-            section.Namespaces.Add(new NamespaceElement { Name = "LunchMenuApp.Data.Interfaces" });
-            section.Namespaces.Add(new NamespaceElement { Name = "LunchMenuApp.Data.Implementation" });
-            section.Assemblies.Add(new AssemblyElement { Name = "LunchMenuApp.ServiceModels" });
-            section.Namespaces.Add(new NamespaceElement { Name = "LunchMenuApp.ServiceModels.Interfaces" });
-            section.Namespaces.Add(new NamespaceElement { Name = "LunchMenuApp.ServiceModels.Implementation" });
-
             var container = new UnityContainer();
-            container.LoadConfiguration(section);
+            container.RegisterType<ILunchMenuReader, LunchMenuReader>();
+            container.RegisterType<ILunchMenuService, LunchMenuService>();
+            container.RegisterType<ILunchMenu, LunchMenu>();
             return container;
         }
 

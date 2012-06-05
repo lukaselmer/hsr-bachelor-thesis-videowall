@@ -4,131 +4,255 @@
         <name>LunchMenuApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.ServiceModels.LunchMenu">
-            <summary>
-              The lunch menu. Reviewed by Delia Treichler, 17.04.2012
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenu.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenu"/> class.
-            </summary>
-            <param name="html"> The HTML. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Dishes">
-            <summary>
-              Gets the dishes.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenu.Date">
-            <summary>
-              Gets the date.
-            </summary>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.Dish">
-            <summary>
-              The dish.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.Dish.#ctor(System.String,System.String,System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Dish"/> class.
-            </summary>
-            <param name="type"> The type. </param>
-            <param name="name"> The name. </param>
-            <param name="price"> The price. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Dish.Price">
-            <summary>
-              Gets the price.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.ServiceModels.NamespaceDoc">
             <summary>
               The <see cref="N:LunchMenuApp.ServiceModels"/> namespace contains service classes.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.LunchMenuService">
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu">
+            <summary>
+            The lunch menu interface.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Dishes">
+            <summary>
+              Gets the dishes.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Date">
+            <summary>
+              Gets the date.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.IDish">
+            <summary>
+            The dish interface.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuService">
             <summary>
               The lunch menu service.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuService.#ctor(LunchMenuApp.Data.LunchMenuReader)">
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService">
             <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.LunchMenuService"/> class.
+            The lunch menu interface
             </summary>
-            <param name="lunchMenuReader"> The lunch menu reader. </param>
         </member>
-        <member name="P:LunchMenuApp.ServiceModels.LunchMenuService.LunchMenu">
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService.LunchMenu">
             <summary>
               Gets or sets and notifies the lunch menu.
             </summary>
             <value> The lunch menu. </value>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.DishParser">
+        <member name="E:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService.LunchMenuChanged">
             <summary>
-              Parses the dishes from html nodes
+            Occurs when the lunch menu has changed.
             </summary>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.DishParser.#ctor(HtmlAgilityPack.HtmlNodeCollection)">
+        <member name="F:LunchMenuApp.ServiceModels.Implementation.LunchMenuService._lunchMenu">
             <summary>
-              Extracts and parses the dishes.
+            The lunch menu
             </summary>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.DishParser.ExtractDishes">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.#ctor(LunchMenuApp.Data.Interfaces.ILunchMenuReader)">
             <summary>
-              Extracts the dishes.
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuService"/> class.
             </summary>
-            <returns> </returns>
+            <param name="lunchMenuReader"> The lunch menu reader. </param>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.DishParser.HasPrice(HtmlAgilityPack.HtmlNode)">
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.LunchMenuReader">
             <summary>
-              Determines whether the specified node has price.
+            Gets or sets the lunch menu reader.
             </summary>
-            <param name="node"> The node. </param>
-            <returns> <c>true</c> if the specified node has price; otherwise, <c>false</c> . </returns>
+            <value>
+            The lunch menu reader.
+            </value>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.DishParser.ParseDish(HtmlAgilityPack.HtmlNode)">
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.LunchMenu">
             <summary>
-              Parses and creates the dish from an html node.
+              Gets or sets and notifies the lunch menu.
             </summary>
-            <param name="node"> The node. </param>
-            <returns> </returns>
+            <value> The lunch menu. </value>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.#ctor(System.String)">
+        <member name="E:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.LunchMenuChanged">
+            <summary>
+            Occurs when the lunch menu has changed.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser">
+            <summary>
+            The lunch menu parser parses a html document.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser._document">
+            <summary>
+            The document.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser._menuNode">
+            <summary>
+            The menu node
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.#ctor(System.String)">
             <summary>
               Parses the dishes and the menu date from the html
             </summary>
             ///
             <param name="html"> The html. </param>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.LoadMenuContent">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.LoadMenuContent">
             <summary>
               Loads the content of the menu.
             </summary>
             <returns> </returns>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDate">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.ExtractDate">
             <summary>
               Extracts the date.
             </summary>
             <returns> </returns>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.LunchMenuParser.ExtractDishes">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.ExtractDishes">
             <summary>
               Extracts the dishes.
             </summary>
             <returns> </returns>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.DishParser">
+            <summary>
+              Parses the dishes from html nodes
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:LunchMenuApp.ServiceModels.Implementation.DishParser._nodes">
+            <summary>
+            The HTML nodes
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.DishParser.#ctor(HtmlAgilityPack.HtmlNodeCollection)">
+            <summary>
+              Extracts and parses the dishes.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.DishParser.ExtractDishes">
+            <summary>
+              Extracts the dishes.
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.DishParser.HasPrice(HtmlAgilityPack.HtmlNode)">
+            <summary>
+              Determines whether the specified node has price.
+            </summary>
+            <param name="node"> The node. </param>
+            <returns> <c>true</c> if the specified node has price; otherwise, <c>false</c> . </returns>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.DishParser.ParseDish(HtmlAgilityPack.HtmlNode)">
+            <summary>
+              Parses and creates the dish from an html node.
+            </summary>
+            <param name="node"> The node. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException">
+            <summary>
+            If the lunch menu is not parsable, this exception is thrown.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.Dish">
+            <summary>
+              The dish.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.Dish.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.Dish"/> class.
+            </summary>
+            <param name="type"> The type. </param>
+            <param name="name"> The name. </param>
+            <param name="price"> The price. </param>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu">
+            <summary>
+              The lunch menu.
+            </summary>
+            <remarks>
+              Reviewed by Delia Treichler, 17.04.2012
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenu.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu"/> class.
+            </summary>
+            <param name="html"> The HTML. </param>
+            <exception cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Dishes">
+            <summary>
+              Gets the dishes.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Date">
+            <summary>
+              Gets the date.
+            </summary>
         </member>
     </members>
 </doc>

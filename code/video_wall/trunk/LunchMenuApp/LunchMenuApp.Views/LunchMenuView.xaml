@@ -8,23 +8,25 @@
              d:DesignHeight="900" d:DesignWidth="900"
              d:DataContext="{d:DesignInstance Lunch:LunchMenuViewModel}">
     <Grid Background="White">
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20">
-                <TextBlock FontSize="35" Margin="0 0 11 0">Mensa Menu</TextBlock>
-                <TextBlock FontSize="35" FontWeight="Bold" Text="{Binding Title}" />
+        <Grid VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20">
+                    <TextBlock FontSize="35" Margin="0 0 11 0">Mensa Menu</TextBlock>
+                    <TextBlock FontSize="35" FontWeight="Bold" Text="{Binding Title}" />
+                </StackPanel>
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding Dishes}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Views:Dish DataContext="{Binding .}"></Views:Dish>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
-            <ItemsControl ItemsSource="{Binding Dishes}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Views:Dish DataContext="{Binding .}"></Views:Dish>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
