@@ -33,7 +33,7 @@ namespace PosterApp.Startup
         #region Declarations
 
         /// <summary>
-        /// TODO: doc this
+        /// The unity container which is used to create the video wall services.
         /// </summary>
         private readonly UnityContainer _container;
 

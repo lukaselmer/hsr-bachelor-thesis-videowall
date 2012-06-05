@@ -28,6 +28,12 @@ namespace PosterApp.Startup
     {
         #region Constructors / Destructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
+        /// <remarks>
+        ///   Reviewed by Lukas Elmer, 05.06.2012
+        /// </remarks>
         public MainWindow()
         {
             InitializeComponent();
