@@ -17,16 +17,20 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+using System.Windows.Forms;
 using System.Windows.Media.Animation;
 using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ViewModels.Cursor;
 using VideoWall.ViewModels.HitButton;
 using VideoWall.ViewModels.Main;
 using VideoWall.Views.Helpers;
+using Application = System.Windows.Application;
+using Button = System.Windows.Controls.Button;
+using MouseEventHandler = System.Windows.Input.MouseEventHandler;
+using Timer = System.Threading.Timer;
 
 #endregion
 
@@ -61,18 +65,8 @@ namespace VideoWall.Views.Xaml
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
+            MaximizeWindowOverMultipleScreens();
         }
-
-        private void InitShutdownRoutine()
-        {
-            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-            Closed += delegate
-            {
-                // If the application cannot shut down properly, ensure that everything is stopped eventually (after 4000 milliseconds).
-                new Timer(state => Process.GetCurrentProcess().Kill(), null, 4000, Timeout.Infinite);
-            };
-        }
-
         #endregion
 
         #region Properties
@@ -152,6 +146,27 @@ namespace VideoWall.Views.Xaml
             MouseEventHandler updateMousePosition = (sender, args) => mouseCursorViewModel.Position = args.GetPosition(this);
             MouseMove += updateMousePosition;
             Closing += (sender, args) => MouseMove -= updateMousePosition;
+        }
+
+        /// <summary>
+        /// Maximizes the window over multiple screens.
+        /// </summary>
+        private void MaximizeWindowOverMultipleScreens()
+        {
+            Left = Screen.AllScreens.Min(screen => screen.Bounds.X);
+            Top = Screen.AllScreens.Min(screen => screen.Bounds.Y);
+            Width =  Screen.AllScreens.Max(screen => screen.Bounds.X + screen.Bounds.Width) - Left;
+            Height = Screen.AllScreens.Max(screen => screen.Bounds.Y + screen.Bounds.Height) - Top;
+        }
+
+        private void InitShutdownRoutine()
+        {
+            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            Closed += delegate
+            {
+                // If the application cannot shut down properly, ensure that everything is stopped eventually (after 4000 milliseconds).
+                new Timer(state => Process.GetCurrentProcess().Kill(), null, 4000, Timeout.Infinite);
+            };
         }
 
         #endregion

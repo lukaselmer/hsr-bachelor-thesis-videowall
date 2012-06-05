@@ -7,7 +7,7 @@
         xmlns:Main="clr-namespace:VideoWall.ViewModels.Main;assembly=VideoWall.ViewModels"
         xmlns:Xaml1="clr-namespace:VideoWall.Views.Xaml" mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Main:MainWindowViewModel}"
-        WindowStartupLocation="CenterScreen" Focusable="True"
+        WindowStartupLocation="Manual" WindowState="Normal" WindowStyle="None" Focusable="True" ResizeMode="NoResize"
         Width="{Binding CursorViewModel.WindowWidth, Mode=OneWayToSource}" Height="{Binding CursorViewModel.WindowHeight, Mode=OneWayToSource}">
     <Grid Name="MainContainer" x:FieldModifier="private">
         <Canvas Canvas.ZIndex="100" DataContext="{Binding CursorViewModel}" Margin="-30 -30 0 0">
