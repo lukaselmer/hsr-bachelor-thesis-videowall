@@ -17,7 +17,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -85,76 +85,76 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Poster\1-4_Analyse-Detailkonzepte A0-1.jpg">
+    <Content Include="Files\1-4_Analyse-Detailkonzepte A0-1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\1_Analyse.jpg">
+    <Content Include="Files\1_Analyse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\2_Analyse.jpg">
+    <Content Include="Files\2_Analyse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\3_Analyse.jpg">
+    <Content Include="Files\3_Analyse.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\4_Konzept.jpg">
+    <Content Include="Files\4_Konzept.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\5_Konzept.jpg">
+    <Content Include="Files\5_Konzept.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\BA_ErholungFZ.jpg">
+    <Content Include="Files\BA_ErholungFZ.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\BA_LandschaftsbildFZ.jpg">
+    <Content Include="Files\BA_LandschaftsbildFZ.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\BA_LebensraumtypenFZ.jpg">
+    <Content Include="Files\BA_LebensraumtypenFZ.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\BA_LPKONZEPTFZ.jpg">
+    <Content Include="Files\BA_LPKONZEPTFZ.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\BA_VertiefungFZ.jpg">
+    <Content Include="Files\BA_VertiefungFZ.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Plakat BA Gasser Steiner 2012.jpg">
+    <Content Include="Files\Plakat BA Gasser Steiner 2012.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Android.jpg">
+    <Content Include="Files\Poster_Android.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Beeler_Weber2.jpg">
+    <Content Include="Files\Poster_Beeler_Weber2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Bodyscanner.jpg">
+    <Content Include="Files\Poster_Bodyscanner.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_EventAssistant.jpg">
+    <Content Include="Files\Poster_EventAssistant.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Exchange.jpg">
+    <Content Include="Files\Poster_Exchange.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_FireTabletPlus.jpg">
+    <Content Include="Files\Poster_FireTabletPlus.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_iPhone.jpg">
+    <Content Include="Files\Poster_iPhone.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Isochrones.jpg">
+    <Content Include="Files\Poster_Isochrones.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Lumin.jpg">
+    <Content Include="Files\Poster_Lumin.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Menzi -Jäger.jpg">
+    <Content Include="Files\Poster_Menzi -Jäger.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_Neff-Piffner.jpg">
+    <Content Include="Files\Poster_Neff-Piffner.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Poster\Poster_SnapIt.jpg">
+    <Content Include="Files\Poster_SnapIt.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
