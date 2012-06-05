@@ -18,6 +18,7 @@
 using System;
 using System.Linq;
 using Microsoft.Kinect;
+using VideoWall.Common.Exceptions;
 using VideoWall.Data.Kinect.Interfaces;
 
 #endregion
@@ -70,7 +71,7 @@ namespace VideoWall.Data.Kinect.Implementation
                              where sensorToCheck.Status == KinectStatus.Connected
                              select sensorToCheck).FirstOrDefault();
 
-            if (_kinectSensor == null) throw new Exception("No ready Kinect connected!");
+            if (_kinectSensor == null) throw new VideoWallException("No ready Kinect connected!");
 
             _kinectSensor.SkeletonFrameReady += OnKinectSensorOnSkeletonFrameReady;
         }

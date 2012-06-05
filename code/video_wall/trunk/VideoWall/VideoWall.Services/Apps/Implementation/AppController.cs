@@ -18,8 +18,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using VideoWall.Common.Exceptions;
 using VideoWall.Common.Helpers;
 using VideoWall.Common.Logging;
+using VideoWall.Data.Kinect.Implementation;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps.Interfaces;
 using VideoWall.ServiceModels.Player.Interfaces;
@@ -96,7 +98,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
                 {
                     var message = String.Format("Extension in folder {0} could not be loaded: {1}", extensionFolder.Directory.FullName, exception);
                     Logger.Get.Error(message);
-                    throw new Exception(message, exception);
+                    throw new VideoWallException(message, exception);
                 }
 
                 extensionFolder.App.Activate(new ProductionVideoWallServiceProvider(extensionFolder, _player));

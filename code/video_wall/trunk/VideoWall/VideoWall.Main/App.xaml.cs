@@ -16,11 +16,14 @@
 #region Usings
 
 using System;
+using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using VideoWall.Common;
+using VideoWall.Common.Exceptions;
 using VideoWall.Common.Logging;
 using VideoWall.Views.Xaml;
 
@@ -96,23 +99,36 @@ namespace VideoWall.Main
         }
 
         /// <summary>
-        ///   Handles the exception. The most simple case is just to shutdown the application, but more elegant would be to restart the application or even popup a "rescue application" which reports the error and on which the user can choose the next action (e.g. restart application, restart server, debug mode, ...)
+        ///   Handles the exception. The most simple case is just to shutdown the application, but more elegant would be to
+        /// restart the application or even popup a "rescue application" which reports the error and on which the user can
+        /// choose the next action (e.g. restart application, restart server, debug mode, ...)
         /// </summary>
         private static void HandleException()
         {
+            // Shutdown the application.
             Current.Shutdown(1);
+            // If the application cannot shut down properly, ensure that everything is stopped eventually (after 4000 milliseconds).
+            new Timer(state => Process.GetCurrentProcess().Kill(), null, 4000, Timeout.Infinite);
         }
 
         /// <summary>
         ///   Logs the and displays the exception.
         /// </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <param name="ex"> The exception. </param>
         private static void LogAndDisplayException(Exception ex)
         {
             Logger.Get.Error(ex.Message, ex);
-            var message = String.Format("Hi! We are sorry, but the an exception occured. The application will now terminate, see log for details." +
-                "Your Video Wall team.\n\n" +
-                    "{0}\nMessage: {1}", ex.GetType(), ex.Message);
+            var message = String.Format("Hi! We are sorry, but the an exception occured. The application will now terminate, see log for details. " +
+                "Your Video Wall team.");
+
+            // Search recursive for an inner exception of type type VideoWallException
+            var innerException = ex;
+            while (innerException.InnerException!= null && !(innerException is VideoWallException)) innerException = innerException.InnerException;
+
+            var videoWallException = innerException as VideoWallException;
+            if (videoWallException == null && ex.InnerException != null) videoWallException = ex.InnerException as VideoWallException;
+            if (videoWallException != null) message += String.Format("\n\nMessage: {0}", videoWallException.Message);
+
             MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 

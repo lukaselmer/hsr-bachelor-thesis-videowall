@@ -16,6 +16,8 @@
 #region Usings
 
 using System;
+using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -54,10 +56,21 @@ namespace VideoWall.Views.Xaml
         public MainWindow(MainWindowViewModel mainWindowViewModel)
         {
             DataContext = MainWindowViewModel = mainWindowViewModel;
+            InitShutdownRoutine();
             RegisterMouseMoveMethodsForMouseCursorViewModel();
             InitializeComponent();
             InitHitTestHelper();
             InitStoryboard();
+        }
+
+        private void InitShutdownRoutine()
+        {
+            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            Closed += delegate
+            {
+                // If the application cannot shut down properly, ensure that everything is stopped eventually (after 4000 milliseconds).
+                new Timer(state => Process.GetCurrentProcess().Kill(), null, 4000, Timeout.Infinite);
+            };
         }
 
         #endregion
@@ -88,7 +101,7 @@ namespace VideoWall.Views.Xaml
         private void InitHitTestHelper()
         {
             var elements = ExtendedVisualTreeHelper.FindInVisualTreeDown<Button>(MainContainer);
-            _hitTestHelper = new HitTestHelper(MainWindowViewModel.CursorViewModel, this, Interval) {HitElements = elements};
+            _hitTestHelper = new HitTestHelper(MainWindowViewModel.CursorViewModel, this, Interval) { HitElements = elements };
             _hitTestHelper.Started += StartAnimation;
             _hitTestHelper.Stopped += StopAnimation;
             _hitTestHelper.Clicked += ButtonClicked;

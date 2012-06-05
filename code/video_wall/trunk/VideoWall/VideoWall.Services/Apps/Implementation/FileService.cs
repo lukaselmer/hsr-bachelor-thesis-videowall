@@ -17,7 +17,9 @@
 
 using System;
 using System.IO;
+using VideoWall.Common.Exceptions;
 using VideoWall.Common.Logging;
+using VideoWall.Data.Kinect.Implementation;
 using VideoWall.Interfaces;
 
 #endregion
@@ -61,7 +63,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
                 var message = String.Format("The extension in the extension folder {0} has requested a file service, but the directory for this file service is missing. " +
                     "To confirm that the extension may use a file service, please create the following folder: {1}", extensionFolder.Directory, directoryForFiles.FullName);
                 Logger.Get.Error(message);
-                throw new Exception(message);
+                throw new VideoWallException(message);
             }
             ResourceDirectory = directoryForFiles.FullName;
         }

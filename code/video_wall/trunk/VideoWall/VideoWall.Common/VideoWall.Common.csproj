@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\RandomExtension.cs" />
+    <Compile Include="Exceptions\VideoWallException.cs" />
     <Compile Include="ViewHelpers\Command.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
