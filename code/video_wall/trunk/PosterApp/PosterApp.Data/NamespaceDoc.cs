@@ -24,6 +24,9 @@ namespace PosterApp.Data
     /// <summary>
     ///   The <see cref="PosterApp.Data" /> namespace contains classes of the data layer.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace

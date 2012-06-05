@@ -16,26 +16,41 @@
 #region Usings
 
 using System.Collections.Generic;
-using PosterApp.Data;
+using System.Linq;
+using PosterApp.Data.Implementation;
+using PosterApp.Data.Interfaces;
+using PosterApp.ServiceModels.Interfaces;
 
 #endregion
 
-namespace PosterApp.ServiceModels
+namespace PosterApp.ServiceModels.Implementation
 {
     /// <summary>
     ///   The PosterService
     /// </summary>
-    public class PosterService
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    public class PosterService : IPosterService
+    // ReSharper restore UnusedMember.Global
     {
         #region Properties
 
-        private PosterReader PosterReader { get; set; }
+        /// <summary>
+        /// Gets or sets the poster reader.
+        /// </summary>
+        /// <value>
+        /// The poster reader.
+        /// </value>
+        private IPosterReader PosterReader { get; set; }
 
         /// <summary>
         ///   Gets or sets and notifies the posters.
         /// </summary>
         /// <value> The posters. </value>
-        public List<Poster> Posters { get; private set; }
+        public IEnumerable<IPoster> Posters { get; private set; }
 
         #endregion
 
@@ -45,7 +60,7 @@ namespace PosterApp.ServiceModels
         ///   Initializes a new instance of the <see cref="PosterService" /> class.
         /// </summary>
         /// <param name="posterReader"> The poster reader. </param>
-        public PosterService(PosterReader posterReader)
+        public PosterService(IPosterReader posterReader)
         {
             PosterReader = posterReader;
             ReadFromPosterReader();
@@ -60,11 +75,7 @@ namespace PosterApp.ServiceModels
         /// </summary>
         private void ReadFromPosterReader()
         {
-            Posters = new List<Poster>();
-            foreach (var file in PosterReader.Files)
-            {
-                Posters.Add(new Poster(file));
-            }
+            Posters = PosterReader.Files.Select(file => new Poster(file));
         }
 
         #endregion

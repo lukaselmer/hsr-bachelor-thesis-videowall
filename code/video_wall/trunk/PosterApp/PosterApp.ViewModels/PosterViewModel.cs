@@ -16,9 +16,12 @@
 #region Usings
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using PosterApp.ServiceModels;
+using PosterApp.ServiceModels.Implementation;
+using PosterApp.ServiceModels.Interfaces;
 using VideoWall.Common.ViewHelpers;
 
 #endregion
@@ -34,10 +37,10 @@ namespace PosterApp.ViewModels
     {
         #region Declarations
 
-        private readonly PosterService _posterService;
-        private Poster _currentPoster;
+        private readonly IPosterService _posterService;
+        private IPoster _currentPoster;
         private string _name;
-        private List<Poster> _posters;
+        private List<IPoster> _posters;
 
         #endregion
 
@@ -59,7 +62,7 @@ namespace PosterApp.ViewModels
         ///   Gets or sets the current poster.
         /// </summary>
         /// <value> The current poster. </value>
-        public Poster CurrentPoster
+        public IPoster CurrentPoster
         {
             get { return _currentPoster; }
             private set
@@ -73,7 +76,7 @@ namespace PosterApp.ViewModels
         ///   Gets or sets the posters.
         /// </summary>
         /// <value> The posters. </value>
-        private List<Poster> Posters
+        private List<IPoster> Posters
         {
             get { return _posters; }
             set
@@ -105,7 +108,7 @@ namespace PosterApp.ViewModels
         ///   Initializes a new instance of the <see cref="PosterViewModel" /> class.
         /// </summary>
         /// <param name="posterService"> The poster service. </param>
-        public PosterViewModel(PosterService posterService)
+        public PosterViewModel(IPosterService posterService)
         {
             _posterService = posterService;
             ReadFromPosterService();
@@ -123,7 +126,7 @@ namespace PosterApp.ViewModels
         /// </summary>
         private void ReadFromPosterService()
         {
-            Posters = _posterService.Posters;
+            Posters = _posterService.Posters.ToList();
             CurrentPoster = Posters.First();
         }
 
@@ -133,8 +136,7 @@ namespace PosterApp.ViewModels
         /// <param name="obj"> The obj. </param>
         private void OnNavigateToRight(object obj)
         {
-            var index = _posters.IndexOf(CurrentPoster) + 1;
-            CurrentPoster = index >= _posters.Count ? _posters.First() : _posters[index];
+            CurrentPoster = _posters[(_posters.IndexOf(CurrentPoster) + 1) % _posters.Count];
         }
 
         /// <summary>
@@ -143,8 +145,7 @@ namespace PosterApp.ViewModels
         /// <param name="obj"> The obj. </param>
         private void OnNavigateToLeft(object obj)
         {
-            var index = _posters.IndexOf(CurrentPoster) - 1;
-            CurrentPoster = index < 0 ? _posters.Last() : _posters[index];
+            CurrentPoster = _posters[(_posters.IndexOf(CurrentPoster) - 1) % _posters.Count];
         }
 
         #endregion

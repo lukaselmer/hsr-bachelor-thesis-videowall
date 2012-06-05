@@ -17,16 +17,23 @@
 
 using System.Collections.Generic;
 using System.IO;
+using PosterApp.Data.Interfaces;
 using VideoWall.Interfaces;
 
 #endregion
 
-namespace PosterApp.Data
+namespace PosterApp.Data.Implementation
 {
     /// <summary>
     ///   The Poster Reader
     /// </summary>
-    public class PosterReader
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
+    public class PosterReader : IPosterReader
+    // ReSharper restore UnusedMember.Global
     {
         #region Properties
 

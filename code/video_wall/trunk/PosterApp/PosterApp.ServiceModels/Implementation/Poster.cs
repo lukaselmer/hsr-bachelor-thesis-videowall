@@ -17,16 +17,20 @@
 
 using System.IO;
 using System.Windows.Media.Imaging;
+using PosterApp.ServiceModels.Interfaces;
 using VideoWall.Common.Helpers;
 
 #endregion
 
-namespace PosterApp.ServiceModels
+namespace PosterApp.ServiceModels.Implementation
 {
     /// <summary>
     ///   The Poster.
     /// </summary>
-    public class Poster
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    public class Poster : IPoster
     {
         #region Properties
 
