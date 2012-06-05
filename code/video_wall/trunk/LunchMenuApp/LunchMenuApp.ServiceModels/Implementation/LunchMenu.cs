@@ -15,23 +15,29 @@
 
 #region Usings
 
+using System;
 using System.Collections.Generic;
+using LunchMenuApp.ServiceModels.Interfaces;
 
 #endregion
 
-namespace LunchMenuApp.ServiceModels
+namespace LunchMenuApp.ServiceModels.Implementation
 {
     /// <summary>
-    ///   The lunch menu. Reviewed by Delia Treichler, 17.04.2012
+    ///   The lunch menu.
     /// </summary>
-    public class LunchMenu
+    /// <remarks>
+    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    internal class LunchMenu : ILunchMenu
     {
         #region Properties
 
         /// <summary>
         ///   Gets the dishes.
         /// </summary>
-        public List<Dish> Dishes { get; private set; }
+        public IEnumerable<IDish> Dishes { get; private set; }
 
         /// <summary>
         ///   Gets the date.
@@ -46,12 +52,19 @@ namespace LunchMenuApp.ServiceModels
         ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
         /// </summary>
         /// <param name="html"> The HTML. </param>
+        /// <exception cref="LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
         public LunchMenu(string html)
         {
-            var parser = new LunchMenuParser(html);
-
-            Date = parser.ExtractDate();
-            Dishes = parser.ExtractDishes();
+            try
+            {
+                var parser = new LunchMenuParser(html);
+                Date = parser.ExtractDate();
+                Dishes = parser.ExtractDishes();
+            }
+            catch (Exception exception)
+            {
+                throw new LunchMenuUnparsableException(String.Format("Lunch menu is unparsable, html was:\n\n{0}", html), exception);
+            }
         }
 
         #endregion

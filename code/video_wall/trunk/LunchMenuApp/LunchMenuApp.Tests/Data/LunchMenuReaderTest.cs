@@ -15,7 +15,7 @@
 
 #region Usings
 
-using LunchMenuApp.Data;
+using LunchMenuApp.Data.Implementation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
@@ -35,7 +35,7 @@ namespace LunchMenuApp.Tests.Data
         [DeploymentItem("LunchMenuApp.Data.dll")]
         public void DownloadHtmlTest()
         {
-            var reader = new LunchMenuReader();
+            var reader = new LunchMenuReader_Accessor();
             var html = reader.Html;
             Assert.IsFalse(html.Length == 0);
             Assert.IsTrue(html.Contains("Menuplan"));

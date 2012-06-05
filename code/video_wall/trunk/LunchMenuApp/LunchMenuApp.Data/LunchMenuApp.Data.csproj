@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LunchMenuReader.cs" />
+    <Compile Include="Interfaces\ILunchMenuReader.cs" />
+    <Compile Include="Implementation\LunchMenuReader.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

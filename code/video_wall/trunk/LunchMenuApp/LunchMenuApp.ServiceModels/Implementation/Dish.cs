@@ -13,12 +13,18 @@
 
 #endregion
 
-namespace LunchMenuApp.ServiceModels
+using LunchMenuApp.ServiceModels.Interfaces;
+using VideoWall.Common.Helpers;
+
+namespace LunchMenuApp.ServiceModels.Implementation
 {
     /// <summary>
     ///   The dish.
     /// </summary>
-    public class Dish
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    internal class Dish : IDish
     {
         #region Properties
 
@@ -49,6 +55,10 @@ namespace LunchMenuApp.ServiceModels
         /// <param name="price"> The price. </param>
         public Dish(string type, string name, string price)
         {
+            PreOrPostCondition.AssertNotNull(type, "type");
+            PreOrPostCondition.AssertNotNull(name, "name");
+            PreOrPostCondition.AssertNotNull(price, "price");
+
             Type = type;
             Name = name;
             Price = price;

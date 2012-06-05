@@ -16,6 +16,7 @@
 #region Usings
 
 using LunchMenuApp.ServiceModels;
+using LunchMenuApp.ServiceModels.Implementation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
@@ -30,8 +31,7 @@ namespace LunchMenuApp.Tests.ServiceModels
     {
         #region TestHtml
 
-        private static string _html =
-            @"<?xml version=""1.0"" encoding=""utf-8""?>
+        private const string Html = @"<?xml version=""1.0"" encoding=""utf-8""?>
 <!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
 
 <!--[if lt IE 7 ]> <html xmlns=""http://www.w3.org/1999/xhtml"" class=""ie6""> <![endif]-->
@@ -528,7 +528,7 @@ Menüsalat</div>
         [TestMethod]
         public void LunchMenuParserConstructorTest()
         {
-            var parser = new LunchMenuParser_Accessor(_html);
+            var parser = new LunchMenuParser_Accessor(Html);
             Assert.IsNotNull(parser._menuNode);
         }
 
@@ -538,7 +538,7 @@ Menüsalat</div>
         [TestMethod]
         public void ExtractDateTest()
         {
-            var parser = new LunchMenuParser(_html);
+            var parser = new LunchMenuParser(Html);
             Assert.AreEqual("Freitag, 18.05.2012", parser.ExtractDate());
         }
 
@@ -548,7 +548,7 @@ Menüsalat</div>
         [TestMethod]
         public void ExtractMenusTest()
         {
-            var parser = new LunchMenuParser(_html);
+            var parser = new LunchMenuParser(Html);
             var dishes = parser.ExtractDishes();
 
             Assert.AreEqual(4, dishes.Count);

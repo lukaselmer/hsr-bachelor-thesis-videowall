@@ -18,19 +18,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using HtmlAgilityPack;
+using LunchMenuApp.ServiceModels.Interfaces;
 using VideoWall.Common.Helpers;
 
 #endregion
 
-namespace LunchMenuApp.ServiceModels
+namespace LunchMenuApp.ServiceModels.Implementation
 {
     /// <summary>
     ///   Parses the dishes from html nodes
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     internal class DishParser
     {
         #region Declarations
 
+        /// <summary>
+        /// The HTML nodes
+        /// </summary>
         private readonly HtmlNodeCollection _nodes;
 
         #endregion
@@ -54,7 +61,7 @@ namespace LunchMenuApp.ServiceModels
         ///   Extracts the dishes.
         /// </summary>
         /// <returns> </returns>
-        public List<Dish> ExtractDishes()
+        public List<IDish> ExtractDishes()
         {
             return _nodes.Where(HasPrice).Select(ParseDish).ToList();
         }
@@ -74,7 +81,7 @@ namespace LunchMenuApp.ServiceModels
         /// </summary>
         /// <param name="node"> The node. </param>
         /// <returns> </returns>
-        private static Dish ParseDish(HtmlNode node)
+        private static IDish ParseDish(HtmlNode node)
         {
             var type = node.SelectSingleNode("div[@class='offer-description']").InnerText.Trim();
             var name = node.SelectSingleNode("div[@class='menu-description']").InnerText.Trim();

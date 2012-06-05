@@ -15,7 +15,7 @@
 
 #region Usings
 
-using LunchMenuApp.ServiceModels;
+using LunchMenuApp.ServiceModels.Interfaces;
 using VideoWall.Common.ViewHelpers;
 
 #endregion
@@ -25,12 +25,26 @@ namespace LunchMenuApp.ViewModels
     /// <summary>
     ///   The dish view model represents a dish.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class DishViewModel : Notifier
     {
         #region Declarations
 
+        /// <summary>
+        /// The name of the dish.
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// The price of the dish.
+        /// </summary>
         private string _price;
+
+        /// <summary>
+        /// The type of the dish (e.g. Tagesteller, Dauerbrenner, ...)
+        /// </summary>
         private string _type;
 
         #endregion
@@ -84,7 +98,7 @@ namespace LunchMenuApp.ViewModels
         ///   Initializes a new instance of the <see cref="DishViewModel" /> class.
         /// </summary>
         /// <param name="dish"> The dish. </param>
-        public DishViewModel(Dish dish)
+        public DishViewModel(IDish dish)
         {
             Type = dish.Type;
             Name = dish.Name;

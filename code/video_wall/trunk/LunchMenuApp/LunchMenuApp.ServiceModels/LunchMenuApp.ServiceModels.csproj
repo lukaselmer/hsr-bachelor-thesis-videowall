@@ -35,6 +35,7 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.3\lib\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,11 +48,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dish.cs" />
-    <Compile Include="DishParser.cs" />
-    <Compile Include="LunchMenu.cs" />
-    <Compile Include="LunchMenuParser.cs" />
-    <Compile Include="LunchMenuService.cs" />
+    <Compile Include="Implementation\Dish.cs" />
+    <Compile Include="Implementation\DishParser.cs" />
+    <Compile Include="Interfaces\ILunchMenuService.cs" />
+    <Compile Include="Interfaces\IDish.cs" />
+    <Compile Include="Interfaces\ILunchMenu.cs" />
+    <Compile Include="Implementation\LunchMenu.cs" />
+    <Compile Include="Implementation\LunchMenuParser.cs" />
+    <Compile Include="Implementation\LunchMenuService.cs" />
+    <Compile Include="Implementation\LunchMenuUnparsableException.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

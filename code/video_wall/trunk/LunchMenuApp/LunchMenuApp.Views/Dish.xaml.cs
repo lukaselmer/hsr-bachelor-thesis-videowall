@@ -18,6 +18,9 @@ namespace LunchMenuApp.Views
     /// <summary>
     ///   Interaction logic for Dish.xaml
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public partial class Dish
     {
         /// <summary>

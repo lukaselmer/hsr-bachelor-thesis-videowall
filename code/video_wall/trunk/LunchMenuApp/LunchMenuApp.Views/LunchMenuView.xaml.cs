@@ -24,6 +24,9 @@ namespace LunchMenuApp.Views
     /// <summary>
     ///   Interaction logic for LunchMenuView.xaml
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public partial class LunchMenuView
     {
         /// <summary>

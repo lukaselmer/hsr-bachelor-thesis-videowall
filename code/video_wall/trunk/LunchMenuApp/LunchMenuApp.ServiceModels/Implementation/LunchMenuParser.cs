@@ -17,17 +17,31 @@
 
 using System.Collections.Generic;
 using HtmlAgilityPack;
+using LunchMenuApp.ServiceModels.Interfaces;
 using VideoWall.Common.Helpers;
 
 #endregion
 
-namespace LunchMenuApp.ServiceModels
+namespace LunchMenuApp.ServiceModels.Implementation
 {
+    /// <summary>
+    /// The lunch menu parser parses a html document.
+    /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     internal class LunchMenuParser
     {
         #region Declarations
 
+        /// <summary>
+        /// The document.
+        /// </summary>
         private readonly HtmlDocument _document;
+
+        /// <summary>
+        /// The menu node
+        /// </summary>
         private readonly HtmlNode _menuNode;
 
         #endregion
@@ -73,7 +87,7 @@ namespace LunchMenuApp.ServiceModels
         ///   Extracts the dishes.
         /// </summary>
         /// <returns> </returns>
-        internal List<Dish> ExtractDishes()
+        internal List<IDish> ExtractDishes()
         {
             return new DishParser(_menuNode.SelectNodes(@"div[@class='offer']")).ExtractDishes();
         }
