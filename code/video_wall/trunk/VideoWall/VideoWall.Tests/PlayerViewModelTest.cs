@@ -1,5 +1,4 @@
 ﻿using VideoWall.Data.Kinect;
-using VideoWall.ViewModels.Skeletton;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoWall.ServiceModels.Player;
 

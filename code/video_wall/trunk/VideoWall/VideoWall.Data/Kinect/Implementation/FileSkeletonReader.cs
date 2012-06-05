@@ -38,6 +38,9 @@ namespace VideoWall.Data.Kinect.Implementation
     {
         #region Declarations
 
+        /// <summary>
+        /// The skeleton replay.
+        /// </summary>
         private readonly SkeletonReplay _skeletonReplay;
 
         #endregion

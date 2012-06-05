@@ -19,15 +19,19 @@ using VideoWall.Common.ViewHelpers;
 using VideoWall.ViewModels.Cursor;
 using VideoWall.ViewModels.DemoMode;
 using VideoWall.ViewModels.Menu;
-using VideoWall.ViewModels.Skeletton;
+using VideoWall.ViewModels.Skeletons;
 
 #endregion
 
 namespace VideoWall.ViewModels.Main
 {
     /// <summary>
-    ///   The MainWindowViewModel. Reviewed by Delia Treichler, 17.04.2012
+    ///   The MainWindowViewModel.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
     public class MainWindowViewModel : Notifier

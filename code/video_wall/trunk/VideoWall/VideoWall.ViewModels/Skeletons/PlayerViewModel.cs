@@ -23,10 +23,11 @@ using Microsoft.Kinect;
 using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player.Interfaces;
+using VideoWall.ViewModels.Skeletons;
 
 #endregion
 
-namespace VideoWall.ViewModels.Skeletton
+namespace VideoWall.ViewModels.Skeletons
 {
     /// <summary>
     ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
@@ -35,7 +36,7 @@ namespace VideoWall.ViewModels.Skeletton
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong.
     public class PlayerViewModel : Notifier, IDisposable
-    // ReSharper restore ClassNeverInstantiated.Global
+        // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
@@ -91,10 +92,19 @@ namespace VideoWall.ViewModels.Skeletton
         #region Methods
 
         /// <summary>
-        /// Notifies when the PlayerModel was changed.
+        ///   Unregisters the notification and the player stops playing.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs"/> instance containing the event data.</param>
+        public void Dispose()
+        {
+            _player.SkeletonChanged -= PlayerModelChanged;
+            _player.StopPlaying();
+        }
+
+        /// <summary>
+        ///   Notifies when the PlayerModel was changed.
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs" /> instance containing the event data. </param>
         private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
             Lines.Clear();
@@ -139,15 +149,6 @@ namespace VideoWall.ViewModels.Skeletton
         private void DrawLine(JointType joint1, JointType joint2)
         {
             Lines.Add(new SkeletonLine(Skeleton.Joints[joint1], Skeleton.Joints[joint2], WidthAndHeight));
-        }
-
-        /// <summary>
-        ///   Unregisters the notification and the player stops playing.
-        /// </summary>
-        public void Dispose()
-        {
-            _player.SkeletonChanged -= PlayerModelChanged;
-            _player.StopPlaying();
         }
 
         #endregion

@@ -19,17 +19,17 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.ViewModels.Skeletton
+namespace VideoWall.ViewModels.Skeletons
 {
     /// <summary>
-    ///   The <see cref="VideoWall.ViewModels.Skeletton" /> namespace contains classes for the Kinect skeleton.
+    ///   The <see cref="VideoWall.ViewModels.Skeletons" /> namespace contains classes for the Kinect skeleton.
     /// </summary>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
-    //This class is necessary to comment the namespace
-    //VideoWall.ViewModels.Skeleton but ReSharper marks this class as unused.
+        //This class is necessary to comment the namespace
+        //VideoWall.ViewModels.Skeletons but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedMember.Global
     {
     }
 }

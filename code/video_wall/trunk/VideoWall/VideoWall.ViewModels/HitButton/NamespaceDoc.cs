@@ -24,6 +24,9 @@ namespace VideoWall.ViewModels.HitButton
     /// <summary>
     ///   The <see cref="VideoWall.ViewModels.HitButton" /> namespace contains classes for hitting buttons.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace

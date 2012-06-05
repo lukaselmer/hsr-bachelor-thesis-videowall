@@ -27,9 +27,11 @@ using VideoWall.ServiceModels.HandCursor.Implementation;
 namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
-    ///   The MouseCursorViewModel.
-    ///   This class is used for the development only.
+    ///   The MouseCursorViewModel. This class is used for the development only.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
     public class MouseCursorViewModel : Notifier, ICursorViewModel
@@ -37,6 +39,9 @@ namespace VideoWall.ViewModels.Cursor
     {
         #region Declarations
 
+        /// <summary>
+        /// The position of the cursor.
+        /// </summary>
         private Point _position;
 
         #endregion
@@ -44,7 +49,7 @@ namespace VideoWall.ViewModels.Cursor
         #region Properties
 
         /// <summary>
-        ///   Gets the status.
+        /// Gets the position of the cursor.
         /// </summary>
         public Point Position
         {
@@ -59,10 +64,7 @@ namespace VideoWall.ViewModels.Cursor
         /// <summary>
         ///   Gets the hand cursor image source (for left or right hand).
         /// </summary>
-        public ImageSource HandCursorImageSource
-        {
-            get { return ResourceProvider.HandRight.Source; }
-        }
+        public ImageSource HandCursorImageSource { get { return ResourceProvider.HandRight.Source; } }
 
         /// <summary>
         ///   Sets the width of the window.
@@ -81,11 +83,10 @@ namespace VideoWall.ViewModels.Cursor
         #region Events
 
         /// <summary>
-        /// Occurs when hand has changed.
+        ///   Occurs when hand has changed.
         /// </summary>
         /// <remarks>
-        /// In this model (cursor) this event is never used, but it is in the interface (ICursorViewModel).
-        /// TODO: refactor this
+        ///   In this model (cursor) this event is never used, but it is in the interface (ICursorViewModel). TODO: refactor this
         /// </remarks>
         public event EventHandler<HandChangedEventArgs> HandChanged;
 
@@ -98,6 +99,7 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         public MouseCursorViewModel()
         {
+            // TODO: why are there numbers?
             WindowWidth = 600;
             WindowHeight = 400;
             Notify("Position");
@@ -107,6 +109,7 @@ namespace VideoWall.ViewModels.Cursor
 
         #region Methods
 
+        // TODO: why is this unused?
 
         /// <summary>
         ///   Notifies when the window size is changed.

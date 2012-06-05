@@ -20,7 +20,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Threading;
-using VideoWall.Common;
 using VideoWall.ViewModels.Cursor;
 
 #endregion
@@ -28,19 +27,39 @@ using VideoWall.ViewModels.Cursor;
 namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
-    ///   The HitTestHelper. Reviewed by Christina Heidt, 17.04.2012 When the position of the ICursorViewModel is changed, this class will test if the cursor is over a button. A timer will be started as soon as the cursor is over an element. The element will be clicked after a timer elapsed.
+    ///   The HitTestHelper. When the position of the ICursorViewModel is changed, this class 
+    ///   will test if the cursor is over a button. A timer will be started as soon as the cursor 
+    ///   is over an element. The element will be clicked after a timer elapsed.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 17.04.2012 
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class HitTestHelper
     {
         #region Declarations
 
-        private readonly DispatcherTimer _currentTimer;
+        /// <summary>
+        /// The click timer.
+        /// </summary>
+        private readonly DispatcherTimer _clickTimer;
+
+        /// <summary>
+        /// The cursor view model.
+        /// </summary>
         private readonly ICursorViewModel _cursorViewModel;
+
+        /// <summary>
+        /// The window.
+        /// </summary>
         private readonly Window _window;
 
+        /// <summary>
+        /// The current ui element
+        /// </summary>
         private UIElement _currentElement;
 
-        #endregion 
+        #endregion
 
         #region Properties
 
@@ -55,17 +74,17 @@ namespace VideoWall.ViewModels.HitButton
         #region Events
 
         /// <summary>
-        ///   Occurs when [started].
+        /// Occurs when the timer is started.
         /// </summary>
         public event EventHandler<HitStateArgs> Started;
 
         /// <summary>
-        ///   Occurs when [stopped].
+        ///   Occurs when the timer is stopped.
         /// </summary>
         public event EventHandler<HitStateArgs> Stopped;
 
         /// <summary>
-        ///   Occurs when [clicked].
+        ///   Occurs when a element is clicked.
         /// </summary>
         public event EventHandler<HitStateArgs> Clicked;
 
@@ -84,8 +103,8 @@ namespace VideoWall.ViewModels.HitButton
             _cursorViewModel = cursorViewModel;
             _window = window;
             _cursorViewModel.PropertyChanged += OnModelChanged;
-            _currentTimer = new DispatcherTimer { Interval = interval};
-            _currentTimer.Tick += OnCurrentTimerElapsed;
+            _clickTimer = new DispatcherTimer { Interval = interval };
+            _clickTimer.Tick += OnClickTimerElapsed;
         }
 
         #endregion
@@ -93,38 +112,38 @@ namespace VideoWall.ViewModels.HitButton
         #region Methods
 
         /// <summary>
-        /// Called when started.
+        ///   Called when started.
         /// </summary>
-        /// <param name="args">The args.</param>
+        /// <param name="args"> The args. </param>
         private void OnStarted(HitStateArgs args)
         {
             if (Started != null) Started(this, args);
         }
 
         /// <summary>
-        /// Called when stopped.
+        ///   Called when stopped.
         /// </summary>
-        /// <param name="args">The args.</param>
+        /// <param name="args"> The args. </param>
         private void OnStopped(HitStateArgs args)
         {
             if (Stopped != null) Stopped(this, args);
         }
 
         /// <summary>
-        /// Called when clicked.
+        ///   Called when clicked.
         /// </summary>
-        /// <param name="args">The args.</param>
+        /// <param name="args"> The args. </param>
         private void OnClicked(HitStateArgs args)
         {
             if (Clicked != null) Clicked(this, args);
         }
 
         /// <summary>
-        /// Called when current timer has elapsed.
+        ///   Called when current timer has elapsed.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="System.Timers.ElapsedEventArgs"/> instance containing the event data.</param>
-        private void OnCurrentTimerElapsed(object sender, EventArgs args)
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data. </param>
+        private void OnClickTimerElapsed(object sender, EventArgs args)
         {
             if (_currentElement == null) return;
             if (_currentElement.Dispatcher.CheckAccess()) OnClicked(CreateHitStateArgs());
@@ -132,12 +151,14 @@ namespace VideoWall.ViewModels.HitButton
         }
 
         /// <summary>
-        /// Called when model changed.
+        ///   Called when model changed.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
         private void OnModelChanged(object sender, PropertyChangedEventArgs e)
         {
+            // TODO: this could be refactored?
+
             foreach (var element in HitElements)
             {
                 var relativePosition = _window.TranslatePoint(_cursorViewModel.Position, element);
@@ -170,7 +191,7 @@ namespace VideoWall.ViewModels.HitButton
         private void StartTimerAndSetCurrentElementTo(UIElement button)
         {
             _currentElement = button;
-            _currentTimer.Start();
+            _clickTimer.Start();
             OnStarted(CreateHitStateArgs());
         }
 
@@ -179,7 +200,7 @@ namespace VideoWall.ViewModels.HitButton
         /// </summary>
         private void StopTimerAndResetCurrentElement()
         {
-            _currentTimer.Stop();
+            _clickTimer.Stop();
             OnStopped(CreateHitStateArgs());
             _currentElement = null;
         }

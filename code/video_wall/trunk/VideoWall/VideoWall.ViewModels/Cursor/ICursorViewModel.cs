@@ -19,7 +19,6 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
@@ -29,6 +28,9 @@ namespace VideoWall.ViewModels.Cursor
     /// <summary>
     ///   The Interface of the Cursor View Model
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public interface ICursorViewModel : INotifyPropertyChanged
     {
         //TODO: implement IDisposable?
@@ -54,11 +56,10 @@ namespace VideoWall.ViewModels.Cursor
         ///   Gets the hand cursor image source.
         /// </summary>
         ImageSource HandCursorImageSource { get; }
-      
+
         /// <summary>
         ///   Occurs when hand has changed.
         /// </summary>
-        event EventHandler<HandChangedEventArgs> HandChanged;
-
+        event EventHandler<HandChangedEventArgs> HandChanged; // TODO: inspect this. Why is it not used?
     }
 }

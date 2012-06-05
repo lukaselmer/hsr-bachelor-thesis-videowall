@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:Skeletton="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels"
+             xmlns:Skeletons="clr-namespace:VideoWall.ViewModels.Skeletons;assembly=VideoWall.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel }"
+             d:DataContext="{d:DesignInstance Skeletons:PlayerViewModel }"
              Width="500" Height="500">
 
     <UserControl.Resources>
@@ -14,7 +14,7 @@
                   Y1="{Binding StartPosition.Y}"
                   X2="{Binding EndPosition.X}"
                   Y2="{Binding EndPosition.Y}" StrokeThickness="10" Stroke="White"
-                  d:DataContext="{d:DesignInstance Skeletton:SkeletonLine}" />
+                  d:DataContext="{d:DesignInstance Skeletons:SkeletonLine}" />
         </DataTemplate>
     </UserControl.Resources>
     <Canvas>

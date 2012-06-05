@@ -1,17 +1,18 @@
 <UserControl x:Class="VideoWall.Views.Xaml.SkeletonLinesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:Skeletton="clr-namespace:VideoWall.ViewModels.Skeletton;assembly=VideoWall.ViewModels" mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel}"
-             Width="500" Height="500">
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:Skeletons="clr-namespace:VideoWall.ViewModels.Skeletons;assembly=VideoWall.ViewModels"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Skeletons:PlayerViewModel}"
+    Width="500" Height="500">
     <UserControl.Resources>
         <DataTemplate x:Key="linesTemplate">
             <Line X1="{Binding StartPosition.X}" Y1="{Binding StartPosition.Y}"
                   X2="{Binding EndPosition.X}" Y2="{Binding EndPosition.Y}"
                   StrokeThickness="4" Stroke="#0065a3"
-                  d:DataContext="{d:DesignInstance Skeletton:SkeletonLine}" />
+                  d:DataContext="{d:DesignInstance Skeletons:SkeletonLine}" />
         </DataTemplate>
     </UserControl.Resources>
     <Canvas>

@@ -26,18 +26,35 @@ namespace VideoWall.ViewModels.Menu
     /// <summary>
     ///   The app view model wrapps the app
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class AppViewModel : Notifier
     {
         #region Declarations
 
         // TODO: extract these colors to config
 
+        /// <summary>
+        /// The colors of the menu (tab) of the running extension (selected).
+        /// </summary>
         private static readonly MenuStyleViewModel SelectedMenuStyle = new MenuStyleViewModel(
             Colors.Black, Color.FromRgb(0xee, 0xee, 0xee), Colors.White, Colors.White);
+
+        /// <summary>
+        /// The colors of the menu (tab) of the passive extension (not selected).
+        /// </summary>
         private static readonly MenuStyleViewModel UnselectedMenuStyle = new MenuStyleViewModel(
             Colors.White, Color.FromRgb(0x33, 0x84, 0xb5), Color.FromRgb(0x66, 0xa3, 0xc8), Color.FromRgb(0x33, 0x33, 0x33));
 
+        /// <summary>
+        /// The app.
+        /// </summary>
         private IApp _app;
+
+        /// <summary>
+        /// Indicates wheter the app is selected or not.
+        /// </summary>
         private bool _selected;
 
         #endregion

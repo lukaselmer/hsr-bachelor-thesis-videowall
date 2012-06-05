@@ -80,12 +80,12 @@
     <Compile Include="Menu\AppViewModel.cs" />
     <Compile Include="Menu\MenuStyleViewModel.cs" />
     <Compile Include="Menu\NamespaceDoc.cs" />
-    <Compile Include="Skeletton\NamespaceDoc.cs" />
-    <Compile Include="Skeletton\SkeletonLine.cs" />
+    <Compile Include="Skeletons\NamespaceDoc.cs" />
+    <Compile Include="Skeletons\SkeletonLine.cs" />
     <Compile Include="Main\MainWindowViewModel.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="Cursor\MouseCursorViewModel.cs" />
-    <Compile Include="Skeletton\PlayerViewModel.cs" />
+    <Compile Include="Skeletons\PlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

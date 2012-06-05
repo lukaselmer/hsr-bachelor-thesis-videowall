@@ -23,8 +23,12 @@ using System.Windows;
 namespace VideoWall.ViewModels.HitButton
 {
     /// <summary>
-    ///   The HitStateArgs. Reviewed by Christina Heidt, 17.04.2012
+    ///   The HitStateArgs.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class HitStateArgs : EventArgs
     {
         #region Properties

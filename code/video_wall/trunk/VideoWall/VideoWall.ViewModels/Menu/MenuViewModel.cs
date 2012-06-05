@@ -15,11 +15,9 @@
 
 #region Usings
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using VideoWall.Common;
 using VideoWall.Common.Extensions;
 using VideoWall.Common.Helpers;
 using VideoWall.Common.ViewHelpers;
@@ -30,8 +28,12 @@ using VideoWall.ServiceModels.Apps.Interfaces;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   The MenuViewModel defines the menu. Reviewed by Delia Treichler, 17.04.2012
+    ///   The MenuViewModel defines the menu.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
     public class MenuViewModel : Notifier
@@ -40,12 +42,12 @@ namespace VideoWall.ViewModels.Menu
         #region Declarations
 
         /// <summary>
-        /// The app controller
+        ///   The app controller
         /// </summary>
         private readonly IAppController _appController;
 
         /// <summary>
-        /// The current app
+        ///   The current app
         /// </summary>
         private AppViewModel _currentApp;
 
@@ -76,7 +78,7 @@ namespace VideoWall.ViewModels.Menu
             get { return _currentApp; }
             private set
             {
-                PreOrPostCondition.AssertNotNull(value, "CurrentApp value");
+                PreOrPostCondition.AssertNotNull(value, "new value for CurrentApp");
                 if (_currentApp != null) CurrentApp.Selected = false;
                 _currentApp = value;
                 _currentApp.Selected = true;
@@ -106,9 +108,9 @@ namespace VideoWall.ViewModels.Menu
         #region Methods
 
         /// <summary>
-        /// Called when app changed.
+        ///   Called when app changed.
         /// </summary>
-        /// <param name="appObject">The app object.</param>
+        /// <param name="appObject"> The app object. </param>
         private void OnChangeApp(object appObject)
         {
             var app = appObject as AppViewModel;

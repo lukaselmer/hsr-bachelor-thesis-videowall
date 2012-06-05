@@ -17,28 +17,27 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Kinect;
-using VideoWall.Common;
 using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 using VideoWall.ResourceLoader;
-using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ServiceModels.HandCursor.Implementation;
 using VideoWall.ServiceModels.HandCursor.Interfaces;
-using VideoWall.ServiceModels.Player;
 using VideoWall.ServiceModels.Player.Interfaces;
-using VideoWall.ViewModels.Skeletton;
 
 #endregion
 
 namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   The kinect cursor view model.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     public class KinectCursorViewModel : Notifier, ICursorViewModel
@@ -46,13 +45,22 @@ namespace VideoWall.ViewModels.Cursor
     {
         #region Declarations
 
+        //TODO: move numbers to settings
+
         /// <summary>
-        ///   The cursor smoothing level represents the size of the skeleton history queue. The bigger the smoothing level, the bigger the queue, the more cursor smoothing.
+        /// The cursor smoothing level represents the size of the skeleton history queue. The bigger the
+        /// smoothing level, the bigger the queue, the more cursor smoothing.
         /// </summary>
         private const int CursorSmoothingLevel = 10;
 
+        /// <summary>
+        /// The hand cursor position calculator.
+        /// </summary>
         private readonly IHandCursorPositionCalculator _handCursorPositionCalculator;
 
+        /// <summary>
+        /// The player.
+        /// </summary>
         private readonly IPlayer _player;
 
         /// <summary>
@@ -66,13 +74,29 @@ namespace VideoWall.ViewModels.Cursor
         private HandType _activeHand = HandType.Right;
 
         /// <summary>
-        /// The latest skeleton
+        ///   The latest skeleton
         /// </summary>
         private Skeleton _latestSkeleton;
 
         #endregion
 
         #region Properties
+
+        /// <summary>
+        ///   Gets or sets the active hand.
+        /// </summary>
+        /// <value> The active hand. </value>
+        private HandType ActiveHand
+        {
+            get { return _activeHand; }
+            set
+            {
+                if (_activeHand == value) return;
+                _activeHand = value;
+                Notify("HandCursorImageSource");
+                Notify("ActiveHand");
+            }
+        }
 
         /// <summary>
         ///   Gets the position.
@@ -101,25 +125,6 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         public event EventHandler<HandChangedEventArgs> HandChanged = delegate { };
 
-        /// <summary>
-        ///   Gets or sets the active hand.
-        /// </summary>
-        /// <value> The active hand. </value>
-        private HandType ActiveHand
-        {
-            get { return _activeHand; }
-            set
-            {
-                if (_activeHand == value) return;
-                _activeHand = value;
-                // Problem was discussed on 2012-05-10 (Lukas Elmer, Silvan Gehrig, Michael Gfeller). Workaround: Event based update instead of INotifyPropertyChanged.
-                // Other workaround could be: implement a timestamp to not fire the event too often.
-                // This code, as it is, will produce a stack overflow, because Notify() is called too often in little time.
-                Notify("HandCursorImageSource");
-                Notify("ActiveHand");
-            }
-        }
-
         #endregion
 
         #region Constructors / Destructor
@@ -145,6 +150,11 @@ namespace VideoWall.ViewModels.Cursor
 
         #region Methods
 
+        /// <summary>
+        /// Called when hand changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="eventArgs">The <see cref="VideoWall.ServiceModels.HandCursor.Implementation.HandChangedEventArgs"/> instance containing the event data.</param>
         private void OnHandChanged(object sender, HandChangedEventArgs eventArgs)
         {
             ActiveHand = eventArgs.HandType;
@@ -152,10 +162,10 @@ namespace VideoWall.ViewModels.Cursor
         }
 
         /// <summary>
-        /// Notifies when the PlayerModel was changed.
+        ///   Notifies when the PlayerModel was changed.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="args"> The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs" /> instance containing the event data. </param>
         private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
             //if (e.PropertyName != "Skeleton") return;
@@ -176,6 +186,7 @@ namespace VideoWall.ViewModels.Cursor
         //    _player.SkeletonChanged -= PlayerModelChanged;
         //}
 
+        //TODO: why is this unused?
         /// <summary>
         ///   Notifies when the window size is changed.
         /// </summary>

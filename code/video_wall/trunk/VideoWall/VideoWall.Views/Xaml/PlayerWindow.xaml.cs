@@ -15,7 +15,7 @@
 
 #region Usings
 
-using VideoWall.ViewModels.Skeletton;
+using VideoWall.ViewModels.Skeletons;
 
 #endregion
 
