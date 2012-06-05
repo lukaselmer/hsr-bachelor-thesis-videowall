@@ -25,13 +25,27 @@ using VideoWall.Data.Kinect.Interfaces;
 namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
-    ///   The KinectSkeletonReader. Reviewed by Christina Heidt, 23.03.2012
+    ///   The KinectSkeletonReader.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    // ReSharper disable UnusedMember.Global
+    // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class KinectSkeletonReader : ISkeletonReader
+    // ReSharper restore UnusedMember.Global
     {
         #region Declarations
 
+        /// <summary>
+        /// The kinect sensor.
+        /// </summary>
         private readonly KinectSensor _kinectSensor;
+
+        /// <summary>
+        /// The read skeletons.
+        /// </summary>
         private Skeleton[] _skeletons;
 
         #endregion
@@ -39,7 +53,7 @@ namespace VideoWall.Data.Kinect.Implementation
         #region Events
 
         /// <summary>
-        /// Occurs when the skeletons are ready.
+        ///   Occurs when the skeletons are ready.
         /// </summary>
         public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady;
 
@@ -74,14 +88,15 @@ namespace VideoWall.Data.Kinect.Implementation
             _kinectSensor.Start();
         }
 
-        /// <summary>
-        ///   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            _kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
-            _kinectSensor.Stop();
-        }
+        //TODO: IDisposable?
+        // <summary>
+        //   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        // </summary>
+        //public void Dispose()
+        //{
+        //    _kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
+        //    _kinectSensor.Stop();
+        //}
 
         /// <summary>
         ///   Called when [kinect sensor on skeleton frame ready].

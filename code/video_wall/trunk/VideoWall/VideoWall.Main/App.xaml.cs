@@ -30,6 +30,9 @@ namespace VideoWall.Main
     /// <summary>
     ///   Interaction logic for App.xaml.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public partial class App
     {
         #region Constructors / Destructor

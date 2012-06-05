@@ -15,11 +15,7 @@
 
 #region Usings
 
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Threading;
 
 #endregion
 
@@ -29,10 +25,10 @@ namespace VideoWall.Common
     ///   Implementation of INotifyPropertyChanged
     /// </summary>
     /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
     public abstract class Notifier : INotifyPropertyChanged
     {
-
         #region Events
 
         /// <summary>

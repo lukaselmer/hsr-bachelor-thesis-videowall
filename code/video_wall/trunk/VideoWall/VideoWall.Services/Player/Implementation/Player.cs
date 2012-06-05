@@ -117,7 +117,7 @@ namespace VideoWall.ServiceModels.Player.Implementation
         {
             Playing = false;
             _skeletonReader.SkeletonsReady -= OnKinectSensorOnSkeletonFrameReady;
-            _skeletonReader.Dispose();
+            // _skeletonReader.Dispose(); TODO: have a look at this
         }
 
         #endregion

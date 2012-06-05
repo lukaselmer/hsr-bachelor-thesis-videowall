@@ -24,12 +24,15 @@ namespace VideoWall.Data.Kinect
     /// <summary>
     ///   The <see cref="VideoWall.Data.Kinect" /> namespace contains the classes of the data layer.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
-    //This class is necessary to comment the namespace
-    //VideoWall.Data.Kinect but ReSharper marks this class as unused.
+        //This class is necessary to comment the namespace
+        //VideoWall.Data.Kinect but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedMember.Global
     {
     }
 }

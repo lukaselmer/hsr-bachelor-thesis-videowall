@@ -24,6 +24,9 @@ namespace VideoWall.Main
     /// <summary>
     ///   The <see cref="VideoWall.Main" /> namespace contains the startup routine and the configuration for the application. It starts the main view.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace

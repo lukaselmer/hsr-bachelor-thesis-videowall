@@ -27,9 +27,12 @@ using VideoWall.Data.Kinect.Interfaces;
 namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 23.03.2012
-    ///   This class is used for the development only.
+    ///    This class is used for the development only.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class AutoPlayFileSkeletonReader : ISkeletonReader
@@ -129,10 +132,10 @@ namespace VideoWall.Data.Kinect.Implementation
         }
 
         /// <summary>
-        /// Replays the timer on elapsed.
+        ///   Replays the timer on elapsed.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="eventArgs">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="eventArgs"> The <see cref="System.EventArgs" /> instance containing the event data. </param>
         private void ReplayTimerOnElapsed(object sender, EventArgs eventArgs)
         {
             if (!CanStart()) return;

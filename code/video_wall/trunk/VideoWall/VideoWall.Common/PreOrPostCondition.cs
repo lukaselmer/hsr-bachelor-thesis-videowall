@@ -25,23 +25,19 @@ namespace VideoWall.Common
     /// <summary>
     ///   Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
     /// </summary>
+    /// <remarks>
+    ///   Contains parts from ScrumTable (HSR, 2010)
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public static class PreOrPostCondition
     {
         #region Declarations
-
-        //--------------------------------------------------------------------
-        // Declarations
-        //--------------------------------------------------------------------
 
         private static volatile bool _assertionsEnabled;
 
         #endregion
 
         #region Properties
-
-        //--------------------------------------------------------------------
-        // Properties
-        //--------------------------------------------------------------------
 
         /// <summary>
         ///   Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
@@ -50,19 +46,7 @@ namespace VideoWall.Common
 
         #endregion
 
-        #region Constructors / Destructor
-
-        //--------------------------------------------------------------------
-        // Constructors / Destructor
-        //--------------------------------------------------------------------
-
-        #endregion
-
         #region Methods
-
-        //--------------------------------------------------------------------
-        // Methods
-        //--------------------------------------------------------------------
 
         /// <summary>
         ///   Asserts that the given value is in the specified range. Otherwise an exception (or assertion) will be thrown.

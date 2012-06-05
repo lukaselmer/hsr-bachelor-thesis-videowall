@@ -54,7 +54,6 @@
     <Compile Include="IVideoWallServiceProvider.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SkeletonChangedEventHandler.cs" />
     <Compile Include="SkeletonChangedEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

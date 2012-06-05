@@ -23,8 +23,12 @@ using Microsoft.Kinect;
 namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   The skeletons ready event arg contains multiple skeletons which are extracted already.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class SkeletonsReadyEventArgs : EventArgs
     {
         #region Properties

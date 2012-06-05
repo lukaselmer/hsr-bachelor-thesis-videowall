@@ -24,6 +24,9 @@ namespace VideoWall.Interfaces
     /// <summary>
     ///   This is the entry point for the framework. Every application must implement that interface.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public interface IApp
     {
         #region Properties
@@ -31,6 +34,9 @@ namespace VideoWall.Interfaces
         /// <summary>
         ///   Gets the main view.
         /// </summary>
+        /// <remarks>
+        ///   If the application should run without System.Windwos, using UserControl is the wrong aproach. But since until now (05.06.2012) this is not the case, it would be overengineered if implemented otherwise.
+        /// </remarks>
         UserControl MainView { get; }
 
         /// <summary>

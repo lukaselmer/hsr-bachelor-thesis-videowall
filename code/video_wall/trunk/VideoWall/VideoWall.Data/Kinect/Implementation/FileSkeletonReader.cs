@@ -25,9 +25,12 @@ using VideoWall.Data.Kinect.Interfaces;
 namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
-    ///   Reviewed by Christina Heidt, 23.03.2012
     ///   This class is used for the development only.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable UnusedMember.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     internal class FileSkeletonReader : ISkeletonReader
@@ -42,7 +45,7 @@ namespace VideoWall.Data.Kinect.Implementation
         #region Events
 
         /// <summary>
-        ///   Occurs when [skeletons ready].
+        ///   Occurs when the skeletons are ready.
         /// </summary>
         public event EventHandler<SkeletonsReadyEventArgs> SkeletonsReady = delegate { };
 

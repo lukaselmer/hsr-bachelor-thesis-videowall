@@ -3,3 +3,7 @@
 	
 	
     // Created by unity, so ReSharper thinks this class can be made abstract, which is wrong.
+	
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>

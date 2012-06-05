@@ -23,8 +23,11 @@ using log4net;
 namespace VideoWall.Common
 {
     /// <summary>
-    ///   The Logger wrapper
+    ///   The Logger wrapper.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public static class Logger
     {
         #region Declarations

@@ -25,6 +25,9 @@ namespace VideoWall.Common.Helpers
     /// <summary>
     ///   Implementation of the ICommand Interface
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class Command : ICommand
     {
         #region Declarations
@@ -33,6 +36,17 @@ namespace VideoWall.Common.Helpers
         private readonly Action<object> _execute;
 
         #endregion
+
+        #region Events
+
+        /// <summary>
+        ///   Occurs when changes occur that affect whether or not the command should execute.
+        /// </summary>
+        public event EventHandler CanExecuteChanged;
+
+        #endregion
+
+        #region Constructor / Destructor
 
         /// <summary>
         ///   Initializes a new instance of the <see cref="Command" /> class.
@@ -54,7 +68,9 @@ namespace VideoWall.Common.Helpers
             _execute = execute;
         }
 
-        #region ICommand Members
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///   Defines the method to be called when the command is invoked.
@@ -76,13 +92,6 @@ namespace VideoWall.Common.Helpers
         }
 
         /// <summary>
-        ///   Occurs when changes occur that affect whether or not the command should execute.
-        /// </summary>
-        public event EventHandler CanExecuteChanged;
-
-        #endregion
-
-        /// <summary>
         ///   Raises the can execute changed.
         /// </summary>
         public void RaiseCanExecuteChanged()
@@ -92,5 +101,7 @@ namespace VideoWall.Common.Helpers
                 CanExecuteChanged(this, EventArgs.Empty);
             }
         }
+
+        #endregion
     }
 }

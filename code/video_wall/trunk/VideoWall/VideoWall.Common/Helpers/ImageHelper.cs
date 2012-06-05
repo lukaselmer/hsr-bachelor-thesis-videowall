@@ -25,6 +25,9 @@ namespace VideoWall.Common.Helpers
     /// <summary>
     ///   The image helper provides helper methods for images.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public static class ImageHelper
     {
         #region Methods
@@ -34,7 +37,10 @@ namespace VideoWall.Common.Helpers
         /// </summary>
         /// <param name="fileName"> Name of the file. </param>
         /// <returns> The image. </returns>
+        // ReSharper disable UnusedMember.Global
+        // Not used in all solutions.
         public static BitmapImage InitWithFileName(string fileName)
+        // ReSharper restore UnusedMember.Global
         {
             var image = new BitmapImage();
             image.BeginInit();

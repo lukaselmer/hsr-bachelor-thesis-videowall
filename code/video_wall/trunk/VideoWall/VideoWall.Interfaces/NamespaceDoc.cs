@@ -24,6 +24,9 @@ namespace VideoWall.Interfaces
     /// <summary>
     ///   The <see cref="VideoWall.Interfaces" /> namespace contains the framework interfaces.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
