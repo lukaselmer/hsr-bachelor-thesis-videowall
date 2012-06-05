@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="PosterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

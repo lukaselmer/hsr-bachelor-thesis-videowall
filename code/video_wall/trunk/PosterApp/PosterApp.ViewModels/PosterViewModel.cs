@@ -29,17 +29,31 @@ using VideoWall.Common.ViewHelpers;
 namespace PosterApp.ViewModels
 {
     /// <summary>
-    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   The poster view model.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Delia Treichler, 17.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     public class PosterViewModel : Notifier
     // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
+        /// <summary>
+        /// The poster service.
+        /// </summary>
         private readonly IPosterService _posterService;
+
+        /// <summary>
+        /// The current poster.
+        /// </summary>
         private IPoster _currentPoster;
-        private string _name;
+
+        /// <summary>
+        /// All posters.
+        /// </summary>
         private List<IPoster> _posters;
 
         #endregion
@@ -86,20 +100,6 @@ namespace PosterApp.ViewModels
             }
         }
 
-        /// <summary>
-        ///   Gets or sets the name.
-        /// </summary>
-        /// <value> The name. </value>
-        private string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                Notify("Name");
-            }
-        }
-
         #endregion
 
         #region Constructors / Destructor
@@ -111,8 +111,7 @@ namespace PosterApp.ViewModels
         public PosterViewModel(IPosterService posterService)
         {
             _posterService = posterService;
-            ReadFromPosterService();
-            Name = "Poster";
+            LoadPosters();
             NavigateToLeftCommand = new Command(OnNavigateToLeft);
             NavigateToRightCommand = new Command(OnNavigateToRight);
         }
@@ -124,14 +123,14 @@ namespace PosterApp.ViewModels
         /// <summary>
         ///   Reads from poster service.
         /// </summary>
-        private void ReadFromPosterService()
+        private void LoadPosters()
         {
             Posters = _posterService.Posters.ToList();
             CurrentPoster = Posters.First();
         }
 
         /// <summary>
-        ///   Called when [navigate to right].
+        ///   Called when user wants to navigate to the right.
         /// </summary>
         /// <param name="obj"> The obj. </param>
         private void OnNavigateToRight(object obj)
@@ -140,12 +139,12 @@ namespace PosterApp.ViewModels
         }
 
         /// <summary>
-        ///   Called when [navigate to left].
+        ///   Called when user wants to navigate to the left.
         /// </summary>
         /// <param name="obj"> The obj. </param>
         private void OnNavigateToLeft(object obj)
         {
-            CurrentPoster = _posters[(_posters.IndexOf(CurrentPoster) - 1) % _posters.Count];
+            CurrentPoster = _posters[(_posters.IndexOf(CurrentPoster) - 1 + _posters.Count) % _posters.Count];
         }
 
         #endregion

@@ -32,7 +32,7 @@ namespace PosterApp.Startup
         {
             InitializeComponent();
             IApp app = new Main.PosterApp();
-            app.Activate(new LocalAppInfo("./Poster"));
+            app.Activate(new LocalAppInfo("./Files"));
             PosterContainer.Children.Add(app.MainView);
         }
 

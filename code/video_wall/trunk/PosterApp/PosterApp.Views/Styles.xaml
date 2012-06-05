@@ -33,8 +33,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <!-- The following grid is for the iceberg button => makes the white part of the button clickable -->
-                    <Grid>
-                        <!-- Width="{TemplateBinding Width}" -->
+                    <Grid Background="White">
                         <ed:BlockArrow Orientation="Left" HorizontalAlignment="Stretch" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White">
                             <ed:BlockArrow.Fill>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

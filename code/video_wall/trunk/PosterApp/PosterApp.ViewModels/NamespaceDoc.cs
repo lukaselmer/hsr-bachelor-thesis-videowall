@@ -24,12 +24,15 @@ namespace PosterApp.ViewModels
     /// <summary>
     ///   The <see cref="PosterApp.ViewModels" /> namespace contains contains view models and referenced classes.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
     //PosterApp.ViewModels but ReSharper marks this class as unused.
     internal class NamespaceDoc
-        // ReSharper restore UnusedMember.Global
+    // ReSharper restore UnusedMember.Global
     {
     }
 }

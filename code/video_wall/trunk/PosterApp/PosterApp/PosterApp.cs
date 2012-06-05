@@ -22,8 +22,8 @@ using PosterApp.Data.Implementation;
 using PosterApp.Data.Interfaces;
 using PosterApp.ServiceModels.Implementation;
 using PosterApp.ServiceModels.Interfaces;
+using PosterApp.Views;
 using VideoWall.Interfaces;
-using Views.Xaml;
 
 #endregion
 
@@ -32,13 +32,27 @@ namespace PosterApp.Main
     /// <summary>
     /// The poster app.
     /// </summary>
-    [Export(typeof (IApp))]
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    [Export(typeof(IApp))]
     public class PosterApp : IApp
     {
         #region Properties
 
+        /// <summary>
+        /// Gets the main view.
+        /// </summary>
         public UserControl MainView { get; private set; }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets the demomode text.
+        /// </summary>
         public string DemomodeText { get; private set; }
 
         #endregion

@@ -19,11 +19,14 @@ using PosterApp.ViewModels;
 
 #endregion
 
-namespace Views.Xaml
+namespace PosterApp.Views
 {
     /// <summary>
     ///   Interaction logic for PosterView.xaml
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public partial class PosterView
     {
         #region Constructors / Destructor
