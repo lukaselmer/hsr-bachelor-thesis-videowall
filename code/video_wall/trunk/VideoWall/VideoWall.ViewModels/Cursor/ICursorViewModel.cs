@@ -29,9 +29,10 @@ namespace VideoWall.ViewModels.Cursor
     /// <summary>
     ///   The Interface of the Cursor View Model
     /// </summary>
-    public interface ICursorViewModel : IDisposable, INotifyPropertyChanged
+    public interface ICursorViewModel : INotifyPropertyChanged
     {
- 
+        //TODO: implement IDisposable?
+
         /// <summary>
         ///   Gets the position.
         /// </summary>

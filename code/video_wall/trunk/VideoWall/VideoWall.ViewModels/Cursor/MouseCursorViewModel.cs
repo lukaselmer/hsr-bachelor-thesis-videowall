@@ -105,18 +105,6 @@ namespace VideoWall.ViewModels.Cursor
 
         #endregion
 
-        #region ICursorViewModel Members
-
-        /// <summary>
-        ///   Unregisters the notification and the player stops playing.
-        /// </summary>
-        public void Dispose()
-        {
-            //TODO
-        }
-
-        #endregion
-
         #region Methods
 
 

@@ -167,13 +167,14 @@ namespace VideoWall.ViewModels.Cursor
             Notify("Position");
         }
 
-        /// <summary>
-        ///   Unregisters the notification and the player stops playing.
-        /// </summary>
-        public void Dispose()
-        {
-            _player.SkeletonChanged -= PlayerModelChanged;
-        }
+        //TODO: implement this?
+        // <summary>
+        //   Unregisters the notification and the player stops playing.
+        // </summary>
+        //public void Dispose()
+        //{
+        //    _player.SkeletonChanged -= PlayerModelChanged;
+        //}
 
         /// <summary>
         ///   Notifies when the window size is changed.
