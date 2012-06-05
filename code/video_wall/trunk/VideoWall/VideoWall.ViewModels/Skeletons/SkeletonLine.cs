@@ -24,8 +24,13 @@ using Microsoft.Kinect;
 namespace VideoWall.ViewModels.Skeletons
 {
     /// <summary>
-    ///   The SkeletonLine. Reviewed by Christina Heidt, 23.04.2012
+    ///   The skeleton line.
+    ///   Represents a bone of a skeleton.
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.04.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     public class SkeletonLine
     {
         #region Declarations

@@ -23,23 +23,29 @@ using Microsoft.Kinect;
 using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player.Interfaces;
-using VideoWall.ViewModels.Skeletons;
 
 #endregion
 
 namespace VideoWall.ViewModels.Skeletons
 {
     /// <summary>
-    ///   The PlayerViewModel Reviewed by Christina Heidt, 23.03.2012
+    ///   The PlayerViewModel
     /// </summary>
+    /// <remarks>
+    ///   Reviewed by Christina Heidt, 23.03.2012
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
     // ReSharper disable ClassNeverInstantiated.Global
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong.
     public class PlayerViewModel : Notifier, IDisposable
-        // ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
+        /// <summary>
+        /// The player
+        /// </summary>
         private readonly IPlayer _player;
 
         #endregion
@@ -121,32 +127,37 @@ namespace VideoWall.ViewModels.Skeletons
         private void DrawLines()
         {
             //right arm
-            DrawLine(JointType.HandRight, JointType.WristRight);
-            DrawLine(JointType.WristRight, JointType.ElbowRight);
-            DrawLine(JointType.ElbowRight, JointType.ShoulderRight);
-            DrawLine(JointType.ShoulderRight, JointType.ShoulderCenter);
+            DrawBone(JointType.HandRight, JointType.WristRight);
+            DrawBone(JointType.WristRight, JointType.ElbowRight);
+            DrawBone(JointType.ElbowRight, JointType.ShoulderRight);
+            DrawBone(JointType.ShoulderRight, JointType.ShoulderCenter);
             //left arm
-            DrawLine(JointType.HandLeft, JointType.WristLeft);
-            DrawLine(JointType.WristLeft, JointType.ElbowLeft);
-            DrawLine(JointType.ElbowLeft, JointType.ShoulderLeft);
-            DrawLine(JointType.ShoulderLeft, JointType.ShoulderCenter);
+            DrawBone(JointType.HandLeft, JointType.WristLeft);
+            DrawBone(JointType.WristLeft, JointType.ElbowLeft);
+            DrawBone(JointType.ElbowLeft, JointType.ShoulderLeft);
+            DrawBone(JointType.ShoulderLeft, JointType.ShoulderCenter);
             //right leg
-            DrawLine(JointType.FootRight, JointType.AnkleRight);
-            DrawLine(JointType.AnkleRight, JointType.KneeRight);
-            DrawLine(JointType.KneeRight, JointType.HipRight);
-            DrawLine(JointType.HipRight, JointType.HipCenter);
+            DrawBone(JointType.FootRight, JointType.AnkleRight);
+            DrawBone(JointType.AnkleRight, JointType.KneeRight);
+            DrawBone(JointType.KneeRight, JointType.HipRight);
+            DrawBone(JointType.HipRight, JointType.HipCenter);
             //left leg
-            DrawLine(JointType.FootLeft, JointType.AnkleLeft);
-            DrawLine(JointType.AnkleLeft, JointType.KneeLeft);
-            DrawLine(JointType.KneeLeft, JointType.HipLeft);
-            DrawLine(JointType.HipLeft, JointType.HipCenter);
-            //join
-            DrawLine(JointType.HipCenter, JointType.Spine);
-            DrawLine(JointType.Spine, JointType.ShoulderCenter);
-            DrawLine(JointType.ShoulderCenter, JointType.Head);
+            DrawBone(JointType.FootLeft, JointType.AnkleLeft);
+            DrawBone(JointType.AnkleLeft, JointType.KneeLeft);
+            DrawBone(JointType.KneeLeft, JointType.HipLeft);
+            DrawBone(JointType.HipLeft, JointType.HipCenter);
+            //body
+            DrawBone(JointType.HipCenter, JointType.Spine);
+            DrawBone(JointType.Spine, JointType.ShoulderCenter);
+            DrawBone(JointType.ShoulderCenter, JointType.Head);
         }
 
-        private void DrawLine(JointType joint1, JointType joint2)
+        /// <summary>
+        /// Draws a skeleton bone between two joints.
+        /// </summary>
+        /// <param name="joint1">The joint1.</param>
+        /// <param name="joint2">The joint2.</param>
+        private void DrawBone(JointType joint1, JointType joint2)
         {
             Lines.Add(new SkeletonLine(Skeleton.Joints[joint1], Skeleton.Joints[joint2], WidthAndHeight));
         }

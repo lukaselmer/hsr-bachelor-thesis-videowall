@@ -114,11 +114,21 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         internal DemoModeStateTimers(IDemoModeConfig demoModeConfig)
         {
             _demoModeConfig = demoModeConfig;
-            State = VideoWallState.Active;
 
             // TODO: stop the timers
+            _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChangedMethod, _demoModeConfig.ChangeAppTimeSpan);
             _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckAndChangeState, _demoModeConfig.SkeletonCheckTimeSpan, true);
-            _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChanged, _demoModeConfig.ChangeAppTimeSpan);
+
+            State = VideoWallState.Teaser;
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void AppChangedMethod(object sender, EventArgs args)
+        {
+            AppChanged(sender, args);
         }
 
         /// <summary>

@@ -115,9 +115,9 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
 
             ChangeColorAndApp();
             _demoModeStateTimers = new DemoModeStateTimers(_demoModeConfig);
-            _demoModeStateTimers.DemoModeStateChanged += DemoModeStateChanged;
+            _demoModeStateTimers.DemoModeStateChanged += (sender, args) => DemoModeStateChanged(sender, args);
             _demoModeStateTimers.AppChanged += ChangedAppTimerTick;
-            _demoModeStateTimers.CountdownChanged += DemoModeCountdownChanged;
+            _demoModeStateTimers.CountdownChanged += (sender, args) => DemoModeCountdownChanged(sender, args);
 
             player.SkeletonChanged += OnPlayerChanged;
         }
@@ -147,7 +147,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         }
 
         /// <summary>
-        ///   Called when the change app timer tick.
+        ///   Called when the change app timer ticks.
         /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> The <see cref="System.EventArgs" /> instance containing the event data. </param>

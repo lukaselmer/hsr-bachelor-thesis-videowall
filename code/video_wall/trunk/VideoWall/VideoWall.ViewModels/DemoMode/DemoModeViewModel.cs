@@ -122,7 +122,7 @@ namespace VideoWall.ViewModels.DemoMode
             _demoModeService.DemoModeCountdownChanged += DemoModeCountdownChanged;
 
             _menuViewModel = menuViewModel;
-            _menuViewModel.PropertyChanged += (sender, args) => Notify("DemoModeText");
+            _menuViewModel.PropertyChanged += (sender, args) => Notify("TeaserText");
 
             _playerViewModel = playerViewModel;
             _playerViewModel.WidthAndHeight = 500; //TODO: use relative value or extract to options
@@ -160,6 +160,7 @@ namespace VideoWall.ViewModels.DemoMode
         private void DemoModeAppChanged(object sender, EventArgs eventArgs)
         {
             _menuViewModel.ChangeToRandomApp();
+            Notify("TeaserText");
         }
 
         /// <summary>

@@ -23,7 +23,13 @@ using System.Windows.Controls;
 
 namespace VideoWall.Views.Helpers
 {
-    internal static class ButtonClickSiumulator
+    /// <summary>
+    /// This class is used to simulate a click on a button. This is used important for the kinect cursor.
+    /// </summary>
+    /// <remarks>
+    ///   Reviewed by Lukas Elmer, 05.06.2012
+    /// </remarks>
+    internal static class ButtonClickSimulator
     {
         #region Methods
 
