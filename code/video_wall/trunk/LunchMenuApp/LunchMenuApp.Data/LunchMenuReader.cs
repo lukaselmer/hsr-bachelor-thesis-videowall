@@ -17,7 +17,7 @@
 
 using System.Net;
 using System.Text;
-using VideoWall.Common;
+using VideoWall.Common.Logging;
 
 #endregion
 

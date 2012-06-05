@@ -18,7 +18,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HtmlAgilityPack;
-using VideoWall.Common;
+using VideoWall.Common.Helpers;
 
 #endregion
 

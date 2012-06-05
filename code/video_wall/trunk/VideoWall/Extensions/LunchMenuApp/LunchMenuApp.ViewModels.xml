@@ -4,11 +4,6 @@
         <name>LunchMenuApp.ViewModels</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.ViewModels.DishViewModel">
             <summary>
               The dish view model represents a dish.
@@ -33,6 +28,11 @@
         <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
             <summary>
               Gets the name.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
             </summary>
         </member>
         <member name="T:LunchMenuApp.ViewModels.LunchMenuViewModel">

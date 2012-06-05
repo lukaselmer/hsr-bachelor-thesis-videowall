@@ -18,7 +18,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using LunchMenuApp.ServiceModels;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 
 #endregion
 
@@ -27,11 +27,11 @@ namespace LunchMenuApp.ViewModels
     /// <summary>
     ///   The lunch menu view model represents the lunch menu.
     /// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
     public class LunchMenuViewModel : Notifier
-// ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 

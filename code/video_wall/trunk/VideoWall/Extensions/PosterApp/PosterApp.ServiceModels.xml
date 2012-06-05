@@ -4,11 +4,6 @@
         <name>PosterApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.ServiceModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:PosterApp.ServiceModels"/> namespace contains service classes.
-            </summary>
-        </member>
         <member name="T:PosterApp.ServiceModels.Poster">
             <summary>
               The Poster.
@@ -51,6 +46,11 @@
               Gets or sets and notifies the posters.
             </summary>
             <value> The posters. </value>
+        </member>
+        <member name="T:PosterApp.ServiceModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.ServiceModels"/> namespace contains service classes.
+            </summary>
         </member>
     </members>
 </doc>

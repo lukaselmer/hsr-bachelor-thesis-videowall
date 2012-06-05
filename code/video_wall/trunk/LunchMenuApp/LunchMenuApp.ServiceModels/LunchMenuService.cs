@@ -16,66 +16,66 @@
 #region Usings
 
 using LunchMenuApp.Data;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 
 #endregion
 
 namespace LunchMenuApp.ServiceModels
 {
-	/// <summary>
-	///   The lunch menu service.
-	/// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    /// <summary>
+    ///   The lunch menu service.
+    /// </summary>
+    // ReSharper disable ClassNeverInstantiated.Global
     // Class is instantiated by the unity container, so ReSharper thinks that
     // this class could be made abstract, which is wrong
-	public class LunchMenuService : Notifier
-// ReSharper restore ClassNeverInstantiated.Global
+    public class LunchMenuService : Notifier
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
-	    private LunchMenu _lunchMenu;
+        private LunchMenu _lunchMenu;
 
-	    #endregion
+        #endregion
 
         #region Properties
 
-	    private LunchMenuReader LunchMenuReader { get; set; }
+        private LunchMenuReader LunchMenuReader { get; set; }
 
-	    /// <summary>
-		///   Gets or sets and notifies the lunch menu.
-		/// </summary>
-		/// <value> The lunch menu. </value>
-		public LunchMenu LunchMenu
-		{
-			get { return _lunchMenu; }
-			set
-			{
-				_lunchMenu = value;
-				Notify("LunchMenu");
-			}
-		}
+        /// <summary>
+        ///   Gets or sets and notifies the lunch menu.
+        /// </summary>
+        /// <value> The lunch menu. </value>
+        public LunchMenu LunchMenu
+        {
+            get { return _lunchMenu; }
+            set
+            {
+                _lunchMenu = value;
+                Notify("LunchMenu");
+            }
+        }
 
-	    #endregion
+        #endregion
 
-	    #region Constructors / Destructor
+        #region Constructors / Destructor
 
-	    /// <summary>
-	    ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
-	    /// </summary>
-	    /// <param name="lunchMenuReader"> The lunch menu reader. </param>
-	    public LunchMenuService(LunchMenuReader lunchMenuReader)
-	    {
-	        LunchMenuReader = lunchMenuReader;
-	        var k = LunchMenuReader.Html;
-	        // TODO: wie suche ich korrekt nach einem im HTML enthaltenen div-tag? -> workaround for weekends
-	        /* <div class="date-missing">
-				<div class="date-missing-content">
-					Für diesen Betrieb ist kein aktueller Menuplan verfügbar.
-				</div>
-			</div>*/
-	        LunchMenu = (string.IsNullOrEmpty(LunchMenuReader.Html) || LunchMenuReader.Html.Contains("date-missing-content")) ? null : new LunchMenu(LunchMenuReader.Html);
-	    }
+        /// <summary>
+        ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
+        /// </summary>
+        /// <param name="lunchMenuReader"> The lunch menu reader. </param>
+        public LunchMenuService(LunchMenuReader lunchMenuReader)
+        {
+            LunchMenuReader = lunchMenuReader;
+            var k = LunchMenuReader.Html;
+            // TODO: wie suche ich korrekt nach einem im HTML enthaltenen div-tag? -> workaround for weekends
+            /* <div class="date-missing">
+                <div class="date-missing-content">
+                    Für diesen Betrieb ist kein aktueller Menuplan verfügbar.
+                </div>
+            </div>*/
+            LunchMenu = (string.IsNullOrEmpty(LunchMenuReader.Html) || LunchMenuReader.Html.Contains("date-missing-content")) ? null : new LunchMenu(LunchMenuReader.Html);
+        }
 
-	    #endregion
+        #endregion
     }
 }

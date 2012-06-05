@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using PosterApp.ServiceModels;
-using VideoWall.Common;
+using VideoWall.Common.ViewHelpers;
 
 #endregion
 
@@ -28,9 +28,9 @@ namespace PosterApp.ViewModels
     /// <summary>
     ///   Reviewed by Delia Treichler, 17.04.2012
     /// </summary>
-// ReSharper disable ClassNeverInstantiated.Global
+    // ReSharper disable ClassNeverInstantiated.Global
     public class PosterViewModel : Notifier
-// ReSharper restore ClassNeverInstantiated.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
