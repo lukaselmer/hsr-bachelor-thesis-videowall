@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace LunchMenuApp.Data
+namespace LunchMenuApp.Data.Implementation
 {
     /// <summary>
-    ///   The <see cref="LunchMenuApp.Data" /> namespace contains classes of the data layer.
+    ///   The <see cref="LunchMenuApp.Data.Implementation" /> namespace contains classes of the data layer.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace LunchMenuApp.Data
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
-    //LunchMenuApp.Data but ReSharper marks this class as unused.
+    //LunchMenuApp.Data.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
     // ReSharper restore UnusedMember.Global
     {

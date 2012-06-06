@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace LunchMenuApp.ServiceModels
+namespace LunchMenuApp.Data.Interfaces
 {
     /// <summary>
-    ///   The <see cref="LunchMenuApp.ServiceModels" /> namespace contains service classes.
+    ///   The <see cref="LunchMenuApp.Data.Interfaces" /> namespace contains interfaces of the data layer.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace LunchMenuApp.ServiceModels
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
-    //LunchMenuApp.ServiceModels but ReSharper marks this class as unused.
+    //LunchMenuApp.Data.Interfaces but ReSharper marks this class as unused.
     internal class NamespaceDoc
     // ReSharper restore UnusedMember.Global
     {
