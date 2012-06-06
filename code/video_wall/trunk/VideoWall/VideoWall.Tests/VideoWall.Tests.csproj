@@ -71,7 +71,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileServiceTest.cs" />
+    <Compile Include="ServiceModels\Apps\ExtensionsConfigTest.cs" />
+    <Compile Include="ServiceModels\Apps\AppControllerTest.cs" />
+    <Compile Include="Mocks\PlayerMock.cs" />
+    <Compile Include="ServiceModels\Apps\FileServiceTest.cs" />
     <Compile Include="Mocks\DemoModeConfigMock.cs" />
     <Compile Include="Mocks\MockApp.cs" />
     <Compile Include="NamespaceDoc.cs" />
@@ -117,12 +120,42 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ServiceModels\" />
-    <Folder Include="TestFiles\Extensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestFiles\FileServiceTestFolder\Files\testfile.txt">
+    <Content Include="TestFiles\Extensions\DiagnosticsApp2\DiagnosticsApp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp2\DiagnosticsApp.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp2\VideoWall.Interfaces.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp2\VideoWall.Interfaces.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp2\VideoWall.Interfaces.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp\DiagnosticsApp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp\DiagnosticsApp.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp\VideoWall.Interfaces.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp\VideoWall.Interfaces.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\Extensions\DiagnosticsApp\VideoWall.Interfaces.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\ExtensionWithFileService\Files\testfile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestFiles\ExtensionWithoutFileService\testfile.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

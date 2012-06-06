@@ -67,10 +67,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
             PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
 
             _player = player;
-
-            _extensionFolders = extensionsConfig.ExtensionDirectories.
-                Where(directory => !directory.FullName.EndsWith("_Files")).
-                Select(directory => new ExtensionFolder(directory)).ToList();
+            _extensionFolders = extensionsConfig.ExtensionDirectories.Select(directory => new ExtensionFolder(directory)).ToList();
 
             LoadApps();
 

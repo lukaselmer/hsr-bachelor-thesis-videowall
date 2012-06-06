@@ -17,6 +17,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using VideoWall.Common.Exceptions;
 using VideoWall.Common.Helpers;
 
 #endregion
@@ -40,12 +41,12 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         ///   Gets or sets the extensions directory path.
         /// </summary>
         /// <value> The extensions directory path. </value>
-        private DirectoryInfo ExtensionsDirectoryPath { get; set; }
+        private DirectoryInfo ExtensionsDirectory { get; set; }
 
         /// <summary>
         ///   Gets the extension directories.
         /// </summary>
-        public IEnumerable<DirectoryInfo> ExtensionDirectories { get { return ExtensionsDirectoryPath.GetDirectories(); } }
+        public IEnumerable<DirectoryInfo> ExtensionDirectories { get { return ExtensionsDirectory.GetDirectories(); } }
 
         #endregion
 
@@ -57,8 +58,8 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         /// <param name="extensionsDirectoryPath"> The extensions directory path. </param>
         public ExtensionsConfig(string extensionsDirectoryPath)
         {
-            ExtensionsDirectoryPath = new DirectoryInfo(extensionsDirectoryPath);
-            PreOrPostCondition.AssertTrue(ExtensionsDirectoryPath.Exists, "ExtensionsDirectoryPath does not exist.");
+            ExtensionsDirectory = new DirectoryInfo(extensionsDirectoryPath);
+            if (!ExtensionsDirectory.Exists) throw new VideoWallException("ExtensionsDirectory does not exist.");
         }
 
         #endregion
