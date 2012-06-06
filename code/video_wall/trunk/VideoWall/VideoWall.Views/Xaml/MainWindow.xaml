@@ -30,7 +30,19 @@
 
             <ContentControl Grid.Row="1" Content="{Binding MenuViewModel.CurrentApp.App.MainView}"></ContentControl>
 
-            <Xaml1:PlayerView Grid.Row="2" DataContext="{Binding PlayerViewModel}"/>
+            <Grid Grid.Row="2" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Canvas>
+                    <Image Canvas.Bottom="0" VerticalAlignment="Bottom" Source="pack://application:,,,/VideoWall.ResourceLoader;component/Files/hsr_logo.gif"/>
+                </Canvas>
+
+                <Xaml1:PlayerView Grid.Column="1" DataContext="{Binding PlayerViewModel}"/>
+            </Grid>
         </Grid>
         <Xaml1:DemoModeView DataContext="{Binding DemoModeViewModel}"></Xaml1:DemoModeView>
     </Grid>

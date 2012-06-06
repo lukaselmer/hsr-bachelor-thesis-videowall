@@ -119,7 +119,8 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
             _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChangedMethod, _demoModeConfig.ChangeAppTimeSpan);
             _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckAndChangeState, _demoModeConfig.SkeletonCheckTimeSpan, true);
 
-            State = VideoWallState.Teaser;
+            _lastSkeletonTime = DateTime.Now;
+            State = VideoWallState.Active;
         }
 
         #endregion
