@@ -51,9 +51,11 @@ namespace PosterApp.Data.Implementation
 
         #region Constructors / Destructor
 
+
         /// <summary>
         ///   Initializes a new instance of the <see cref="PosterReader" /> class.
         /// </summary>
+        /// <param name="serviceProvider">The service provider.</param>
         public PosterReader(IVideoWallServiceProvider serviceProvider)
         {
             var fileService = serviceProvider.GetExtension<IFileService>();
