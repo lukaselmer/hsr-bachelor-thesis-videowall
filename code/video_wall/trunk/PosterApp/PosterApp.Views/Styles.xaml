@@ -7,7 +7,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <!-- The following grid is for the iceberg button => makes the white part of the button clickable -->
                     <Grid Background="White">
-                        <ed:BlockArrow HorizontalAlignment="Stretch" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White">
+                        <ed:BlockArrow HorizontalAlignment="Stretch" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White" Margin="0 200">
                             <ed:BlockArrow.Fill>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <LinearGradientBrush.RelativeTransform>
@@ -34,7 +34,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <!-- The following grid is for the iceberg button => makes the white part of the button clickable -->
                     <Grid Background="White">
-                        <ed:BlockArrow Orientation="Left" HorizontalAlignment="Stretch" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White">
+                        <ed:BlockArrow Orientation="Left" HorizontalAlignment="Stretch" Width="{TemplateBinding Width}" StrokeThickness="5" Stroke="White" Margin="0 200">
                             <ed:BlockArrow.Fill>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <LinearGradientBrush.RelativeTransform>
