@@ -3,7 +3,7 @@ using System;
 namespace LunchMenuApp.ServiceModels.Interfaces
 {
     /// <summary>
-    /// The lunch menu interface
+    /// The lunch menu service interface.
     /// </summary>
     public interface ILunchMenuService
     {

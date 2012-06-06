@@ -24,7 +24,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.ServiceModels
 {
     ///<summary>
-    ///  This is a test class for LunchMenuParserTest and is intended to contain all LunchMenuParserTest Unit Tests
+    ///  This is a test class for LunchMenuParserTest and is intended to contain all LunchMenuParserTest Unit Tests.
     ///</summary>
     [TestClass]
     public class LunchMenuParserTest
@@ -523,7 +523,7 @@ Menüsalat</div>
         #endregion
 
         ///<summary>
-        ///  A test for LunchMenuParser Constructor
+        ///  A test for LunchMenuParser Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuParserConstructorTest()
@@ -533,7 +533,7 @@ Menüsalat</div>
         }
 
         ///<summary>
-        ///  A test for ExtractDate
+        ///  A test for ExtractDate.
         ///</summary>
         [TestMethod]
         public void ExtractDateTest()
@@ -543,7 +543,7 @@ Menüsalat</div>
         }
 
         ///<summary>
-        ///  A test for ExtractDishes
+        ///  A test for ExtractDishes.
         ///</summary>
         [TestMethod]
         public void ExtractMenusTest()

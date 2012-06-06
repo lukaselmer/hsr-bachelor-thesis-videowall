@@ -23,13 +23,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.Data
 {
     ///<summary>
-    ///  This is a test class for LunchMenuReaderTest and is intended to contain all LunchMenuReaderTest Unit Tests
+    ///  This is a test class for LunchMenuReaderTest and is intended to contain all LunchMenuReaderTest Unit Tests.
     ///</summary>
     [TestClass]
     public class LunchMenuReaderTest
     {
         ///<summary>
-        ///  A test for DownloadHtml
+        ///  A test for DownloadHtml.
         ///</summary>
         [TestMethod]
         [DeploymentItem("LunchMenuApp.Data.dll")]
