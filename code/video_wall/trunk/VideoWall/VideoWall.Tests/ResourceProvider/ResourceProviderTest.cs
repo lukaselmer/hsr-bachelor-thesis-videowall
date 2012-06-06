@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Controls;
+using System.Windows.Media;
 using VideoWall.ResourceLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
@@ -73,13 +75,11 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ResourceLoader.dll")]
         public void ImageTest()
         {
-            //TODO: wie kann ich die Bilder vergleichen?
-            //            const string key = "handRight";
-            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
-            //            var expected = new Image {Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource};
-            //            var actual = ResourceProvider_Accessor.Image(key);
-            //            Assert.AreEqual(60, actual.Source.Width);
-            //            Assert.AreEqual(60, actual.Source.Height);
+            const string key = "handRight";
+            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
+            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            var actual = ResourceProvider_Accessor.Image(key);
+            Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
 
         /// <summary>
@@ -88,11 +88,10 @@ namespace VideoWall.Tests
         [TestMethod]
         public void HandLeftTest()
         {
-            //TODO: wie kann ich die Bilder vergleichen?
-            //            Image actual = ResourceProvider.HandLeft;
-            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
-            //            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-            //            Assert.AreEqual(expected,actual);
+            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
+            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            var actual = ResourceProvider.HandLeft;
+            Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
 
         /// <summary>
@@ -101,11 +100,16 @@ namespace VideoWall.Tests
         [TestMethod]
         public void HandRightTest()
         {
-            //TODO: wie kann ich die Bilder vergleichen?
-            //            Image actual = ResourceProvider.HandRight;
-            //            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
-            //            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-            //            Assert.AreEqual(expected, actual);
+            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
+            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            var actual = ResourceProvider.HandRight;
+            Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
+        }
+
+        private static bool TestImageEquality(Image a, Image b)
+        {
+            const double epsilon = 0.01;
+            return Math.Abs(a.Source.Height - b.Source.Height) < epsilon && Math.Abs(a.Source.Width - b.Source.Width) < epsilon;
         }
     }
 }
