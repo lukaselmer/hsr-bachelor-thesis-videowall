@@ -18,6 +18,7 @@
 using System.Net;
 using System.Text;
 using LunchMenuApp.Data.Interfaces;
+using VideoWall.Common.Helpers;
 using VideoWall.Common.Logging;
 
 #endregion
@@ -55,33 +56,18 @@ namespace LunchMenuApp.Data.Implementation
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
         /// </summary>
-        public LunchMenuReader()
+        public LunchMenuReader(IUrlDownloader urlDownloader)
         {
-            DownloadHtml(UrlToMensaMenu);
-        }
+            PreOrPostCondition.AssertNotNull(urlDownloader, "urlDownloader");
 
-        #endregion
-
-        #region Methods
-
-        /// <summary>
-        ///   Downloads the HTML.
-        /// </summary>
-        /// <param name="url"> The URL. </param>
-        private void DownloadHtml(string url)
-        {
-            using (var client = new WebClient())
+            try
             {
-                client.Encoding = Encoding.UTF8;
+                Html = urlDownloader.Download(UrlToMensaMenu);
+            }
+            catch (WebException ex)
+            {
+                Logger.Get.Error(ex.Message, ex);
                 Html = null;
-                try
-                {
-                    Html = client.DownloadString(url);
-                }
-                catch (WebException ex)
-                {
-                    Logger.Get.Error(ex.Message, ex);
-                }
             }
         }
 

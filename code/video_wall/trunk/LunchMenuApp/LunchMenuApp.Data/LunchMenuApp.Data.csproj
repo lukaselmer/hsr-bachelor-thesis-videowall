@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IUrlDownloader.cs" />
     <Compile Include="Implementation\NamespaceDoc.cs" />
+    <Compile Include="Implementation\WebDownloader.cs" />
     <Compile Include="Interfaces\ILunchMenuReader.cs" />
     <Compile Include="Implementation\LunchMenuReader.cs" />
     <Compile Include="Interfaces\NamespaceDoc.cs" />

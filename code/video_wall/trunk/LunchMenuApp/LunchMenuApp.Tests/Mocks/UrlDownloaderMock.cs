@@ -15,29 +15,26 @@
 
 #region Usings
 
-using System.Collections.Generic;
-using LunchMenuApp.ServiceModels.Interfaces;
+using System.Net;
+using LunchMenuApp.Data.Interfaces;
 
 #endregion
 
-namespace LunchMenuApp.Tests.ViewModels
+namespace LunchMenuApp.Tests.Mocks
 {
-    /// <summary>
-    ///   The lunch menu mock.
-    /// </summary>
-    public class LunchMenuMock : ILunchMenu
+    internal class UrlDownloaderMock : IUrlDownloader
     {
-        #region ILunchMenu Members
+        #region IUrlDownloader Members
 
         /// <summary>
-        ///   Gets the dishes.
+        ///   Downloads the specified URL.
         /// </summary>
-        public IEnumerable<IDish> Dishes { get; set; }
-
-        /// <summary>
-        ///   Gets the date.
-        /// </summary>
-        public string Date { get; set; }
+        /// <param name="url"> The URL. </param>
+        /// <returns> </returns>
+        public string Download(string url)
+        {
+            throw new WebException();
+        }
 
         #endregion
     }

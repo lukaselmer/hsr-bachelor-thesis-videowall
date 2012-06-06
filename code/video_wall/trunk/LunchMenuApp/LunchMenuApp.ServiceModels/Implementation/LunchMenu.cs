@@ -58,9 +58,9 @@ namespace LunchMenuApp.ServiceModels.Implementation
         {
             try
             {
-                var parser = lunchMenuParser;
-                Date = parser.ExtractDate();
-                Dishes = parser.ExtractDishes();
+                lunchMenuParser.Html = html;
+                Date = lunchMenuParser.ExtractDate();
+                Dishes = lunchMenuParser.ExtractDishes();
             }
             catch (Exception exception)
             {

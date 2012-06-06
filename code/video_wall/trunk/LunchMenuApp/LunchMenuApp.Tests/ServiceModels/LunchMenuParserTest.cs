@@ -30,14 +30,13 @@ namespace LunchMenuApp.Tests.ServiceModels
     [TestClass]
     public class LunchMenuParserTest
     {
-
         ///<summary>
         ///  A test for LunchMenuParser Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuParserConstructorTest()
         {
-            var parser = new LunchMenuParser_Accessor { Html = new LunchMenuReaderMock().Html };
+            var parser = new LunchMenuParser_Accessor {Html = new LunchMenuReaderMock().Html};
             Assert.IsNotNull(parser._menuNode);
         }
 
@@ -49,7 +48,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         {
             try
             {
-                var parser = new LunchMenuParser { Html = "blabla" };
+                var parser = new LunchMenuParser {Html = "blabla"};
                 parser.ExtractDate();
                 parser.ExtractDishes();
             }
@@ -69,7 +68,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         {
             try
             {
-                var parser = new LunchMenuParser { Html = "<html></html>" };
+                var parser = new LunchMenuParser {Html = "<html></html>"};
                 parser.ExtractDate();
                 parser.ExtractDishes();
             }
@@ -87,7 +86,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         [TestMethod]
         public void ExtractDateTest()
         {
-            var parser = new LunchMenuParser { Html = new LunchMenuReaderMock().Html };
+            var parser = new LunchMenuParser {Html = new LunchMenuReaderMock().Html};
             Assert.AreEqual("Freitag, 18.05.2012", parser.ExtractDate());
         }
 
@@ -97,7 +96,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         [TestMethod]
         public void ExtractMenusTest()
         {
-            var parser = new LunchMenuParser { Html = new LunchMenuReaderMock().Html };
+            var parser = new LunchMenuParser {Html = new LunchMenuReaderMock().Html};
             var dishes = parser.ExtractDishes();
 
             Assert.AreEqual(4, dishes.Count);

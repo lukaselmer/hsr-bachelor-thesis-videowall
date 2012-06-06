@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Data\NamespaceDoc.cs" />
     <Compile Include="Data\LunchMenuReaderTest.cs" />
+    <Compile Include="Mocks\UrlDownloaderMock.cs" />
     <Compile Include="ViewModels\DishViewModelTest.cs" />
     <Compile Include="ViewModels\LunchMenuMock.cs" />
     <Compile Include="ViewModels\LunchMenuServiceMock.cs" />

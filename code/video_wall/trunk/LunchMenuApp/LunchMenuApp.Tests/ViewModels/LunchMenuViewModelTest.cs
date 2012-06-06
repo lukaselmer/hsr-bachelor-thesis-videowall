@@ -15,9 +15,7 @@
 
 #region Usings
 
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using LunchMenuApp.ServiceModels.Implementation;
 using LunchMenuApp.ServiceModels.Interfaces;
@@ -35,18 +33,18 @@ namespace LunchMenuApp.Tests.ViewModels
     public class LunchMenuViewModelTest
     {
         /// <summary>
-        /// Lunches the menu view model constructor test without lunch menu.
+        ///   Lunches the menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelConstructorTestWithoutLunchMenu()
         {
-            var vm = new LunchMenuViewModel(new LunchMenuServiceMock { LunchMenu = null });
+            var vm = new LunchMenuViewModel(new LunchMenuServiceMock {LunchMenu = null});
             Assert.AreEqual("nicht verfügbar", vm.Title);
             Assert.AreEqual(0, vm.Dishes.Count);
         }
 
         /// <summary>
-        /// Lunches the menu view model constructor test without lunch menu.
+        ///   Lunches the menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelConstructorTest()
@@ -57,8 +55,8 @@ namespace LunchMenuApp.Tests.ViewModels
                     new Dish("type1", "name1", "price1"),
                     new Dish("type2", "name2", "price2")
                 };
-            var lunchMenuMock = new LunchMenuMock { Date = date, Dishes = dishes };
-            var vm = new LunchMenuViewModel(new LunchMenuServiceMock { LunchMenu = lunchMenuMock });
+            var lunchMenuMock = new LunchMenuMock {Date = date, Dishes = dishes};
+            var vm = new LunchMenuViewModel(new LunchMenuServiceMock {LunchMenu = lunchMenuMock});
             Assert.AreEqual(date, vm.Title);
             Assert.AreEqual(dishes.Count, vm.Dishes.Count);
             var dishesInVm = vm.Dishes.ToList();
@@ -72,7 +70,7 @@ namespace LunchMenuApp.Tests.ViewModels
 
 
         /// <summary>
-        /// Lunches the menu view model constructor test without lunch menu.
+        ///   Lunches the menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelLunchMenuChangedTest()
@@ -83,7 +81,7 @@ namespace LunchMenuApp.Tests.ViewModels
                     new Dish("type1", "name1", "price1"),
                     new Dish("type2", "name2", "price2")
                 };
-            var lunchMenuMock = new LunchMenuMock { Date = date, Dishes = dishes };
+            var lunchMenuMock = new LunchMenuMock {Date = date, Dishes = dishes};
             var lunchMenuServiceMock = new LunchMenuServiceMock {LunchMenu = lunchMenuMock};
             var vm = new LunchMenuViewModel(lunchMenuServiceMock);
             Assert.AreEqual(date, vm.Title);

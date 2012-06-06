@@ -39,20 +39,21 @@ namespace LunchMenuApp.Tests.ServiceModels
         {
             const string date = "Freitag";
             var dishes = new List<IDish>();
-            var lunchMenuParserMock = new LunchMenuParserMock { ExtractDateForTest = date, ExtractDishesForTest = dishes };
+            var lunchMenuParserMock = new LunchMenuParserMock {ExtractDateForTest = date, ExtractDishesForTest = dishes};
             var lunchMenuService = new LunchMenuService(new LunchMenuReaderMock(), lunchMenuParserMock);
             Assert.IsNotNull(lunchMenuService.LunchMenu);
             var menu = lunchMenuService.LunchMenu;
             Assert.AreSame(date, menu.Date);
             Assert.AreSame(dishes, menu.Dishes);
         }
+
         ///<summary>
         ///  A test for LunchMenuService Constructor
         ///</summary>
         [TestMethod]
         public void LunchMenuServiceConstructorTestWhenThrowing()
         {
-            var lunchMenuService = new LunchMenuService(new LunchMenuReaderMock(), new LunchMenuParserMock { Throwing = true });
+            var lunchMenuService = new LunchMenuService(new LunchMenuReaderMock(), new LunchMenuParserMock {Throwing = true});
             Assert.IsNull(lunchMenuService.LunchMenu);
         }
     }

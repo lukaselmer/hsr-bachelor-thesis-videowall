@@ -89,6 +89,7 @@ namespace LunchMenuApp.Main
         private static UnityContainer ConfigureUnityContainer()
         {
             var container = new UnityContainer();
+            container.RegisterType<IUrlDownloader, WebDownloader>();
             container.RegisterType<ILunchMenuReader, LunchMenuReader>();
             container.RegisterType<ILunchMenuParser, LunchMenuParser>();
             container.RegisterType<ILunchMenuService, LunchMenuService>();

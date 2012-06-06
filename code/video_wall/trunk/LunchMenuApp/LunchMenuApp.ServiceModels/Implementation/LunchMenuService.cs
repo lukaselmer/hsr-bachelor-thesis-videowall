@@ -47,14 +47,6 @@ namespace LunchMenuApp.ServiceModels.Implementation
         #region Properties
 
         /// <summary>
-        /// Gets or sets the lunch menu reader.
-        /// </summary>
-        /// <value>
-        /// The lunch menu reader.
-        /// </value>
-        private ILunchMenuReader LunchMenuReader { get; set; }
-
-        /// <summary>
         ///   Gets or sets and notifies the lunch menu.
         /// </summary>
         /// <value> The lunch menu. </value>
@@ -88,10 +80,9 @@ namespace LunchMenuApp.ServiceModels.Implementation
         /// <param name="lunchMenuParser">The lunch menu parser.</param>
         public LunchMenuService(ILunchMenuReader lunchMenuReader, ILunchMenuParser lunchMenuParser)
         {
-            LunchMenuReader = lunchMenuReader;
             try
             {
-                LunchMenu = new LunchMenu(LunchMenuReader.Html, lunchMenuParser);
+                LunchMenu = new LunchMenu(lunchMenuReader.Html, lunchMenuParser);
             }
             catch (LunchMenuUnparsableException exception)
             {

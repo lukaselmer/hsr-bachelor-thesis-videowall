@@ -26,10 +26,10 @@ namespace LunchMenuApp.Tests.Data
     /// </summary>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
-    //This class is necessary to comment the namespace
-    //LunchMenuApp.Tests.Data but ReSharper marks this class as unused.
+        //This class is necessary to comment the namespace
+        //LunchMenuApp.Tests.Data but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedMember.Global
     {
     }
 }

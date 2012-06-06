@@ -1,16 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using LunchMenuApp.Data.Interfaces;
+
+#endregion
 
 namespace LunchMenuApp.Tests.Mocks
 {
-    class LunchMenuReaderMock : ILunchMenuReader
+    internal class LunchMenuReaderMock : ILunchMenuReader
     {
         #region TestHtml
 
-        private const string TestHtml = @"<?xml version=""1.0"" encoding=""utf-8""?>
+        private const string TestHtml =
+            @"<?xml version=""1.0"" encoding=""utf-8""?>
 <!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
 
 <!--[if lt IE 7 ]> <html xmlns=""http://www.w3.org/1999/xhtml"" class=""ie6""> <![endif]-->
@@ -501,9 +517,13 @@ Menüsalat</div>
 
         #endregion
 
+        #region ILunchMenuReader Members
+
         /// <summary>
         ///   Gets the HTML of the current mensa menu.
         /// </summary>
         public string Html { get { return TestHtml; } }
+
+        #endregion
     }
 }

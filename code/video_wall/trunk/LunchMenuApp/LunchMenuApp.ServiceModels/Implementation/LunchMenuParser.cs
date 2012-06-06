@@ -48,6 +48,12 @@ namespace LunchMenuApp.ServiceModels.Implementation
 
         #region Properties
 
+        /// <summary>
+        /// Sets the HTML to be parsed.
+        /// </summary>
+        /// <value>
+        /// The HTML.
+        /// </value>
         public string Html
         {
             set
