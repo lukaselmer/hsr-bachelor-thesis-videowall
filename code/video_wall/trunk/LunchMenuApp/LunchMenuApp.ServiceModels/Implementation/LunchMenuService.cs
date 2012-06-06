@@ -30,10 +30,10 @@ namespace LunchMenuApp.ServiceModels.Implementation
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
-    // ReSharper disable UnusedMember.Global
+    // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     public class LunchMenuService : ILunchMenuService
-    // ReSharper restore UnusedMember.Global
+    // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 

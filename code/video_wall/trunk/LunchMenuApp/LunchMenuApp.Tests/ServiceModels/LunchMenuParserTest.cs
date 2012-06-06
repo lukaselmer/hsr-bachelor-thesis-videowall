@@ -15,7 +15,6 @@
 
 #region Usings
 
-using LunchMenuApp.ServiceModels;
 using LunchMenuApp.ServiceModels.Implementation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

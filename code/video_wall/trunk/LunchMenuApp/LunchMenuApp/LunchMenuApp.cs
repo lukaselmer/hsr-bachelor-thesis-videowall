@@ -16,7 +16,6 @@
 #region Usings
 
 using System.ComponentModel.Composition;
-using System.Reflection;
 using System.Windows.Controls;
 using LunchMenuApp.Data.Implementation;
 using LunchMenuApp.Data.Interfaces;
@@ -24,7 +23,6 @@ using LunchMenuApp.ServiceModels.Implementation;
 using LunchMenuApp.ServiceModels.Interfaces;
 using LunchMenuApp.Views;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using VideoWall.Interfaces;
 
 #endregion
