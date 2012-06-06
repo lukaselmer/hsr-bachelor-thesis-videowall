@@ -24,7 +24,7 @@ using VideoWall.Common.Helpers;
 namespace PosterApp.ServiceModels.Implementation
 {
     /// <summary>
-    ///   The Poster.
+    ///   The poster.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

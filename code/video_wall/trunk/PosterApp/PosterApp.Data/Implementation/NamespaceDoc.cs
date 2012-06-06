@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace PosterApp.Data
+namespace PosterApp.Data.Implementation
 {
     /// <summary>
-    ///   The <see cref="PosterApp.Data" /> namespace contains classes of the data layer.
+    ///   The <see cref="PosterApp.Data.Implementation" /> namespace contains classes of the data layer.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace PosterApp.Data
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
-    //PosterApp.Data but ReSharper marks this class as unused.
+    //PosterApp.Data.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
         // ReSharper restore UnusedMember.Global
     {

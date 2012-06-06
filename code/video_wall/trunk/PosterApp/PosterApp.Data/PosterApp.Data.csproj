@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\NamespaceDoc.cs" />
     <Compile Include="Interfaces\IPosterReader.cs" />
-    <Compile Include="NamespaceDoc.cs" />
+    <Compile Include="Interfaces\NamespaceDoc.cs" />
     <Compile Include="Implementation\PosterReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

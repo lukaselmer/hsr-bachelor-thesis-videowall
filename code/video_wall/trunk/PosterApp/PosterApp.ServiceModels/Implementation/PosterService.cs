@@ -25,7 +25,7 @@ using PosterApp.ServiceModels.Interfaces;
 namespace PosterApp.ServiceModels.Implementation
 {
     /// <summary>
-    ///   The PosterService
+    ///   The poster service.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

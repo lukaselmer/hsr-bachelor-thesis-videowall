@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace PosterApp.ServiceModels
+namespace PosterApp.ServiceModels.Implementation
 {
     /// <summary>
-    ///   The <see cref="PosterApp.ServiceModels" /> namespace contains service classes.
+    ///   The <see cref="PosterApp.ServiceModels.Implementation" /> namespace contains service classes.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace PosterApp.ServiceModels
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
     //This class is necessary to comment the namespace
-    //PosterApp.ServiceModels but ReSharper marks this class as unused.
+    //PosterApp.ServiceModels.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
     // ReSharper restore UnusedMember.Global
     {

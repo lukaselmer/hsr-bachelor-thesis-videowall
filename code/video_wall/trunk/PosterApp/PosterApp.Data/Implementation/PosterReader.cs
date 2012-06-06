@@ -25,7 +25,7 @@ using VideoWall.Interfaces;
 namespace PosterApp.Data.Implementation
 {
     /// <summary>
-    ///   The Poster Reader
+    ///   The poster reader provides the data for the posters.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

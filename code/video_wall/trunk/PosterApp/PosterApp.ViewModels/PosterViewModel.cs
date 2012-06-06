@@ -26,7 +26,7 @@ using VideoWall.Common.ViewHelpers;
 namespace PosterApp.ViewModels
 {
     /// <summary>
-    ///   The poster view model.
+    ///   The poster view model represents a poster.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Delia Treichler, 17.04.2012
