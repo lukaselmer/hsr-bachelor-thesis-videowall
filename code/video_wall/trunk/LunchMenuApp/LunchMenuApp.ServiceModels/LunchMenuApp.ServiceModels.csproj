@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Implementation\Dish.cs" />
     <Compile Include="Implementation\DishParser.cs" />
+    <Compile Include="Interfaces\ILunchMenuParser.cs" />
     <Compile Include="Implementation\NamespaceDoc.cs" />
     <Compile Include="Interfaces\ILunchMenuService.cs" />
     <Compile Include="Interfaces\IDish.cs" />

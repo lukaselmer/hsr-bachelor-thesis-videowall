@@ -30,36 +30,44 @@ namespace LunchMenuApp.ServiceModels.Implementation
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
-    internal class LunchMenuParser
+    public class LunchMenuParser : ILunchMenuParser
     {
         #region Declarations
 
         /// <summary>
         /// The document.
         /// </summary>
-        private readonly HtmlDocument _document;
+        private HtmlDocument _document;
 
         /// <summary>
         /// The menu node
         /// </summary>
-        private readonly HtmlNode _menuNode;
+        private HtmlNode _menuNode;
+
+        #endregion
+
+        #region Properties
+
+        public string Html
+        {
+            set
+            {
+                PreOrPostCondition.AssertNotNullOrEmpty(value, "Html value");
+                _document = new HtmlDocument();
+                _document.LoadHtml(value);
+                _menuNode = LoadMenuContent();
+            }
+        }
 
         #endregion
 
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Parses the dishes and the menu date from the html
+        /// Parses the dishes and the menu date from the html
         /// </summary>
         /// ///
-        /// <param name="html"> The html. </param>
-        internal LunchMenuParser(string html)
-        {
-            PreOrPostCondition.AssertNotNullOrEmpty(html, "html");
-            _document = new HtmlDocument();
-            _document.LoadHtml(html);
-            _menuNode = LoadMenuContent();
-        }
+        internal LunchMenuParser() { }
 
         #endregion
 
@@ -78,7 +86,7 @@ namespace LunchMenuApp.ServiceModels.Implementation
         ///   Extracts the date.
         /// </summary>
         /// <returns> </returns>
-        internal string ExtractDate()
+        public string ExtractDate()
         {
             return _menuNode.SelectSingleNode(@"div[@class='date']/h2").InnerText;
         }
@@ -87,7 +95,7 @@ namespace LunchMenuApp.ServiceModels.Implementation
         ///   Extracts the dishes.
         /// </summary>
         /// <returns> </returns>
-        internal List<IDish> ExtractDishes()
+        public List<IDish> ExtractDishes()
         {
             return new DishParser(_menuNode.SelectNodes(@"div[@class='offer']")).ExtractDishes();
         }

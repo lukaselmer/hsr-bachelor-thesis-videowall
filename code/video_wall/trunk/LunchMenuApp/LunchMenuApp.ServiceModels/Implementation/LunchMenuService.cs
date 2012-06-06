@@ -82,15 +82,16 @@ namespace LunchMenuApp.ServiceModels.Implementation
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Initializes a new instance of the <see cref="LunchMenuService" /> class.
+        /// Initializes a new instance of the <see cref="LunchMenuService"/> class.
         /// </summary>
-        /// <param name="lunchMenuReader"> The lunch menu reader. </param>
-        public LunchMenuService(ILunchMenuReader lunchMenuReader)
+        /// <param name="lunchMenuReader">The lunch menu reader.</param>
+        /// <param name="lunchMenuParser">The lunch menu parser.</param>
+        public LunchMenuService(ILunchMenuReader lunchMenuReader, ILunchMenuParser lunchMenuParser)
         {
             LunchMenuReader = lunchMenuReader;
             try
             {
-                LunchMenu = new LunchMenu(LunchMenuReader.Html);
+                LunchMenu = new LunchMenu(LunchMenuReader.Html, lunchMenuParser);
             }
             catch (LunchMenuUnparsableException exception)
             {

@@ -60,12 +60,14 @@
   <ItemGroup>
     <Compile Include="Data\NamespaceDoc.cs" />
     <Compile Include="Data\LunchMenuReaderTest.cs" />
+    <Compile Include="ServiceModels\LunchMenuServiceTest.cs" />
+    <Compile Include="Mocks\LunchMenuParserMock.cs" />
+    <Compile Include="ServiceModels\LunchMenuTest.cs" />
+    <Compile Include="ServiceModels\DishTest.cs" />
+    <Compile Include="Mocks\LunchMenuReaderMock.cs" />
     <Compile Include="ServiceModels\LunchMenuParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceModels\NamespaceDoc.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ServiceModels\Testmenu.html" />
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\LunchMenuApp.Data.accessor" />

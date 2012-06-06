@@ -90,6 +90,7 @@ namespace LunchMenuApp.Main
         {
             var container = new UnityContainer();
             container.RegisterType<ILunchMenuReader, LunchMenuReader>();
+            container.RegisterType<ILunchMenuParser, LunchMenuParser>();
             container.RegisterType<ILunchMenuService, LunchMenuService>();
             container.RegisterType<ILunchMenu, LunchMenu>();
             return container;

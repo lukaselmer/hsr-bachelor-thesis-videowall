@@ -52,12 +52,13 @@ namespace LunchMenuApp.ServiceModels.Implementation
         ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
         /// </summary>
         /// <param name="html"> The HTML. </param>
+        /// <param name="lunchMenuParser"> </param>
         /// <exception cref="LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
-        public LunchMenu(string html)
+        public LunchMenu(string html, ILunchMenuParser lunchMenuParser)
         {
             try
             {
-                var parser = new LunchMenuParser(html);
+                var parser = lunchMenuParser;
                 Date = parser.ExtractDate();
                 Dishes = parser.ExtractDishes();
             }
