@@ -4,72 +4,6 @@
         <name>LunchMenuApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.ServiceModels.Implementation.Dish">
-            <summary>
-              The dish.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.Interfaces.IDish">
-            <summary>
-            The dish interface.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Price">
-            <summary>
-              Gets the price.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.Dish.#ctor(System.String,System.String,System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.Dish"/> class.
-            </summary>
-            <param name="type"> The type. </param>
-            <param name="name"> The name. </param>
-            <param name="price"> The price. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Price">
-            <summary>
-              Gets the price.
-            </summary>
-        </member>
-        <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu">
-            <summary>
-            The lunch menu interface.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Dishes">
-            <summary>
-              Gets the dishes.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Date">
-            <summary>
-              Gets the date.
-            </summary>
-        </member>
         <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuService">
             <summary>
               The lunch menu service.
@@ -80,7 +14,7 @@
         </member>
         <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService">
             <summary>
-            The lunch menu interface
+            The lunch menu service interface.
             </summary>
         </member>
         <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuService.LunchMenu">
@@ -124,30 +58,47 @@
             Occurs when the lunch menu has changed.
             </summary>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu">
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu">
             <summary>
-              The lunch menu.
+            The lunch menu interface.
             </summary>
-            <remarks>
-              Reviewed by Delia Treichler, 17.04.2012
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenu.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu"/> class.
-            </summary>
-            <param name="html"> The HTML. </param>
-            <exception cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Dishes">
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Dishes">
             <summary>
               Gets the dishes.
             </summary>
         </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Date">
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenu.Date">
             <summary>
               Gets the date.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.ServiceModels.Interfaces"/> namespace contains service interfaces.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.IDish">
+            <summary>
+            The dish interface.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.IDish.Price">
+            <summary>
+              Gets the price.
             </summary>
         </member>
         <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser">
@@ -193,9 +144,9 @@
             </summary>
             <returns> </returns>
         </member>
-        <member name="T:LunchMenuApp.ServiceModels.NamespaceDoc">
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.NamespaceDoc">
             <summary>
-              The <see cref="N:LunchMenuApp.ServiceModels"/> namespace contains service classes.
+              The <see cref="N:LunchMenuApp.ServiceModels.Implementation"/> namespace contains service classes.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -253,6 +204,63 @@
             </summary>
             <param name="message">The message.</param>
             <param name="exception">The exception.</param>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.Dish">
+            <summary>
+              The dish.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.Dish.#ctor(System.String,System.String,System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.Dish"/> class.
+            </summary>
+            <param name="type"> The type. </param>
+            <param name="name"> The name. </param>
+            <param name="price"> The price. </param>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.Dish.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu">
+            <summary>
+              The lunch menu.
+            </summary>
+            <remarks>
+              Reviewed by Delia Treichler, 17.04.2012
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenu.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu"/> class.
+            </summary>
+            <param name="html"> The HTML. </param>
+            <exception cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Dishes">
+            <summary>
+              Gets the dishes.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Date">
+            <summary>
+              Gets the date.
+            </summary>
         </member>
     </members>
 </doc>

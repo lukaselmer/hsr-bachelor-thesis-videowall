@@ -4,6 +4,14 @@
         <name>PosterApp.ServiceModels</name>
     </assembly>
     <members>
+        <member name="T:PosterApp.ServiceModels.Implementation.PosterService">
+            <summary>
+              The poster service.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:PosterApp.ServiceModels.Interfaces.IPosterService">
             <summary>
             The poster service interface.
@@ -18,9 +26,34 @@
             </summary>
             <value> The posters. </value>
         </member>
+        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.#ctor(PosterApp.Data.Interfaces.IPosterReader)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.PosterService"/> class.
+            </summary>
+            <param name="posterReader"> The poster reader. </param>
+        </member>
+        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.ReadFromPosterReader">
+            <summary>
+              Reads from poster reader.
+            </summary>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.PosterReader">
+            <summary>
+            Gets or sets the poster reader.
+            </summary>
+            <value>
+            The poster reader.
+            </value>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.Posters">
+            <summary>
+              Gets or sets and notifies the posters.
+            </summary>
+            <value> The posters. </value>
+        </member>
         <member name="T:PosterApp.ServiceModels.Implementation.Poster">
             <summary>
-              The Poster.
+              The poster.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -50,42 +83,17 @@
               Gets the image.
             </summary>
         </member>
-        <member name="T:PosterApp.ServiceModels.Implementation.PosterService">
+        <member name="T:PosterApp.ServiceModels.Interfaces.NamespaceDoc">
             <summary>
-              The PosterService
+              The <see cref="N:PosterApp.ServiceModels.Interfaces"/> namespace contains service interfaces.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
-        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.#ctor(PosterApp.Data.Interfaces.IPosterReader)">
+        <member name="T:PosterApp.ServiceModels.Implementation.NamespaceDoc">
             <summary>
-              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.PosterService"/> class.
-            </summary>
-            <param name="posterReader"> The poster reader. </param>
-        </member>
-        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.ReadFromPosterReader">
-            <summary>
-              Reads from poster reader.
-            </summary>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.PosterReader">
-            <summary>
-            Gets or sets the poster reader.
-            </summary>
-            <value>
-            The poster reader.
-            </value>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.Posters">
-            <summary>
-              Gets or sets and notifies the posters.
-            </summary>
-            <value> The posters. </value>
-        </member>
-        <member name="T:PosterApp.ServiceModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:PosterApp.ServiceModels"/> namespace contains service classes.
+              The <see cref="N:PosterApp.ServiceModels.Implementation"/> namespace contains service classes.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012

@@ -4,9 +4,9 @@
         <name>PosterApp.Data</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.Data.NamespaceDoc">
+        <member name="T:PosterApp.Data.Implementation.NamespaceDoc">
             <summary>
-              The <see cref="N:PosterApp.Data"/> namespace contains classes of the data layer.
+              The <see cref="N:PosterApp.Data.Implementation"/> namespace contains classes of the data layer.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -14,7 +14,7 @@
         </member>
         <member name="T:PosterApp.Data.Interfaces.IPosterReader">
             <summary>
-            The poster reader provides the data for the posters.
+            The poster reader interface provides the data for the posters.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -25,9 +25,17 @@
               Gets the files.
             </summary>
         </member>
+        <member name="T:PosterApp.Data.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.Data.Interfaces"/> namespace contains interfaces of the data layer.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:PosterApp.Data.Implementation.PosterReader">
             <summary>
-              The Poster Reader
+              The poster reader provides the data for the posters.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -37,6 +45,7 @@
             <summary>
               Initializes a new instance of the <see cref="T:PosterApp.Data.Implementation.PosterReader"/> class.
             </summary>
+            <param name="serviceProvider">The service provider.</param>
         </member>
         <member name="P:PosterApp.Data.Implementation.PosterReader.Path">
             <summary>

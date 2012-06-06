@@ -4,106 +4,26 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
-        <member name="T:VideoWall.Common.Extensions.RandomExtension">
+        <member name="T:VideoWall.Common.Exceptions.VideoWallException">
             <summary>
-              The random extension for the IEnumerable interface
+            The video wall exception occurs if something goes wrong which is video wall specific.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
-        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:VideoWall.Common.Exceptions.VideoWallException.#ctor(System.String)">
             <summary>
-              Gets a random element of the list.
+            Initializes a new instance of the <see cref="T:VideoWall.Common.Exceptions.VideoWallException"/> class.
             </summary>
-            <typeparam name="T"> </typeparam>
-            <param name="enumerable"> The enumerable. </param>
-            <returns> </returns>
+            <param name="message">The message.</param>
         </member>
-        <member name="T:VideoWall.Common.Logging.Logger">
+        <member name="M:VideoWall.Common.Exceptions.VideoWallException.#ctor(System.String,System.Exception)">
             <summary>
-              The Logger wrapper.
+            Initializes a new instance of the <see cref="T:VideoWall.Common.Exceptions.VideoWallException"/> class.
             </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
-            <summary>
-              The Logger
-            </summary>
-        </member>
-        <member name="P:VideoWall.Common.Logging.Logger.Get">
-            <summary>
-              Gets the currrent logger
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.Helpers.ImageHelper">
-            <summary>
-              The image helper provides helper methods for images.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Helpers.ImageHelper.InitWithFileName(System.String)">
-            <summary>
-              Initializes an image with a file name.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-            <returns> The image. </returns>
-        </member>
-        <member name="T:VideoWall.Common.ViewHelpers.Command">
-            <summary>
-              Implementation of the ICommand Interface
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
-            </summary>
-            <param name="execute"> The execute action. </param>
-            <param name="canExecute"> The canexecute predicate. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object})">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
-            </summary>
-            <param name="execute"> The execute action. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.Execute(System.Object)">
-            <summary>
-              Defines the method to be called when the command is invoked.
-            </summary>
-            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.CanExecute(System.Object)">
-            <summary>
-              Defines the method that determines whether the command can execute in its current state.
-            </summary>
-            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
-            <returns> true if this command can be executed; otherwise, false. </returns>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.RaiseCanExecuteChanged">
-            <summary>
-              Raises the can execute changed.
-            </summary>
-        </member>
-        <member name="E:VideoWall.Common.ViewHelpers.Command.CanExecuteChanged">
-            <summary>
-              Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
         </member>
         <member name="T:VideoWall.Common.Helpers.PreOrPostCondition">
             <summary>
@@ -159,14 +79,56 @@
             <param name="condition"> Condition which should be true. </param>
             <param name="exception"> Specifies the exception to throw. </param>
         </member>
-        <member name="P:VideoWall.Common.Helpers.PreOrPostCondition.EnableDebugAssertions">
+        <member name="T:VideoWall.Common.Logging.NamespaceDoc">
             <summary>
-              Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
+              The <see cref="N:VideoWall.Common.Logging"/> namespace contains the logger.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.ImageHelper">
+            <summary>
+              The image helper provides helper methods for images.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.ImageHelper.InitWithFileName(System.String)">
+            <summary>
+              Initializes an image with a file name.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+            <returns> The image. </returns>
+        </member>
+        <member name="T:VideoWall.Common.Extensions.RandomExtension">
+            <summary>
+              The random extension for the IEnumerable interface.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+              Gets a random element of the list.
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="enumerable"> The enumerable. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:VideoWall.Common.Exceptions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Exceptions"/> namespace contains exceptions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:VideoWall.Common.ViewHelpers.Notifier">
             <summary>
-              Implementation of INotifyPropertyChanged
+              Implementation of INotifyPropertyChanged.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -180,18 +142,97 @@
             <remarks>
             </remarks>
         </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
-        </member>
         <member name="E:VideoWall.Common.ViewHelpers.Notifier.PropertyChanged">
             <summary>
               Occurs when a property value changes.
             </summary>
             <remarks>
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.ViewHelpers.Command">
+            <summary>
+              Implementation of ICommand.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+            <param name="canExecute"> The canexecute predicate. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.Execute(System.Object)">
+            <summary>
+              Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.CanExecute(System.Object)">
+            <summary>
+              Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+            <returns> true if this command can be executed; otherwise, false. </returns>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.RaiseCanExecuteChanged">
+            <summary>
+              Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="E:VideoWall.Common.ViewHelpers.Command.CanExecuteChanged">
+            <summary>
+              Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Logging.Logger">
+            <summary>
+              The logger wrapper.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logging.Logger.Get">
+            <summary>
+              Gets the currrent logger.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Extensions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Extensions"/> namespace contains extensions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Helpers"/> namespace contains helpers.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.ViewHelpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.ViewHelpers"/> namespace contains helpers for the view.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
     </members>
