@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Windows.Media;
 using VideoWall.ResourceLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
-using System.Windows.Controls;
 
 // Test methods do not need to be documented by a comment
 
