@@ -22,7 +22,7 @@ using System.ComponentModel;
 namespace VideoWall.Common.ViewHelpers
 {
     /// <summary>
-    ///   Implementation of INotifyPropertyChanged
+    ///   Implementation of INotifyPropertyChanged.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

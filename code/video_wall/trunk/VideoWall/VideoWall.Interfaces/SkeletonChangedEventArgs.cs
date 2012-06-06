@@ -23,7 +23,7 @@ using Microsoft.Kinect;
 namespace VideoWall.Interfaces
 {
     /// <summary>
-    ///   The skeleton changed event args
+    ///   The skeleton changed event args.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

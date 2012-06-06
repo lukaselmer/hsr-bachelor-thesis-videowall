@@ -24,7 +24,7 @@ using System.Windows.Media;
 namespace VideoWall.ServiceModels.DemoMode.Interfaces
 {
     /// <summary>
-    ///   The demo mode config interface
+    ///   The demo mode config interface.
     /// </summary>
     public interface IDemoModeConfig
     {

@@ -26,7 +26,7 @@ using VideoWall.ViewModels.Skeletons;
 namespace VideoWall.ViewModels.Main
 {
     /// <summary>
-    ///   The MainWindowViewModel.
+    ///   The main window view model.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Delia Treichler, 17.04.2012

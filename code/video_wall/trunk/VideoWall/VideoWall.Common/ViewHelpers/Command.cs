@@ -23,7 +23,7 @@ using System.Windows.Input;
 namespace VideoWall.Common.ViewHelpers
 {
     /// <summary>
-    ///   Implementation of the ICommand Interface
+    ///   Implementation of ICommand.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

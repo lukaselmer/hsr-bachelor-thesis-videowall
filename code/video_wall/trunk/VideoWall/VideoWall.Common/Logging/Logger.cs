@@ -23,7 +23,7 @@ using log4net;
 namespace VideoWall.Common.Logging
 {
     /// <summary>
-    ///   The Logger wrapper.
+    ///   The logger wrapper.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

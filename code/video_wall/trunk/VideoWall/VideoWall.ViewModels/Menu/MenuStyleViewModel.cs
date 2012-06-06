@@ -22,7 +22,7 @@ using System.Windows.Media;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   The menu style view model defines the style for the menu
+    ///   The menu style view model defines the style for the menu.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

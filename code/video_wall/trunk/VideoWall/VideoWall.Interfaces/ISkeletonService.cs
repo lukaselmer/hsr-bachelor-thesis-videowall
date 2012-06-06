@@ -22,7 +22,7 @@ using System;
 namespace VideoWall.Interfaces
 {
     /// <summary>
-    ///   The skeleton service provides the skeletal tracking
+    ///   The skeleton service provides the skeletal tracking.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

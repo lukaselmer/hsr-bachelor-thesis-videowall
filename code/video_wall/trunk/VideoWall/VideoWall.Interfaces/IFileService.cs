@@ -16,7 +16,7 @@
 namespace VideoWall.Interfaces
 {
     /// <summary>
-    ///   The file service provides a directory where an exension has read and write access
+    ///   The file service provides a directory where an exension has read and write access.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

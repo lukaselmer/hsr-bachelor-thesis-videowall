@@ -30,7 +30,7 @@ using VideoWall.ViewModels.Skeletons;
 namespace VideoWall.ViewModels.DemoMode
 {
     /// <summary>
-    ///   The DemoModeViewModel
+    ///   The demo mode view model.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

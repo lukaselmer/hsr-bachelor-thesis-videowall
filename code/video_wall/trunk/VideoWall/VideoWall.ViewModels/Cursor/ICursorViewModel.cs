@@ -26,7 +26,7 @@ using VideoWall.ServiceModels.HandCursor.Implementation;
 namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
-    ///   The Interface of the Cursor View Model
+    ///   The Interface of the Cursor View Model.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

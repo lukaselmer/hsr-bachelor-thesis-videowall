@@ -16,7 +16,7 @@
 namespace VideoWall.ServiceModels.DemoMode.Implementation
 {
     /// <summary>
-    ///   The demo mode state represents the state of the demo mode
+    ///   The demo mode state represents the state of the demo mode.
     /// </summary>
     public enum VideoWallState
     {

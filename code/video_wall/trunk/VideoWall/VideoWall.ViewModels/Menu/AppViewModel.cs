@@ -24,7 +24,7 @@ using VideoWall.Interfaces;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   The app view model wrapps the app
+    ///   The app view model wrapps the app.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

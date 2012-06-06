@@ -25,7 +25,7 @@ using VideoWall.Common.Helpers;
 namespace VideoWall.Common.Extensions
 {
     /// <summary>
-    ///   The random extension for the IEnumerable interface
+    ///   The random extension for the IEnumerable interface.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

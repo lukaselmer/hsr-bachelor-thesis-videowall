@@ -29,7 +29,7 @@ using VideoWall.ServiceModels.Player.Interfaces;
 namespace VideoWall.ViewModels.Skeletons
 {
     /// <summary>
-    ///   The PlayerViewModel
+    ///   The player view model.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Christina Heidt, 23.03.2012

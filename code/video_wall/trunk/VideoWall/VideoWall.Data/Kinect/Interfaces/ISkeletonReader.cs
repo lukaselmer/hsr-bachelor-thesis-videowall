@@ -25,7 +25,7 @@ namespace VideoWall.Data.Kinect.Interfaces
     /// <summary>
     ///   The skeleton reader interface is used for different skeleton readers like
     ///   a skeleton reader which reads from the kinect (for production and development) and a skeleton
-    ///   reader which reads from a file (for development only)
+    ///   reader which reads from a file (for development only).
     /// </summary>
     /// <remarks>
     ///   Reviewed by Christina Heidt, 23.03.2012

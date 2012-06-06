@@ -22,7 +22,7 @@ using System;
 namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
-    ///   Hand changed event args
+    ///   The hand changed event args.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

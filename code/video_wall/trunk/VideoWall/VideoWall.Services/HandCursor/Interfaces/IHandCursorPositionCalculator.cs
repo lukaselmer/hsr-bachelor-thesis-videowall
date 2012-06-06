@@ -26,7 +26,7 @@ using VideoWall.ServiceModels.HandCursor.Implementation;
 namespace VideoWall.ServiceModels.HandCursor.Interfaces
 {
     /// <summary>
-    ///   The hand cursor position calculator interface
+    ///   The hand cursor position calculator interface.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

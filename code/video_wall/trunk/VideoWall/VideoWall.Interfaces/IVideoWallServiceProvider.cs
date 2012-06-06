@@ -16,7 +16,7 @@
 namespace VideoWall.Interfaces
 {
     /// <summary>
-    ///   Provides services for the video wall, like hand tracking, skeleton tracking or a file service
+    ///   Provides services for the video wall, like hand tracking, skeleton tracking or a file service.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

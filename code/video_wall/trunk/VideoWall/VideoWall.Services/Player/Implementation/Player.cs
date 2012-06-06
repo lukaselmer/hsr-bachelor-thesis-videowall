@@ -28,7 +28,7 @@ using VideoWall.ServiceModels.Player.Interfaces;
 namespace VideoWall.ServiceModels.Player.Implementation
 {
     /// <summary>
-    ///   The Player.
+    ///   The player.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Christina Heidt, 23.03.2012
