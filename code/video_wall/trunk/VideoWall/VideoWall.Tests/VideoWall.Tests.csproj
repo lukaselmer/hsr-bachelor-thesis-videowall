@@ -120,7 +120,11 @@
   <ItemGroup>
     <Folder Include="ServiceModels\" />
     <Folder Include="TestFiles\Extensions\" />
-    <Folder Include="TestFiles\FileServiceTestFolder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestFiles\FileServiceTestFolder\Files\testfile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

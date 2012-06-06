@@ -71,7 +71,7 @@ namespace VideoWall.Tests
         [TestMethod()]
         public void FileServiceConstructorTest()
         {
-            var extensionFolder = new ExtensionFolder(new DirectoryInfo("./TestFiles/FileServiceTestFolder")); // TODO: Initialize to an appropriate value
+            var extensionFolder = new ExtensionFolder(new DirectoryInfo("./TestFiles/FileServiceTestFolder"));
             var target = new FileService(extensionFolder);
             Assert.Inconclusive("TODO: Implement code to verify target");
         }
