@@ -45,7 +45,7 @@ namespace VideoWall.Tests
         /// <summary>
         ///A test for PlayerViewModel Constructor
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void PlayerViewModelConstructorTest()
         {
             // BUG: fix this test

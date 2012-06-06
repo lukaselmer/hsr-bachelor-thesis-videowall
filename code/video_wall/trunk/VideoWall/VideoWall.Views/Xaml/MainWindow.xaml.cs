@@ -23,7 +23,6 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media.Animation;
 using VideoWall.Common.Logging;
-using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ViewModels.Cursor;
 using VideoWall.ViewModels.HitButton;
 using VideoWall.ViewModels.Main;

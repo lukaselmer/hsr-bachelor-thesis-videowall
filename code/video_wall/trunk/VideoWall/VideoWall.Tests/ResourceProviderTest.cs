@@ -58,7 +58,7 @@ namespace VideoWall.Tests
         /// <summary>
         ///A test for GetResources
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("VideoWall.ResourceLoader.dll")]
         public void GetResourcesTest()
         {
@@ -69,7 +69,7 @@ namespace VideoWall.Tests
         /// <summary>
         ///A test for Image
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("VideoWall.ResourceLoader.dll")]
         public void ImageTest()
         {
@@ -85,7 +85,7 @@ namespace VideoWall.Tests
         /// <summary>
         ///A test for HandLeft
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void HandLeftTest()
         {
             //TODO: wie kann ich die Bilder vergleichen?

@@ -4,7 +4,6 @@
         Title="Player" Height="600" Width="550"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:ViewModels="clr-namespace:VideoWall.ViewModels;assembly=VideoWall.ViewModels"
         xmlns:Xaml1="clr-namespace:VideoWall.Views.Xaml"
         xmlns:Skeletons="clr-namespace:VideoWall.ViewModels.Skeletons;assembly=VideoWall.ViewModels"
         mc:Ignorable="d" d:DataContext="{d:DesignInstance Skeletons:PlayerViewModel}">

@@ -16,7 +16,6 @@
 #region Usings
 
 using System;
-using System.Diagnostics;
 using VideoWall.Common.Logging;
 
 #endregion
@@ -32,21 +31,6 @@ namespace VideoWall.Common.Helpers
     /// </remarks>
     public static class PreOrPostCondition
     {
-        #region Declarations
-
-        private static volatile bool _assertionsEnabled;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        ///   Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
-        /// </summary>
-        public static bool EnableDebugAssertions { get { return _assertionsEnabled; } set { _assertionsEnabled = value; } }
-
-        #endregion
-
         #region Methods
 
         /// <summary>
@@ -127,10 +111,7 @@ namespace VideoWall.Common.Helpers
 
             Logger.Get.Error(String.Format("Precondition failed: {0}", errorMessage));
 
-            if (!EnableDebugAssertions) throw exception;
-
-            Debug.WriteLine(string.Format("Precondition failed: {0}", errorMessage));
-            Debug.Assert(condition, errorMessage);
+            throw exception;
         }
 
         #endregion

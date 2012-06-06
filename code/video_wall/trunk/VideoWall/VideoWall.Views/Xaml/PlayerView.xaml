@@ -4,14 +4,13 @@
         Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:ViewModels="clr-namespace:VideoWall.ViewModels;assembly=VideoWall.ViewModels"
-             xmlns:Views1="clr-namespace:VideoWall.Views.Xaml"
-             xmlns:Skeletons="clr-namespace:VideoWall.ViewModels.Skeletons;assembly=VideoWall.ViewModels"
-             mc:Ignorable="d" d:DataContext="{d:DesignInstance Skeletons:PlayerViewModel}">
+        xmlns:Views="clr-namespace:VideoWall.Views.Xaml"
+        xmlns:Skeletons="clr-namespace:VideoWall.ViewModels.Skeletons;assembly=VideoWall.ViewModels"
+        mc:Ignorable="d" d:DataContext="{d:DesignInstance Skeletons:PlayerViewModel}">
     <Grid>
         <Border>
             <Canvas VerticalAlignment="Stretch" Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}" HorizontalAlignment="Stretch">
-                <Views1:SkeletonLinesView DataContext="{Binding .}" />
+                <Views:SkeletonLinesView DataContext="{Binding .}" />
             </Canvas>
         </Border>
     </Grid>

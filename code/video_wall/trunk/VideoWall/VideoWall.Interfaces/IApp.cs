@@ -57,7 +57,10 @@ namespace VideoWall.Interfaces
         ///   Loads the app. At this place, the app can load application specific services.
         /// </summary>
         /// <param name="videoWallServiceProvider"> The app info. </param>
+        // ReSharper disable UnusedParameter.Global
+        // Used by extensions.
         void Activate(IVideoWallServiceProvider videoWallServiceProvider);
+        // ReSharper restore UnusedParameter.Global
 
         #endregion
     }

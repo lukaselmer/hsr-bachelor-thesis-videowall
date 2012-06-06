@@ -50,17 +50,7 @@ namespace VideoWall.Common.ViewHelpers
         /// </remarks>
         protected void Notify(string propertyName)
         {
-            Notify(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        /// <summary>
-        ///   Notifies that the property with the specified name has changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
-        protected void Notify(object sender, PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null) PropertyChanged(sender, e);
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion

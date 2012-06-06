@@ -15,12 +15,10 @@
 
 #region Usings
 
-using System;
 using System.Windows;
 using System.Windows.Media;
 using VideoWall.Common.ViewHelpers;
 using VideoWall.ResourceLoader;
-using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
 

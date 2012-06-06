@@ -15,11 +15,9 @@
 
 #region Usings
 
-using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
 
