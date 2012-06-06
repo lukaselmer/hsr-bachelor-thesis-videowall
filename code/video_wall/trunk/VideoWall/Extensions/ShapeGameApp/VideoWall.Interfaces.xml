@@ -4,89 +4,22 @@
         <name>VideoWall.Interfaces</name>
     </assembly>
     <members>
-        <member name="T:VideoWall.Interfaces.ISkeletonService">
-            <summary>
-              The skeleton service provides the skeletal tracking
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:VideoWall.Interfaces.IVideoWallService">
-            <summary>
-              Marker interface: represents a video wall extension
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
-            <summary>
-              Occurs when skeleton changes.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
-            <summary>
-              The skeleton changed event args
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
-            </summary>
-            <param name="skeleton"> The skeleton. </param>
-        </member>
-        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
-            <summary>
-              Gets the skeleton.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.IFileService">
-            <summary>
-              The file service provides a directory where an exension has read and write access
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
-            <summary>
-              Gets the path to the resource directory
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
         <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
             <summary>
               Provides services for the video wall, like hand tracking, skeleton tracking or a file service
             </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
         <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
             <summary>
-              Gets an implementation of the interface which is provided by the video wall
+            Gets an implementation of the interface which is provided by the video wall
             </summary>
-            <typeparam name="T"> </typeparam>
-            <returns> </returns>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:VideoWall.Interfaces.IApp">
             <summary>
               This is the entry point for the framework. Every application must implement that interface.
             </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
         <member name="M:VideoWall.Interfaces.IApp.Activate(VideoWall.Interfaces.IVideoWallServiceProvider)">
             <summary>
@@ -98,9 +31,6 @@
             <summary>
               Gets the main view.
             </summary>
-            <remarks>
-              If the application should run without System.Windwos, using UserControl is the wrong aproach. But since until now (05.06.2012) this is not the case, it would be overengineered if implemented otherwise.
-            </remarks>
         </member>
         <member name="P:VideoWall.Interfaces.IApp.Name">
             <summary>
@@ -110,6 +40,52 @@
         <member name="P:VideoWall.Interfaces.IApp.DemomodeText">
             <summary>
               Gets the demomode text.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IFileService">
+            <summary>
+              The file service provides a directory where an exension has read and write access
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IVideoWallService">
+            <summary>
+              Marker interface: represents a video wall extension
+            </summary>
+        </member>
+        <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
+            <summary>
+              Gets the path to the resource directory
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.ISkeletonService">
+            <summary>
+            The skeleton service provides the skeletal tracking
+            </summary>
+        </member>
+        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
+            <summary>
+            Occurs when skeleton changes.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
+            <summary>
+            The skeleton changed event args
+            </summary>
+        </member>
+        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
+            </summary>
+            <param name="skeleton">The skeleton.</param>
+        </member>
+        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
+            <summary>
+            Gets the skeleton.
             </summary>
         </member>
     </members>

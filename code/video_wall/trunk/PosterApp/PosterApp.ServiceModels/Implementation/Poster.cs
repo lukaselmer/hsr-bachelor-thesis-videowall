@@ -15,7 +15,6 @@
 
 #region Usings
 
-using System.IO;
 using System.Windows.Media.Imaging;
 using PosterApp.ServiceModels.Interfaces;
 using VideoWall.Common.Helpers;
@@ -35,11 +34,6 @@ namespace PosterApp.ServiceModels.Implementation
         #region Properties
 
         /// <summary>
-        ///   Gets the name.
-        /// </summary>
-        public string Name { get; private set; }
-
-        /// <summary>
         ///   Gets the image.
         /// </summary>
         public BitmapImage Image { get; private set; }
@@ -54,7 +48,6 @@ namespace PosterApp.ServiceModels.Implementation
         /// <param name="fileName"> Name of the file. </param>
         public Poster(string fileName)
         {
-            Name = Path.GetFileNameWithoutExtension(fileName);
             Image = ImageHelper.InitWithFileName(fileName);
         }
 

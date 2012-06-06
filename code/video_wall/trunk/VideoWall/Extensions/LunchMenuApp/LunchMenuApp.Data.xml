@@ -4,14 +4,6 @@
         <name>LunchMenuApp.Data</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Data.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.Data"/> namespace contains classes of the data layer.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
         <member name="T:LunchMenuApp.Data.Implementation.LunchMenuReader">
             <summary>
               The luch menu reader.
@@ -45,6 +37,14 @@
             <summary>
               Gets the HTML of the current mensa menu.
             </summary>
+        </member>
+        <member name="T:LunchMenuApp.Data.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.Data"/> namespace contains classes of the data layer.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
     </members>
 </doc>

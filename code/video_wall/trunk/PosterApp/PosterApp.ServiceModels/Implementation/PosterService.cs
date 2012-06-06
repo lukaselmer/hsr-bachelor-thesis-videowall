@@ -17,7 +17,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using PosterApp.Data.Implementation;
 using PosterApp.Data.Interfaces;
 using PosterApp.ServiceModels.Interfaces;
 

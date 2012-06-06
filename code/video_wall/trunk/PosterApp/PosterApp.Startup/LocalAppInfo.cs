@@ -24,6 +24,7 @@ namespace PosterApp.Startup
 {
     /// <summary>
     /// The local app info.
+    /// Only used for local development without video wall framework.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

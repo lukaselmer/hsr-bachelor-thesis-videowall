@@ -22,6 +22,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media.Animation;
+using VideoWall.Common.Logging;
 using VideoWall.ServiceModels.HandCursor;
 using VideoWall.ViewModels.Cursor;
 using VideoWall.ViewModels.HitButton;
@@ -162,8 +163,9 @@ namespace VideoWall.Views.Xaml
         private void InitShutdownRoutine()
         {
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-            Closed += delegate
+            Closing += delegate
             {
+                Logger.Get.Info("Shutdown initiated.");
                 // If the application cannot shut down properly, ensure that everything is stopped eventually (after 4000 milliseconds).
                 new Timer(state => Process.GetCurrentProcess().Kill(), null, 4000, Timeout.Infinite);
             };

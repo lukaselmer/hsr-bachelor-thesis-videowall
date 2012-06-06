@@ -4,44 +4,80 @@
         <name>PosterApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.ServiceModels.Poster">
+        <member name="T:PosterApp.ServiceModels.Interfaces.IPosterService">
+            <summary>
+            The poster service interface.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Interfaces.IPosterService.Posters">
+            <summary>
+              Gets or sets and notifies the posters.
+            </summary>
+            <value> The posters. </value>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Implementation.Poster">
             <summary>
               The Poster.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:PosterApp.ServiceModels.Poster.#ctor(System.String)">
+        <member name="T:PosterApp.ServiceModels.Interfaces.IPoster">
             <summary>
-              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Poster"/> class.
+            The poster interface.
             </summary>
-            <param name="fileName"> Name of the file. </param>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="P:PosterApp.ServiceModels.Poster.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Poster.Image">
+        <member name="P:PosterApp.ServiceModels.Interfaces.IPoster.Image">
             <summary>
               Gets the image.
             </summary>
         </member>
-        <member name="T:PosterApp.ServiceModels.PosterService">
+        <member name="M:PosterApp.ServiceModels.Implementation.Poster.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.Poster"/> class.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Implementation.Poster.Image">
+            <summary>
+              Gets the image.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Implementation.PosterService">
             <summary>
               The PosterService
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:PosterApp.ServiceModels.PosterService.#ctor(PosterApp.Data.PosterReader)">
+        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.#ctor(PosterApp.Data.Interfaces.IPosterReader)">
             <summary>
-              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.PosterService"/> class.
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.PosterService"/> class.
             </summary>
             <param name="posterReader"> The poster reader. </param>
         </member>
-        <member name="M:PosterApp.ServiceModels.PosterService.ReadFromPosterReader">
+        <member name="M:PosterApp.ServiceModels.Implementation.PosterService.ReadFromPosterReader">
             <summary>
               Reads from poster reader.
             </summary>
         </member>
-        <member name="P:PosterApp.ServiceModels.PosterService.Posters">
+        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.PosterReader">
+            <summary>
+            Gets or sets the poster reader.
+            </summary>
+            <value>
+            The poster reader.
+            </value>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.Posters">
             <summary>
               Gets or sets and notifies the posters.
             </summary>
@@ -51,6 +87,9 @@
             <summary>
               The <see cref="N:PosterApp.ServiceModels"/> namespace contains service classes.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
     </members>
 </doc>

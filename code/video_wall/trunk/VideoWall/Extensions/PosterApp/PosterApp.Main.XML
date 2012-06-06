@@ -4,6 +4,46 @@
         <name>PosterApp.Main</name>
     </assembly>
     <members>
+        <member name="T:PosterApp.Main.PosterApp">
+            <summary>
+            The poster app.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:PosterApp.Main.PosterApp.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PosterApp.Main.PosterApp"/> class.
+            </summary>
+        </member>
+        <member name="M:PosterApp.Main.PosterApp.Activate(VideoWall.Interfaces.IVideoWallServiceProvider)">
+            <summary>
+            Activates the specified service provider.
+            </summary>
+            <param name="serviceProvider">The service provider.</param>
+        </member>
+        <member name="M:PosterApp.Main.PosterApp.ConfigureUnityContainer">
+            <summary>
+            Loads the and configures the unity container.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PosterApp.Main.PosterApp.MainView">
+            <summary>
+            Gets the main view.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Main.PosterApp.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Main.PosterApp.DemomodeText">
+            <summary>
+            Gets the demomode text.
+            </summary>
+        </member>
         <member name="T:PosterApp.Main.NamespaceDoc">
             <summary>
               The <see cref="!:PosterApp.Main"/> namespace contains the main.

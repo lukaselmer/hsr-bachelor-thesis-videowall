@@ -11,11 +11,6 @@ namespace PosterApp.ServiceModels.Interfaces
     public interface IPoster
     {
         /// <summary>
-        ///   Gets the name.
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
         ///   Gets the image.
         /// </summary>
         BitmapImage Image { get; }

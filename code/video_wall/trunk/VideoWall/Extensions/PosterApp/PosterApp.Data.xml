@@ -4,29 +4,48 @@
         <name>PosterApp.Data</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.Data.PosterReader">
+        <member name="T:PosterApp.Data.NamespaceDoc">
             <summary>
-              The Poster Reader
+              The <see cref="N:PosterApp.Data"/> namespace contains classes of the data layer.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="M:PosterApp.Data.PosterReader.#ctor(VideoWall.Interfaces.IVideoWallServiceProvider)">
+        <member name="T:PosterApp.Data.Interfaces.IPosterReader">
             <summary>
-              Initializes a new instance of the <see cref="T:PosterApp.Data.PosterReader"/> class.
+            The poster reader provides the data for the posters.
             </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
-        <member name="P:PosterApp.Data.PosterReader.Path">
-            <summary>
-              Gets the path of the files.
-            </summary>
-        </member>
-        <member name="P:PosterApp.Data.PosterReader.Files">
+        <member name="P:PosterApp.Data.Interfaces.IPosterReader.Files">
             <summary>
               Gets the files.
             </summary>
         </member>
-        <member name="T:PosterApp.Data.NamespaceDoc">
+        <member name="T:PosterApp.Data.Implementation.PosterReader">
             <summary>
-              The <see cref="N:PosterApp.Data"/> namespace contains classes of the data layer.
+              The Poster Reader
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:PosterApp.Data.Implementation.PosterReader.#ctor(VideoWall.Interfaces.IVideoWallServiceProvider)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.Data.Implementation.PosterReader"/> class.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Data.Implementation.PosterReader.Path">
+            <summary>
+              Gets the path of the files.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Data.Implementation.PosterReader.Files">
+            <summary>
+              Gets the files.
             </summary>
         </member>
     </members>

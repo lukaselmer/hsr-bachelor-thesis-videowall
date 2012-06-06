@@ -16,11 +16,8 @@
 #region Usings
 
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using PosterApp.ServiceModels;
-using PosterApp.ServiceModels.Implementation;
 using PosterApp.ServiceModels.Interfaces;
 using VideoWall.Common.ViewHelpers;
 

@@ -4,6 +4,107 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.Extensions.RandomExtension">
+            <summary>
+              The random extension for the IEnumerable interface
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+              Gets a random element of the list.
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="enumerable"> The enumerable. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:VideoWall.Common.Logging.Logger">
+            <summary>
+              The Logger wrapper.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logging.Logger.Get">
+            <summary>
+              Gets the currrent logger
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.ImageHelper">
+            <summary>
+              The image helper provides helper methods for images.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.ImageHelper.InitWithFileName(System.String)">
+            <summary>
+              Initializes an image with a file name.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+            <returns> The image. </returns>
+        </member>
+        <member name="T:VideoWall.Common.ViewHelpers.Command">
+            <summary>
+              Implementation of the ICommand Interface
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+            <param name="canExecute"> The canexecute predicate. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.Execute(System.Object)">
+            <summary>
+              Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.CanExecute(System.Object)">
+            <summary>
+              Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+            <returns> true if this command can be executed; otherwise, false. </returns>
+        </member>
+        <member name="M:VideoWall.Common.ViewHelpers.Command.RaiseCanExecuteChanged">
+            <summary>
+              Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="E:VideoWall.Common.ViewHelpers.Command.CanExecuteChanged">
+            <summary>
+              Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:VideoWall.Common.Helpers.PreOrPostCondition">
             <summary>
               Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
@@ -63,45 +164,6 @@
               Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
             </summary>
         </member>
-        <member name="T:VideoWall.Common.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:VideoWall.Common.Helpers.ImageHelper">
-            <summary>
-              The image helper provides helper methods for images.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Helpers.ImageHelper.InitWithFileName(System.String)">
-            <summary>
-              Initializes an image with a file name.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-            <returns> The image. </returns>
-        </member>
-        <member name="T:VideoWall.Common.Extensions.RandomExtension">
-            <summary>
-              The random extension for the IEnumerable interface
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-              Gets a random element of the list.
-            </summary>
-            <typeparam name="T"> </typeparam>
-            <param name="enumerable"> The enumerable. </param>
-            <returns> </returns>
-        </member>
         <member name="T:VideoWall.Common.ViewHelpers.Notifier">
             <summary>
               Implementation of INotifyPropertyChanged
@@ -131,68 +193,6 @@
             </summary>
             <remarks>
             </remarks>
-        </member>
-        <member name="T:VideoWall.Common.ViewHelpers.Command">
-            <summary>
-              Implementation of the ICommand Interface
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
-            </summary>
-            <param name="execute"> The execute action. </param>
-            <param name="canExecute"> The canexecute predicate. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.#ctor(System.Action{System.Object})">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Common.ViewHelpers.Command"/> class.
-            </summary>
-            <param name="execute"> The execute action. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.Execute(System.Object)">
-            <summary>
-              Defines the method to be called when the command is invoked.
-            </summary>
-            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.CanExecute(System.Object)">
-            <summary>
-              Defines the method that determines whether the command can execute in its current state.
-            </summary>
-            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
-            <returns> true if this command can be executed; otherwise, false. </returns>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Command.RaiseCanExecuteChanged">
-            <summary>
-              Raises the can execute changed.
-            </summary>
-        </member>
-        <member name="E:VideoWall.Common.ViewHelpers.Command.CanExecuteChanged">
-            <summary>
-              Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.Logging.Logger">
-            <summary>
-              The Logger wrapper.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
-            <summary>
-              The Logger
-            </summary>
-        </member>
-        <member name="P:VideoWall.Common.Logging.Logger.Get">
-            <summary>
-              Gets the currrent logger
-            </summary>
         </member>
     </members>
 </doc>
