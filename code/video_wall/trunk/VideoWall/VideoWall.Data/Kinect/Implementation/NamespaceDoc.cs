@@ -1,9 +1,9 @@
-﻿#region Header
+#region Header
 
 // ------------------------ Licence / Copyright ------------------------
 // 
 // HSR Video Wall
-// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// Copyright � Lukas Elmer, Christina Heidt, Delia Treichler
 // All Rights Reserved
 // 
 // Authors:
@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.Main
+namespace VideoWall.Data.Kinect.Implementation
 {
     /// <summary>
-    ///   The <see cref="VideoWall.Main" /> namespace contains the startup routine and the configuration for the application. It starts the main view.
+    ///   The <see cref="VideoWall.Data.Kinect.Implementation" /> namespace contains the classes of the data layer.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace VideoWall.Main
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
         //This class is necessary to comment the namespace
-        //VideoWall.Main but ReSharper marks this class as unused.
+        //VideoWall.Data.Kinect.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
         // ReSharper restore UnusedMember.Global
     {

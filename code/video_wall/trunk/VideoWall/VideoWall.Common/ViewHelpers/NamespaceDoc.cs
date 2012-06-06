@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.Common
+namespace VideoWall.Common.ViewHelpers
 {
     /// <summary>
-    ///   The <see cref="VideoWall.Common" /> namespace contains classes which are used in different projects.
+    ///   The <see cref="VideoWall.Common.ViewHelpers" /> namespace contains helpers for the view.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace VideoWall.Common
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
         //This class is necessary to comment the namespace
-        //VideoWall.Common but ReSharper marks this class as unused.
+        //VideoWall.Common.ViewHelpers but ReSharper marks this class as unused.
     internal class NamespaceDoc
         // ReSharper restore UnusedMember.Global
     {

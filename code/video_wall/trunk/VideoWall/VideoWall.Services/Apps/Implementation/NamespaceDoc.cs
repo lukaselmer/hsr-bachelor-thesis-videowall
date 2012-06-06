@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.Main
+namespace VideoWall.ServiceModels.Apps.Implementation
 {
     /// <summary>
-    ///   The <see cref="VideoWall.Main" /> namespace contains the startup routine and the configuration for the application. It starts the main view.
+    ///   The <see cref="VideoWall.ServiceModels.Apps.Implementation" /> namespace contains classes for the handling the apps.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace VideoWall.Main
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
         //This class is necessary to comment the namespace
-        //VideoWall.Main but ReSharper marks this class as unused.
+        //VideoWall.ServiceModels.Apps.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
         // ReSharper restore UnusedMember.Global
     {

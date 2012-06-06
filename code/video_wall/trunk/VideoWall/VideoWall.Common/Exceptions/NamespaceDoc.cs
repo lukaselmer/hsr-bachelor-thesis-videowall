@@ -19,10 +19,10 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.Main
+namespace VideoWall.Common.Exceptions
 {
     /// <summary>
-    ///   The <see cref="VideoWall.Main" /> namespace contains the startup routine and the configuration for the application. It starts the main view.
+    ///   The <see cref="VideoWall.Common.Exceptions" /> namespace contains exceptions.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -30,7 +30,7 @@ namespace VideoWall.Main
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
         //This class is necessary to comment the namespace
-        //VideoWall.Main but ReSharper marks this class as unused.
+        //VideoWall.Common.Exceptions but ReSharper marks this class as unused.
     internal class NamespaceDoc
         // ReSharper restore UnusedMember.Global
     {

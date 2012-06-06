@@ -19,20 +19,20 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.ServiceModels.Player
+namespace VideoWall.Data.Kinect.Interfaces
 {
     /// <summary>
-    ///   The <see cref="VideoWall.ServiceModels.Player" /> namespace contains classes for the Kinect player.
+    ///   The <see cref="VideoWall.Data.Kinect.Interfaces" /> namespace contains the interfaces of the data layer.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
-    //This class is necessary to comment the namespace
-    //VideoWall.ServiceModels.Player but ReSharper marks this class as unused.
+        //This class is necessary to comment the namespace
+        //VideoWall.Data.Kinect.Interfaces but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedMember.Global
     {
     }
 }

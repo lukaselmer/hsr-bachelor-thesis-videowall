@@ -50,12 +50,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\NamespaceDoc.cs" />
+    <Compile Include="Extensions\NamespaceDoc.cs" />
     <Compile Include="Extensions\RandomExtension.cs" />
     <Compile Include="Exceptions\VideoWallException.cs" />
+    <Compile Include="Helpers\NamespaceDoc.cs" />
+    <Compile Include="Logging\NamespaceDoc.cs" />
     <Compile Include="ViewHelpers\Command.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="ViewHelpers\NamespaceDoc.cs" />
     <Compile Include="ViewHelpers\Notifier.cs" />
     <Compile Include="Helpers\PreOrPostCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

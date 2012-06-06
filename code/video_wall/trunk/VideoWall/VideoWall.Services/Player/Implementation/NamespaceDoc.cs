@@ -1,9 +1,9 @@
-﻿#region Header
+#region Header
 
 // ------------------------ Licence / Copyright ------------------------
 // 
 // HSR Video Wall
-// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// Copyright � Lukas Elmer, Christina Heidt, Delia Treichler
 // All Rights Reserved
 // 
 // Authors:
@@ -19,20 +19,20 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor
+namespace VideoWall.ServiceModels.Player.Implementation
 {
     /// <summary>
-    ///   The <see cref="VideoWall.ServiceModels.HandCursor" /> namespace contains classes for the hand cursor.
+    ///   The <see cref="VideoWall.ServiceModels.Player.Implementation" /> namespace contains classes for the Kinect player.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
-    //This class is necessary to comment the namespace
-    //VideoWall.ServiceModels.HandCursor but ReSharper marks this class as unused.
+        //This class is necessary to comment the namespace
+        //VideoWall.ServiceModels.Player.Implementation but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
+        // ReSharper restore UnusedMember.Global
     {
     }
 }
