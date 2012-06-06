@@ -46,7 +46,6 @@ namespace VideoWall.ServiceModels.Apps.Implementation
 
         //
         // Additional info for possible extension:
-        //
         // If dynamic loading (of extensions while the application is running) is needed, try something like this:
         //
         // var watcher = new FileSystemWatcher(folderNameOfExtensions) { EnableRaisingEvents = true };

@@ -16,6 +16,7 @@
 #region Usings
 
 using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,11 +36,13 @@ namespace VideoWall.ResourceLoader
 
         /// <summary>
         ///   The resource dictionary is loaded from the xaml file.
+        ///   It is wrapped in a thread local because like this the resources are availible in every thread. This
+        ///   is especially important for the unit tests because they run parallel in multiple threads.
         /// </summary>
-        private static readonly ResourceDictionary ResourceDictionary = new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
-            };
+        static readonly ThreadLocal<ResourceDictionary> ResourceDictionary = new ThreadLocal<ResourceDictionary>(() => new ResourceDictionary
+        {
+            Source = new Uri("pack://application:,,,/VideoWall.ResourceLoader;component/Resources.xaml")
+        });
 
         #endregion
 
@@ -65,7 +68,7 @@ namespace VideoWall.ResourceLoader
         /// <returns> </returns>
         private static ResourceDictionary GetResources()
         {
-            return ResourceDictionary;
+            return ResourceDictionary.Value;
         }
 
         /// <summary>

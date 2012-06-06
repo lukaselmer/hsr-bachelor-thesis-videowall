@@ -5,9 +5,8 @@ using VideoWall.ResourceLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
 
-// Test methods do not need to be documented by a comment
 
-namespace VideoWall.Tests
+namespace VideoWall.Tests.ResourceProvider
 {
     /// <summary>
     ///This is a test class for ResourceProviderTest and is intended
@@ -16,47 +15,6 @@ namespace VideoWall.Tests
     [TestClass]
     public class ResourceProviderTest
     {
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-        /// <summary>
-        /// The ResourceProvider needs to access resources with the url scheme "pack://...". Therefore
-        /// an application is needed.
-        /// </summary>
-        /// <param name="testContext">The test context.</param>
-        [ClassInitialize]
-        public static void MyClassInitialize(TestContext testContext)
-        {
-            if (!UriParser.IsKnownScheme("pack")) new Application();
-        }
-
         /// <summary>
         ///A test for GetResources
         ///</summary>
@@ -64,8 +22,9 @@ namespace VideoWall.Tests
         [DeploymentItem("VideoWall.ResourceLoader.dll")]
         public void GetResourcesTest()
         {
+            new Application();
             var actual = ResourceProvider_Accessor.GetResources();
-            Assert.AreSame(ResourceProvider_Accessor.ResourceDictionary, actual);
+            Assert.AreSame(ResourceProvider_Accessor.ResourceDictionary.Value, actual);
         }
 
         /// <summary>
@@ -90,7 +49,7 @@ namespace VideoWall.Tests
         {
             const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
             var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-            var actual = ResourceProvider.HandLeft;
+            var actual = ResourceLoader.ResourceProvider.HandLeft;
             Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
 
@@ -102,14 +61,19 @@ namespace VideoWall.Tests
         {
             const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png";
             var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
-            var actual = ResourceProvider.HandRight;
+            var actual = ResourceLoader.ResourceProvider.HandRight;
             Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
 
+        /// <summary>
+        /// Tests the image equality.
+        /// </summary>
+        /// <param name="a">A.</param>
+        /// <param name="b">The b.</param>
+        /// <returns>Weather the images are equal or not.</returns>
         private static bool TestImageEquality(Image a, Image b)
         {
-            const double epsilon = 0.01;
-            return Math.Abs(a.Source.Height - b.Source.Height) < epsilon && Math.Abs(a.Source.Width - b.Source.Width) < epsilon;
+            return a.Source.ToString() == b.Source.ToString();
         }
     }
 }
