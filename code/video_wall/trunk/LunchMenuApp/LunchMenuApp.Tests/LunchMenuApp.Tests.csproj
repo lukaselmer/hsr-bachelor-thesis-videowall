@@ -60,6 +60,10 @@
   <ItemGroup>
     <Compile Include="Data\NamespaceDoc.cs" />
     <Compile Include="Data\LunchMenuReaderTest.cs" />
+    <Compile Include="ViewModels\DishViewModelTest.cs" />
+    <Compile Include="ViewModels\LunchMenuMock.cs" />
+    <Compile Include="ViewModels\LunchMenuServiceMock.cs" />
+    <Compile Include="ViewModels\LunchMenuViewModelTest.cs" />
     <Compile Include="ServiceModels\LunchMenuServiceTest.cs" />
     <Compile Include="Mocks\LunchMenuParserMock.cs" />
     <Compile Include="ServiceModels\LunchMenuTest.cs" />
@@ -85,9 +89,14 @@
       <Project>{A85D6AB4-3537-4497-9C4C-C12BB3028D98}</Project>
       <Name>LunchMenuApp.ServiceModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LunchMenuApp.ViewModels\LunchMenuApp.ViewModels.csproj">
+      <Project>{CBE0B5B5-1D00-4BBC-A6D0-7F8E846A1185}</Project>
+      <Name>LunchMenuApp.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Shadow Include="Test References\LunchMenuApp.ViewModels.accessor" />
     <Shadow Include="Test References\LunchMenuApp.ServiceModels.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

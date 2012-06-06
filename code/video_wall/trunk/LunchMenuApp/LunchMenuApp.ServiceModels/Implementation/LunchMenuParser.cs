@@ -61,16 +61,6 @@ namespace LunchMenuApp.ServiceModels.Implementation
 
         #endregion
 
-        #region Constructors / Destructor
-
-        /// <summary>
-        /// Parses the dishes and the menu date from the html
-        /// </summary>
-        /// ///
-        internal LunchMenuParser() { }
-
-        #endregion
-
         #region Methods
 
         /// <summary>
