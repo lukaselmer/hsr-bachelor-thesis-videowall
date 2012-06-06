@@ -35,7 +35,7 @@ namespace PosterApp.ServiceModels.Implementation
     public class PosterService : IPosterService
     // ReSharper restore UnusedMember.Global
     {
-        #region Properties
+        #region Declarations
 
         /// <summary>
         /// Gets or sets the poster reader.
@@ -43,7 +43,11 @@ namespace PosterApp.ServiceModels.Implementation
         /// <value>
         /// The poster reader.
         /// </value>
-        private IPosterReader PosterReader { get; set; }
+        private readonly IPosterReader _posterReader;
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         ///   Gets or sets and notifies the posters.
@@ -61,7 +65,7 @@ namespace PosterApp.ServiceModels.Implementation
         /// <param name="posterReader"> The poster reader. </param>
         public PosterService(IPosterReader posterReader)
         {
-            PosterReader = posterReader;
+            _posterReader = posterReader;
             ReadFromPosterReader();
         }
 
@@ -74,7 +78,7 @@ namespace PosterApp.ServiceModels.Implementation
         /// </summary>
         private void ReadFromPosterReader()
         {
-            Posters = PosterReader.Files.Select(file => new Poster(file));
+            Posters = _posterReader.Files.Select(file => new Poster(file));
         }
 
         #endregion

@@ -48,6 +48,7 @@ namespace PosterApp.ServiceModels.Implementation
         /// <param name="fileName"> Name of the file. </param>
         public Poster(string fileName)
         {
+            PreOrPostCondition.AssertNotNullOrEmpty(fileName, "fileName");
             Image = ImageHelper.InitWithFileName(fileName);
         }
 
