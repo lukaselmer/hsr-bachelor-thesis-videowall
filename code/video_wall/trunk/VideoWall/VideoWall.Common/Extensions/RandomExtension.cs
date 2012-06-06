@@ -43,10 +43,14 @@ namespace VideoWall.Common.Extensions
         public static T RandomElement<T>(this IEnumerable<T> enumerable)
         {
             PreOrPostCondition.AssertNotNull(enumerable, "enumerable");
+            // ReSharper disable PossibleMultipleEnumeration
+            // PreOrPostCondition.AssertNotNull is own implementation of assert, 
+            // so ReSharper thinks there is no assert, which is worng.
             if (!enumerable.Any()) return default(T);
 
             var randomIndex = Random.Next(enumerable.Count());
             return enumerable.ElementAt(randomIndex);
+            // ReSharper restore PossibleMultipleEnumeration
         }
     }
 }

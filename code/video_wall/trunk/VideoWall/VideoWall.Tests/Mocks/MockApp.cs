@@ -15,6 +15,7 @@ namespace VideoWall.Tests.Mocks
 
         public MockApp()
         {
+            MainView = null;
             Name = "MockApp";
             DemomodeText = "MockAppText";
         }

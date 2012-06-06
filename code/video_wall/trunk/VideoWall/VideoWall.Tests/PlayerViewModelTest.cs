@@ -1,6 +1,4 @@
-﻿using VideoWall.Data.Kinect;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VideoWall.ServiceModels.Player;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace VideoWall.Tests
 {
@@ -10,7 +8,7 @@ namespace VideoWall.Tests
     ///This is a test class for PlayerViewModelTest and is intended
     ///to contain all PlayerViewModelTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class PlayerViewModelTest
     {
         
@@ -50,7 +48,7 @@ namespace VideoWall.Tests
         [TestMethod()]
         public void PlayerViewModelConstructorTest()
         {
-            // TODO: fix this test
+            // BUG: fix this test
             /*const string path = "..\\..\\..\\..\\..\\..\\kinect_records\\20120312_lukas\\_2.replay";
             ISkeletonReader isr = new AutoPlayFileSkeletonReader(new KinectReplayFile(path));
             var player = new Player(isr);

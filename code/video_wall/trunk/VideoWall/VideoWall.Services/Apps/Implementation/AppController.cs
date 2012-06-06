@@ -21,7 +21,6 @@ using System.Linq;
 using VideoWall.Common.Exceptions;
 using VideoWall.Common.Helpers;
 using VideoWall.Common.Logging;
-using VideoWall.Data.Kinect.Implementation;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps.Interfaces;
 using VideoWall.ServiceModels.Player.Interfaces;

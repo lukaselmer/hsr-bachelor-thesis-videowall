@@ -67,7 +67,7 @@ namespace VideoWall.ViewModels.HitButton
         ///   Gets or sets the hit elements.
         /// </summary>
         /// <value> The hit elements. </value>
-        public IEnumerable<UIElement> HitElements { get; set; }
+        public IEnumerable<UIElement> HitElements { private get; set; }
 
         #endregion
 
@@ -157,7 +157,7 @@ namespace VideoWall.ViewModels.HitButton
         /// <param name="e"> The <see cref="System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data. </param>
         private void OnModelChanged(object sender, PropertyChangedEventArgs e)
         {
-            // TODO: this could be refactored?
+            // NOTE: this method could be refactored so buttons which are added dynamically are hittable and therefore "clickable" by the kinect hand cursor.
 
             foreach (var element in HitElements)
             {

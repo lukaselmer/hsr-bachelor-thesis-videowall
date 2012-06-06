@@ -19,7 +19,6 @@ using System;
 using System.IO;
 using VideoWall.Common.Exceptions;
 using VideoWall.Common.Logging;
-using VideoWall.Data.Kinect.Implementation;
 using VideoWall.Interfaces;
 
 #endregion
@@ -37,7 +36,6 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     internal class FileService : IFileService
     // ReSharper restore ClassNeverInstantiated.Global
     {
-        //TODO: extract folder name?
         private const string SubdirectoryNameForFileService = "Files";
 
         #region Properties

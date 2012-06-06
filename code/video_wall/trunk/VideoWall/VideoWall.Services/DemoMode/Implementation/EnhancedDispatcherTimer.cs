@@ -55,7 +55,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
 
             _timer = new DispatcherTimer { Interval = toDemoModeTimeSpan };
             _timer.Tick += eventHandler;
-            if (started) _timer.Start(); // TODO: stop the timer?
+            if (started) _timer.Start();
         }
 
         #endregion

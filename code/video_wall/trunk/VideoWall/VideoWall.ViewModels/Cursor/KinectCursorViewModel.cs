@@ -45,7 +45,7 @@ namespace VideoWall.ViewModels.Cursor
     {
         #region Declarations
 
-        //TODO: move numbers to settings
+        // NOTE: the smoothing level could be moved to the configuration
 
         /// <summary>
         /// The cursor smoothing level represents the size of the skeleton history queue. The bigger the
@@ -120,11 +120,6 @@ namespace VideoWall.ViewModels.Cursor
         /// </summary>
         public ImageSource HandCursorImageSource { get { return ActiveHand == HandType.Right ? ResourceProvider.HandRight.Source : ResourceProvider.HandLeft.Source; } }
 
-        /// <summary>
-        ///   Occurs when hand has changed.
-        /// </summary>
-        public event EventHandler<HandChangedEventArgs> HandChanged = delegate { };
-
         #endregion
 
         #region Constructors / Destructor
@@ -158,7 +153,6 @@ namespace VideoWall.ViewModels.Cursor
         private void OnHandChanged(object sender, HandChangedEventArgs eventArgs)
         {
             ActiveHand = eventArgs.HandType;
-            HandChanged(this, eventArgs);
         }
 
         /// <summary>
@@ -168,34 +162,11 @@ namespace VideoWall.ViewModels.Cursor
         /// <param name="args"> The <see cref="VideoWall.Interfaces.SkeletonChangedEventArgs" /> instance containing the event data. </param>
         private void PlayerModelChanged(object sender, SkeletonChangedEventArgs args)
         {
-            //if (e.PropertyName != "Skeleton") return;
-
             if (_skeletonHistory.Count >= CursorSmoothingLevel) _skeletonHistory.Dequeue();
             _skeletonHistory.Enqueue(_player.Skeleton);
             _latestSkeleton = _player.Skeleton;
 
             Notify("Position");
-        }
-
-        //TODO: implement this?
-        // <summary>
-        //   Unregisters the notification and the player stops playing.
-        // </summary>
-        //public void Dispose()
-        //{
-        //    _player.SkeletonChanged -= PlayerModelChanged;
-        //}
-
-        //TODO: why is this unused?
-        /// <summary>
-        ///   Notifies when the window size is changed.
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> The <see cref="System.Windows.SizeChangedEventArgs" /> instance containing the event data. </param>
-        public void WindowSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            WindowWidth = e.NewSize.Width;
-            WindowHeight = e.NewSize.Height;
         }
 
         #endregion

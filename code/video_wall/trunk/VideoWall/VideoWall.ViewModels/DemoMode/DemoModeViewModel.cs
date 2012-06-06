@@ -125,7 +125,7 @@ namespace VideoWall.ViewModels.DemoMode
             _menuViewModel.PropertyChanged += (sender, args) => Notify("TeaserText");
 
             _playerViewModel = playerViewModel;
-            _playerViewModel.WidthAndHeight = 500; //TODO: use relative value or extract to options
+            _playerViewModel.WidthAndHeight = 500; //NOTE: a relative value could be used here
         }
 
         #endregion

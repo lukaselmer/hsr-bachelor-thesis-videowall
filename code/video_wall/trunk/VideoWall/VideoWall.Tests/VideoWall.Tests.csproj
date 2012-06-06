@@ -71,11 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoModeConfigMock.cs" />
-    <Compile Include="ExtensionManagerTest.cs" />
-    <Compile Include="FileServiceTest.cs" />
-    <Compile Include="MenuViewModelTest.cs" />
     <Compile Include="Mocks\MockApp.cs" />
-    <Compile Include="ModeTimerTest.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="PlayerViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

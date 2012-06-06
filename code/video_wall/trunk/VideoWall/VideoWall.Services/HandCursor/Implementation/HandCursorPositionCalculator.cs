@@ -85,7 +85,6 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
         /// <param name="relativePaddingForRightHanded"> The relative padding for right hander. </param>
         public HandCursorPositionCalculator(RelativePadding relativePaddingForRightHanded)
         {
-            // TODO: document this better?
             _relativePaddingForRightHanded = relativePaddingForRightHanded;
             _relativePaddingForLeftHanded = new RelativePadding(_relativePaddingForRightHanded.Right, _relativePaddingForRightHanded.Top, _relativePaddingForRightHanded.Left, _relativePaddingForRightHanded.Bottom);
             RelativePadding = _relativePaddingForRightHanded;

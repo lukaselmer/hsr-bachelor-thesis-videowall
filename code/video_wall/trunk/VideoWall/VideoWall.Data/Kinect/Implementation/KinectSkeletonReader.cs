@@ -89,15 +89,9 @@ namespace VideoWall.Data.Kinect.Implementation
             _kinectSensor.Start();
         }
 
-        //TODO: IDisposable?
-        // <summary>
-        //   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        // </summary>
-        //public void Dispose()
-        //{
-        //    _kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
-        //    _kinectSensor.Stop();
-        //}
+        // NOTE: If kinect sensor should be stoped after object is disposed, it should be implemented here
+        // _kinectSensor.SkeletonFrameReady -= OnKinectSensorOnSkeletonFrameReady;
+        // _kinectSensor.Stop();
 
         /// <summary>
         ///   Called when [kinect sensor on skeleton frame ready].

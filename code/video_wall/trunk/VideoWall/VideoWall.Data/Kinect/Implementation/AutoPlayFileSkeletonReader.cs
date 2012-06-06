@@ -19,7 +19,6 @@ using System;
 using System.IO;
 using System.Windows.Threading;
 using Kinect.Toolbox.Record;
-using VideoWall.Common;
 using VideoWall.Common.Helpers;
 using VideoWall.Data.Kinect.Interfaces;
 
@@ -41,7 +40,6 @@ namespace VideoWall.Data.Kinect.Implementation
     {
         #region Declarations
 
-        // TODO: extract numbers to app.config
         /// <summary>
         /// The interval in which the replay timer check if the replay should be restarted.
         /// </summary>
@@ -125,18 +123,6 @@ namespace VideoWall.Data.Kinect.Implementation
             _skeletonReplay.Start();
             _lastTimeReady = DateTime.Now;
         }
-
-        //TODO: implement this?
-        // <summary>
-        //   Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        // </summary>
-        //public void Dispose()
-        //{
-        //    _replayTimer.Tick -= ReplayTimerOnElapsed;
-        //    _replayTimer.Stop();
-        //    _skeletonReplay.SkeletonFrameReady -= OnSkeletonFrameReady;
-        //    _skeletonReplay.Stop();
-        //}
 
         /// <summary>
         ///   Initializes the replay timer.

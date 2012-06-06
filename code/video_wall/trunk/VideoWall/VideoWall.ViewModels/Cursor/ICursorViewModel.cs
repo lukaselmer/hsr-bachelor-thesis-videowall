@@ -33,8 +33,6 @@ namespace VideoWall.ViewModels.Cursor
     /// </remarks>
     public interface ICursorViewModel : INotifyPropertyChanged
     {
-        //TODO: implement IDisposable?
-
         /// <summary>
         ///   Gets the position.
         /// </summary>
@@ -56,10 +54,5 @@ namespace VideoWall.ViewModels.Cursor
         ///   Gets the hand cursor image source.
         /// </summary>
         ImageSource HandCursorImageSource { get; }
-
-        /// <summary>
-        ///   Occurs when hand has changed.
-        /// </summary>
-        event EventHandler<HandChangedEventArgs> HandChanged; // TODO: inspect this. Why is it not used?
     }
 }

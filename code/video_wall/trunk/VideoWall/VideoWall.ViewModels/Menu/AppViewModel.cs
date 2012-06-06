@@ -33,7 +33,7 @@ namespace VideoWall.ViewModels.Menu
     {
         #region Declarations
 
-        // TODO: extract these colors to config
+        //NOTE: this could be extracted to the configuration
 
         /// <summary>
         /// The colors of the menu (tab) of the running extension (selected).

@@ -35,7 +35,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         /// <summary>
         ///   The auto app change timer changes the app periodically in the demo mode.
         /// </summary>
-        private readonly EnhancedDispatcherTimer _autoAppChangeTimer; //TODO: stop this timer?
+        private readonly EnhancedDispatcherTimer _autoAppChangeTimer;
 
         /// <summary>
         ///   The demo mode configuration
@@ -46,11 +46,6 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         ///   The time when the countdown was started the last time.
         /// </summary>
         private DateTime _countdownStartedAt;
-
-        /// <summary>
-        ///   The demo mode state check timer checks periodically if the state should change based on the time the last skeleton was tracked.
-        /// </summary>
-        private EnhancedDispatcherTimer _demoModeStateCheckTicker; //TODO: stop this timer?
 
         /// <summary>
         ///   The date time when the last skeleton appeared
@@ -115,9 +110,8 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         {
             _demoModeConfig = demoModeConfig;
 
-            // TODO: stop the timers
             _autoAppChangeTimer = new EnhancedDispatcherTimer(AppChangedMethod, _demoModeConfig.ChangeAppTimeSpan);
-            _demoModeStateCheckTicker = new EnhancedDispatcherTimer(CheckAndChangeState, _demoModeConfig.SkeletonCheckTimeSpan, true);
+            new EnhancedDispatcherTimer(CheckAndChangeState, _demoModeConfig.SkeletonCheckTimeSpan, true);
 
             _lastSkeletonTime = DateTime.Now;
             State = VideoWallState.Active;

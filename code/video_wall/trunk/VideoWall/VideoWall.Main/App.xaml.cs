@@ -22,7 +22,6 @@ using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
-using VideoWall.Common;
 using VideoWall.Common.Exceptions;
 using VideoWall.Common.Logging;
 using VideoWall.Views.Xaml;

@@ -47,7 +47,8 @@ namespace VideoWall.Tests
         #endregion
 
         /// <summary>
-        /// TODO: document why this is used.
+        /// The ResourceProvider needs to access resources with the url scheme "pack://...". Therefore
+        /// an application is needed.
         /// </summary>
         /// <param name="testContext">The test context.</param>
         [ClassInitialize]

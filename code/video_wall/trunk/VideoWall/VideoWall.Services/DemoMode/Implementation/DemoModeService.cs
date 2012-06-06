@@ -143,7 +143,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         {
             CurrentBackgroundColor = _demoModeConfig.BackgroundColors.RandomElement();
             DemoModeColorChanged(this, null);
-            DemoModeAppChanged(this, null); //TODO: something is wrong: the app does not change. BUG!?
+            DemoModeAppChanged(this, null);
         }
 
         /// <summary>
