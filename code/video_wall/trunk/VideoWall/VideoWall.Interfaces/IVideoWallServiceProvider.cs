@@ -26,7 +26,7 @@ namespace VideoWall.Interfaces
         #region Methods
 
         /// <summary>
-        ///   Gets an implementation of the interface which is provided by the video wall
+        ///   Gets an implementation of the interface which is provided by the video wall.
         /// </summary>
         /// <typeparam name="T"> </typeparam>
         /// <returns> </returns>

@@ -42,7 +42,7 @@ namespace VideoWall.Common.Logging
         #region Properties
 
         /// <summary>
-        ///   Gets the currrent logger
+        ///   Gets the currrent logger.
         /// </summary>
         public static ILog Get { get { return TheLogger; } }
 

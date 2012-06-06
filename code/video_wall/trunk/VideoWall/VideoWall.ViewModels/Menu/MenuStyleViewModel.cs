@@ -38,15 +38,15 @@ namespace VideoWall.ViewModels.Menu
         public Color FontColor { get; private set; }
 
         /// <summary>
-        ///   Gets the light color for the menu button
+        ///   Gets the light color for the menu button.
         /// </summary>
-        /// <value> The color of the light. </value>
+        /// <value> The light color. </value>
         public Color LightColor { get; private set; }
 
         /// <summary>
-        ///   Gets the dark color for the menu button
+        ///   Gets the dark color for the menu button.
         /// </summary>
-        /// <value> The color of the dark. </value>
+        /// <value> The dark color. </value>
         public Color DarkColor { get; private set; }
 
         /// <summary>

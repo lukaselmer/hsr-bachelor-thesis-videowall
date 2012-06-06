@@ -84,7 +84,7 @@ namespace VideoWall.ViewModels.HitButton
         public event EventHandler<HitStateArgs> Stopped;
 
         /// <summary>
-        ///   Occurs when a element is clicked.
+        ///   Occurs when an element is clicked.
         /// </summary>
         public event EventHandler<HitStateArgs> Clicked;
 

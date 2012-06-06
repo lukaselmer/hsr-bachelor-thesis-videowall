@@ -90,7 +90,7 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
         public event EventHandler DemoModeAppChanged = delegate { };
 
         /// <summary>
-        ///   Occurs when demo mode app should be changed.
+        ///   Occurs when demo mode color should be changed.
         /// </summary>
         public event EventHandler DemoModeColorChanged = delegate { };
 
