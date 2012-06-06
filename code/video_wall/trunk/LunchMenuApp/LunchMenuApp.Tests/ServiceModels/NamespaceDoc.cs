@@ -22,7 +22,7 @@ using System.Runtime.CompilerServices;
 namespace LunchMenuApp.Tests.ServiceModels
 {
     /// <summary>
-    ///   The <see cref="LunchMenuApp.Tests.ServiceModels" /> namespace contains test classes fot the service models.
+    ///   The <see cref="LunchMenuApp.Tests.ServiceModels" /> namespace contains test classes for the service models.
     /// </summary>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
