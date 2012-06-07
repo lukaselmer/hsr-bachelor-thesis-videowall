@@ -11,8 +11,8 @@
         <Grid VerticalAlignment="Center">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20">
-                    <TextBlock FontSize="35" FontFamily="Arial" Margin="0 0 11 0">Mensa Menu</TextBlock>
-                    <TextBlock FontSize="35" FontFamily="Arial" FontWeight="Bold" Text="{Binding Title}" />
+                    <TextBlock FontSize="35" Margin="0 0 11 0">Mensa Menu</TextBlock>
+                    <TextBlock FontSize="35" FontWeight="Bold" Text="{Binding Title}" />
                 </StackPanel>
                 <ItemsControl Grid.Row="1" ItemsSource="{Binding Dishes}">
                     <ItemsControl.ItemsPanel>
