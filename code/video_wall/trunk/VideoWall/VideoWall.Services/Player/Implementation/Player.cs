@@ -108,7 +108,7 @@ namespace VideoWall.ServiceModels.Player.Implementation
         {
             Playing = false;
             _skeletonReader.SkeletonsReady -= OnKinectSensorOnSkeletonFrameReady;
-            // _skeletonReader.Dispose(); TODO: have a look at this
+            // _skeletonReader.Dispose(); NOTE: implementation of IDisposable pattern isn't correct yet
         }
 
         /// <summary>

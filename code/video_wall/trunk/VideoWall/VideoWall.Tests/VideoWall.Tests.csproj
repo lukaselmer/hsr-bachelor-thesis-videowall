@@ -84,7 +84,6 @@
     <Compile Include="ServiceModels\Apps\FileDirectoryForTests.cs" />
     <Compile Include="ServiceModels\Apps\FileServiceTest.cs" />
     <Compile Include="Mocks\MockApp.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceProvider\ResourceProviderTest.cs" />
   </ItemGroup>

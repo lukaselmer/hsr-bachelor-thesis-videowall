@@ -22,7 +22,7 @@ using System.Windows;
 namespace VideoWall.ServiceModels.HandCursor.Implementation
 {
     /// <summary>
-    ///   The zone. //TODO: reference to documentation
+    ///   The zone. For further information please refer to the chapter Entwurf: "Interaktion durch Handtracking" in the documentation.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Christina Heidt, 17.04.2012
