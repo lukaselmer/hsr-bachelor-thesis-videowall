@@ -6,7 +6,7 @@
     <members>
         <member name="T:PosterApp.Main.NamespaceDoc">
             <summary>
-              The <see cref="!:PosterApp.Main"/> namespace contains the main.
+              The <see cref="T:PosterApp.Main`1" /> namespace contains the main.
             </summary>
         </member>
         <member name="T:PosterApp.Main.PosterApp">

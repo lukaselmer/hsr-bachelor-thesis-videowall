@@ -4,6 +4,18 @@
         <name>LunchMenuApp.Data</name>
     </assembly>
     <members>
+        <member name="T:LunchMenuApp.Data.Interfaces.IUrlDownloader">
+            <summary>
+              The interface of the url web downloader.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Data.Interfaces.IUrlDownloader.Download(System.String)">
+            <summary>
+              Downloads the specified URL.
+            </summary>
+            <param name="url"> The URL. </param>
+            <returns> The HTML as string. </returns>
+        </member>
         <member name="T:LunchMenuApp.Data.Implementation.NamespaceDoc">
             <summary>
               The <see cref="N:LunchMenuApp.Data.Implementation"/> namespace contains classes of the data layer.
@@ -30,16 +42,11 @@
               Gets the HTML of the current mensa menu.
             </summary>
         </member>
-        <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.#ctor">
+        <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.#ctor(LunchMenuApp.Data.Interfaces.IUrlDownloader)">
             <summary>
               Initializes a new instance of the <see cref="T:LunchMenuApp.Data.Implementation.LunchMenuReader"/> class.
             </summary>
-        </member>
-        <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.DownloadHtml(System.String)">
-            <summary>
-              Downloads the HTML.
-            </summary>
-            <param name="url"> The URL. </param>
+            <param name="urlDownloader"> The URL downloader. </param>
         </member>
         <member name="P:LunchMenuApp.Data.Implementation.LunchMenuReader.Html">
             <summary>
@@ -53,6 +60,18 @@
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
+        </member>
+        <member name="T:LunchMenuApp.Data.Implementation.WebDownloader">
+            <summary>
+              The web downloader downloads a websites HTML.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Data.Implementation.WebDownloader.Download(System.String)">
+            <summary>
+              Downloads the HTML.
+            </summary>
+            <param name="url"> The URL. </param>
+            <returns> The HTML as string. </returns>
         </member>
     </members>
 </doc>

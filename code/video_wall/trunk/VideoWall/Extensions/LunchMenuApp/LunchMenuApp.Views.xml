@@ -48,6 +48,7 @@
             <summary>
               Initializes a new instance of the <see cref="T:LunchMenuApp.Views.LunchMenuView"/> class.
             </summary>
+            <param name="lunchMenuViewModel"> The lunch menu view model. </param>
         </member>
         <member name="M:LunchMenuApp.Views.LunchMenuView.InitializeComponent">
             <summary>

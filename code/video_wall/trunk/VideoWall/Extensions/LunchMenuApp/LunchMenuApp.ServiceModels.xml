@@ -33,19 +33,12 @@
             The lunch menu
             </summary>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.#ctor(LunchMenuApp.Data.Interfaces.ILunchMenuReader)">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.#ctor(LunchMenuApp.Data.Interfaces.ILunchMenuReader,LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser)">
             <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuService"/> class.
+            Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuService"/> class.
             </summary>
-            <param name="lunchMenuReader"> The lunch menu reader. </param>
-        </member>
-        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.LunchMenuReader">
-            <summary>
-            Gets or sets the lunch menu reader.
-            </summary>
-            <value>
-            The lunch menu reader.
-            </value>
+            <param name="lunchMenuReader">The lunch menu reader.</param>
+            <param name="lunchMenuParser">The lunch menu parser.</param>
         </member>
         <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenuService.LunchMenu">
             <summary>
@@ -103,46 +96,70 @@
         </member>
         <member name="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser">
             <summary>
-            The lunch menu parser parses a html document.
+              The lunch menu parser parses a html document.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
+        <member name="T:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser">
+            <summary>
+            The lunch menu parser interface.
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser.ExtractDate">
+            <summary>
+              Extracts the date.
+            </summary>
+            <returns> The date. </returns>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser.ExtractDishes">
+            <summary>
+              Extracts the dishes.
+            </summary>
+            <returns> The dishes. </returns>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser.Html">
+            <summary>
+            Sets the HTML to be parsed.
+            </summary>
+            <value>
+            The HTML.
+            </value>
+        </member>
         <member name="F:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser._document">
             <summary>
-            The document.
+              The document.
             </summary>
         </member>
         <member name="F:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser._menuNode">
             <summary>
-            The menu node
+              The menu node
             </summary>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.#ctor(System.String)">
-            <summary>
-              Parses the dishes and the menu date from the html
-            </summary>
-            ///
-            <param name="html"> The html. </param>
-        </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.LoadMenuContent">
-            <summary>
-              Loads the content of the menu.
-            </summary>
-            <returns> </returns>
         </member>
         <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.ExtractDate">
             <summary>
               Extracts the date.
             </summary>
-            <returns> </returns>
+            <returns> The date. </returns>
         </member>
         <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.ExtractDishes">
             <summary>
               Extracts the dishes.
             </summary>
-            <returns> </returns>
+            <returns> The dishes. </returns>
+        </member>
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.LoadMenuContent">
+            <summary>
+              Loads the content of the menu.
+            </summary>
+            <returns> The menu node. </returns>
+        </member>
+        <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenuParser.Html">
+            <summary>
+              Sets the HTML to be parsed.
+            </summary>
+            <value> The HTML. </value>
         </member>
         <member name="T:LunchMenuApp.ServiceModels.Implementation.NamespaceDoc">
             <summary>
@@ -241,15 +258,15 @@
               The lunch menu.
             </summary>
             <remarks>
-              Reviewed by Delia Treichler, 17.04.2012
-              Reviewed by Lukas Elmer, 05.06.2012
+              Reviewed by Delia Treichler, 17.04.2012 Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
-        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenu.#ctor(System.String)">
+        <member name="M:LunchMenuApp.ServiceModels.Implementation.LunchMenu.#ctor(System.String,LunchMenuApp.ServiceModels.Interfaces.ILunchMenuParser)">
             <summary>
               Initializes a new instance of the <see cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenu"/> class.
             </summary>
             <param name="html"> The HTML. </param>
+            <param name="lunchMenuParser"> The lunch menu parser. </param>
             <exception cref="T:LunchMenuApp.ServiceModels.Implementation.LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
         </member>
         <member name="P:LunchMenuApp.ServiceModels.Implementation.LunchMenu.Dishes">

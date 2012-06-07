@@ -6,7 +6,7 @@
     <members>
         <member name="T:VideoWall.Interfaces.ISkeletonService">
             <summary>
-              The skeleton service provides the skeletal tracking
+              The skeleton service provides the skeletal tracking.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -14,7 +14,7 @@
         </member>
         <member name="T:VideoWall.Interfaces.IVideoWallService">
             <summary>
-              Marker interface: represents a video wall extension
+              Marker interface: represents a video wall extension.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -27,7 +27,7 @@
         </member>
         <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
             <summary>
-              The skeleton changed event args
+              The skeleton changed event args.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -46,7 +46,7 @@
         </member>
         <member name="T:VideoWall.Interfaces.IFileService">
             <summary>
-              The file service provides a directory where an exension has read and write access
+              The file service provides a directory where an exension has read and write access.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -54,7 +54,7 @@
         </member>
         <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
             <summary>
-              Gets the path to the resource directory
+              Gets the path to the resource directory.
             </summary>
         </member>
         <member name="T:VideoWall.Interfaces.NamespaceDoc">
@@ -67,7 +67,7 @@
         </member>
         <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
             <summary>
-              Provides services for the video wall, like hand tracking, skeleton tracking or a file service
+              Provides services for the video wall, like hand tracking, skeleton tracking or a file service.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -75,10 +75,10 @@
         </member>
         <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
             <summary>
-              Gets an implementation of the interface which is provided by the video wall
+              Gets an implementation of the interface which is provided by the video wall.
             </summary>
-            <typeparam name="T"> </typeparam>
-            <returns> </returns>
+            <typeparam name="T"> The interface of a specific video wall service. </typeparam>
+            <returns> A video wall service implementation. </returns>
         </member>
         <member name="T:VideoWall.Interfaces.IApp">
             <summary>

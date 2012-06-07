@@ -4,23 +4,44 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.Exceptions.VideoWallException">
+            <summary>
+            The video wall exception occurs if something goes wrong which is video wall specific.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Exceptions.VideoWallException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.Common.Exceptions.VideoWallException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:VideoWall.Common.Exceptions.VideoWallException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VideoWall.Common.Exceptions.VideoWallException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
         <member name="T:VideoWall.Common.Helpers.PreOrPostCondition">
             <summary>
               Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
             </summary>
             <remarks>
-              Contains parts from ScrumTable (HSR, 2010)
-              Reviewed by Lukas Elmer, 05.06.2012
+              Contains parts from ScrumTable (HSR, 2010) Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
         <member name="M:VideoWall.Common.Helpers.PreOrPostCondition.AssertInRange``1(``0,``0,``0,System.String)">
             <summary>
               Asserts that the given value is in the specified range. Otherwise an exception (or assertion) will be thrown.
             </summary>
-            <param name="arg"> Specifies the argument to check. </param>
-            <param name="name"> Specifies the name of the argument to check. </param>
+            <typeparam name="T"> The interface of the parameters. </typeparam>
             <param name="lower"> Specifies the lower bound (a valid value). </param>
             <param name="upper"> Specifies the upper bound (a valid value). </param>
+            <param name="arg"> Specifies the argument to check. </param>
+            <param name="name"> Specifies the name of the argument to check. </param>
         </member>
         <member name="M:VideoWall.Common.Helpers.PreOrPostCondition.AssertNotNull(System.Object,System.String)">
             <summary>
@@ -58,14 +79,9 @@
             <param name="condition"> Condition which should be true. </param>
             <param name="exception"> Specifies the exception to throw. </param>
         </member>
-        <member name="P:VideoWall.Common.Helpers.PreOrPostCondition.EnableDebugAssertions">
+        <member name="T:VideoWall.Common.Logging.NamespaceDoc">
             <summary>
-              Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
+              The <see cref="N:VideoWall.Common.Logging"/> namespace contains the logger.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -88,7 +104,7 @@
         </member>
         <member name="T:VideoWall.Common.Extensions.RandomExtension">
             <summary>
-              The random extension for the IEnumerable interface
+              The random extension for the IEnumerable interface.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -98,13 +114,21 @@
             <summary>
               Gets a random element of the list.
             </summary>
-            <typeparam name="T"> </typeparam>
+            <typeparam name="T"> The interface of the enumerable. </typeparam>
             <param name="enumerable"> The enumerable. </param>
-            <returns> </returns>
+            <returns> An element of the enumerable list. </returns>
+        </member>
+        <member name="T:VideoWall.Common.Exceptions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Exceptions"/> namespace contains exceptions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:VideoWall.Common.ViewHelpers.Notifier">
             <summary>
-              Implementation of INotifyPropertyChanged
+              Implementation of INotifyPropertyChanged.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -115,15 +139,6 @@
               Notifies that the property with the specified name has changed.
             </summary>
             <param name="propertyName"> Name of the property. </param>
-            <remarks>
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.ViewHelpers.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-              Notifies that the property with the specified name has changed.
-            </summary>
-            <param name="sender"> The sender. </param>
-            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
         </member>
         <member name="E:VideoWall.Common.ViewHelpers.Notifier.PropertyChanged">
             <summary>
@@ -134,7 +149,7 @@
         </member>
         <member name="T:VideoWall.Common.ViewHelpers.Command">
             <summary>
-              Implementation of the ICommand Interface
+              Implementation of ICommand.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -178,7 +193,7 @@
         </member>
         <member name="T:VideoWall.Common.Logging.Logger">
             <summary>
-              The Logger wrapper.
+              The logger wrapper.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -191,8 +206,32 @@
         </member>
         <member name="P:VideoWall.Common.Logging.Logger.Get">
             <summary>
-              Gets the currrent logger
+              Gets the currrent logger.
             </summary>
+        </member>
+        <member name="T:VideoWall.Common.Extensions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Extensions"/> namespace contains extensions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Helpers"/> namespace contains helpers.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.ViewHelpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.ViewHelpers"/> namespace contains helpers for the view.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
     </members>
 </doc>

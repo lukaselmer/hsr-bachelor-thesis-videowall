@@ -30,18 +30,18 @@
               Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
             </summary>
             <remarks>
-              Contains parts from ScrumTable (HSR, 2010)
-              Reviewed by Lukas Elmer, 05.06.2012
+              Contains parts from ScrumTable (HSR, 2010) Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
         <member name="M:VideoWall.Common.Helpers.PreOrPostCondition.AssertInRange``1(``0,``0,``0,System.String)">
             <summary>
               Asserts that the given value is in the specified range. Otherwise an exception (or assertion) will be thrown.
             </summary>
-            <param name="arg"> Specifies the argument to check. </param>
-            <param name="name"> Specifies the name of the argument to check. </param>
+            <typeparam name="T"> The interface of the parameters. </typeparam>
             <param name="lower"> Specifies the lower bound (a valid value). </param>
             <param name="upper"> Specifies the upper bound (a valid value). </param>
+            <param name="arg"> Specifies the argument to check. </param>
+            <param name="name"> Specifies the name of the argument to check. </param>
         </member>
         <member name="M:VideoWall.Common.Helpers.PreOrPostCondition.AssertNotNull(System.Object,System.String)">
             <summary>
@@ -114,9 +114,9 @@
             <summary>
               Gets a random element of the list.
             </summary>
-            <typeparam name="T"> </typeparam>
+            <typeparam name="T"> The interface of the enumerable. </typeparam>
             <param name="enumerable"> The enumerable. </param>
-            <returns> </returns>
+            <returns> An element of the enumerable list. </returns>
         </member>
         <member name="T:VideoWall.Common.Exceptions.NamespaceDoc">
             <summary>
@@ -139,8 +139,6 @@
               Notifies that the property with the specified name has changed.
             </summary>
             <param name="propertyName"> Name of the property. </param>
-            <remarks>
-            </remarks>
         </member>
         <member name="E:VideoWall.Common.ViewHelpers.Notifier.PropertyChanged">
             <summary>

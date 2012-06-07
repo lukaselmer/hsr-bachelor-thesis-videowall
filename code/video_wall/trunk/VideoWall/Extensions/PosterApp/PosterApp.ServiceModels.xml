@@ -26,6 +26,14 @@
             </summary>
             <value> The posters. </value>
         </member>
+        <member name="F:PosterApp.ServiceModels.Implementation.PosterService._posterReader">
+            <summary>
+            Gets or sets the poster reader.
+            </summary>
+            <value>
+            The poster reader.
+            </value>
+        </member>
         <member name="M:PosterApp.ServiceModels.Implementation.PosterService.#ctor(PosterApp.Data.Interfaces.IPosterReader)">
             <summary>
               Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.PosterService"/> class.
@@ -36,14 +44,6 @@
             <summary>
               Reads from poster reader.
             </summary>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Implementation.PosterService.PosterReader">
-            <summary>
-            Gets or sets the poster reader.
-            </summary>
-            <value>
-            The poster reader.
-            </value>
         </member>
         <member name="P:PosterApp.ServiceModels.Implementation.PosterService.Posters">
             <summary>
