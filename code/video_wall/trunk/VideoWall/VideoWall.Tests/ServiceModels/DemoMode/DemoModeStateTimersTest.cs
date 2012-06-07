@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Threading;
+using System.Windows.Media;
 using VideoWall.ServiceModels.DemoMode.Implementation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -75,6 +76,7 @@ namespace VideoWall.Tests
             var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
             var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
             var before = timers._lastSkeletonTime;
+            Thread.Sleep(100);
             timers.SkeletonChanged();
             Assert.IsTrue(before < timers._lastSkeletonTime);
         }
