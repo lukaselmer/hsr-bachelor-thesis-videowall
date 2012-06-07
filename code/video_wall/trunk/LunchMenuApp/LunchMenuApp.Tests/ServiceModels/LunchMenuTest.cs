@@ -26,18 +26,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.ServiceModels
 {
     ///<summary>
-    ///  This is a test class for LunchMenuTest and is intended to contain all LunchMenuTest Unit Tests
+    ///  This is a test class for LunchMenuTest and is intended to contain all LunchMenuTest Unit Tests.
     ///</summary>
     [TestClass]
     public class LunchMenuTest
     {
         ///<summary>
-        ///  A test for LunchMenu Constructor
+        ///  A test for LunchMenu Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuConstructorTest()
         {
-            var date = "Freitag, 06.06.2012";
+            const string date = "Freitag, 06.06.2012";
             var dishes = new List<IDish>();
             var mock = new LunchMenuParserMock {ExtractDateForTest = date, ExtractDishesForTest = dishes};
             var lunchMenu = new LunchMenu(new LunchMenuReaderMock().Html, mock);
@@ -46,7 +46,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         }
 
         ///<summary>
-        ///  A test for LunchMenu Constructor
+        ///  A test for LunchMenu Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuConstructorTestWhenReaderThrows()

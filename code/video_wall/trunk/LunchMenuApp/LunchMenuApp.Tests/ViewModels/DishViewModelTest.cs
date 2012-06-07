@@ -24,13 +24,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.ViewModels
 {
     ///<summary>
-    ///  This is a test class for DishViewModelTest and is intended to contain all DishViewModelTest Unit Tests
+    ///  This is a test class for DishViewModelTest and is intended to contain all DishViewModelTest Unit Tests.
     ///</summary>
     [TestClass]
     public class DishViewModelTest
     {
         ///<summary>
-        ///  A test for DishViewModel Constructor
+        ///  A test for DishViewModel Constructor.
         ///</summary>
         [TestMethod]
         public void DishViewModelConstructorTest()

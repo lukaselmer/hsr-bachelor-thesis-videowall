@@ -37,7 +37,7 @@ namespace LunchMenuApp.Tests.Mocks
         /// <value> The extract dishes for the test. </value>
         public List<IDish> ExtractDishesForTest { private get; set; }
 
-        public bool Throwing { get; set; }
+        public bool Throwing { private get; set; }
 
         #region ILunchMenuParser Members
 

@@ -27,13 +27,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.ViewModels
 {
     ///<summary>
-    ///  This is a test class for LunchMenuViewModelTest and is intended to contain all LunchMenuViewModelTest Unit Tests
+    ///  This is a test class for LunchMenuViewModelTest and is intended to contain all LunchMenuViewModelTest Unit Tests.
     ///</summary>
     [TestClass]
     public class LunchMenuViewModelTest
     {
         /// <summary>
-        ///   Lunches the menu view model constructor test without lunch menu.
+        ///   A lunch menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelConstructorTestWithoutLunchMenu()
@@ -44,7 +44,7 @@ namespace LunchMenuApp.Tests.ViewModels
         }
 
         /// <summary>
-        ///   Lunches the menu view model constructor test without lunch menu.
+        ///   A lunch menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelConstructorTest()
@@ -70,7 +70,7 @@ namespace LunchMenuApp.Tests.ViewModels
 
 
         /// <summary>
-        ///   Lunches the menu view model constructor test without lunch menu.
+        ///   A lunch menu view model constructor test without lunch menu.
         /// </summary>
         [TestMethod]
         public void LunchMenuViewModelLunchMenuChangedTest()

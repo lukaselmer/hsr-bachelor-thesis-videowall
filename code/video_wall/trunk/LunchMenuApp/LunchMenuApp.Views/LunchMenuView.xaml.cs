@@ -32,6 +32,7 @@ namespace LunchMenuApp.Views
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuView" /> class.
         /// </summary>
+        /// <param name="lunchMenuViewModel"> The lunch menu view model. </param>
         public LunchMenuView(LunchMenuViewModel lunchMenuViewModel)
         {
             DataContext = lunchMenuViewModel;

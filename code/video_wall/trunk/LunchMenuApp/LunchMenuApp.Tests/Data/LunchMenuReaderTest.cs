@@ -32,10 +32,7 @@ namespace LunchMenuApp.Tests.Data
     public class LunchMenuReaderTest
     {
         ///<summary>
-        /// A test for LunchMenuReader Constructor This test is a little "stupid" because it only 
-        /// works if the http server of the sa mensa is online. But: if the test does not work, the 
-        /// menu cannot be downloaded and the app will not work. This is why this test makes sense. 
-        /// If the computer is online, we assume that google.com can be reached.
+        ///  A test for LunchMenuReader Constructor. This test only works if the http server of the sv group is online. If the menu cannot be downloaded the app will not work as intended. This is why this test makes sense.
         ///</summary>
         [TestMethod]
         public void LunchMenuReaderConstructorTest()
@@ -48,7 +45,7 @@ namespace LunchMenuApp.Tests.Data
         }
 
         /// <summary>
-        /// Lunches the menu reader constructor test throwing web exception.
+        ///   This lunch menu reader constructor test throws a web exception.
         /// </summary>
         [TestMethod]
         public void LunchMenuReaderConstructorTestThrowingWebException()

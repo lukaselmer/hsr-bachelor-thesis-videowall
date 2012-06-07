@@ -26,13 +26,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LunchMenuApp.Tests.ServiceModels
 {
     ///<summary>
-    ///  This is a test class for LunchMenuServiceTest and is intended to contain all LunchMenuServiceTest Unit Tests
+    ///  This is a test class for LunchMenuServiceTest and is intended to contain all LunchMenuServiceTest Unit Tests.
     ///</summary>
     [TestClass]
     public class LunchMenuServiceTest
     {
         ///<summary>
-        ///  A test for LunchMenuService Constructor
+        ///  A test for LunchMenuService Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuServiceConstructorTest()
@@ -48,7 +48,7 @@ namespace LunchMenuApp.Tests.ServiceModels
         }
 
         ///<summary>
-        ///  A test for LunchMenuService Constructor
+        ///  A test for LunchMenuService Constructor.
         ///</summary>
         [TestMethod]
         public void LunchMenuServiceConstructorTestWhenThrowing()
