@@ -19,7 +19,6 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PosterApp.Data.Interfaces;
 using PosterApp.ServiceModels.Implementation;
-using PosterApp.ServiceModels.Interfaces;
 using PosterApp.Tests.Mocks;
 
 #endregion
@@ -27,13 +26,13 @@ using PosterApp.Tests.Mocks;
 namespace PosterApp.Tests.ServiceModels
 {
     ///<summary>
-    ///  This is a test class for PosterServiceTest and is intended to contain all PosterServiceTest Unit Tests
+    ///  This is a test class for PosterServiceTest and is intended to contain all PosterServiceTest Unit Tests.
     ///</summary>
     [TestClass]
     public class PosterServiceTest
     {
         ///<summary>
-        ///  A test for PosterService Constructor
+        ///  A test for PosterService Constructor.
         ///</summary>
         [TestMethod]
         public void PosterServiceConstructorTest()

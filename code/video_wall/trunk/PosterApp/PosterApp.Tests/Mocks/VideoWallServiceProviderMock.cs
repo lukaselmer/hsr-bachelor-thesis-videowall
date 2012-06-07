@@ -22,6 +22,9 @@ using VideoWall.Interfaces;
 
 namespace PosterApp.Tests.Mocks
 {
+    /// <summary>
+    /// A mock implementing the video wall service provider interface.
+    /// </summary>
     public class VideoWallServiceProviderMock : IVideoWallServiceProvider
     {
         #region IVideoWallServiceProvider Members

@@ -26,13 +26,13 @@ using PosterApp.ViewModels;
 namespace PosterApp.Tests.ViewModels
 {
     ///<summary>
-    ///  This is a test class for PosterViewModelTest and is intended to contain all PosterViewModelTest Unit Tests
+    ///  This is a test class for PosterViewModelTest and is intended to contain all PosterViewModelTest Unit Tests.
     ///</summary>
     [TestClass]
     public class PosterViewModelTest
     {
         ///<summary>
-        ///  A test for PosterViewModel Constructor
+        ///  A test for PosterViewModel Constructor.
         ///</summary>
         [TestMethod]
         public void PosterViewModelConstructorTest()
@@ -47,7 +47,7 @@ namespace PosterApp.Tests.ViewModels
         }
 
         ///<summary>
-        ///  A test for NavigateToLeftCommand
+        ///  A test for NavigateToLeftCommand.
         ///</summary>
         [TestMethod]
         public void NavigateToLeftCommandTest()
@@ -67,7 +67,7 @@ namespace PosterApp.Tests.ViewModels
         }
 
         ///<summary>
-        ///  A test for NavigateToRightCommand
+        ///  A test for NavigateToRightCommand.
         ///</summary>
         [TestMethod]
         public void NavigateToRightCommandTest()

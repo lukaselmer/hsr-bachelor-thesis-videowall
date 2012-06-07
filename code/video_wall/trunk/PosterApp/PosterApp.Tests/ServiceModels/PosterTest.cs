@@ -24,13 +24,13 @@ using PosterApp.Tests.Mocks;
 namespace PosterApp.Tests.ServiceModels
 {
     ///<summary>
-    ///  This is a test class for PosterTest and is intended to contain all PosterTest Unit Tests
+    ///  This is a test class for PosterTest and is intended to contain all PosterTest Unit Tests.
     ///</summary>
     [TestClass]
     public class PosterTest
     {
         ///<summary>
-        ///  A test for Poster Constructor
+        ///  A test for Poster Constructor.
         ///</summary>
         [TestMethod]
         public void PosterConstructorTest()

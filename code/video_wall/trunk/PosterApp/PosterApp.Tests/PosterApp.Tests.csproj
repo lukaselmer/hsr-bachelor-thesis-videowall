@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\PosterApp.Tests.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,6 +60,7 @@
     <Compile Include="Data\NamespaceDoc.cs" />
     <Compile Include="Mocks\FileServiceMock.cs" />
     <Compile Include="Data\PosterReaderTest.cs" />
+    <Compile Include="Mocks\NamespaceDoc.cs" />
     <Compile Include="Mocks\VideoWallServiceProviderMock.cs" />
     <Compile Include="Mocks\PosterReaderMock.cs" />
     <Compile Include="ServiceModels\NamespaceDoc.cs" />
