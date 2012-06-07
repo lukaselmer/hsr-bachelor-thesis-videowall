@@ -16,7 +16,7 @@
 namespace LunchMenuApp.Data.Interfaces
 {
     /// <summary>
-    ///   The interface for the web downloader
+    ///   The interface of the url web downloader.
     /// </summary>
     public interface IUrlDownloader
     {

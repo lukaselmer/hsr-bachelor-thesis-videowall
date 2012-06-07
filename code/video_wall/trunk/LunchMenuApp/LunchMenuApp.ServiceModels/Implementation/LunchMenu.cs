@@ -27,8 +27,7 @@ namespace LunchMenuApp.ServiceModels.Implementation
     ///   The lunch menu.
     /// </summary>
     /// <remarks>
-    ///   Reviewed by Delia Treichler, 17.04.2012
-    ///   Reviewed by Lukas Elmer, 05.06.2012
+    ///   Reviewed by Delia Treichler, 17.04.2012 Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
     public class LunchMenu : ILunchMenu
     {
@@ -52,7 +51,7 @@ namespace LunchMenuApp.ServiceModels.Implementation
         ///   Initializes a new instance of the <see cref="LunchMenu" /> class.
         /// </summary>
         /// <param name="html"> The HTML. </param>
-        /// <param name="lunchMenuParser"> </param>
+        /// <param name="lunchMenuParser"> The lunch menu parser. </param>
         /// <exception cref="LunchMenuUnparsableException">If the lunch menu is not parsable.</exception>
         public LunchMenu(string html, ILunchMenuParser lunchMenuParser)
         {

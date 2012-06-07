@@ -25,7 +25,7 @@ using VideoWall.Common.Helpers;
 namespace LunchMenuApp.ServiceModels.Implementation
 {
     /// <summary>
-    /// The lunch menu parser parses a html document.
+    ///   The lunch menu parser parses a html document.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
@@ -35,12 +35,12 @@ namespace LunchMenuApp.ServiceModels.Implementation
         #region Declarations
 
         /// <summary>
-        /// The document.
+        ///   The document.
         /// </summary>
         private HtmlDocument _document;
 
         /// <summary>
-        /// The menu node
+        ///   The menu node
         /// </summary>
         private HtmlNode _menuNode;
 
@@ -49,11 +49,9 @@ namespace LunchMenuApp.ServiceModels.Implementation
         #region Properties
 
         /// <summary>
-        /// Sets the HTML to be parsed.
+        ///   Sets the HTML to be parsed.
         /// </summary>
-        /// <value>
-        /// The HTML.
-        /// </value>
+        /// <value> The HTML. </value>
         public string Html
         {
             set
@@ -70,18 +68,9 @@ namespace LunchMenuApp.ServiceModels.Implementation
         #region Methods
 
         /// <summary>
-        ///   Loads the content of the menu.
-        /// </summary>
-        /// <returns> </returns>
-        private HtmlNode LoadMenuContent()
-        {
-            return _document.DocumentNode.SelectSingleNode(@"//div[@class='menu-plan-content']");
-        }
-
-        /// <summary>
         ///   Extracts the date.
         /// </summary>
-        /// <returns> </returns>
+        /// <returns> The date. </returns>
         public string ExtractDate()
         {
             return _menuNode.SelectSingleNode(@"div[@class='date']/h2").InnerText;
@@ -90,10 +79,19 @@ namespace LunchMenuApp.ServiceModels.Implementation
         /// <summary>
         ///   Extracts the dishes.
         /// </summary>
-        /// <returns> </returns>
+        /// <returns> The dishes. </returns>
         public List<IDish> ExtractDishes()
         {
             return new DishParser(_menuNode.SelectNodes(@"div[@class='offer']")).ExtractDishes();
+        }
+
+        /// <summary>
+        ///   Loads the content of the menu.
+        /// </summary>
+        /// <returns> The menu node. </returns>
+        private HtmlNode LoadMenuContent()
+        {
+            return _document.DocumentNode.SelectSingleNode(@"//div[@class='menu-plan-content']");
         }
 
         #endregion

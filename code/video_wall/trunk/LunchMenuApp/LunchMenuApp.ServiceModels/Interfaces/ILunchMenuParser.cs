@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace LunchMenuApp.ServiceModels.Interfaces
 {
     /// <summary>
-    /// The lunch menu parser interface
+    /// The lunch menu parser interface.
     /// </summary>
     public interface ILunchMenuParser
     {
@@ -18,13 +18,13 @@ namespace LunchMenuApp.ServiceModels.Interfaces
         /// <summary>
         ///   Extracts the date.
         /// </summary>
-        /// <returns> </returns>
+        /// <returns> The date. </returns>
         string ExtractDate();
 
         /// <summary>
         ///   Extracts the dishes.
         /// </summary>
-        /// <returns> </returns>
+        /// <returns> The dishes. </returns>
         List<IDish> ExtractDishes();
 
     }
