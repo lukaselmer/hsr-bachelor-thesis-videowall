@@ -7,8 +7,8 @@ using VideoWall.Tests.Mocks;
 
 namespace VideoWall.Tests
 {
-    
-    
+
+
     /// <summary>
     ///This is a test class for DemoModeStateTimersTest and is intended
     ///to contain all DemoModeStateTimersTest Unit Tests
@@ -80,6 +80,26 @@ namespace VideoWall.Tests
         }
 
         /// <summary>
+        /// Changeds the status method test.
+        /// </summary>
+        [TestMethod()]
+        [DeploymentItem("VideoWall.ServiceModels.dll")]
+        public void ChangedStatusMethodTest()
+        {
+            var t = TimeSpan.FromDays(1);
+            var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
+            var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
+            timers._state = VideoWallState.Teaser;
+            timers._lastSkeletonTime = DateTime.Now;
+            var changed = false;
+            timers.add_DemoModeStateChanged(delegate { changed = true; });
+            timers.CheckAndChangeState(this, null);
+            Assert.IsTrue(changed);
+            Assert.AreEqual(VideoWallState.Countdown, timers.State);
+            Assert.IsNotNull(timers.Countdown);
+        }
+
+        /// <summary>
         ///A test for AppChangedMethod
         ///</summary>
         [TestMethod()]
@@ -90,12 +110,10 @@ namespace VideoWall.Tests
             var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
             var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
             timers._state = VideoWallState.Teaser;
-            timers._lastSkeletonTime = DateTime.Now;
-            bool changed = false;
-            timers.add_DemoModeStateChanged(delegate { changed = true; });
-            timers.CheckAndChangeState(this, null);
+            var changed = false;
+            timers.add_AppChanged(delegate { changed = true; });
+            timers.AppChangedMethod(this, null);
             Assert.IsTrue(changed);
-            Assert.AreEqual(VideoWallState.Countdown, timers.State);
         }
     }
 }
