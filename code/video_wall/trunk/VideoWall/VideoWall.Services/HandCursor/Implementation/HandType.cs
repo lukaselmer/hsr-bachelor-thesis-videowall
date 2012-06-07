@@ -24,12 +24,12 @@ namespace VideoWall.ServiceModels.HandCursor.Implementation
     public enum HandType
     {
         /// <summary>
-        ///   The left hand
+        ///   The left hand.
         /// </summary>
         Left,
 
         /// <summary>
-        ///   The right hand
+        ///   The right hand.
         /// </summary>
         Right
     }

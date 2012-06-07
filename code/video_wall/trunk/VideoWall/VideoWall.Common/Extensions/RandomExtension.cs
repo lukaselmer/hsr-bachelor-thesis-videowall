@@ -37,9 +37,9 @@ namespace VideoWall.Common.Extensions
         /// <summary>
         ///   Gets a random element of the list.
         /// </summary>
-        /// <typeparam name="T"> </typeparam>
+        /// <typeparam name="T"> The interface of the enumerable. </typeparam>
         /// <param name="enumerable"> The enumerable. </param>
-        /// <returns> </returns>
+        /// <returns> An element of the enumerable list. </returns>
         public static T RandomElement<T>(this IEnumerable<T> enumerable)
         {
             PreOrPostCondition.AssertNotNull(enumerable, "enumerable");

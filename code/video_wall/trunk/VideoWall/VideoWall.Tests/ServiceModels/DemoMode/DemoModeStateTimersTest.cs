@@ -1,41 +1,43 @@
-﻿using System.Threading;
-using System.Windows.Media;
-using VideoWall.ServiceModels.DemoMode.Implementation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using System;
-using VideoWall.ServiceModels.DemoMode.Interfaces;
-using VideoWall.Tests.Mocks;
+using System.Threading;
+using System.Windows.Media;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VideoWall.ServiceModels.DemoMode.Implementation;
 
-namespace VideoWall.Tests
+#endregion
+
+namespace VideoWall.Tests.ServiceModels.DemoMode
 {
-
-
-    /// <summary>
-    ///This is a test class for DemoModeStateTimersTest and is intended
-    ///to contain all DemoModeStateTimersTest Unit Tests
+    ///<summary>
+    ///  This is a test class for DemoModeStateTimersTest and is intended to contain all DemoModeStateTimersTest Unit Tests.
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class DemoModeStateTimersTest
     {
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
+        ///<summary>
+        ///  Gets or sets the test context which provides information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         #region Additional test attributes
+
         // 
         //You can use the following additional attributes as you write your tests:
         //
@@ -63,17 +65,17 @@ namespace VideoWall.Tests
         //{
         //}
         //
+
         #endregion
 
-
-        /// <summary>
-        ///A test for DemoModeStateTimers Constructor
+        ///<summary>
+        ///  A test for DemoModeStateTimers Constructor
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void DemoModeStateTimersConstructorTest()
         {
             var t = TimeSpan.FromDays(1);
-            var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
+            var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
             var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
             var before = timers._lastSkeletonTime;
             Thread.Sleep(100);
@@ -82,14 +84,14 @@ namespace VideoWall.Tests
         }
 
         /// <summary>
-        /// Changeds the status method test.
+        ///   Changeds the status method test.
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("VideoWall.ServiceModels.dll")]
         public void ChangedStatusMethodTest()
         {
             var t = TimeSpan.FromDays(1);
-            var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
+            var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
             var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
             timers._state = VideoWallState.Teaser;
             timers._lastSkeletonTime = DateTime.Now;
@@ -101,15 +103,15 @@ namespace VideoWall.Tests
             Assert.IsNotNull(timers.Countdown);
         }
 
-        /// <summary>
-        ///A test for AppChangedMethod
+        ///<summary>
+        ///  A test for AppChangedMethod
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         [DeploymentItem("VideoWall.ServiceModels.dll")]
         public void AppChangedMethodTest()
         {
             var t = TimeSpan.FromDays(1);
-            var demoModeConfig = new DemoModeConfig(new[] { Colors.Red, Colors.Blue }, t, t, t, t, t);
+            var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
             var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
             timers._state = VideoWallState.Teaser;
             var changed = false;
