@@ -22,7 +22,7 @@ using System.Runtime.CompilerServices;
 namespace LunchMenuApp.Main
 {
     /// <summary>
-    ///   The <see cref="LunchMenuApp.Main" /> namespace contains the main.
+    ///   The <see cref="T:LunchMenuApp.Main`1" /> namespace contains the main.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
