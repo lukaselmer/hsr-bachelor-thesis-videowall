@@ -80,6 +80,18 @@ namespace VideoWall.Tests.ResourceProvider
             Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
 
+        ///<summary>
+        ///  A test for the right hand.
+        ///</summary>
+        [TestMethod]
+        public void HsrLogoTest()
+        {
+            const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hsr_logo.gif";
+            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
+            var actual = ResourceLoader.ResourceProvider.HsrLogo;
+            Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
+        }
+
         /// <summary>
         ///   Tests the image equality.
         /// </summary>

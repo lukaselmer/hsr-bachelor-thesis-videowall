@@ -58,6 +58,11 @@ namespace VideoWall.ResourceLoader
         /// </summary>
         public static Image HandRight { get { return Image("handRight"); } }
 
+        /// <summary>
+        /// Gets the HSR logo.
+        /// </summary>
+        public static Image HsrLogo { get { return Image("hsrLogo"); } }
+
         #endregion
 
         #region Methods
