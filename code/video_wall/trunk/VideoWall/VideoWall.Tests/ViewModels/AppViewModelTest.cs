@@ -1,18 +1,36 @@
-﻿using VideoWall.Tests.Mocks;
-using VideoWall.ViewModels.Menu;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VideoWall.Tests.Mocks;
+using VideoWall.ViewModels.Menu;
+
+#endregion
 
 namespace VideoWall.Tests.ViewModels
 {
-    /// <summary>
-    ///This is a test class for AppViewModelTest and is intended
-    ///to contain all AppViewModelTest Unit Tests
+    ///<summary>
+    ///  This is a test class for AppViewModelTest and is intended to contain all AppViewModelTest Unit Tests.
     ///</summary>
     [TestClass]
     public class AppViewModelTest
     {
-        /// <summary>
-        ///A test for AppViewModel Constructor
+        ///<summary>
+        ///  A test for AppViewModel Constructor.
         ///</summary>
         [TestMethod]
         public void AppViewModelConstructorTest()

@@ -21,12 +21,12 @@ namespace VideoWall.ServiceModels.DemoMode.Implementation
     public enum VideoWallState
     {
         /// <summary>
-        ///   When the application is active, the demo mode is hidden
+        ///   When the application is active, the demo mode is hidden.
         /// </summary>
         Active,
 
         /// <summary>
-        ///   When the application is inactive, the teaser text for the extensions is shown
+        ///   When the application is inactive, the teaser text for the extensions is shown.
         /// </summary>
         Teaser,
 

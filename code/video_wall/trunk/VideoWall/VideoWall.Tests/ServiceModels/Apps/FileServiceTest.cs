@@ -25,7 +25,7 @@ using VideoWall.ServiceModels.Apps.Implementation;
 namespace VideoWall.Tests.ServiceModels.Apps
 {
     ///<summary>
-    ///  This is a test class for FileServiceTest and is intended to contain all FileServiceTest Unit Tests
+    ///  This is a test class for FileServiceTest and is intended to contain all FileServiceTest Unit Tests.
     ///</summary>
     [TestClass]
     public class FileServiceTest
@@ -33,7 +33,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         private static TestContext _testContext;
 
         /// <summary>
-        /// Mies the class initialize.
+        /// Initializes the TestClass.
         /// </summary>
         /// <param name="testContext">The test context.</param>
         [ClassInitialize]
@@ -43,7 +43,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         }
 
         ///<summary>
-        ///  A test for FileService Constructor
+        ///  A test for FileService Constructor.
         ///</summary>
         [TestMethod]
         public void FileServiceConstructorTest()
@@ -56,7 +56,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         }
 
         ///<summary>
-        ///  A test for FileService Constructor with exception
+        ///  A test for FileService Constructor with exception.
         ///</summary>
         [TestMethod]
         [ExpectedException(typeof(VideoWallException))]

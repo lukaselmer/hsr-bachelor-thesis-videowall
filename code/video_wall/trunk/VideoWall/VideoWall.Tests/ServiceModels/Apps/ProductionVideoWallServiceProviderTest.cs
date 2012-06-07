@@ -1,24 +1,41 @@
-﻿using System.IO;
-using VideoWall.Common.Exceptions;
-using VideoWall.ServiceModels.Apps.Implementation;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VideoWall.Common.Exceptions;
 using VideoWall.Interfaces;
-using VideoWall.ServiceModels.Player.Interfaces;
+using VideoWall.ServiceModels.Apps.Implementation;
 using VideoWall.Tests.Mocks;
+
+#endregion
 
 namespace VideoWall.Tests.ServiceModels.Apps
 {
-    /// <summary>
-    ///This is a test class for ProductionVideoWallServiceProviderTest and is intended
-    ///to contain all ProductionVideoWallServiceProviderTest Unit Tests
+    ///<summary>
+    ///  This is a test class for ProductionVideoWallServiceProviderTest and is intended to contain all ProductionVideoWallServiceProviderTest Unit Tests.
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ProductionVideoWallServiceProviderTest
     {
         /// <summary>
-        /// Gets the extension test.
+        ///   Gets the extension test.
         /// </summary>
-        [TestMethod()]
+        [TestMethod]
         public void GetExtensionTest()
         {
             var extensionFolder = new ExtensionFolder(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "Extensions/DiagnosticsApp"));
@@ -29,10 +46,10 @@ namespace VideoWall.Tests.ServiceModels.Apps
         }
 
         /// <summary>
-        /// Gets the extension test.
+        ///   Gets the extension test.
         /// </summary>
-        [TestMethod()]
-        [ExpectedException(typeof(VideoWallException))]
+        [TestMethod]
+        [ExpectedException(typeof (VideoWallException))]
         public void GetExtensionTestThrowing()
         {
             var extensionFolder = new ExtensionFolder(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "Extensions/DiagnosticsApp2"));

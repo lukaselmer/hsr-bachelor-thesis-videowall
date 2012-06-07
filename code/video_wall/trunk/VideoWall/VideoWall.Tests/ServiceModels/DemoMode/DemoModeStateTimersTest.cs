@@ -69,7 +69,7 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
         #endregion
 
         ///<summary>
-        ///  A test for DemoModeStateTimers Constructor
+        ///  A test for DemoModeStateTimers Constructor.
         ///</summary>
         [TestMethod]
         public void DemoModeStateTimersConstructorTest()
@@ -104,7 +104,7 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
         }
 
         ///<summary>
-        ///  A test for AppChangedMethod
+        ///  A test for AppChangedMethod.
         ///</summary>
         [TestMethod]
         [DeploymentItem("VideoWall.ServiceModels.dll")]

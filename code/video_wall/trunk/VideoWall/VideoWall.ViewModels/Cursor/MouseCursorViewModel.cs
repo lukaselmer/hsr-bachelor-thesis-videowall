@@ -25,7 +25,7 @@ using VideoWall.ResourceLoader;
 namespace VideoWall.ViewModels.Cursor
 {
     /// <summary>
-    ///   The MouseCursorViewModel. This class is used for the development only.
+    ///   The mouse cursor view model. This class is used for the development only.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012

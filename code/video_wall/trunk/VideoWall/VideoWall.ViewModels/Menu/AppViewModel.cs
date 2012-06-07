@@ -62,7 +62,7 @@ namespace VideoWall.ViewModels.Menu
         #region Properties
 
         /// <summary>
-        ///   The app
+        ///   The app.
         /// </summary>
         public IApp App
         {

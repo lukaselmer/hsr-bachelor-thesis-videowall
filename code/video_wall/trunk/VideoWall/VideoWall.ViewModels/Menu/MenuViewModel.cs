@@ -28,7 +28,7 @@ using VideoWall.ServiceModels.Apps.Interfaces;
 namespace VideoWall.ViewModels.Menu
 {
     /// <summary>
-    ///   The MenuViewModel defines the menu.
+    ///   The menu view model defines the menu.
     /// </summary>
     /// <remarks>
     ///   Reviewed by Delia Treichler, 17.04.2012

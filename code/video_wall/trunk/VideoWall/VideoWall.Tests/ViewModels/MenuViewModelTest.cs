@@ -33,7 +33,7 @@ namespace VideoWall.Tests.ViewModels
     public class MenuViewModelTest
     {
         ///<summary>
-        ///  A test for MenuViewModel Constructor
+        ///  A test for MenuViewModel Constructor.
         ///</summary>
         [TestMethod]
         public void MenuViewModelConstructorTest()
@@ -50,7 +50,7 @@ namespace VideoWall.Tests.ViewModels
         }
 
         ///<summary>
-        ///  Tests change app
+        ///  Tests the change of the app.
         ///</summary>
         [TestMethod]
         public void ChangeAppTest()

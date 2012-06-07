@@ -1,21 +1,39 @@
-﻿using System.Linq;
-using VideoWall.ServiceModels.Apps.Implementation;
+﻿#region Header
+
+// ------------------------ Licence / Copyright ------------------------
+// 
+// HSR Video Wall
+// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// All Rights Reserved
+// 
+// Authors:
+// Lukas Elmer, Christina Heidt, Delia Treichler
+// 
+// ---------------------------------------------------------------------
+
+#endregion
+
+#region Usings
+
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VideoWall.ServiceModels.Apps.Implementation;
 using VideoWall.Tests.Mocks;
+
+#endregion
 
 namespace VideoWall.Tests.ServiceModels.Apps
 {
-    /// <summary>
-    ///This is a test class for AppControllerTest and is intended
-    ///to contain all AppControllerTest Unit Tests
+    ///<summary>
+    ///  This is a test class for AppControllerTest and is intended to contain all AppControllerTest Unit Tests.
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class AppControllerTest
     {
-        /// <summary>
-        ///A test for AppController Constructor internals
+        ///<summary>
+        ///  A test for AppController Constructor internals.
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void AppControllerConstructorTestInternals()
         {
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
@@ -25,10 +43,10 @@ namespace VideoWall.Tests.ServiceModels.Apps
             Assert.AreSame(player, controller._player);
         }
 
-        /// <summary>
-        ///A test for AppController Constructor
+        ///<summary>
+        ///  A test for AppController Constructor.
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void AppControllerConstructorTest()
         {
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";

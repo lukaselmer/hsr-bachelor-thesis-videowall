@@ -27,13 +27,13 @@ using VideoWall.ServiceModels.Apps.Implementation;
 namespace VideoWall.Tests.ServiceModels.Apps
 {
     ///<summary>
-    ///  This is a test class for ExtensionsConfigTest and is intended to contain all ExtensionsConfigTest Unit Tests
+    ///  This is a test class for ExtensionsConfigTest and is intended to contain all ExtensionsConfigTest Unit Tests.
     ///</summary>
     [TestClass]
     public class ExtensionsConfigTest
     {
         ///<summary>
-        ///  A test for ExtensionsConfig Constructor
+        ///  A test for ExtensionsConfig Constructor.
         ///</summary>
         [TestMethod]
         public void ExtensionsConfigConstructorTest()
@@ -47,7 +47,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         }
 
         ///<summary>
-        ///  A test for ExtensionsConfig Constructor throwing an exception
+        ///  A test for ExtensionsConfig Constructor throwing an exception.
         ///</summary>
         [TestMethod]
         [ExpectedException(typeof(VideoWallException))]
