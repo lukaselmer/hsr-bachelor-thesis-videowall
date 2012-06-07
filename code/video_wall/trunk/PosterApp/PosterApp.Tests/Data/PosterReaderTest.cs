@@ -25,13 +25,13 @@ using PosterApp.Tests.Mocks;
 namespace PosterApp.Tests.Data
 {
     ///<summary>
-    ///  This is a test class for PosterReaderTest and is intended to contain all PosterReaderTest Unit Tests
+    ///  This is a test class for PosterReaderTest and is intended to contain all PosterReaderTest Unit Tests.
     ///</summary>
     [TestClass]
     public class PosterReaderTest
     {
         ///<summary>
-        ///  A test for PosterReader Constructor
+        ///  A test for PosterReader Constructor.
         ///</summary>
         [TestMethod]
         public void PosterReaderConstructorTest()

@@ -56,13 +56,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\NamespaceDoc.cs" />
     <Compile Include="Mocks\FileServiceMock.cs" />
     <Compile Include="Data\PosterReaderTest.cs" />
     <Compile Include="Mocks\VideoWallServiceProviderMock.cs" />
     <Compile Include="Mocks\PosterReaderMock.cs" />
+    <Compile Include="ServiceModels\NamespaceDoc.cs" />
     <Compile Include="ServiceModels\PosterServiceTest.cs" />
     <Compile Include="ServiceModels\PosterTest.cs" />
     <Compile Include="Mocks\PosterServiceMock.cs" />
+    <Compile Include="ViewModels\NamespaceDoc.cs" />
     <Compile Include="ViewModels\PosterViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
