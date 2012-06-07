@@ -22,7 +22,7 @@ using System.Runtime.CompilerServices;
 namespace PosterApp.Main
 {
     /// <summary>
-    ///   The <see cref="PosterApp.Main" /> namespace contains the main.
+    ///   The <see cref="T:PosterApp.Main`1" /> namespace contains the main.
     /// </summary>
     [CompilerGenerated]
     // ReSharper disable UnusedMember.Global
