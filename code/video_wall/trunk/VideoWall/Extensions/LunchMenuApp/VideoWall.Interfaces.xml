@@ -33,38 +33,6 @@
               Gets the path to the resource directory.
             </summary>
         </member>
-        <member name="T:VideoWall.Interfaces.IApp">
-            <summary>
-              This is the entry point for the framework. Every application must implement that interface.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Interfaces.IApp.Activate(VideoWall.Interfaces.IVideoWallServiceProvider)">
-            <summary>
-              Loads the app. At this place, the app can load application specific services.
-            </summary>
-            <param name="videoWallServiceProvider"> The app info. </param>
-        </member>
-        <member name="P:VideoWall.Interfaces.IApp.MainView">
-            <summary>
-              Gets the main view.
-            </summary>
-            <remarks>
-              If the application should run without System.Windwos, using UserControl is the wrong aproach. But since until now (05.06.2012) this is not the case, it would be overengineered if implemented otherwise.
-            </remarks>
-        </member>
-        <member name="P:VideoWall.Interfaces.IApp.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="P:VideoWall.Interfaces.IApp.DemomodeText">
-            <summary>
-              Gets the demomode text.
-            </summary>
-        </member>
         <member name="T:VideoWall.Interfaces.ISkeletonService">
             <summary>
               The skeleton service provides the skeletal tracking.
@@ -111,6 +79,38 @@
             </summary>
             <typeparam name="T"> The interface of a specific video wall service. </typeparam>
             <returns> A video wall service implementation. </returns>
+        </member>
+        <member name="T:VideoWall.Interfaces.IApp">
+            <summary>
+              This is the entry point for the framework. Every application must implement that interface.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Interfaces.IApp.Activate(VideoWall.Interfaces.IVideoWallServiceProvider)">
+            <summary>
+              Loads the app. At this place, the app can load application specific services.
+            </summary>
+            <param name="videoWallServiceProvider"> The app info. </param>
+        </member>
+        <member name="P:VideoWall.Interfaces.IApp.MainView">
+            <summary>
+              Gets the main view.
+            </summary>
+            <remarks>
+              If the application should run without System.Windwos, using UserControl is the wrong aproach. But since until now (05.06.2012) this is not the case, it would be overengineered if implemented otherwise.
+            </remarks>
+        </member>
+        <member name="P:VideoWall.Interfaces.IApp.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:VideoWall.Interfaces.IApp.DemomodeText">
+            <summary>
+              Gets the demomode text.
+            </summary>
         </member>
     </members>
 </doc>

@@ -4,13 +4,27 @@
         <name>LunchMenuApp.Views</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Views.NamespaceDoc">
+        <member name="T:LunchMenuApp.Views.LunchMenuView">
             <summary>
-              The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
+              Interaction logic for LunchMenuView.xaml
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
+            <summary>
+            LunchMenuView
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.Views.LunchMenuView.#ctor(LunchMenuApp.ViewModels.LunchMenuViewModel)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.Views.LunchMenuView"/> class.
+            </summary>
+            <param name="lunchMenuViewModel"> The lunch menu view model. </param>
+        </member>
+        <member name="M:LunchMenuApp.Views.LunchMenuView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
         </member>
         <member name="T:LunchMenuApp.Views.Dish">
             <summary>
@@ -33,26 +47,42 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:LunchMenuApp.Views.LunchMenuView">
+        <member name="T:LunchMenuApp.Views.NamespaceDoc">
             <summary>
-              Interaction logic for LunchMenuView.xaml
+              The <see cref="N:LunchMenuApp.Views"/> namespace contains views.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
             <summary>
-            LunchMenuView
+            GeneratedInternalTypeHelper
             </summary>
         </member>
-        <member name="M:LunchMenuApp.Views.LunchMenuView.#ctor(LunchMenuApp.ViewModels.LunchMenuViewModel)">
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
             <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.Views.LunchMenuView"/> class.
+            CreateInstance
             </summary>
-            <param name="lunchMenuViewModel"> The lunch menu view model. </param>
         </member>
-        <member name="M:LunchMenuApp.Views.LunchMenuView.InitializeComponent">
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
             <summary>
-            InitializeComponent
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
