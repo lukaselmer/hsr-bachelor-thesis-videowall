@@ -22,7 +22,7 @@ using VideoWall.ServiceModels.Apps.Implementation;
 
 #endregion
 
-namespace VideoWall.Tests.ServiceModels
+namespace VideoWall.Tests.ServiceModels.Apps
 {
     ///<summary>
     ///  This is a test class for FileServiceTest and is intended to contain all FileServiceTest Unit Tests
@@ -30,15 +30,29 @@ namespace VideoWall.Tests.ServiceModels
     [TestClass]
     public class FileServiceTest
     {
+        private static TestContext _testContext;
+
+        /// <summary>
+        /// Mies the class initialize.
+        /// </summary>
+        /// <param name="testContext">The test context.</param>
+        [ClassInitialize]
+        public static void MyClassInitialize(TestContext testContext)
+        {
+            _testContext = testContext;
+        }
+
         ///<summary>
         ///  A test for FileService Constructor
         ///</summary>
         [TestMethod]
         public void FileServiceConstructorTest()
         {
-            var extensionFolder = new ExtensionFolder(new DirectoryInfo("./TestFiles/ExtensionWithFileService"));
+            var x = _testContext.DeploymentDirectory;
+
+            var extensionFolder = new ExtensionFolder(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "ExtensionWithFileService"));
             var service = new FileService(extensionFolder);
-            Assert.AreEqual(new DirectoryInfo("./TestFiles/ExtensionWithFileService/Files").FullName, service.ResourceDirectory);
+            Assert.AreEqual(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "ExtensionWithFileService/Files").FullName, service.ResourceDirectory);
         }
 
         ///<summary>
@@ -48,7 +62,7 @@ namespace VideoWall.Tests.ServiceModels
         [ExpectedException(typeof(VideoWallException))]
         public void FileServiceConstructorTestWithException()
         {
-            var extensionFolder = new ExtensionFolder(new DirectoryInfo("./TestFiles/ExtensionWithoutFileService"));
+            var extensionFolder = new ExtensionFolder(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "ExtensionWithoutFileService"));
             new FileService(extensionFolder);
         }
     }

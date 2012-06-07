@@ -71,9 +71,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppViewModelTest.cs" />
     <Compile Include="ServiceModels\Apps\ExtensionsConfigTest.cs" />
     <Compile Include="ServiceModels\Apps\AppControllerTest.cs" />
     <Compile Include="Mocks\PlayerMock.cs" />
+    <Compile Include="ServiceModels\Apps\FileDirectoryForTests.cs" />
     <Compile Include="ServiceModels\Apps\FileServiceTest.cs" />
     <Compile Include="Mocks\DemoModeConfigMock.cs" />
     <Compile Include="Mocks\MockApp.cs" />
@@ -122,6 +124,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="testfile.txt" />
     <Content Include="TestFiles\Extensions\DiagnosticsApp2\DiagnosticsApp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

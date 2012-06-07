@@ -1,14 +1,10 @@
 ﻿using System.Linq;
-using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Apps.Implementation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VideoWall.ServiceModels.Player.Interfaces;
 using VideoWall.Tests.Mocks;
 
-namespace VideoWall.Tests
+namespace VideoWall.Tests.ServiceModels.Apps
 {
-
-
     /// <summary>
     ///This is a test class for AppControllerTest and is intended
     ///to contain all AppControllerTest Unit Tests
@@ -22,7 +18,7 @@ namespace VideoWall.Tests
         [TestMethod()]
         public void AppControllerConstructorTestInternals()
         {
-            const string extensionsFolder = "./TestFiles/Extensions";
+            var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig_Accessor(extensionsFolder);
             var controller = new AppController_Accessor(player, extensionsConfig);
@@ -35,7 +31,7 @@ namespace VideoWall.Tests
         [TestMethod()]
         public void AppControllerConstructorTest()
         {
-            const string extensionsFolder = "./TestFiles/Extensions";
+            var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig(extensionsFolder);
             var controller = new AppController(player, extensionsConfig);

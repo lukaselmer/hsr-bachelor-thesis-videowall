@@ -38,7 +38,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         [TestMethod]
         public void ExtensionsConfigConstructorTest()
         {
-            const string extensionsDirectoryPath = "./TestFiles/Extensions";
+            var extensionsDirectoryPath = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var config = new ExtensionsConfig(extensionsDirectoryPath);
             var dirs = config.ExtensionDirectories.ToList();
             Assert.AreEqual(2, dirs.Count);
@@ -53,7 +53,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
         [ExpectedException(typeof(VideoWallException))]
         public void ExtensionsConfigConstructorTestThrowing()
         {
-            const string extensionsDirectoryPath = "./TestFiles/__FolderDoesNotExist__";
+            var extensionsDirectoryPath = FileDirectoryForTests.TestFilePrefix + "__FolderDoesNotExist__";
             new ExtensionsConfig(extensionsDirectoryPath);
         }
     }
