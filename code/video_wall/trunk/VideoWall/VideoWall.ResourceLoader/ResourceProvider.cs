@@ -36,7 +36,7 @@ namespace VideoWall.ResourceLoader
 
         /// <summary>
         ///   The resource dictionary is loaded from the xaml file.
-        ///   It is wrapped in a thread local because like this the resources are availible in every thread. This
+        ///   It is wrapped in a thread local because like this the resources are available in every thread. This
         ///   is especially important for the unit tests because they run parallel in multiple threads.
         /// </summary>
         static readonly ThreadLocal<ResourceDictionary> ResourceDictionary = new ThreadLocal<ResourceDictionary>(() => new ResourceDictionary
