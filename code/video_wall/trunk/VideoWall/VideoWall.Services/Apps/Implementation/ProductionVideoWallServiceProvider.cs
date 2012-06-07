@@ -16,6 +16,8 @@
 #region Usings
 
 using Microsoft.Practices.Unity;
+using VideoWall.Common.Exceptions;
+using VideoWall.Common.Logging;
 using VideoWall.Interfaces;
 using VideoWall.ServiceModels.Player.Implementation;
 using VideoWall.ServiceModels.Player.Interfaces;
@@ -73,7 +75,20 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         /// <returns> </returns>
         public T GetExtension<T>() where T : IVideoWallService
         {
-            return _appExtensionsContainer.Resolve<T>();
+            try
+            {
+                return _appExtensionsContainer.Resolve<T>();
+            }
+            catch (ResolutionFailedException ex)
+            {
+                if (ex.InnerException is VideoWallException)
+                {
+                    Logger.Get.Error("Extension could not be loaded.", ex.InnerException);
+                    throw ex.InnerException as VideoWallException;
+                }
+                Logger.Get.Error("Extension could not be loaded.", ex);
+                throw;
+            }
         }
 
         #endregion
