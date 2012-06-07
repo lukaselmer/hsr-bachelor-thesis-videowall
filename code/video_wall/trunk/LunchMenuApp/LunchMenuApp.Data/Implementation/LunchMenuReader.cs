@@ -16,7 +16,6 @@
 #region Usings
 
 using System.Net;
-using System.Text;
 using LunchMenuApp.Data.Interfaces;
 using VideoWall.Common.Helpers;
 using VideoWall.Common.Logging;
@@ -34,7 +33,7 @@ namespace LunchMenuApp.Data.Implementation
     // ReSharper disable ClassNeverInstantiated.Global
     // Created by unity, so ReSharper thinks this class is unused, which is wrong.
     public class LunchMenuReader : ILunchMenuReader
-    // ReSharper restore ClassNeverInstantiated.Global
+        // ReSharper restore ClassNeverInstantiated.Global
     {
         #region Declarations
 
@@ -56,6 +55,7 @@ namespace LunchMenuApp.Data.Implementation
         /// <summary>
         ///   Initializes a new instance of the <see cref="LunchMenuReader" /> class.
         /// </summary>
+        /// <param name="urlDownloader"> The URL downloader. </param>
         public LunchMenuReader(IUrlDownloader urlDownloader)
         {
             PreOrPostCondition.AssertNotNull(urlDownloader, "urlDownloader");
