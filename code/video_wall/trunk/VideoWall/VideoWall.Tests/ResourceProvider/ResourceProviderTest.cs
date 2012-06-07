@@ -63,7 +63,7 @@ namespace VideoWall.Tests.ResourceProvider
         public void HandLeftTest()
         {
             const string packUri = "pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png";
-            var expected = new Image {Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource};
+            var expected = new Image { Source = new ImageSourceConverter().ConvertFromString(packUri) as ImageSource };
             var actual = ResourceLoader.ResourceProvider.HandLeft;
             Assert.IsTrue(TestImageEquality(expected, actual), "Images are not equal.");
         }
