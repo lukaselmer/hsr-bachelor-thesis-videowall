@@ -64,7 +64,7 @@ namespace LunchMenuApp.Main
         /// </summary>
         public LunchMenuApp()
         {
-            Name = "Mittagsmenü";
+            Name = "Mittagsmenu";
             DemomodeText = "Hunger?";
         }
 
