@@ -131,7 +131,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="testfile.txt" />
     <Content Include="TestFiles\Extensions\DiagnosticsApp2\DiagnosticsApp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

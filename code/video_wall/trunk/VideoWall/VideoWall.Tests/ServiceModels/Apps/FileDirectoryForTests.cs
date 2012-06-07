@@ -27,7 +27,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
     /// </summary>
     internal static class FileDirectoryForTests
     {
-        public static object TestFilePrefix
+        public static string TestFilePrefix
         {
             get
             {

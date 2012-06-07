@@ -16,6 +16,7 @@
 #region Usings
 
 using System.IO;
+using PosterApp.Tests.Data;
 using VideoWall.Interfaces;
 
 #endregion
@@ -32,7 +33,7 @@ namespace PosterApp.Tests.Mocks
         /// <summary>
         ///   Gets the path to the resource directory.
         /// </summary>
-        public string ResourceDirectory { get { return "TestFiles"; } }
+        public string ResourceDirectory { get { return FileDirectoryForTests.TestFilePrefix + "TestFiles"; } }
 
         /// <summary>
         /// Gets the test file path.
