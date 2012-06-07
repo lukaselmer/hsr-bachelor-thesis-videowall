@@ -4,9 +4,17 @@
         <name>VideoWall.Interfaces</name>
     </assembly>
     <members>
-        <member name="T:VideoWall.Interfaces.ISkeletonService">
+        <member name="T:VideoWall.Interfaces.NamespaceDoc">
             <summary>
-              The skeleton service provides the skeletal tracking.
+              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Interfaces.IFileService">
+            <summary>
+              The file service provides a directory where an exension has read and write access.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -20,65 +28,10 @@
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
-        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
-            <summary>
-              Occurs when skeleton changes.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
-            <summary>
-              The skeleton changed event args.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
-            <summary>
-              Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
-            </summary>
-            <param name="skeleton"> The skeleton. </param>
-        </member>
-        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
-            <summary>
-              Gets the skeleton.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.IFileService">
-            <summary>
-              The file service provides a directory where an exension has read and write access.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
         <member name="P:VideoWall.Interfaces.IFileService.ResourceDirectory">
             <summary>
               Gets the path to the resource directory.
             </summary>
-        </member>
-        <member name="T:VideoWall.Interfaces.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Interfaces"/> namespace contains the framework interfaces.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
-            <summary>
-              Provides services for the video wall, like hand tracking, skeleton tracking or a file service.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
-            <summary>
-              Gets an implementation of the interface which is provided by the video wall.
-            </summary>
-            <typeparam name="T"> The interface of a specific video wall service. </typeparam>
-            <returns> A video wall service implementation. </returns>
         </member>
         <member name="T:VideoWall.Interfaces.IApp">
             <summary>
@@ -111,6 +64,53 @@
             <summary>
               Gets the demomode text.
             </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.ISkeletonService">
+            <summary>
+              The skeleton service provides the skeletal tracking.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="E:VideoWall.Interfaces.ISkeletonService.SkeletonChanged">
+            <summary>
+              Occurs when skeleton changes.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.SkeletonChangedEventArgs">
+            <summary>
+              The skeleton changed event args.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Interfaces.SkeletonChangedEventArgs.#ctor(Microsoft.Kinect.Skeleton)">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Interfaces.SkeletonChangedEventArgs"/> class.
+            </summary>
+            <param name="skeleton"> The skeleton. </param>
+        </member>
+        <member name="P:VideoWall.Interfaces.SkeletonChangedEventArgs.Skeleton">
+            <summary>
+              Gets the skeleton.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Interfaces.IVideoWallServiceProvider">
+            <summary>
+              Provides services for the video wall, like hand tracking, skeleton tracking or a file service.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Interfaces.IVideoWallServiceProvider.GetExtension``1">
+            <summary>
+              Gets an implementation of the interface which is provided by the video wall.
+            </summary>
+            <typeparam name="T"> The interface of a specific video wall service. </typeparam>
+            <returns> A video wall service implementation. </returns>
         </member>
     </members>
 </doc>

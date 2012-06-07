@@ -4,6 +4,11 @@
         <name>LunchMenuApp.Data</name>
     </assembly>
     <members>
+        <member name="T:LunchMenuApp.Data.Implementation.WebDownloader">
+            <summary>
+              The web downloader downloads a websites HTML.
+            </summary>
+        </member>
         <member name="T:LunchMenuApp.Data.Interfaces.IUrlDownloader">
             <summary>
               The interface of the url web downloader.
@@ -16,13 +21,12 @@
             <param name="url"> The URL. </param>
             <returns> The HTML as string. </returns>
         </member>
-        <member name="T:LunchMenuApp.Data.Implementation.NamespaceDoc">
+        <member name="M:LunchMenuApp.Data.Implementation.WebDownloader.Download(System.String)">
             <summary>
-              The <see cref="N:LunchMenuApp.Data.Implementation"/> namespace contains classes of the data layer.
+              Downloads the HTML.
             </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
+            <param name="url"> The URL. </param>
+            <returns> The HTML as string. </returns>
         </member>
         <member name="T:LunchMenuApp.Data.Implementation.LunchMenuReader">
             <summary>
@@ -61,17 +65,13 @@
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
         </member>
-        <member name="T:LunchMenuApp.Data.Implementation.WebDownloader">
+        <member name="T:LunchMenuApp.Data.Implementation.NamespaceDoc">
             <summary>
-              The web downloader downloads a websites HTML.
+              The <see cref="N:LunchMenuApp.Data.Implementation"/> namespace contains classes of the data layer.
             </summary>
-        </member>
-        <member name="M:LunchMenuApp.Data.Implementation.WebDownloader.Download(System.String)">
-            <summary>
-              Downloads the HTML.
-            </summary>
-            <param name="url"> The URL. </param>
-            <returns> The HTML as string. </returns>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
     </members>
 </doc>

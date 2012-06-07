@@ -4,58 +4,6 @@
         <name>LunchMenuApp.ViewModels</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.ViewModels.DishViewModel">
-            <summary>
-              The dish view model represents a dish.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="F:LunchMenuApp.ViewModels.DishViewModel._name">
-            <summary>
-            The name of the dish.
-            </summary>
-        </member>
-        <member name="F:LunchMenuApp.ViewModels.DishViewModel._price">
-            <summary>
-            The price of the dish.
-            </summary>
-        </member>
-        <member name="F:LunchMenuApp.ViewModels.DishViewModel._type">
-            <summary>
-            The type of the dish (e.g. Tagesteller, Dauerbrenner, ...)
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Interfaces.IDish)">
-            <summary>
-              Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
-            </summary>
-            <param name="dish"> The dish. </param>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Price">
-            <summary>
-              Gets the price.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Type">
-            <summary>
-              Gets the type.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
-            <summary>
-              Gets the name.
-            </summary>
-        </member>
-        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
         <member name="T:LunchMenuApp.ViewModels.LunchMenuViewModel">
             <summary>
               The lunch menu view model represents the lunch menu.
@@ -100,6 +48,58 @@
         <member name="P:LunchMenuApp.ViewModels.LunchMenuViewModel.Dishes">
             <summary>
               Gets the dishes.
+            </summary>
+        </member>
+        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:LunchMenuApp.ViewModels.DishViewModel">
+            <summary>
+              The dish view model represents a dish.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._name">
+            <summary>
+            The name of the dish.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._price">
+            <summary>
+            The price of the dish.
+            </summary>
+        </member>
+        <member name="F:LunchMenuApp.ViewModels.DishViewModel._type">
+            <summary>
+            The type of the dish (e.g. Tagesteller, Dauerbrenner, ...)
+            </summary>
+        </member>
+        <member name="M:LunchMenuApp.ViewModels.DishViewModel.#ctor(LunchMenuApp.ServiceModels.Interfaces.IDish)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LunchMenuApp.ViewModels.DishViewModel"/> class.
+            </summary>
+            <param name="dish"> The dish. </param>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Price">
+            <summary>
+              Gets the price.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Type">
+            <summary>
+              Gets the type.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.ViewModels.DishViewModel.Name">
+            <summary>
+              Gets the name.
             </summary>
         </member>
     </members>
