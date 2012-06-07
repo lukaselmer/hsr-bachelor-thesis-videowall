@@ -50,7 +50,7 @@ namespace VideoWall.ServiceModels.HandCursor.Interfaces
         /// <param name="size"> The size. </param>
         /// <param name="skeletonHistory"> The skeleton history. </param>
         /// <param name="latestSkeleton"> The latest skeleton. </param>
-        /// <returns> </returns>
+        /// <returns> The position. </returns>
         Point CalculatePositionFromSkeletons(Size size, Queue<Skeleton> skeletonHistory, Skeleton latestSkeleton);
 
         #endregion

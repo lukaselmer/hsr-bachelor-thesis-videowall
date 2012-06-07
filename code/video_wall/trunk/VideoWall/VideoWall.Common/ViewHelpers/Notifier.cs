@@ -46,8 +46,6 @@ namespace VideoWall.Common.ViewHelpers
         ///   Notifies that the property with the specified name has changed.
         /// </summary>
         /// <param name="propertyName"> Name of the property. </param>
-        /// <remarks>
-        /// </remarks>
         protected void Notify(string propertyName)
         {
             if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

@@ -26,8 +26,7 @@ namespace VideoWall.Common.Helpers
     ///   Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
     /// </summary>
     /// <remarks>
-    ///   Contains parts from ScrumTable (HSR, 2010)
-    ///   Reviewed by Lukas Elmer, 05.06.2012
+    ///   Contains parts from ScrumTable (HSR, 2010) Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
     public static class PreOrPostCondition
     {
@@ -36,10 +35,11 @@ namespace VideoWall.Common.Helpers
         /// <summary>
         ///   Asserts that the given value is in the specified range. Otherwise an exception (or assertion) will be thrown.
         /// </summary>
-        /// <param name="arg"> Specifies the argument to check. </param>
-        /// <param name="name"> Specifies the name of the argument to check. </param>
+        /// <typeparam name="T"> The interface of the parameters. </typeparam>
         /// <param name="lower"> Specifies the lower bound (a valid value). </param>
         /// <param name="upper"> Specifies the upper bound (a valid value). </param>
+        /// <param name="arg"> Specifies the argument to check. </param>
+        /// <param name="name"> Specifies the name of the argument to check. </param>
         public static void AssertInRange<T>(T lower, T upper, T arg, string name)
             where T : IComparable<T>
         {
