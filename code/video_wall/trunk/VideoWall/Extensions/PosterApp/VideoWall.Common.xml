@@ -4,6 +4,64 @@
         <name>VideoWall.Common</name>
     </assembly>
     <members>
+        <member name="T:VideoWall.Common.Exceptions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Exceptions"/> namespace contains exceptions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Helpers"/> namespace contains helpers.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:VideoWall.Common.Extensions.RandomExtension">
+            <summary>
+              The random extension for the IEnumerable interface.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+              Gets a random element of the list.
+            </summary>
+            <typeparam name="T"> The interface of the enumerable. </typeparam>
+            <param name="enumerable"> The enumerable. </param>
+            <returns> An element of the enumerable list. </returns>
+        </member>
+        <member name="T:VideoWall.Common.Logging.Logger">
+            <summary>
+              The logger wrapper.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logging.Logger.Get">
+            <summary>
+              Gets the currrent logger.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Extensions.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.Extensions"/> namespace contains extensions.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:VideoWall.Common.Exceptions.VideoWallException">
             <summary>
             The video wall exception occurs if something goes wrong which is video wall specific.
@@ -24,6 +82,14 @@
             </summary>
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:VideoWall.Common.ViewHelpers.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common.ViewHelpers"/> namespace contains helpers for the view.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="T:VideoWall.Common.Helpers.PreOrPostCondition">
             <summary>
@@ -102,30 +168,6 @@
             <param name="fileName"> Name of the file. </param>
             <returns> The image. </returns>
         </member>
-        <member name="T:VideoWall.Common.Extensions.RandomExtension">
-            <summary>
-              The random extension for the IEnumerable interface.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-              Gets a random element of the list.
-            </summary>
-            <typeparam name="T"> The interface of the enumerable. </typeparam>
-            <param name="enumerable"> The enumerable. </param>
-            <returns> An element of the enumerable list. </returns>
-        </member>
-        <member name="T:VideoWall.Common.Exceptions.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common.Exceptions"/> namespace contains exceptions.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
         <member name="T:VideoWall.Common.ViewHelpers.Notifier">
             <summary>
               Implementation of INotifyPropertyChanged.
@@ -190,48 +232,6 @@
             <summary>
               Occurs when changes occur that affect whether or not the command should execute.
             </summary>
-        </member>
-        <member name="T:VideoWall.Common.Logging.Logger">
-            <summary>
-              The logger wrapper.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="F:VideoWall.Common.Logging.Logger.TheLogger">
-            <summary>
-              The Logger
-            </summary>
-        </member>
-        <member name="P:VideoWall.Common.Logging.Logger.Get">
-            <summary>
-              Gets the currrent logger.
-            </summary>
-        </member>
-        <member name="T:VideoWall.Common.Extensions.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common.Extensions"/> namespace contains extensions.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:VideoWall.Common.Helpers.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common.Helpers"/> namespace contains helpers.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:VideoWall.Common.ViewHelpers.NamespaceDoc">
-            <summary>
-              The <see cref="N:VideoWall.Common.ViewHelpers"/> namespace contains helpers for the view.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
     </members>
 </doc>

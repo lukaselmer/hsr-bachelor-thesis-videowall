@@ -4,11 +4,6 @@
         <name>PosterApp.Main</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.Main.NamespaceDoc">
-            <summary>
-              The <see cref="T:PosterApp.Main`1" /> namespace contains the main.
-            </summary>
-        </member>
         <member name="T:PosterApp.Main.PosterApp">
             <summary>
             The poster app.
@@ -47,6 +42,11 @@
         <member name="P:PosterApp.Main.PosterApp.DemomodeText">
             <summary>
             Gets the demomode text.
+            </summary>
+        </member>
+        <member name="T:PosterApp.Main.NamespaceDoc">
+            <summary>
+              The <see cref="T:PosterApp.Main`1" /> namespace contains the main.
             </summary>
         </member>
     </members>

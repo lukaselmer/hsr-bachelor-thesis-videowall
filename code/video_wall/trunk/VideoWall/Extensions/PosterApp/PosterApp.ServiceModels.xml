@@ -4,9 +4,9 @@
         <name>PosterApp.ServiceModels</name>
     </assembly>
     <members>
-        <member name="T:PosterApp.ServiceModels.Implementation.PosterService">
+        <member name="T:PosterApp.ServiceModels.Implementation.NamespaceDoc">
             <summary>
-              The poster service.
+              The <see cref="N:PosterApp.ServiceModels.Implementation"/> namespace contains service classes.
             </summary>
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
@@ -25,6 +25,54 @@
               Gets or sets and notifies the posters.
             </summary>
             <value> The posters. </value>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Interfaces.IPoster">
+            <summary>
+            The poster interface.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Interfaces.IPoster.Image">
+            <summary>
+              Gets the image.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.ServiceModels.Interfaces"/> namespace contains service interfaces.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Implementation.Poster">
+            <summary>
+              The poster.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
+        <member name="M:PosterApp.ServiceModels.Implementation.Poster.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.Poster"/> class.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Implementation.Poster.Image">
+            <summary>
+              Gets the image.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Implementation.PosterService">
+            <summary>
+              The poster service.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
         </member>
         <member name="F:PosterApp.ServiceModels.Implementation.PosterService._posterReader">
             <summary>
@@ -50,54 +98,6 @@
               Gets or sets and notifies the posters.
             </summary>
             <value> The posters. </value>
-        </member>
-        <member name="T:PosterApp.ServiceModels.Implementation.Poster">
-            <summary>
-              The poster.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:PosterApp.ServiceModels.Interfaces.IPoster">
-            <summary>
-            The poster interface.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Interfaces.IPoster.Image">
-            <summary>
-              Gets the image.
-            </summary>
-        </member>
-        <member name="M:PosterApp.ServiceModels.Implementation.Poster.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Implementation.Poster"/> class.
-            </summary>
-            <param name="fileName"> Name of the file. </param>
-        </member>
-        <member name="P:PosterApp.ServiceModels.Implementation.Poster.Image">
-            <summary>
-              Gets the image.
-            </summary>
-        </member>
-        <member name="T:PosterApp.ServiceModels.Interfaces.NamespaceDoc">
-            <summary>
-              The <see cref="N:PosterApp.ServiceModels.Interfaces"/> namespace contains service interfaces.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
-        </member>
-        <member name="T:PosterApp.ServiceModels.Implementation.NamespaceDoc">
-            <summary>
-              The <see cref="N:PosterApp.ServiceModels.Implementation"/> namespace contains service classes.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
     </members>
 </doc>
