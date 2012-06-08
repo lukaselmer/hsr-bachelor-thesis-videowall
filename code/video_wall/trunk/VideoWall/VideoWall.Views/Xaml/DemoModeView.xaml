@@ -11,12 +11,12 @@
     </UserControl.Background>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding TeaserVisibility}">
-            <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250"  
+            <TextBlock Margin="100, 0, 100, 0" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" FontSize="250" FontFamily="Arial"  
                        Text="{Binding TeaserText}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="White" />
-          <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" Foreground="White" Text="Dann komm näher" />
+            <TextBlock Margin="0, 100, 0, 0" Grid.Row="3" HorizontalAlignment="Center" FontSize="120" FontFamily="Arial" Foreground="White" Text="Dann komm näher" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding CountDownVisibility}">
-            <TextBlock FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" />
+            <TextBlock FontSize="200" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" Text="{Binding Countdown}" />
           <Xaml:DemoModeSkeletonLinesView DataContext="{Binding PlayerViewModel}" />
         </StackPanel>
     </Grid>
