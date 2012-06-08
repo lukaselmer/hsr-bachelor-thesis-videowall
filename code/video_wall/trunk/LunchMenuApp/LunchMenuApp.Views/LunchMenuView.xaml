@@ -7,6 +7,11 @@
              xmlns:Views="clr-namespace:LunchMenuApp.Views" mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="900"
              d:DataContext="{d:DesignInstance Lunch:LunchMenuViewModel}">
+    <UserControl.Resources>
+        
+        <ResourceDictionary Source="pack://application:,,,/LunchMenuApp.Views;component/Styles.xaml"/>
+  
+    </UserControl.Resources>
     <Grid Background="White">
         <Grid VerticalAlignment="Center">
             <StackPanel>

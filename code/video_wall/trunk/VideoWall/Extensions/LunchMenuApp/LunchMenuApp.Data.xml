@@ -4,14 +4,9 @@
         <name>LunchMenuApp.Data</name>
     </assembly>
     <members>
-        <member name="T:LunchMenuApp.Data.Interfaces.ILunchMenuReader">
+        <member name="T:LunchMenuApp.Data.Implementation.WebDownloader">
             <summary>
-            The luch menu reader interfaces.
-            </summary>
-        </member>
-        <member name="P:LunchMenuApp.Data.Interfaces.ILunchMenuReader.Html">
-            <summary>
-              Gets the HTML of the current mensa menu.
+              The web downloader downloads a websites HTML.
             </summary>
         </member>
         <member name="T:LunchMenuApp.Data.Interfaces.IUrlDownloader">
@@ -26,13 +21,12 @@
             <param name="url"> The URL. </param>
             <returns> The HTML as string. </returns>
         </member>
-        <member name="T:LunchMenuApp.Data.Interfaces.NamespaceDoc">
+        <member name="M:LunchMenuApp.Data.Implementation.WebDownloader.Download(System.String)">
             <summary>
-              The <see cref="N:LunchMenuApp.Data.Interfaces"/> namespace contains interfaces of the data layer.
+              Downloads the HTML.
             </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
+            <param name="url"> The URL. </param>
+            <returns> The HTML as string. </returns>
         </member>
         <member name="T:LunchMenuApp.Data.Implementation.LunchMenuReader">
             <summary>
@@ -41,6 +35,16 @@
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
+        </member>
+        <member name="T:LunchMenuApp.Data.Interfaces.ILunchMenuReader">
+            <summary>
+            The luch menu reader interfaces.
+            </summary>
+        </member>
+        <member name="P:LunchMenuApp.Data.Interfaces.ILunchMenuReader.Html">
+            <summary>
+              Gets the HTML of the current mensa menu.
+            </summary>
         </member>
         <member name="M:LunchMenuApp.Data.Implementation.LunchMenuReader.#ctor(LunchMenuApp.Data.Interfaces.IUrlDownloader)">
             <summary>
@@ -53,6 +57,14 @@
               Gets the HTML of the current mensa menu.
             </summary>
         </member>
+        <member name="T:LunchMenuApp.Data.Interfaces.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.Data.Interfaces"/> namespace contains interfaces of the data layer.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:LunchMenuApp.Data.Implementation.NamespaceDoc">
             <summary>
               The <see cref="N:LunchMenuApp.Data.Implementation"/> namespace contains classes of the data layer.
@@ -60,18 +72,6 @@
             <remarks>
               Reviewed by Lukas Elmer, 05.06.2012
             </remarks>
-        </member>
-        <member name="T:LunchMenuApp.Data.Implementation.WebDownloader">
-            <summary>
-              The web downloader downloads a websites HTML.
-            </summary>
-        </member>
-        <member name="M:LunchMenuApp.Data.Implementation.WebDownloader.Download(System.String)">
-            <summary>
-              Downloads the HTML.
-            </summary>
-            <param name="url"> The URL. </param>
-            <returns> The HTML as string. </returns>
         </member>
     </members>
 </doc>

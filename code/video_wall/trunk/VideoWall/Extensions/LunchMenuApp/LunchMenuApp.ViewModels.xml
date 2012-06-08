@@ -50,6 +50,14 @@
               Gets the dishes.
             </summary>
         </member>
+        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
+            </summary>
+            <remarks>
+              Reviewed by Lukas Elmer, 05.06.2012
+            </remarks>
+        </member>
         <member name="T:LunchMenuApp.ViewModels.DishViewModel">
             <summary>
               The dish view model represents a dish.
@@ -93,14 +101,6 @@
             <summary>
               Gets the name.
             </summary>
-        </member>
-        <member name="T:LunchMenuApp.ViewModels.NamespaceDoc">
-            <summary>
-              The <see cref="N:LunchMenuApp.ViewModels"/> namespace contains view models.
-            </summary>
-            <remarks>
-              Reviewed by Lukas Elmer, 05.06.2012
-            </remarks>
         </member>
     </members>
 </doc>
