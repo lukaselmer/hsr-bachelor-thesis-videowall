@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <TextBlock>This is the diagnosics app.</TextBlock>
+        <TextBlock>This is the diagnostics app.</TextBlock>
         <Button Click="ClickA">AAAA</Button>
         <Button Click="ClickB">BBBB</Button>
         <Button Click="ClickC">CCCC</Button>
