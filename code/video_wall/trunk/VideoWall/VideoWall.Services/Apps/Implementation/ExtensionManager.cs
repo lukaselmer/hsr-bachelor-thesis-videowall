@@ -37,7 +37,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         ///   Inits the specified application with extension.
         /// </summary>
         /// <param name="extensionFolder"> The application with extension. </param>
-        public static void Init(ExtensionFolder extensionFolder)
+        public void Init(ExtensionFolder extensionFolder)
         {
             PreOrPostCondition.AssertNotNull(extensionFolder, "extensionFolder");
             var container = new CompositionContainer(new DirectoryCatalog(extensionFolder.Directory.FullName));

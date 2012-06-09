@@ -94,7 +94,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
             {
                 try
                 {
-                    ExtensionManager.Init(extensionFolder);
+                    _extensionManager.Init(extensionFolder);
                 }
                 catch (Exception exception)
                 {
