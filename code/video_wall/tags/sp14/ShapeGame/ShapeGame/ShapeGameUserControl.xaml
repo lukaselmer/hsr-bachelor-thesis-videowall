@@ -1,0 +1,21 @@
+<UserControl x:Class="ShapeGame.ShapeGameUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Loaded="WindowLoaded" Unloaded="WindowClosing">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fff" Offset="0.05" />
+                    <GradientStop Color="#cce0ed" Offset="0.238" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Grid>
+                <Canvas Margin="0" Name="playfield" Height="688" Width="619" SizeChanged="PlayfieldSizeChanged" />
+              <!--<kt:KinectColorViewer x:Name="kinectViewer" Margin="0,18,19,0" HorizontalAlignment="Right" Width="160" Height="120" VerticalAlignment="Top"
+                                      Kinect="{Binding ElementName=SensorChooser,Path=Kinect}"/>-->
+                <!--<kt:KinectSensorChooser Margin="0,18,19,0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="SensorChooser" />-->
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

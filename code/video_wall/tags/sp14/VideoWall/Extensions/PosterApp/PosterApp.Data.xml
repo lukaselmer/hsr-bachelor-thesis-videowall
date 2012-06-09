@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PosterApp.Data</name>
+    </assembly>
+    <members>
+        <member name="T:PosterApp.Data.PosterReader">
+            <summary>
+              The Poster Reader
+            </summary>
+        </member>
+        <member name="M:PosterApp.Data.PosterReader.#ctor(VideoWall.Interfaces.IVideoWallServiceProvider)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.Data.PosterReader"/> class.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Data.PosterReader.Path">
+            <summary>
+              Gets the path of the files.
+            </summary>
+        </member>
+        <member name="P:PosterApp.Data.PosterReader.Files">
+            <summary>
+              Gets the files.
+            </summary>
+        </member>
+        <member name="T:PosterApp.Data.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.Data"/> namespace contains classes of the data layer.
+            </summary>
+        </member>
+    </members>
+</doc>

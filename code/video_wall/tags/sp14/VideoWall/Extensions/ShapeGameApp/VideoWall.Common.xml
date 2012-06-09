@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoWall.Common</name>
+    </assembly>
+    <members>
+        <member name="T:VideoWall.Common.Extensions.RandomExtension">
+            <summary>
+            The random extension for the IEnumerable interface
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.Extensions.RandomExtension.RandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets a random element of the list.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable">The enumerable.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.Command">
+            <summary>
+              Implementation of the ICommand Interface
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.Command.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.Helpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+            <param name="canExecute"> The canexecute predicate. </param>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.Command.#ctor(System.Action{System.Object})">
+            <summary>
+              Initializes a new instance of the <see cref="T:VideoWall.Common.Helpers.Command"/> class.
+            </summary>
+            <param name="execute"> The execute action. </param>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.Command.Execute(System.Object)">
+            <summary>
+              Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.Command.CanExecute(System.Object)">
+            <summary>
+              Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter"> Data used by the command. If the command does not require data to be passed, this object can be set to null. </param>
+            <returns> true if this command can be executed; otherwise, false. </returns>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.Command.RaiseCanExecuteChanged">
+            <summary>
+              Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="E:VideoWall.Common.Helpers.Command.CanExecuteChanged">
+            <summary>
+              Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Helpers.ImageHelper">
+            <summary>
+              The image helper provides helper methods for images.
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.Helpers.ImageHelper.InitWithFileName(System.String)">
+            <summary>
+              Initializes an image with a file name.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+            <returns> The image. </returns>
+        </member>
+        <member name="T:VideoWall.Common.Logger">
+            <summary>
+              The Logger wrapper
+            </summary>
+        </member>
+        <member name="F:VideoWall.Common.Logger.TheLogger">
+            <summary>
+              The Logger
+            </summary>
+        </member>
+        <member name="P:VideoWall.Common.Logger.Get">
+            <summary>
+              Gets the currrent logger
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.PreOrPostCondition">
+            <summary>
+              Contains PreOrPostCondition check features, which allows to throw exceptions or work with assertions.
+            </summary>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertInRange``1(``0,``0,``0,System.String)">
+            <summary>
+              Asserts that the given value is in the specified range. Otherwise an exception (or assertion) will be thrown.
+            </summary>
+            <param name="arg"> Specifies the argument to check. </param>
+            <param name="name"> Specifies the name of the argument to check. </param>
+            <param name="lower"> Specifies the lower bound (a valid value). </param>
+            <param name="upper"> Specifies the upper bound (a valid value). </param>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertNotNull(System.Object,System.String)">
+            <summary>
+              Asserts that the given object is not null. Otherwise an exception will be thrown.
+            </summary>
+            <param name="arg"> Specifies the argument to check. </param>
+            <param name="name"> Specifies the name of the argument to check. </param>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertNotNullOrEmpty(System.String,System.String)">
+            <summary>
+              Asserts that the given object is not null or empty. Otherwise an exception will be thrown.
+            </summary>
+            <param name="arg"> The string to be checked. </param>
+            <param name="name"> The name. </param>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertTrue(System.Boolean,System.String)">
+            <summary>
+              Asserts that the given condition is true. Otherwise an exception will be thrown.
+            </summary>
+            <param name="condition"> Condition which should be true. </param>
+            <param name="message"> Specifies the argument exception message to throw. </param>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertTrue(System.Boolean,System.String,System.String)">
+            <summary>
+              Asserts that the given condition is true. Otherwise an exception will be thrown.
+            </summary>
+            <param name="condition"> Condition which should be true. </param>
+            <param name="name"> Specifies the name of the argument to check. </param>
+            <param name="message"> Specifies the argument exception message to throw. </param>
+        </member>
+        <member name="M:VideoWall.Common.PreOrPostCondition.AssertTrue(System.Boolean,System.Exception)">
+            <summary>
+              Asserts that the given condition is true. Otherwise the given exception will be thrown.
+            </summary>
+            <param name="condition"> Condition which should be true. </param>
+            <param name="exception"> Specifies the exception to throw. </param>
+        </member>
+        <member name="P:VideoWall.Common.PreOrPostCondition.EnableDebugAssertions">
+            <summary>
+              Gets or sets if the Debug.Assert() statement should be used in order to check the conditions.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.NamespaceDoc">
+            <summary>
+              The <see cref="N:VideoWall.Common"/> namespace contains classes which are used in different projects.
+            </summary>
+        </member>
+        <member name="T:VideoWall.Common.Notifier">
+            <summary>
+              Implementation of INotifyPropertyChanged
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Notifier.Notify(System.String)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="propertyName"> Name of the property. </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:VideoWall.Common.Notifier.Notify(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+              Notifies that the property with the specified name has changed.
+            </summary>
+            <param name="sender"> The sender. </param>
+            <param name="e"> The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data. </param>
+        </member>
+        <member name="E:VideoWall.Common.Notifier.PropertyChanged">
+            <summary>
+              Occurs when a property value changes.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+    </members>
+</doc>

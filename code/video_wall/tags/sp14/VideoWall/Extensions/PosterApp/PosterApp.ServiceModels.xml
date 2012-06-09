@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PosterApp.ServiceModels</name>
+    </assembly>
+    <members>
+        <member name="T:PosterApp.ServiceModels.NamespaceDoc">
+            <summary>
+              The <see cref="N:PosterApp.ServiceModels"/> namespace contains service classes.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ServiceModels.Poster">
+            <summary>
+              The Poster.
+            </summary>
+        </member>
+        <member name="M:PosterApp.ServiceModels.Poster.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.Poster"/> class.
+            </summary>
+            <param name="fileName"> Name of the file. </param>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Poster.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:PosterApp.ServiceModels.Poster.Image">
+            <summary>
+              Gets the image.
+            </summary>
+        </member>
+        <member name="T:PosterApp.ServiceModels.PosterService">
+            <summary>
+              The PosterService
+            </summary>
+        </member>
+        <member name="M:PosterApp.ServiceModels.PosterService.#ctor(PosterApp.Data.PosterReader)">
+            <summary>
+              Initializes a new instance of the <see cref="T:PosterApp.ServiceModels.PosterService"/> class.
+            </summary>
+            <param name="posterReader"> The poster reader. </param>
+        </member>
+        <member name="M:PosterApp.ServiceModels.PosterService.ReadFromPosterReader">
+            <summary>
+              Reads from poster reader.
+            </summary>
+        </member>
+        <member name="P:PosterApp.ServiceModels.PosterService.Posters">
+            <summary>
+              Gets or sets and notifies the posters.
+            </summary>
+            <value> The posters. </value>
+        </member>
+    </members>
+</doc>
