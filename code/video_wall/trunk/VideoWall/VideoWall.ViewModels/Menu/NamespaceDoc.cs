@@ -32,7 +32,7 @@ namespace VideoWall.ViewModels.Menu
     //This class is necessary to comment the namespace
     //VideoWall.ViewModels.Menu but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
     {
     }
+    // ReSharper restore UnusedMember.Global
 }

@@ -32,7 +32,7 @@ namespace VideoWall.ServiceModels.Apps.Interfaces
         //This class is necessary to comment the namespace
         //VideoWall.ServiceModels.Apps.Interfaces but ReSharper marks this class as unused.
     internal class NamespaceDoc
-        // ReSharper restore UnusedMember.Global
     {
     }
+    // ReSharper restore UnusedMember.Global
 }

@@ -32,7 +32,7 @@ namespace VideoWall.Common.Logging
         //This class is necessary to comment the namespace
         //VideoWall.Common.Logging but ReSharper marks this class as unused.
     internal class NamespaceDoc
-        // ReSharper restore UnusedMember.Global
     {
     }
+    // ReSharper restore UnusedMember.Global
 }

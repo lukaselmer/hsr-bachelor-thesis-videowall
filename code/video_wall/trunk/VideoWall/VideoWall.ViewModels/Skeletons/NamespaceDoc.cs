@@ -32,7 +32,7 @@ namespace VideoWall.ViewModels.Skeletons
     //This class is necessary to comment the namespace
     //VideoWall.ViewModels.Skeletons but ReSharper marks this class as unused.
     internal class NamespaceDoc
-    // ReSharper restore UnusedMember.Global
     {
     }
+    // ReSharper restore UnusedMember.Global
 }

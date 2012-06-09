@@ -32,7 +32,7 @@ namespace VideoWall.Tests.ResourceProvider
         //This class is necessary to comment the namespace
     //VideoWall.Tests.ResourceProvider but ReSharper marks this class as unused.
     internal class NamespaceDoc
-        // ReSharper restore UnusedMember.Global
     {
     }
+    // ReSharper restore UnusedMember.Global
 }
