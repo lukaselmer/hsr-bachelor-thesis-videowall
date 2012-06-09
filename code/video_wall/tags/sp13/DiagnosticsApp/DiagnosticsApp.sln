@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnosticsApp", "DiagnosticsApp\DiagnosticsApp.csproj", "{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoWall.Interfaces", "..\VideoWall\VideoWall.Interfaces\VideoWall.Interfaces.csproj", "{923DA79D-28D6-483A-8654-60745D9F804C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376D2CD2-2B6A-466C-A2CA-DC23CBC87ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923DA79D-28D6-483A-8654-60745D9F804C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923DA79D-28D6-483A-8654-60745D9F804C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923DA79D-28D6-483A-8654-60745D9F804C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923DA79D-28D6-483A-8654-60745D9F804C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
