@@ -1,5 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Image x:Key="handRight" Source="pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_right.png" />
-    <Image x:Key="handLeft" Source="pack://application:,,,/VideoWall.ResourceLoader;component/Files/hand_left.png" />
-</ResourceDictionary>
