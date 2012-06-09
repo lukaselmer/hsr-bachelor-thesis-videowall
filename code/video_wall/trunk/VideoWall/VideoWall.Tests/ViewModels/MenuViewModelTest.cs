@@ -41,7 +41,7 @@ namespace VideoWall.Tests.ViewModels
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig(extensionsFolder);
-            var controller = new AppController(player, extensionsConfig);
+            var controller = new AppController(player, extensionsConfig, new ExtensionManager());
             var vm = new MenuViewModel(controller);
             Assert.AreEqual(controller.Apps.Count(), vm.Apps.Count);
             Assert.IsNotNull(vm.CurrentApp);
@@ -58,7 +58,7 @@ namespace VideoWall.Tests.ViewModels
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig(extensionsFolder);
-            var controller = new AppController(player, extensionsConfig);
+            var controller = new AppController(player, extensionsConfig, new ExtensionManager());
             var vm = new MenuViewModel(controller);
             Assert.IsNotNull(vm.ChangeAppCommand);
             vm.ChangeAppCommand.Execute(vm.Apps[1]);

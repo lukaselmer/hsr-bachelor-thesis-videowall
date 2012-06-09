@@ -29,7 +29,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
     /// <remarks>
     ///   Reviewed by Lukas Elmer, 05.06.2012
     /// </remarks>
-    internal static class ExtensionManager
+    internal class ExtensionManager
     {
         #region Methods
 

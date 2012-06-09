@@ -44,6 +44,7 @@ namespace VideoWall.ServiceModels.Apps.Implementation
 
         private readonly List<ExtensionFolder> _extensionFolders;
         private readonly IPlayer _player;
+        private readonly ExtensionManager _extensionManager;
 
         #endregion
 
@@ -59,15 +60,20 @@ namespace VideoWall.ServiceModels.Apps.Implementation
         #region Constructors / Destructor
 
         /// <summary>
-        ///   Initializes the AppController.
+        /// Initializes the AppController.
         /// </summary>
-        public AppController(IPlayer player, ExtensionsConfig extensionsConfig)
+        /// <param name="player">The player.</param>
+        /// <param name="extensionsConfig">The extensions config.</param>
+        /// <param name="extensionManager">The extension manager.</param>
+        public AppController(IPlayer player, ExtensionsConfig extensionsConfig, ExtensionManager extensionManager)
         {
             PreOrPostCondition.AssertNotNull(player, "player");
             PreOrPostCondition.AssertNotNull(extensionsConfig, "extensionsConfig");
+            PreOrPostCondition.AssertNotNull(extensionManager, "extensionManager");
 
             _player = player;
             _extensionFolders = extensionsConfig.ExtensionDirectories.Select(directory => new ExtensionFolder(directory)).ToList();
+            _extensionManager = extensionManager;
 
             LoadApps();
 

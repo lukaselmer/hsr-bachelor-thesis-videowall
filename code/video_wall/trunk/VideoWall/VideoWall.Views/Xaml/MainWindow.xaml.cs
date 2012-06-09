@@ -29,6 +29,7 @@ using VideoWall.ViewModels.Main;
 using VideoWall.Views.Helpers;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
+using Cursors = System.Windows.Input.Cursors;
 using MouseEventHandler = System.Windows.Input.MouseEventHandler;
 using Timer = System.Threading.Timer;
 
@@ -145,6 +146,7 @@ namespace VideoWall.Views.Xaml
 
             MouseEventHandler updateMousePosition = (sender, args) => mouseCursorViewModel.Position = args.GetPosition(this);
             MouseMove += updateMousePosition;
+            Cursor = Cursors.None;
             Closing += (sender, args) => MouseMove -= updateMousePosition;
         }
 

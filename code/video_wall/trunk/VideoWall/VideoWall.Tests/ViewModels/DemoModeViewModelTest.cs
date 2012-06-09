@@ -47,7 +47,7 @@ namespace VideoWall.Tests.ViewModels
 
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var extensionsConfig = new ExtensionsConfig(extensionsFolder);
-            var controller = new AppController(player, extensionsConfig);
+            var controller = new AppController(player, extensionsConfig, new ExtensionManager());
 
             var playerViewModel = new PlayerViewModel(new PlayerMock());
             var menuViewModel = new MenuViewModel(controller);

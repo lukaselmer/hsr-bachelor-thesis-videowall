@@ -39,7 +39,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig_Accessor(extensionsFolder);
-            var controller = new AppController_Accessor(player, extensionsConfig);
+            var controller = new AppController_Accessor(player, extensionsConfig, new ExtensionManager_Accessor());
             Assert.AreSame(player, controller._player);
         }
 
@@ -52,7 +52,7 @@ namespace VideoWall.Tests.ServiceModels.Apps
             var extensionsFolder = FileDirectoryForTests.TestFilePrefix + "Extensions";
             var player = new PlayerMock();
             var extensionsConfig = new ExtensionsConfig(extensionsFolder);
-            var controller = new AppController(player, extensionsConfig);
+            var controller = new AppController(player, extensionsConfig, new ExtensionManager());
             var apps = controller.Apps.ToList();
             Assert.AreEqual(2, apps.Count());
             Assert.IsNotNull(apps.First());
