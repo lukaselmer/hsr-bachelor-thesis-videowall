@@ -45,7 +45,9 @@ namespace LunchMenuApp.Tests.Mocks
         ///   Sets the HTML to be parsed.
         /// </summary>
         /// <value> The HTML. </value>
-        public string Html { set; private get; }
+        public string Html
+        {
+            set { } }
 
         /// <summary>
         ///   Extracts the date.

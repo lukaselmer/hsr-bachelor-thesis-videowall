@@ -9,8 +9,14 @@ namespace VideoWall.Tests.Mocks
     {
         #region Implementation of IPlayer
 
-        public Skeleton Skeleton { get; private set; }
-        public bool Playing { get; private set; }
+        public Skeleton Skeleton
+        {
+            get { return null; } }
+
+        public bool Playing
+        {
+            get { return false; } }
+
         public event EventHandler<SkeletonChangedEventArgs> SkeletonChanged;
         public void StartPlaying()
         {

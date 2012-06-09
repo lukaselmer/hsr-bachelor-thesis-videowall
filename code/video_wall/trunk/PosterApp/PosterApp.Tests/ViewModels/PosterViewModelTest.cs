@@ -15,7 +15,6 @@
 
 #region Usings
 
-using System.Windows.Input;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PosterApp.ServiceModels.Interfaces;
 using PosterApp.Tests.Mocks;

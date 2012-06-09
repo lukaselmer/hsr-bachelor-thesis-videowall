@@ -30,17 +30,6 @@ namespace VideoWall.Tests.ServiceModels.Apps
     [TestClass]
     public class FileServiceTest
     {
-        private static TestContext _testContext;
-
-        /// <summary>
-        /// Initializes the TestClass.
-        /// </summary>
-        /// <param name="testContext">The test context.</param>
-        [ClassInitialize]
-        public static void MyClassInitialize(TestContext testContext)
-        {
-            _testContext = testContext;
-        }
 
         ///<summary>
         ///  A test for FileService Constructor.
@@ -48,8 +37,6 @@ namespace VideoWall.Tests.ServiceModels.Apps
         [TestMethod]
         public void FileServiceConstructorTest()
         {
-            var x = _testContext.DeploymentDirectory;
-
             var extensionFolder = new ExtensionFolder(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "ExtensionWithFileService"));
             var service = new FileService(extensionFolder);
             Assert.AreEqual(new DirectoryInfo(FileDirectoryForTests.TestFilePrefix + "ExtensionWithFileService/Files").FullName, service.ResourceDirectory);

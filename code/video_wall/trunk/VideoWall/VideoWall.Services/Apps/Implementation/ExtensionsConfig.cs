@@ -18,7 +18,6 @@
 using System.Collections.Generic;
 using System.IO;
 using VideoWall.Common.Exceptions;
-using VideoWall.Common.Helpers;
 
 #endregion
 

@@ -14,9 +14,6 @@
 #endregion
 
 #region Usings
-
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoWall.Common.Exceptions;

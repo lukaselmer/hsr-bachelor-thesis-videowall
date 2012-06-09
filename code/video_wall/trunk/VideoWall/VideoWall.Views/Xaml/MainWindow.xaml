@@ -15,7 +15,7 @@
                 <TranslateTransform X="{Binding Position.X}" Y="{Binding Position.Y}" />
             </Canvas.RenderTransform>
 
-            <Image Name="cursorImage" Source="{Binding HandCursorImageSource}" Width="60" Height="60"/>
+            <Image Source="{Binding HandCursorImageSource}" Width="60" Height="60"/>
             <Xaml1:CursorAnimation x:Name="CursorAmimation" Width="80" Height="80" Margin="-10 -10 0 0" x:FieldModifier="private" Visibility="Hidden" />
         </Canvas>
 

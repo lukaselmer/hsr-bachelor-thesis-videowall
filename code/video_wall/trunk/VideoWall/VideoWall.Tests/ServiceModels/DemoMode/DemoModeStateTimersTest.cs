@@ -31,11 +31,6 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
     [TestClass]
     public class DemoModeStateTimersTest
     {
-        ///<summary>
-        ///  Gets or sets the test context which provides information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
         #region Additional test attributes
 
         // 
@@ -92,9 +87,7 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
         {
             var t = TimeSpan.FromDays(1);
             var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
-            var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
-            timers._state = VideoWallState.Teaser;
-            timers._lastSkeletonTime = DateTime.Now;
+            var timers = new DemoModeStateTimers_Accessor(demoModeConfig) {_state = VideoWallState.Teaser, _lastSkeletonTime = DateTime.Now};
             var changed = false;
             timers.add_DemoModeStateChanged(delegate { changed = true; });
             timers.CheckAndChangeState(this, null);
@@ -112,8 +105,7 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
         {
             var t = TimeSpan.FromDays(1);
             var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
-            var timers = new DemoModeStateTimers_Accessor(demoModeConfig);
-            timers._state = VideoWallState.Teaser;
+            var timers = new DemoModeStateTimers_Accessor(demoModeConfig) {_state = VideoWallState.Teaser};
             var changed = false;
             timers.add_AppChanged(delegate { changed = true; });
             timers.AppChangedMethod(this, null);

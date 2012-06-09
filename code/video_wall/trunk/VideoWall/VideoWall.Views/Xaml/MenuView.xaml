@@ -13,8 +13,6 @@
                 <GradientStop Color="#cce0ed" Offset="0.98"/>
                 <GradientStop Color="#333" Offset="0.98"/>
                 <GradientStop Color="#333" Offset="1"/>
-                <!--<GradientStop Color="#3384B5"/>
-                <GradientStop Color="#66A3C8" Offset="1"/>-->
             </LinearGradientBrush>
         </Grid.Background>
         <ItemsControl ItemsSource="{Binding Apps}">
