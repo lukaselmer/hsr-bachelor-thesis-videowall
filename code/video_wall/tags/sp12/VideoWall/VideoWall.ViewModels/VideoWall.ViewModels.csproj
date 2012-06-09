@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8C66FF4-152F-42A7-B550-D134F5D26B0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VideoWall.ViewModels</RootNamespace>
+    <AssemblyName>VideoWall.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\VideoWall.ViewModels.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\VideoWall.ViewModels.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Kinect.Wpf, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Kinect.Wpf.1.5.0\lib\Coding4Fun.Kinect.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Kinect.Wpf.1.5.0\lib\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.0\Libraries\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Kinect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DemoMode\DemoModeViewModel.cs" />
+    <Compile Include="DemoMode\DispatcherTimerExtension.cs" />
+    <Compile Include="DemoMode\ModeTimer.cs" />
+    <Compile Include="Helpers\Command.cs" />
+    <Compile Include="HitButton\HitStateArgs.cs" />
+    <Compile Include="HitButton\HitTestHelper.cs" />
+    <Compile Include="Cursor\ICursorViewModel.cs" />
+    <Compile Include="Cursor\KinectCursorViewModel.cs" />
+    <Compile Include="Menu\AppViewModel.cs" />
+    <Compile Include="Skeletton\SkeletonLine.cs" />
+    <Compile Include="Main\MainWindowViewModel.cs" />
+    <Compile Include="Menu\MenuViewModel.cs" />
+    <Compile Include="Cursor\MouseCursorViewModel.cs" />
+    <Compile Include="Skeletton\PlayerViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoWall.Common\VideoWall.Common.csproj">
+      <Project>{3CA470F0-3B93-43D2-A61C-5B938AD5618C}</Project>
+      <Name>VideoWall.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoWall.Data\VideoWall.Data.csproj">
+      <Project>{A59F6BBD-F6FC-49D3-B613-B92E38E031D9}</Project>
+      <Name>VideoWall.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoWall.Interfaces\VideoWall.Interfaces.csproj">
+      <Project>{923DA79D-28D6-483A-8654-60745D9F804C}</Project>
+      <Name>VideoWall.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoWall.ResourceLoader\VideoWall.ResourceLoader.csproj">
+      <Project>{D9369F90-7D93-4490-B2F4-E8A752B3524B}</Project>
+      <Name>VideoWall.ResourceLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoWall.Services\VideoWall.ServiceModels.csproj">
+      <Project>{C8F81AF4-F9CB-4DE1-9848-B50C4D12C42F}</Project>
+      <Name>VideoWall.ServiceModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
