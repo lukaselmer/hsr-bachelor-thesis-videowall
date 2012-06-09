@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Views.Xaml.PosterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Posters="clr-namespace:ViewModels.Posters;assembly=PosterApp.ViewModels" mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Posters:PosterViewModel, IsDesignTimeCreatable=False}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Command="{Binding NavigateToLeftCommand}">Links</Button>
+        <Image Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Source="{Binding CurrentPoster.Image, IsAsync=True}"></Image>
+        <Button Grid.Column="2" Command="{Binding NavigateToRightCommand}">Rechts</Button>
+    </Grid>
+</UserControl>

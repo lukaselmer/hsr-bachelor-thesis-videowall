@@ -1,0 +1,17 @@
+<UserControl x:Class="Views.Xaml.PlayerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ViewModels="clr-namespace:ViewModels;assembly=ViewModels" xmlns:Views="clr-namespace:Views"
+             xmlns:Skeletton="clr-namespace:ViewModels.Skeletton;assembly=ViewModels"
+             xmlns:Views1="clr-namespace:Views.Xaml" mc:Ignorable="d" d:DataContext="{d:DesignInstance Skeletton:PlayerViewModel}">
+    <Grid>
+        <Border BorderBrush="AliceBlue" BorderThickness="3">
+            <Canvas VerticalAlignment="Stretch" Height="{Binding WidthAndHeight}" Width="{Binding WidthAndHeight}" HorizontalAlignment="Stretch">
+                <Views1:SkeletonLinesView DataContext="{Binding .}" />
+            </Canvas>
+        </Border>
+    </Grid>
+</UserControl>
