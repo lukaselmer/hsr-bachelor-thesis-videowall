@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PosterApp.Data.Interfaces;
 using PosterApp.ServiceModels.Interfaces;
+using VideoWall.Common.Exceptions;
 
 #endregion
 
@@ -79,6 +80,7 @@ namespace PosterApp.ServiceModels.Implementation
         private void ReadFromPosterReader()
         {
             Posters = _posterReader.Files.Select(file => new Poster(file));
+            if (!Posters.Any()) throw new VideoWallException("At least one poster must be available.");
         }
 
         #endregion

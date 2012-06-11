@@ -41,6 +41,7 @@ namespace VideoWall.Tests.ServiceModels.DemoMode
             var player = new PlayerMock();
             var demoModeConfig = new DemoModeConfig(new[] {Colors.Red, Colors.Blue}, t, t, t, t, t);
             var service = new DemoModeService(player, demoModeConfig);
+            player.TriggerSkeletonChangedEvent();
             Assert.IsNotNull(service.CurrentBackgroundColor);
             Assert.AreEqual(VideoWallState.Active, service.State);
         }

@@ -17,13 +17,18 @@ namespace VideoWall.Tests.Mocks
         {
             get { return false; } }
 
-        public event EventHandler<SkeletonChangedEventArgs> SkeletonChanged;
+        public event EventHandler<SkeletonChangedEventArgs> SkeletonChanged = delegate {};
         public void StartPlaying()
         {
         }
 
         public void StopPlaying()
         {
+        }
+
+        public void TriggerSkeletonChangedEvent()
+        {
+            SkeletonChanged(this, null);
         }
 
         #endregion
