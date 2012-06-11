@@ -105,9 +105,6 @@
     <Compile Include="Xaml\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xaml\PlayerWindow.xaml.cs">
-      <DependentUpon>PlayerWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Xaml\SkeletonLinesView.xaml.cs">
       <DependentUpon>SkeletonLinesView.xaml</DependentUpon>
     </Compile>
@@ -138,10 +135,6 @@
     <Page Include="Xaml\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Xaml\PlayerWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Xaml\SkeletonLinesView.xaml">
       <Generator>MSBuild:Compile</Generator>

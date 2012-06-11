@@ -17,8 +17,6 @@
 
 using System;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Microsoft.Expression.Interactivity.Core;
 using Microsoft.Kinect;
 using VideoWall.Common.ViewHelpers;
 using VideoWall.Interfaces;
@@ -67,12 +65,6 @@ namespace VideoWall.ViewModels.Skeletons
         /// </summary>
         public ObservableCollection<SkeletonLine> Lines { get; private set; }
 
-        /// <summary>
-        ///   Gets or sets the start/stop command.
-        /// </summary>
-        /// <value> The start/stop command. </value>
-        public ICommand StopCommand { get; set; }
-
         #endregion
 
         #region Constructors / Destructor
@@ -88,9 +80,8 @@ namespace VideoWall.ViewModels.Skeletons
             _player = player;
             _player.SkeletonChanged += PlayerModelChanged;
             _player.StartPlaying();
-
-            StopCommand = new ActionCommand(() => { if (_player.Playing) _player.StopPlaying(); });
-            WidthAndHeight = 160;
+            
+            WidthAndHeight = 160; //NOTE: This number could be made relative
         }
 
         #endregion
