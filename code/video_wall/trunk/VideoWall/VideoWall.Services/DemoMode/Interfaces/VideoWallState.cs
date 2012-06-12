@@ -13,7 +13,7 @@
 
 #endregion
 
-namespace VideoWall.ServiceModels.DemoMode.Implementation
+namespace VideoWall.ServiceModels.DemoMode.Interfaces
 {
     /// <summary>
     ///   The demo mode state represents the state of the demo mode.

@@ -20,6 +20,7 @@ using System.Threading;
 using System.Windows.Media;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoWall.ServiceModels.DemoMode.Implementation;
+using VideoWall.ServiceModels.DemoMode.Interfaces;
 
 #endregion
 

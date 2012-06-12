@@ -13,7 +13,7 @@
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor.Implementation
+namespace VideoWall.ServiceModels.HandCursor.Interfaces
 {
     /// <summary>
     ///   The hand type (left or right hand).

@@ -16,10 +16,11 @@
 #region Usings
 
 using System;
+using VideoWall.ServiceModels.HandCursor.Implementation;
 
 #endregion
 
-namespace VideoWall.ServiceModels.HandCursor.Implementation
+namespace VideoWall.ServiceModels.HandCursor.Interfaces
 {
     /// <summary>
     ///   The hand changed event args.

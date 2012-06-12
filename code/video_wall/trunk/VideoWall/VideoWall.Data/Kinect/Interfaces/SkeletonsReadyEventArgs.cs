@@ -1,9 +1,9 @@
-﻿#region Header
+#region Header
 
 // ------------------------ Licence / Copyright ------------------------
 // 
 // HSR Video Wall
-// Copyright © Lukas Elmer, Christina Heidt, Delia Treichler
+// Copyright � Lukas Elmer, Christina Heidt, Delia Treichler
 // All Rights Reserved
 // 
 // Authors:
@@ -20,7 +20,7 @@ using Microsoft.Kinect;
 
 #endregion
 
-namespace VideoWall.Data.Kinect.Implementation
+namespace VideoWall.Data.Kinect.Interfaces
 {
     /// <summary>
     ///   The skeletons ready event arg contains multiple skeletons which are extracted already.

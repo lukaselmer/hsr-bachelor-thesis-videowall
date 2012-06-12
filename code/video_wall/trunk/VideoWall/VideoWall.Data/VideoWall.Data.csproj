@@ -70,8 +70,8 @@
     <Compile Include="Kinect\Implementation\KinectReplayFile.cs" />
     <Compile Include="Kinect\Implementation\KinectSkeletonReader.cs" />
     <Compile Include="Kinect\Interfaces\NamespaceDoc.cs" />
+    <Compile Include="Kinect\Interfaces\SkeletonsReadyEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Kinect\Implementation\SkeletonsReadyEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
