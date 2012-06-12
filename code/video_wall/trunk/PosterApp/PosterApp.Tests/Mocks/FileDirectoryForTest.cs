@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.IO;
 
-namespace PosterApp.Tests.Data
+namespace PosterApp.Tests.Mocks
 {
     /// <summary>
     /// This class locates the test files. The problem is that mstest and dotcover have different test file locations.

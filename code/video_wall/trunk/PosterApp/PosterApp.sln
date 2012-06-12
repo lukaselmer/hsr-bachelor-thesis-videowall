@@ -148,4 +148,7 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\PosterApp.ndproj"
+	EndGlobalSection
 EndGlobal

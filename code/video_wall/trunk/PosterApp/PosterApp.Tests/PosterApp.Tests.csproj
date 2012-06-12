@@ -57,8 +57,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\FileDirectoryForTest.cs" />
     <Compile Include="Data\NamespaceDoc.cs" />
+    <Compile Include="Mocks\FileDirectoryForTest.cs" />
     <Compile Include="Mocks\FileServiceMock.cs" />
     <Compile Include="Data\PosterReaderTest.cs" />
     <Compile Include="Mocks\NamespaceDoc.cs" />
