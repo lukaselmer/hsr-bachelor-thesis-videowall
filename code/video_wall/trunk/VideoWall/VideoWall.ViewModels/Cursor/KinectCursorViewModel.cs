@@ -148,7 +148,7 @@ namespace VideoWall.ViewModels.Cursor
         /// Called when hand changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="eventArgs">The <see cref="VideoWall.ServiceModels.HandCursor.Implementation.HandChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="eventArgs">The <see cref="VideoWall.ServiceModels.HandCursor.Interfaces.HandChangedEventArgs"/> instance containing the event data.</param>
         private void OnHandChanged(object sender, HandChangedEventArgs eventArgs)
         {
             ActiveHand = eventArgs.HandType;
