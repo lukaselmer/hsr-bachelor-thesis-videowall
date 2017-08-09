@@ -37,10 +37,10 @@
 ![image](https://user-images.githubusercontent.com/326935/29145713-8482e2ba-7d5e-11e7-853d-486b58f9bc25.png)
 ![image](https://user-images.githubusercontent.com/326935/29145730-992d4e62-7d5e-11e7-9529-25dc40cd617b.png)
 ![image](https://user-images.githubusercontent.com/326935/29145765-b6987698-7d5e-11e7-9580-63975d67b0b0.png)
+![Kinect Hand Field](https://user-images.githubusercontent.com/326935/29146087-debce626-7d5f-11e7-8524-b7545fb28904.png)
 ![image](https://user-images.githubusercontent.com/326935/29145770-ba3e45fc-7d5e-11e7-82d4-532307fb24e9.png)
 ![image](https://user-images.githubusercontent.com/326935/29145776-bfb6d1e8-7d5e-11e7-8f95-d9216fc9c153.png)
 ![Maintenance Concept](https://user-images.githubusercontent.com/326935/29146068-d0044c46-7d5f-11e7-882d-5de6b32d8b38.png)
-![Kinect Hand Field](https://user-images.githubusercontent.com/326935/29146087-debce626-7d5f-11e7-8524-b7545fb28904.png)
 
 ## Implementation
 
