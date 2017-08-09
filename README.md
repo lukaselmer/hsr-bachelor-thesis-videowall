@@ -1,7 +1,7 @@
 # Bachelor Thesis Videowall
 
-[Abstract](https://www.hsr.ch/uploads/tx_icscrm/I_L.Elmer-C.Hedt-D.Treichler_H_2012.pdf)
-[Thesis](https://eprints.hsr.ch/225/)
+* [Abstract](https://www.hsr.ch/uploads/tx_icscrm/I_L.Elmer-C.Hedt-D.Treichler_H_2012.pdf)
+* [Thesis](https://eprints.hsr.ch/225/)
 
 # Thesis in Images
 
