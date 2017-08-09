@@ -1,7 +1,7 @@
 # Bachelor Thesis Videowall
 
-(Abstract)[https://www.hsr.ch/uploads/tx_icscrm/I_L.Elmer-C.Hedt-D.Treichler_H_2012.pdf]
-(Thesis)[https://eprints.hsr.ch/225/]
+[Abstract](https://www.hsr.ch/uploads/tx_icscrm/I_L.Elmer-C.Hedt-D.Treichler_H_2012.pdf)
+[Thesis](https://eprints.hsr.ch/225/)
 
 # Thesis in Images
 
@@ -39,7 +39,8 @@
 ![image](https://user-images.githubusercontent.com/326935/29145765-b6987698-7d5e-11e7-9580-63975d67b0b0.png)
 ![image](https://user-images.githubusercontent.com/326935/29145770-ba3e45fc-7d5e-11e7-82d4-532307fb24e9.png)
 ![image](https://user-images.githubusercontent.com/326935/29145776-bfb6d1e8-7d5e-11e7-8f95-d9216fc9c153.png)
-
+![Maintenance Concept](https://user-images.githubusercontent.com/326935/29146068-d0044c46-7d5f-11e7-882d-5de6b32d8b38.png)
+![Kinect Hand Field](https://user-images.githubusercontent.com/326935/29146087-debce626-7d5f-11e7-8524-b7545fb28904.png)
 
 ## Implementation
 
@@ -53,3 +54,7 @@
 ![image](https://user-images.githubusercontent.com/326935/29145852-036e09a6-7d5f-11e7-8d11-bfd4d3ffd4a1.png)
 ![image](https://user-images.githubusercontent.com/326935/29145862-0a9d462e-7d5f-11e7-9f5f-04d1704360c4.png)
 ![image](https://user-images.githubusercontent.com/326935/29145869-135262cc-7d5f-11e7-8337-117e7620673c.png)
+![image](https://user-images.githubusercontent.com/326935/29145947-6560900c-7d5f-11e7-8d1f-4a5bb5302e36.png)
+![image](https://user-images.githubusercontent.com/326935/29145961-75ab6388-7d5f-11e7-9575-310afe4b5d0e.png)
+![image](https://user-images.githubusercontent.com/326935/29145947-6560900c-7d5f-11e7-8d1f-4a5bb5302e36.png)
+![image](https://user-images.githubusercontent.com/326935/29145961-75ab6388-7d5f-11e7-9575-310afe4b5d0e.png)
